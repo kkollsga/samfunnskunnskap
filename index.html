@@ -1057,7 +1057,9 @@
                 // Check if this question has been answered
                 const answer = quiz.answers[displayIndex];
                 const isAnswered = answer !== undefined;
-                const isReviewing = viewIndex !== null;
+                // We're only reviewing if the quiz is complete (all questions answered)
+                const isReviewing = quiz.answers.length === quiz.questions.length;
+                const isNavigatingBack = viewIndex !== null && !isReviewing;
                 
                 const mainContent = document.getElementById('mainContent');
                 mainContent.className = 'flex-1 p-4 flex flex-col';
@@ -1098,10 +1100,10 @@
                                     }
                                     
                                     return `
-                                        <button onclick="${!isAnswered && !isReviewing ? `app.answerQuestion(${index})` : ''}" 
+                                        <button onclick="${!isAnswered && !isReviewing && !isNavigatingBack ? `app.answerQuestion(${index})` : ''}" 
                                                 class="${classes}"
                                                 data-translation-key="alt_${index}"
-                                                ${isAnswered || isReviewing ? 'disabled' : ''}>
+                                                ${isAnswered || isReviewing || isNavigatingBack ? 'disabled' : ''}>
                                             ${alt}
                                         </button>
                                     `;
@@ -1121,57 +1123,46 @@
                                     <div class="flex gap-2">
                                         <button onclick="app.navigateQuiz(-1)" 
                                                 class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                                                ${quiz.currentIndex === 0 ? 'disabled' : ''}>
+                                                ${displayIndex === 0 ? 'disabled' : ''}>
                                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                                             </svg>
                                         </button>
                                         <button onclick="app.navigateQuiz(1)" 
                                                 class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                                                ${quiz.currentIndex === 0 ? 'disabled' : ''}>
+                                                ${displayIndex >= quiz.currentIndex ? 'disabled' : ''}>
                                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                             </svg>
                                         </button>
                                     </div>
                                     <span class="text-sm text-gray-500 dark:text-gray-400">
-                                        ${quiz.currentIndex + 1} / ${quiz.questions.length}
+                                        ${displayIndex + 1} / ${quiz.questions.length}
                                     </span>
                                 </div>
                             ` : ''}
                             
                             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                                 <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" 
-                                     style="width: ${((displayIndex + 1) / quiz.questions.length) * 100}%"></div>
+                                    style="width: ${((displayIndex + 1) / quiz.questions.length) * 100}%"></div>
                             </div>
                             
-                            <button onclick="${isReviewing ? 'app.showQuizResults()' : 'app.showMainPage()'}" 
+                            <button onclick="app.${isReviewing ? 'showQuizResults' : (isNavigatingBack ? 'showQuizQuestion' : 'showMainPage')}()" 
                                     class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                                ${isReviewing ? 'Tilbake til resultater' : 'Avbryt quiz'}
+                                ${isReviewing ? 'Tilbake til resultater' : (isNavigatingBack ? 'Tilbake til aktiv spørsmål' : 'Avbryt quiz')}
                             </button>
                         </div>
                     </div>
                 `;
-                
-                // Fixed: Auto-advance after answer if not reviewing
-                if (isAnswered && !isReviewing && displayIndex === quiz.currentIndex) {
-                    setTimeout(() => {
-                        if (quiz.currentIndex < quiz.questions.length - 1) {
-                            quiz.currentIndex++;
-                            this.showQuizQuestion();
-                        } else {
-                            this.showQuizResults();
-                        }
-                    }, 1500); // Fixed delay for all answers
-                }
             },
-            
-            // Navigate through quiz history
+
+            // Updated navigateQuiz function to handle the navigation better
             navigateQuiz(direction) {
                 const quiz = this.data.currentQuiz;
-                const newIndex = quiz.viewingIndex + direction;
+                const currentDisplay = quiz.viewingIndex !== null ? quiz.viewingIndex : quiz.currentIndex;
+                const newIndex = currentDisplay + direction;
                 
-                if (newIndex >= 0 && newIndex < quiz.currentIndex) {
+                if (newIndex >= 0 && newIndex <= quiz.currentIndex) {
                     quiz.viewingIndex = newIndex;
                     this.showQuizQuestion(newIndex);
                 }
@@ -1363,7 +1354,7 @@
                 // Make sure we're in review mode
                 this.data.currentQuiz.viewingIndex = 0;
                 this.showQuizQuestion(0); // Pass 0 to indicate we're reviewing
-            }
+            },
             
             // Render star rating
             renderStars(percentage) {
