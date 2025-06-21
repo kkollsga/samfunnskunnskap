@@ -27,7 +27,7 @@
             height: 100%;
         }
         
-        /* Custom styles for animations and effects */
+        /* Animations */
         @keyframes borderGlow {
             0% { box-shadow: 0 0 5px rgba(34, 197, 94, 0.5), 0 0 10px rgba(34, 197, 94, 0.3), 0 0 15px rgba(34, 197, 94, 0.1); }
             50% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.8), 0 0 30px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.3); }
@@ -55,6 +55,12 @@
             50% { opacity: 0.5; }
         }
         
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        
+        /* Animation classes */
         .border-glow {
             animation: borderGlow 1s ease-in-out;
         }
@@ -67,45 +73,55 @@
             animation: slideIn 0.3s ease-out forwards;
         }
         
+        /* Translation system */
         .translation-tooltip {
             position: fixed;
             background: white;
             color: #1f2937;
-            padding: 8px 16px;
-            border-radius: 8px;
+            padding: 10px 18px;
+            border-radius: 12px;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 400;
             z-index: 1000;
             pointer-events: none;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(0, 0, 0, 0.05);
             animation: fadeIn 0.2s ease-out;
-            max-width: 300px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            max-width: 350px;
+            line-height: 1.5;
         }
-
+        
         .dark .translation-tooltip {
             background: #374151;
             color: #f3f4f6;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
         }
-
-        /* Active translation state */
-        .translating {
-            background-color: rgba(59, 130, 246, 0.1) !important;
-            transition: background-color 0.2s ease;
+        
+        /* Translation hover marker */
+        .translation-hover-marker {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: #3b82f6;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 999;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+            animation: pulse 1s ease-in-out infinite;
         }
-
-        .dark .translating {
-            background-color: rgba(59, 130, 246, 0.2) !important;
+        
+        /* Highlighted word in translation */
+        .translation-highlight {
+            font-weight: 600;
+            color: #3b82f6;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 2px;
         }
-
-        /* Improve button states during translation */
-        .alternative-btn.translating {
-            border-color: rgb(59 130 246) !important;
+        
+        .dark .translation-highlight {
+            color: #60a5fa;
         }
         
         .translatable {
@@ -113,19 +129,17 @@
             position: relative;
         }
         
-        .word-highlight {
-            background-color: rgba(59, 130, 246, 0.2);
-            border-radius: 4px;
-            padding: 1px 3px;
-            margin: -1px -3px;
-            transition: background-color 0.15s ease;
-            animation: pulse 1.5s ease-in-out infinite;
+        /* Active translation state */
+        .translating {
+            background-color: rgba(59, 130, 246, 0.08) !important;
+            transition: background-color 0.2s ease;
         }
         
-        .dark .word-highlight {
-            background-color: rgba(59, 130, 246, 0.3);
+        .dark .translating {
+            background-color: rgba(59, 130, 246, 0.15) !important;
         }
         
+        /* Star rating */
         .star {
             display: inline-block;
             color: #d1d5db;
@@ -143,7 +157,7 @@
             user-select: none;
         }
         
-        /* Modal animation */
+        /* Modal */
         .modal-backdrop {
             animation: fadeIn 0.2s ease-out;
             position: fixed;
@@ -158,11 +172,6 @@
         .modal-content {
             animation: slideUp 0.3s ease-out;
             min-height: 100%;
-        }
-        
-        @keyframes slideUp {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
         }
         
         /* Navigation buttons */
@@ -197,7 +206,6 @@
             cursor: default;
         }
         
-        /* Ensure text remains visible on iOS */
         .alternative-btn.correct {
             background-color: rgba(34, 197, 94, 0.15);
             border-color: rgb(34 197 94);
@@ -222,7 +230,11 @@
             color: rgb(252 165 165);
         }
         
-        /* Ensure content fits without overflow */
+        .alternative-btn.translating {
+            border-color: rgba(59, 130, 246, 0.5) !important;
+        }
+        
+        /* Quiz layout */
         .quiz-container {
             display: flex;
             flex-direction: column;
@@ -648,64 +660,82 @@ class QuizManager {
 }
 
 // Translation Manager
-// Translation Manager - Improved with dynamic word tracking
+// Translation Manager - Character-based tracking with visual markers
 class TranslationManager {
     constructor(stateManager, dataManager) {
         this.state = stateManager;
         this.data = dataManager;
-        this.currentQuestionWords = new Map(); // Maps element to word array
+        this.currentQuestionChars = new Map(); // Maps element to character positions
         this.translatedTexts = {}; // Stores translations for current question
-        this.totalWords = 0;
-        this.uniqueWords = new Set();
-        this.translatedWords = new Set();
+        this.totalChars = 0;
+        this.uniqueChars = new Set();
+        this.translatedChars = new Set();
         this.isTranslating = false;
         this.pressTimer = null;
         this.currentElement = null;
-        this.currentWordIndex = null;
+        this.currentCharIndex = null;
+        this.hoverMarker = null;
+        this.contextRadius = 15; // Characters to show on each side
     }
     
     setupEventListeners() {
         const tooltip = document.getElementById('translationTooltip');
         
+        // Create hover marker element
+        this.hoverMarker = document.createElement('div');
+        this.hoverMarker.className = 'translation-hover-marker';
+        this.hoverMarker.style.display = 'none';
+        document.body.appendChild(this.hoverMarker);
+        
         const updateTranslation = (element, x, y) => {
             if (!element || !element.classList.contains('translatable')) return;
             
-            const wordInfo = this.getWordAtPosition(element, x, y);
-            if (!wordInfo) return;
+            const charInfo = this.getCharAtPosition(element, x, y);
+            if (!charInfo) return;
             
-            // Check if we're on a different word or element
-            if (element !== this.currentElement || wordInfo.index !== this.currentWordIndex) {
-                const translation = this.getTranslationWithContext(element, wordInfo.index);
+            // Update hover marker position
+            this.updateHoverMarker(element, charInfo.index, x, y);
+            
+            // Check if we're at a different position
+            if (element !== this.currentElement || charInfo.index !== this.currentCharIndex) {
+                const translation = this.getTranslationWithContext(element, charInfo.index);
                 if (!translation) return;
                 
-                // Track this word as translated
-                const wordKey = wordInfo.text.toLowerCase().replace(/[.,!?]/g, '');
-                if (wordKey.length > 1 && !this.translatedWords.has(wordKey)) {
-                    this.translatedWords.add(wordKey);
-                    this.updateTranslationPercentage();
+                // Track characters in range as translated
+                const text = element.textContent;
+                const startIdx = Math.max(0, charInfo.index - this.contextRadius);
+                const endIdx = Math.min(text.length, charInfo.index + this.contextRadius);
+                
+                for (let i = startIdx; i < endIdx; i++) {
+                    const char = text[i].toLowerCase();
+                    if (char.match(/[a-zæøå]/i)) { // Only count letters
+                        this.translatedChars.add(`${element.getAttribute('data-translation-key')}_${i}`);
+                    }
                 }
                 
+                this.updateTranslationPercentage();
+                
                 // Update tooltip content
-                tooltip.textContent = translation;
+                tooltip.innerHTML = translation;
                 
                 // Position tooltip above the element
                 const rect = element.getBoundingClientRect();
-                const tooltipHeight = 40; // Approximate height
+                const tooltipHeight = 50; // Approximate height
                 
                 // Calculate position
-                let top = rect.top - tooltipHeight - 10;
-                let left = rect.left + rect.width / 2;
+                let top = rect.top - tooltipHeight - 15;
+                let left = x;
                 
                 // Ensure tooltip stays within viewport
                 if (top < 10) {
-                    top = rect.bottom + 10; // Show below if no room above
+                    top = rect.bottom + 15; // Show below if no room above
                 }
                 
                 // Get tooltip width after content is set
                 tooltip.classList.remove('hidden');
                 const tooltipRect = tooltip.getBoundingClientRect();
                 
-                // Center horizontally and keep within viewport
+                // Center on cursor and keep within viewport
                 left = Math.max(10, Math.min(left - tooltipRect.width / 2, window.innerWidth - tooltipRect.width - 10));
                 
                 tooltip.style.left = left + 'px';
@@ -713,7 +743,7 @@ class TranslationManager {
                 
                 // Update state
                 this.currentElement = element;
-                this.currentWordIndex = wordInfo.index;
+                this.currentCharIndex = charInfo.index;
                 
                 // Update active state
                 document.querySelectorAll('.translating').forEach(el => {
@@ -727,6 +757,7 @@ class TranslationManager {
             if (!element || !element.classList.contains('translatable')) return;
             
             this.isTranslating = true;
+            this.hoverMarker.style.display = 'block';
             
             // Add haptic feedback if available
             if ('vibrate' in navigator) {
@@ -738,9 +769,10 @@ class TranslationManager {
         
         const hideTranslation = () => {
             tooltip.classList.add('hidden');
+            this.hoverMarker.style.display = 'none';
             this.isTranslating = false;
             this.currentElement = null;
-            this.currentWordIndex = null;
+            this.currentCharIndex = null;
             
             // Remove active state from all elements
             document.querySelectorAll('.translating').forEach(el => {
@@ -790,6 +822,7 @@ class TranslationManager {
                 } else {
                     // Hide tooltip if not over translatable element
                     tooltip.classList.add('hidden');
+                    this.hoverMarker.style.display = 'none';
                     if (this.currentElement) {
                         this.currentElement.classList.remove('translating');
                     }
@@ -850,6 +883,7 @@ class TranslationManager {
                 } else {
                     // Hide tooltip if not over translatable element
                     tooltip.classList.add('hidden');
+                    this.hoverMarker.style.display = 'none';
                     if (this.currentElement) {
                         this.currentElement.classList.remove('translating');
                     }
@@ -890,11 +924,11 @@ class TranslationManager {
     
     // Initialize translation data for current question
     initializeQuestion(questionNo, questionPbEn) {
-        this.currentQuestionWords.clear();
+        this.currentQuestionChars.clear();
         this.translatedTexts = {};
-        this.totalWords = 0;
-        this.uniqueWords.clear();
-        this.translatedWords.clear();
+        this.totalChars = 0;
+        this.uniqueChars.clear();
+        this.translatedChars.clear();
         
         // Store translations
         if (questionPbEn) {
@@ -908,160 +942,154 @@ class TranslationManager {
         setTimeout(() => {
             document.querySelectorAll('.translatable').forEach(element => {
                 const key = element.getAttribute('data-translation-key');
-                const words = this.parseWords(element.textContent);
-                this.currentQuestionWords.set(element, words);
+                const text = element.textContent;
                 
-                // Count unique words for percentage calculation
-                words.forEach(word => {
-                    const normalized = word.text.toLowerCase().replace(/[.,!?]/g, '');
-                    if (normalized.length > 1) { // Skip single letters
-                        this.uniqueWords.add(normalized);
+                // Store character positions for this element
+                this.currentQuestionChars.set(element, text);
+                
+                // Count unique letters for percentage calculation
+                for (let i = 0; i < text.length; i++) {
+                    const char = text[i].toLowerCase();
+                    if (char.match(/[a-zæøå]/i)) { // Only count letters
+                        this.uniqueChars.add(`${key}_${i}`);
                     }
-                });
+                }
             });
             
-            this.totalWords = this.uniqueWords.size;
+            this.totalChars = this.uniqueChars.size;
             this.updateTranslationPercentage();
         }, 100);
     }
     
-    // Parse text into words with positions
-    parseWords(text) {
-        const words = [];
-        const regex = /\S+/g;
-        let match;
+    // Get character at specific position
+    getCharAtPosition(element, x, y) {
+        const text = this.currentQuestionChars.get(element);
+        if (!text || text.length === 0) return null;
         
-        while ((match = regex.exec(text)) !== null) {
-            words.push({
-                text: match[0],
-                start: match.index,
-                end: match.index + match[0].length,
-                index: words.length
-            });
-        }
-        
-        return words;
-    }
-    
-    // Get word info at specific position - improved version
-    getWordAtPosition(element, x, y) {
-        const words = this.currentQuestionWords.get(element);
-        if (!words || words.length === 0) return null;
-        
-        // Try to use the caret range API first for better accuracy
+        // Try to use the caret range API for accuracy
         if (document.caretRangeFromPoint) {
             const range = document.caretRangeFromPoint(x, y);
             if (range && range.startContainer.nodeType === Node.TEXT_NODE) {
-                const textNode = range.startContainer;
-                const offset = range.startOffset;
-                const fullText = element.textContent;
-                
-                // Find which word contains this offset
-                let accumulatedLength = 0;
-                for (const word of words) {
-                    if (offset >= word.start && offset <= word.end) {
-                        return word;
-                    }
-                }
-                
-                // Find closest word if no exact match
-                let closestWord = words[0];
-                let closestDistance = Math.abs(offset - words[0].start);
-                
-                for (const word of words) {
-                    const distToStart = Math.abs(offset - word.start);
-                    const distToEnd = Math.abs(offset - word.end);
-                    const minDist = Math.min(distToStart, distToEnd);
-                    
-                    if (minDist < closestDistance) {
-                        closestDistance = minDist;
-                        closestWord = word;
-                    }
-                }
-                
-                return closestWord;
+                return {
+                    index: range.startOffset,
+                    char: text[range.startOffset] || ''
+                };
             }
         }
         
         // Fallback: estimate based on position
         const rect = element.getBoundingClientRect();
         const relativeX = x - rect.left;
-        const relativeY = y - rect.top;
         
-        // For single-line text (like buttons), use horizontal position
-        if (rect.height < 60) { // Assume single line
+        // For single-line text
+        if (rect.height < 60) {
             const position = Math.max(0, Math.min(1, relativeX / rect.width));
-            const estimatedIndex = Math.floor(position * words.length);
-            return words[Math.max(0, Math.min(estimatedIndex, words.length - 1))];
+            const index = Math.floor(position * text.length);
+            return {
+                index: Math.max(0, Math.min(index, text.length - 1)),
+                char: text[index] || ''
+            };
         }
         
-        // For multi-line text, try to estimate line and position
-        // This is approximate and works best with consistent line heights
-        const lineHeight = parseInt(window.getComputedStyle(element).lineHeight) || 24;
-        const estimatedLine = Math.floor(relativeY / lineHeight);
-        const wordsPerLine = Math.ceil(words.length / Math.ceil(rect.height / lineHeight));
-        const lineStartIndex = estimatedLine * wordsPerLine;
-        const positionInLine = Math.max(0, Math.min(1, relativeX / rect.width));
-        const wordIndexInLine = Math.floor(positionInLine * Math.min(wordsPerLine, words.length - lineStartIndex));
-        const finalIndex = lineStartIndex + wordIndexInLine;
+        // For multi-line text - more complex estimation
+        const relativeY = y - rect.top;
+        const style = window.getComputedStyle(element);
+        const lineHeight = parseInt(style.lineHeight) || 24;
+        const fontSize = parseInt(style.fontSize) || 16;
+        const charWidth = fontSize * 0.6; // Rough estimate
         
-        return words[Math.max(0, Math.min(finalIndex, words.length - 1))];
+        const line = Math.floor(relativeY / lineHeight);
+        const charsPerLine = Math.floor(rect.width / charWidth);
+        const lineStart = line * charsPerLine;
+        const charInLine = Math.floor(relativeX / charWidth);
+        const index = lineStart + charInLine;
+        
+        return {
+            index: Math.max(0, Math.min(index, text.length - 1)),
+            char: text[index] || ''
+        };
     }
     
-    // Get translation with context - without brackets
-    getTranslationWithContext(element, wordIndex) {
+    // Update hover marker position
+    updateHoverMarker(element, charIndex, x, y) {
+        const text = element.textContent;
+        const char = text[charIndex];
+        
+        // Position marker at cursor location
+        this.hoverMarker.style.left = (x - 2) + 'px';
+        this.hoverMarker.style.top = (y - 2) + 'px';
+    }
+    
+    // Get translation with context based on character position
+    getTranslationWithContext(element, charIndex) {
         const key = element.getAttribute('data-translation-key');
+        const norwegianText = element.textContent;
         const translatedText = this.translatedTexts[key];
         
         if (!translatedText) return null;
         
-        // Parse translated text into words
-        const translatedWords = this.parseWords(translatedText);
+        // Calculate character range to show
+        const startIdx = Math.max(0, charIndex - this.contextRadius);
+        const endIdx = Math.min(norwegianText.length, charIndex + this.contextRadius + 1);
         
-        if (translatedWords.length === 0) return null;
+        // Get the Norwegian context
+        const norwegianContext = norwegianText.substring(startIdx, endIdx);
         
-        // For short text (answers), return the full translation
-        if (translatedWords.length <= 3) {
-            return translatedWords.map(w => w.text).join(' ');
-        }
+        // For simple mapping, assume similar position in translated text
+        // This is a simplification - in production you'd want proper alignment
+        const ratio = charIndex / norwegianText.length;
+        const translatedCharIndex = Math.floor(ratio * translatedText.length);
         
-        // Ensure wordIndex is valid
-        if (wordIndex >= translatedWords.length) {
-            wordIndex = translatedWords.length - 1;
-        }
-        if (wordIndex < 0) {
-            wordIndex = 0;
-        }
+        const transStartIdx = Math.max(0, translatedCharIndex - this.contextRadius);
+        const transEndIdx = Math.min(translatedText.length, translatedCharIndex + this.contextRadius + 1);
         
-        // Get context: target word + 2 words on each side
-        const contextStart = Math.max(0, wordIndex - 2);
-        const contextEnd = Math.min(translatedWords.length - 1, wordIndex + 2);
-        
-        let contextWords = [];
-        for (let i = contextStart; i <= contextEnd; i++) {
-            contextWords.push(translatedWords[i].text);
-        }
+        let translatedContext = translatedText.substring(transStartIdx, transEndIdx);
         
         // Add ellipsis if needed
-        if (contextStart > 0) contextWords.unshift('...');
-        if (contextEnd < translatedWords.length - 1) contextWords.push('...');
+        if (transStartIdx > 0) translatedContext = '...' + translatedContext;
+        if (transEndIdx < translatedText.length) translatedContext = translatedContext + '...';
         
-        return contextWords.join(' ');
+        // Highlight the center character/word
+        const centerStart = translatedCharIndex - transStartIdx;
+        const words = translatedContext.split(' ');
+        let charCount = 0;
+        let highlightedText = '';
+        
+        for (let i = 0; i < words.length; i++) {
+            const word = words[i];
+            const wordStart = charCount;
+            const wordEnd = charCount + word.length;
+            
+            if (centerStart >= wordStart && centerStart < wordEnd) {
+                highlightedText += `<span class="translation-highlight">${word}</span>`;
+            } else {
+                highlightedText += word;
+            }
+            
+            if (i < words.length - 1) {
+                highlightedText += ' ';
+                charCount += word.length + 1;
+            } else {
+                charCount += word.length;
+            }
+        }
+        
+        return highlightedText;
     }
     
     // Update translation percentage
     updateTranslationPercentage() {
         const percentEl = document.getElementById('translationPercent');
-        if (!percentEl || this.totalWords === 0) return;
+        if (!percentEl || this.totalChars === 0) return;
         
-        const percentage = Math.min(100, Math.round((this.translatedWords.size / this.totalWords) * 100));
+        const percentage = Math.min(100, Math.round((this.translatedChars.size / this.totalChars) * 100));
         percentEl.textContent = percentage;
     }
     
     // Get current translation percentage
     getCurrentPercentage() {
-        if (this.totalWords === 0) return 0;
-        return Math.min(100, Math.round((this.translatedWords.size / this.totalWords) * 100));
+        if (this.totalChars === 0) return 0;
+        return Math.min(100, Math.round((this.translatedChars.size / this.totalChars) * 100));
     }
     
     // Check if currently translating
@@ -1071,17 +1099,20 @@ class TranslationManager {
     
     // Reset for new question
     reset() {
-        this.currentQuestionWords.clear();
+        this.currentQuestionChars.clear();
         this.translatedTexts = {};
-        this.totalWords = 0;
-        this.uniqueWords.clear();
-        this.translatedWords.clear();
+        this.totalChars = 0;
+        this.uniqueChars.clear();
+        this.translatedChars.clear();
         this.isTranslating = false;
         this.currentElement = null;
-        this.currentWordIndex = null;
+        this.currentCharIndex = null;
         if (this.pressTimer) {
             clearTimeout(this.pressTimer);
             this.pressTimer = null;
+        }
+        if (this.hoverMarker) {
+            this.hoverMarker.style.display = 'none';
         }
     }
 }
