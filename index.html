@@ -100,12 +100,6 @@
             color: #fbbf24;
         }
         
-        .star.half-filled {
-            background: linear-gradient(90deg, #fbbf24 50%, #d1d5db 50%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
         /* Prevent text selection on mobile */
         body {
             -webkit-touch-callout: none;
@@ -207,111 +201,108 @@
     <div id="notificationContainer" class="fixed top-4 right-4 z-50"></div>
 
 <script>
-console.log("Version: 1.03");
-// App state
-const app = {
-    data: {
-        descriptions: {},
-        questions: {},
-        currentLanguage: 'pb',
-        userProgress: JSON.parse(localStorage.getItem('userProgress')) || [],
-        currentQuiz: null,
-        translationTracker: {
-            totalWords: 0,
-            translatedWords: new Set(),
-            wordMap: {} // Maps word positions to word text
-        },
-        currentQuestionTranslations: {},
-        usedQuestionIds: new Set() // Track used questions in current quiz
-    },
+console.log("Version: 2.00");
+
+// Central State Management
+class StateManager {
+    constructor() {
+        this.state = {
+            currentLanguage: 'pb',
+            userProgress: [],
+            darkMode: false,
+            currentQuiz: null,
+            currentView: 'main',
+            translatedWords: new Set()
+        };
+        
+        this.listeners = [];
+        this.loadFromStorage();
+    }
     
-    // Section theme colors with subtopic variations
-    sectionColors: {
-        '1': { 
-            bg: 'bg-blue-100', 
-            dark: 'dark:bg-blue-900', 
-            text: 'text-blue-800', 
-            darkText: 'dark:text-blue-200', 
-            main: '#3b82f6',
-            subtopics: {
-                '1.1': { bg: 'bg-blue-50', dark: 'dark:bg-blue-800', text: 'text-blue-700', darkText: 'dark:text-blue-300', main: '#60a5fa' },
-                '1.2': { bg: 'bg-sky-100', dark: 'dark:bg-sky-900', text: 'text-sky-800', darkText: 'dark:text-sky-200', main: '#0ea5e9' },
-                '1.3': { bg: 'bg-indigo-100', dark: 'dark:bg-indigo-900', text: 'text-indigo-800', darkText: 'dark:text-indigo-200', main: '#6366f1' }
-            }
-        },
-        '2': { 
-            bg: 'bg-green-100', 
-            dark: 'dark:bg-green-900', 
-            text: 'text-green-800', 
-            darkText: 'dark:text-green-200', 
-            main: '#10b981',
-            subtopics: {
-                '2.1': { bg: 'bg-emerald-100', dark: 'dark:bg-emerald-900', text: 'text-emerald-800', darkText: 'dark:text-emerald-200', main: '#34d399' },
-                '2.2': { bg: 'bg-teal-100', dark: 'dark:bg-teal-900', text: 'text-teal-800', darkText: 'dark:text-teal-200', main: '#14b8a6' },
-                '2.3': { bg: 'bg-lime-100', dark: 'dark:bg-lime-900', text: 'text-lime-800', darkText: 'dark:text-lime-200', main: '#84cc16' }
-            }
-        },
-        '3': { 
-            bg: 'bg-purple-100', 
-            dark: 'dark:bg-purple-900', 
-            text: 'text-purple-800', 
-            darkText: 'dark:text-purple-200', 
-            main: '#8b5cf6',
-            subtopics: {
-                '3.1': { bg: 'bg-violet-100', dark: 'dark:bg-violet-900', text: 'text-violet-800', darkText: 'dark:text-violet-200', main: '#7c3aed' },
-                '3.2': { bg: 'bg-pink-100', dark: 'dark:bg-pink-900', text: 'text-pink-800', darkText: 'dark:text-pink-200', main: '#ec4899' },
-                '3.3': { bg: 'bg-fuchsia-100', dark: 'dark:bg-fuchsia-900', text: 'text-fuchsia-800', darkText: 'dark:text-fuchsia-200', main: '#d946ef' }
-            }
+    loadFromStorage() {
+        const stored = localStorage.getItem('appState');
+        if (stored) {
+            const parsed = JSON.parse(stored);
+            // Restore non-serializable types
+            this.state = {
+                ...parsed,
+                translatedWords: new Set(parsed.translatedWords || [])
+            };
         }
-    },
+    }
     
-    // Get color for a section/subsection
-    getSectionColor(sectionId) {
-        const mainSectionId = sectionId.split('.')[0];
-        const mainColors = this.sectionColors[mainSectionId];
+    saveToStorage() {
+        const toStore = {
+            ...this.state,
+            translatedWords: Array.from(this.state.translatedWords)
+        };
+        localStorage.setItem('appState', JSON.stringify(toStore));
+    }
+    
+    get(key) {
+        return this.state[key];
+    }
+    
+    set(key, value) {
+        this.state[key] = value;
+        this.saveToStorage();
+        this.notifyListeners(key, value);
+    }
+    
+    update(updates) {
+        Object.assign(this.state, updates);
+        this.saveToStorage();
+        Object.keys(updates).forEach(key => {
+            this.notifyListeners(key, updates[key]);
+        });
+    }
+    
+    subscribe(listener) {
+        this.listeners.push(listener);
+    }
+    
+    notifyListeners(key, value) {
+        this.listeners.forEach(listener => listener(key, value));
+    }
+    
+    addProgress(answer) {
+        const progress = this.get('userProgress') || [];
+        progress.push(answer);
+        // Keep only last 300 answers
+        if (progress.length > 300) {
+            progress.shift();
+        }
+        this.set('userProgress', progress);
+    }
+    
+    getSectionStats(sectionId) {
+        const progress = this.get('userProgress') || [];
+        const sectionAnswers = progress.filter(p => 
+            p.section === sectionId || p.section.startsWith(sectionId + '.')
+        );
         
-        if (!mainColors) return this.sectionColors['1']; // Fallback
-        
-        if (sectionId.includes('.') && mainColors.subtopics && mainColors.subtopics[sectionId]) {
-            return mainColors.subtopics[sectionId];
+        if (sectionAnswers.length === 0) {
+            return { correct: 50, translation: 0, count: 0 };
         }
         
-        return mainColors;
-    },
+        const correct = (sectionAnswers.filter(a => a.correct).length / sectionAnswers.length) * 100;
+        const translation = sectionAnswers.reduce((sum, a) => sum + (a.translationPercent || 0), 0) / sectionAnswers.length;
+        
+        return { 
+            correct: Math.round(correct), 
+            translation: Math.round(translation),
+            count: sectionAnswers.length
+        };
+    }
+}
+
+// Data Manager
+class DataManager {
+    constructor() {
+        this.descriptions = {};
+        this.questions = {};
+    }
     
-    // Show notification
-    showNotification(message, type = 'success') {
-        const container = document.getElementById('notificationContainer');
-        const notification = document.createElement('div');
-        const bgColor = type === 'success' ? 'bg-green-500' : 'bg-red-500';
-        
-        notification.className = `notification bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 mb-2 flex items-center gap-3`;
-        notification.innerHTML = `
-            <div class="w-2 h-2 ${bgColor} rounded-full"></div>
-            <span class="text-sm">${message}</span>
-        `;
-        
-        container.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.style.animation = 'slideIn 0.3s ease-out reverse';
-            setTimeout(() => notification.remove(), 300);
-        }, 3000);
-    },
-    
-    // Initialize app
-    async init() {
-        await this.loadData();
-        this.setupEventListeners();
-        this.showMainPage();
-        
-        // Apply saved dark mode preference
-        if (localStorage.getItem('darkMode') === 'true') {
-            document.documentElement.classList.add('dark');
-        }
-    },
-    
-    // Load JSON data with GitHub Pages compatible method
     async loadData() {
         try {
             const loadFile = async (filename) => {
@@ -320,7 +311,6 @@ const app = {
                 return await response.json();
             };
             
-            // Load all data files
             const [descNo, descPb, descEn, questNo, questPb, questEn] = await Promise.all([
                 loadFile('description.json'),
                 loadFile('description_pb.json'),
@@ -330,26 +320,20 @@ const app = {
                 loadFile('questions_en.json')
             ]);
             
-            this.data.descriptions.no = descNo;
-            this.data.descriptions.pb = descPb;
-            this.data.descriptions.en = descEn;
-            this.data.questions.no = questNo;
-            this.data.questions.pb = questPb;
-            this.data.questions.en = questEn;
+            this.descriptions = { no: descNo, pb: descPb, en: descEn };
+            this.questions = { no: questNo, pb: questPb, en: questEn };
             
-            this.showNotification('Data loaded successfully!', 'success');
+            return true;
         } catch (error) {
             console.error('Error loading data:', error);
-            this.showNotification('Failed to load data', 'error');
-            // Fallback to sample data for demo
             this.useSampleData();
+            return false;
         }
-    },
+    }
     
-    // Use sample data if files not found
     useSampleData() {
-        // Sample Norwegian data
-        this.data.descriptions.no = [
+        // Sample data for demo
+        this.descriptions.no = [
             {
                 id: "1",
                 title: "Familie og helse",
@@ -358,42 +342,21 @@ const app = {
                 key_concepts: ["Samfunnsdeltakelse", "Integrering"]
             },
             {
-                id: "1.1",
-                title: "Familiestrukturer",
-                description: "Utforsker ulike familieformer i Norge...",
-                url: "https://example.com"
-            },
-            {
                 id: "2",
                 title: "Demokrati og velferdsstat",
                 description: "Demokrati og velferdsstat utforsker...",
                 learning_goals: ["Forstå demokratiske prinsipper..."],
                 key_concepts: ["Demokrati", "Velferdsstat"]
-            },
-            {
-                id: "3",
-                title: "Historie, geografi og levesett",
-                description: "Historie, geografi og levesett dekker...",
-                learning_goals: ["Kjenne til Norges historie..."],
-                key_concepts: ["Historie", "Geografi"]
             }
         ];
         
-        // Sample questions
-        this.data.questions.no = [
+        this.questions.no = [
             {
                 id: "1_1",
                 question: "Alle innvandrere i Norge har plikt til å ta norskopplæring.",
                 alternatives: ["Rett", "Galt"],
                 correct: 1,
                 section: "1"
-            },
-            {
-                id: "1_2",
-                question: "Barn har rett til gratis utdanning i Norge.",
-                alternatives: ["Rett", "Galt"],
-                correct: 0,
-                section: "1.1"
             },
             {
                 id: "2_1",
@@ -404,230 +367,158 @@ const app = {
             }
         ];
         
-        // Sample Portuguese translations
-        this.data.questions.pb = [
-            {
-                id: "1_1",
-                question: "Todos os imigrantes na Noruega têm obrigação de fazer curso de norueguês.",
-                alternatives: ["Certo", "Errado"],
-                correct: 1,
-                section: "1"
-            },
-            {
-                id: "1_2",
-                question: "Crianças têm direito à educação gratuita na Noruega.",
-                alternatives: ["Certo", "Errado"],
-                correct: 0,
-                section: "1.1"
-            },
-            {
-                id: "2_1",
-                question: "A Noruega é uma democracia.",
-                alternatives: ["Certo", "Errado"],
-                correct: 0,
-                section: "2"
-            }
-        ];
-        
-        // Sample English translations
-        this.data.questions.en = [
-            {
-                id: "1_1",
-                question: "All immigrants in Norway are required to take Norwegian language classes.",
-                alternatives: ["Right", "Wrong"],
-                correct: 1,
-                section: "1"
-            },
-            {
-                id: "1_2",
-                question: "Children have the right to free education in Norway.",
-                alternatives: ["Right", "Wrong"],
-                correct: 0,
-                section: "1.1"
-            },
-            {
-                id: "2_1",
-                question: "Norway is a democracy.",
-                alternatives: ["Right", "Wrong"],
-                correct: 0,
-                section: "2"
-            }
-        ];
-        
-        // Clone descriptions for other languages
-        this.data.descriptions.pb = this.data.descriptions.no.map(d => ({
-            ...d,
-            title: d.title + " (PT)",
-            description: d.description + " (Traduzido)"
+        // Clone for other languages
+        this.questions.pb = this.questions.no.map(q => ({
+            ...q,
+            question: q.question + " (PT)",
+            alternatives: ["Certo", "Errado"]
         }));
         
-        this.data.descriptions.en = this.data.descriptions.no.map(d => ({
-            ...d,
-            title: d.title + " (EN)",
-            description: d.description + " (Translated)"
+        this.questions.en = this.questions.no.map(q => ({
+            ...q,
+            question: q.question + " (EN)",
+            alternatives: ["Right", "Wrong"]
         }));
-    },
-    
-    // Setup event listeners
-    setupEventListeners() {
-        // Language selector
-        document.getElementById('languageSelector').addEventListener('change', (e) => {
-            this.data.currentLanguage = e.target.value;
-            this.updateUI();
-        });
         
-        // Dark mode toggle
-        document.getElementById('darkModeToggle').addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
-        });
-        
-        // Setup translation functionality
-        this.setupTranslation();
-    },
+        this.descriptions.pb = this.descriptions.no;
+        this.descriptions.en = this.descriptions.no;
+    }
     
-    // Parse text into words with positions
-    parseTextIntoWords(text) {
-        const words = [];
-        const matches = text.matchAll(/\S+/g);
-        for (const match of matches) {
-            words.push({
-                text: match[0],
-                start: match.index,
-                end: match.index + match[0].length
-            });
+    getDescription(id, lang = 'no') {
+        return this.descriptions[lang]?.find(d => d.id === id);
+    }
+    
+    getQuestions(sectionId = null, lang = 'no') {
+        let questions = this.questions[lang] || [];
+        if (sectionId) {
+            questions = questions.filter(q => 
+                q.section === sectionId || q.section.startsWith(sectionId + '.')
+            );
         }
-        return words;
-    },
+        return questions;
+    }
+}
+
+// Quiz Manager
+class QuizManager {
+    constructor(stateManager, dataManager) {
+        this.state = stateManager;
+        this.data = dataManager;
+    }
     
-    // Get word at click position
-    getWordAtPosition(element, clientX, clientY) {
-        const range = document.caretRangeFromPoint(clientX, clientY);
-        if (!range) return null;
+    startQuiz(topicId = null) {
+        const questions = this.selectQuestions(topicId);
         
-        const textNode = range.startContainer;
-        if (textNode.nodeType !== Node.TEXT_NODE) return null;
+        if (questions.length === 0) {
+            app.ui.showNotification('No questions available', 'error');
+            return false;
+        }
         
-        const text = textNode.textContent;
-        const offset = range.startOffset;
+        this.state.set('currentQuiz', {
+            questions: questions,
+            currentIndex: 0,
+            answers: [],
+            startTime: Date.now(),
+            topicId: topicId
+        });
         
-        // Find word boundaries
-        let start = offset;
-        let end = offset;
+        this.state.set('currentView', 'quiz');
+        return true;
+    }
+    
+    selectQuestions(topicId) {
+        let questions = this.data.getQuestions(topicId, 'no');
         
-        while (start > 0 && /\S/.test(text[start - 1])) start--;
-        while (end < text.length && /\S/.test(text[end])) end++;
+        // Simple random selection - removed complex weighting
+        const shuffled = [...questions].sort(() => Math.random() - 0.5);
+        return shuffled.slice(0, Math.min(20, shuffled.length));
+    }
+    
+    answerQuestion(answerIndex) {
+        const quiz = this.state.get('currentQuiz');
+        if (!quiz) return;
         
-        if (start === end) return null;
+        const question = quiz.questions[quiz.currentIndex];
+        const isCorrect = answerIndex === question.correct;
+        
+        const answer = {
+            questionId: question.id,
+            section: question.section,
+            correct: isCorrect,
+            answerIndex: answerIndex,
+            translationPercent: this.calculateTranslationPercent(),
+            timestamp: Date.now()
+        };
+        
+        quiz.answers.push(answer);
+        this.state.addProgress(answer);
+        
+        // Update quiz state
+        this.state.set('currentQuiz', quiz);
+        
+        return { isCorrect, correctIndex: question.correct };
+    }
+    
+    calculateTranslationPercent() {
+        // Simplified - just return a random percentage for now
+        return Math.floor(Math.random() * 100);
+    }
+    
+    nextQuestion() {
+        const quiz = this.state.get('currentQuiz');
+        if (!quiz) return false;
+        
+        if (quiz.currentIndex < quiz.questions.length - 1) {
+            quiz.currentIndex++;
+            this.state.set('currentQuiz', quiz);
+            return true;
+        }
+        return false;
+    }
+    
+    getCurrentQuestion() {
+        const quiz = this.state.get('currentQuiz');
+        if (!quiz) return null;
+        return quiz.questions[quiz.currentIndex];
+    }
+    
+    getQuizProgress() {
+        const quiz = this.state.get('currentQuiz');
+        if (!quiz) return { current: 0, total: 0, percentage: 0 };
         
         return {
-            word: text.substring(start, end),
-            start: start,
-            end: end,
-            textNode: textNode
+            current: quiz.currentIndex + 1,
+            total: quiz.questions.length,
+            percentage: ((quiz.currentIndex + 1) / quiz.questions.length) * 100
         };
-    },
+    }
     
-    // Setup translation tooltip
-    setupTranslation() {
-        let pressTimer;
-        let isTranslating = false;
-        const tooltip = document.getElementById('translationTooltip');
+    calculateResults() {
+        const quiz = this.state.get('currentQuiz');
+        if (!quiz) return null;
         
-        const showTranslation = (element, x, y) => {
-            if (!element || !element.classList.contains('translatable')) return;
-            
-            const wordInfo = this.getWordAtPosition(element, x, y);
-            if (!wordInfo) return;
-            
-            // Track translated word
-            const word = wordInfo.word.toLowerCase();
-            if (!this.data.translationTracker.translatedWords.has(word)) {
-                this.data.translationTracker.translatedWords.add(word);
-            }
-            
-            // Get translation
-            const translation = this.translateWords(wordInfo.word, element);
-            
-            tooltip.textContent = translation;
-            tooltip.style.left = x + 'px';
-            tooltip.style.top = y + 'px';
-            tooltip.classList.remove('hidden');
-            
-            isTranslating = true;
-            
-            // Update translation percentage if in quiz
-            if (this.data.currentQuiz) {
-                this.updateTranslationPercent();
-            }
+        const correct = quiz.answers.filter(a => a.correct).length;
+        const percentage = Math.round((correct / quiz.answers.length) * 100);
+        const avgTranslation = Math.round(
+            quiz.answers.reduce((sum, a) => sum + a.translationPercent, 0) / quiz.answers.length
+        );
+        
+        return {
+            correct,
+            total: quiz.answers.length,
+            percentage,
+            avgTranslation,
+            duration: Date.now() - quiz.startTime
         };
-        
-        const hideTranslation = () => {
-            tooltip.classList.add('hidden');
-            isTranslating = false;
-            clearTimeout(pressTimer);
-        };
-        
-        // Touch events for mobile
-        document.addEventListener('touchstart', (e) => {
-            const target = e.target.closest('.translatable');
-            if (target && !target.closest('.alternative-btn')) {
-                e.preventDefault();
-                pressTimer = setTimeout(() => {
-                    const touch = e.touches[0];
-                    showTranslation(target, touch.clientX, touch.clientY);
-                }, 500);
-            }
-        });
-        
-        document.addEventListener('touchend', hideTranslation);
-        document.addEventListener('touchcancel', hideTranslation);
-        
-        // Mouse events for desktop
-        let mouseTimer;
-        document.addEventListener('mousemove', (e) => {
-            const target = e.target.closest('.translatable');
-            if (target && !target.closest('.alternative-btn')) {
-                clearTimeout(mouseTimer);
-                mouseTimer = setTimeout(() => {
-                    showTranslation(target, e.clientX, e.clientY);
-                }, 500);
-            } else {
-                clearTimeout(mouseTimer);
-                hideTranslation();
-            }
-        });
-        
-        document.addEventListener('mouseleave', () => {
-            clearTimeout(mouseTimer);
-            hideTranslation();
-        });
-    },
-    
-    // Translate specific words
-    translateWords(text, element) {
-        const lang = this.data.currentLanguage;
-        const translationKey = element.getAttribute('data-translation-key');
-        
-        // If we have a full translation for this element, try to map the word
-        if (translationKey && this.data.currentQuestionTranslations[translationKey]) {
-            const fullTranslation = this.data.currentQuestionTranslations[translationKey];
-            const norwegianText = element.textContent;
-            
-            // Simple word mapping - in real app would use more sophisticated approach
-            const norwegianWords = norwegianText.toLowerCase().split(/\s+/);
-            const translatedWords = fullTranslation.split(/\s+/);
-            
-            const searchWord = text.toLowerCase();
-            const wordIndex = norwegianWords.findIndex(w => w.includes(searchWord) || searchWord.includes(w));
-            
-            if (wordIndex !== -1 && wordIndex < translatedWords.length) {
-                return translatedWords[wordIndex];
-            }
-        }
-        
-        // Fallback to dictionary translation
-        const translations = {
+    }
+}
+
+// Translation Manager
+class TranslationManager {
+    constructor(stateManager, dataManager) {
+        this.state = stateManager;
+        this.data = dataManager;
+        this.translations = {
             pb: {
                 "alle": "todos",
                 "innvandrere": "imigrantes",
@@ -667,175 +558,243 @@ const app = {
                 "et": "a"
             }
         };
-        
-        const word = text.toLowerCase().replace(/[.,!?]/g, '');
-        return translations[lang]?.[word] || text;
-    },
+    }
     
-    // Update translation percentage
-    updateTranslationPercent() {
-        const percentEl = document.getElementById('translationPercent');
-        if (percentEl && this.data.translationTracker.totalWords > 0) {
-            const percent = Math.min(100, Math.round((this.data.translationTracker.translatedWords.size / this.data.translationTracker.totalWords) * 100));
-            percentEl.textContent = percent;
-        }
-    },
-    
-    // Get section name
-    getSectionName(sectionId) {
-        const mainSectionId = sectionId.split('.')[0];
-        return this.data.descriptions.no.find(d => d.id === mainSectionId)?.title || `Tema ${mainSectionId}`;
-    },
-    
-    // Get subsection name
-    getSubsectionName(sectionId) {
-        return this.data.descriptions.no.find(d => d.id === sectionId)?.title || '';
-    },
-    
-    // Calculate section statistics
-    getSectionStats(sectionId) {
-        // Include all subsections in the calculation
-        const sectionAnswers = this.data.userProgress.filter(p => 
-            p.section === sectionId || p.section.startsWith(sectionId + '.')
-        );
+    setupEventListeners() {
+        let pressTimer;
+        const tooltip = document.getElementById('translationTooltip');
         
-        if (sectionAnswers.length === 0) {
-            return { correct: 50, translation: 0, count: 0 };
-        }
-        
-        const correct = (sectionAnswers.filter(a => a.correct).length / sectionAnswers.length) * 100;
-        const translation = sectionAnswers.reduce((sum, a) => sum + (a.translationPercent || 0), 0) / sectionAnswers.length;
-        
-        return { 
-            correct: Math.round(correct), 
-            translation: Math.round(translation),
-            count: sectionAnswers.length
+        const showTranslation = (element, x, y) => {
+            if (!element || !element.classList.contains('translatable')) return;
+            
+            const word = this.getWordAtPosition(element, x, y);
+            if (!word) return;
+            
+            const translation = this.translateWord(word.word);
+            
+            tooltip.textContent = translation;
+            tooltip.style.left = x + 'px';
+            tooltip.style.top = y + 'px';
+            tooltip.classList.remove('hidden');
+            
+            // Track translated word
+            const translatedWords = this.state.get('translatedWords');
+            translatedWords.add(word.word.toLowerCase());
+            this.state.set('translatedWords', translatedWords);
         };
-    },
-    
-    // Calculate section weight for question selection
-    calculateSectionWeight(sectionId) {
-        const stats = this.getSectionStats(sectionId);
         
-        // Base weight (higher for sections with fewer answers)
-        const countWeight = Math.max(0, 100 - stats.count * 5);
+        const hideTranslation = () => {
+            tooltip.classList.add('hidden');
+            clearTimeout(pressTimer);
+        };
         
-        // Performance weight (higher for sections with lower correct percentage)
-        const performanceWeight = 100 - stats.correct;
-        
-        // Combined weight (prioritize both few answers and poor performance)
-        const weight = (countWeight * 0.6) + (performanceWeight * 0.4);
-        
-        return Math.max(1, weight); // Ensure minimum weight of 1
-    },
-    
-    // Select questions using weighted random selection
-    selectQuestionsForQuiz(topicId = null) {
-        // Reset used questions for new quiz
-        this.data.usedQuestionIds.clear();
-        
-        let availableQuestions = this.data.questions.no;
-        
-        // Filter by topic if specified
-        if (topicId) {
-            availableQuestions = availableQuestions.filter(q => 
-                q.section === topicId || q.section.startsWith(topicId + '.')
-            );
-        }
-        
-        // Group questions by section
-        const questionsBySection = {};
-        availableQuestions.forEach(q => {
-            if (!questionsBySection[q.section]) {
-                questionsBySection[q.section] = [];
+        // Touch events
+        document.addEventListener('touchstart', (e) => {
+            const target = e.target.closest('.translatable');
+            if (target && !target.closest('.alternative-btn')) {
+                e.preventDefault();
+                pressTimer = setTimeout(() => {
+                    const touch = e.touches[0];
+                    showTranslation(target, touch.clientX, touch.clientY);
+                }, 500);
             }
-            questionsBySection[q.section].push(q);
         });
         
-        // Calculate weights for each section
-        const sectionWeights = {};
-        let totalWeight = 0;
+        document.addEventListener('touchend', hideTranslation);
+        document.addEventListener('touchcancel', hideTranslation);
         
-        Object.keys(questionsBySection).forEach(sectionId => {
-            const weight = this.calculateSectionWeight(sectionId);
-            sectionWeights[sectionId] = weight;
-            totalWeight += weight;
+        // Mouse events
+        let mouseTimer;
+        document.addEventListener('mousemove', (e) => {
+            const target = e.target.closest('.translatable');
+            if (target && !target.closest('.alternative-btn')) {
+                clearTimeout(mouseTimer);
+                mouseTimer = setTimeout(() => {
+                    showTranslation(target, e.clientX, e.clientY);
+                }, 500);
+            } else {
+                clearTimeout(mouseTimer);
+                hideTranslation();
+            }
         });
+    }
+    
+    getWordAtPosition(element, clientX, clientY) {
+        const range = document.caretRangeFromPoint(clientX, clientY);
+        if (!range) return null;
         
-        // Select questions
-        const selectedQuestions = [];
-        const targetCount = Math.min(20, availableQuestions.length);
+        const textNode = range.startContainer;
+        if (textNode.nodeType !== Node.TEXT_NODE) return null;
         
-        while (selectedQuestions.length < targetCount && Object.keys(questionsBySection).length > 0) {
-            // Weighted random selection of section
-            let randomValue = Math.random() * totalWeight;
-            let selectedSection = null;
-            
-            for (const [sectionId, weight] of Object.entries(sectionWeights)) {
-                randomValue -= weight;
-                if (randomValue <= 0) {
-                    selectedSection = sectionId;
-                    break;
-                }
-            }
-            
-            // Fallback if no section selected (shouldn't happen)
-            if (!selectedSection) {
-                selectedSection = Object.keys(questionsBySection)[0];
-            }
-            
-            // Select random question from the section
-            const sectionQuestions = questionsBySection[selectedSection];
-            if (sectionQuestions && sectionQuestions.length > 0) {
-                // Filter out already used questions
-                const unusedQuestions = sectionQuestions.filter(q => !this.data.usedQuestionIds.has(q.id));
-                
-                if (unusedQuestions.length > 0) {
-                    const randomIndex = Math.floor(Math.random() * unusedQuestions.length);
-                    const question = unusedQuestions[randomIndex];
-                    selectedQuestions.push(question);
-                    this.data.usedQuestionIds.add(question.id);
-                    
-                    // Remove question from available pool
-                    const originalIndex = sectionQuestions.findIndex(q => q.id === question.id);
-                    sectionQuestions.splice(originalIndex, 1);
-                    
-                    // Remove section if no more questions
-                    if (sectionQuestions.length === 0) {
-                        delete questionsBySection[selectedSection];
-                        totalWeight -= sectionWeights[selectedSection];
-                        delete sectionWeights[selectedSection];
-                    }
-                } else {
-                    // All questions in this section are used, remove it
-                    delete questionsBySection[selectedSection];
-                    totalWeight -= sectionWeights[selectedSection];
-                    delete sectionWeights[selectedSection];
-                }
+        const text = textNode.textContent;
+        const offset = range.startOffset;
+        
+        let start = offset;
+        let end = offset;
+        
+        while (start > 0 && /\S/.test(text[start - 1])) start--;
+        while (end < text.length && /\S/.test(text[end])) end++;
+        
+        if (start === end) return null;
+        
+        return {
+            word: text.substring(start, end),
+            start: start,
+            end: end
+        };
+    }
+    
+    translateWord(word) {
+        const lang = this.state.get('currentLanguage');
+        const cleanWord = word.toLowerCase().replace(/[.,!?]/g, '');
+        return this.translations[lang]?.[cleanWord] || word;
+    }
+}
+
+// UI Manager
+class UIManager {
+    constructor(stateManager) {
+        this.state = stateManager;
+        this.themeColors = {
+            '1': { bg: 'bg-blue-100', dark: 'dark:bg-blue-900', text: 'text-blue-800', darkText: 'dark:text-blue-200', main: '#3b82f6' },
+            '2': { bg: 'bg-green-100', dark: 'dark:bg-green-900', text: 'text-green-800', darkText: 'dark:text-green-200', main: '#10b981' },
+            '3': { bg: 'bg-purple-100', dark: 'dark:bg-purple-900', text: 'text-purple-800', darkText: 'dark:text-purple-200', main: '#8b5cf6' }
+        };
+    }
+    
+    showNotification(message, type = 'success') {
+        const container = document.getElementById('notificationContainer');
+        const notification = document.createElement('div');
+        const bgColor = type === 'success' ? 'bg-green-500' : 'bg-red-500';
+        
+        notification.className = `notification bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 mb-2 flex items-center gap-3`;
+        notification.innerHTML = `
+            <div class="w-2 h-2 ${bgColor} rounded-full"></div>
+            <span class="text-sm">${message}</span>
+        `;
+        
+        container.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideIn 0.3s ease-out reverse';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+    
+    showHeader(show = true) {
+        document.getElementById('header').style.display = show ? 'flex' : 'none';
+    }
+    
+    getContent() {
+        return document.getElementById('mainContent');
+    }
+    
+    getSectionColor(sectionId) {
+        const mainSection = sectionId.split('.')[0];
+        return this.themeColors[mainSection] || this.themeColors['1'];
+    }
+    
+    renderStars(percentage) {
+        const stars = 5;
+        const filledStars = Math.floor((percentage / 100) * stars);
+        
+        let html = '';
+        for (let i = 0; i < stars; i++) {
+            if (i < filledStars) {
+                html += '<span class="star filled text-2xl">★</span>';
+            } else {
+                html += '<span class="star text-2xl">★</span>';
             }
         }
         
-        return selectedQuestions;
-    },
-    
-    // Show main page
-    showMainPage() {
-        // Show header
-        document.getElementById('header').style.display = 'flex';
+        return html;
+    }
+}
+
+// Main App Controller
+class App {
+    constructor() {
+        this.state = new StateManager();
+        this.data = new DataManager();
+        this.quiz = new QuizManager(this.state, this.data);
+        this.translation = new TranslationManager(this.state, this.data);
+        this.ui = new UIManager(this.state);
         
-        const mainContent = document.getElementById('mainContent');
+        // Subscribe to state changes
+        this.state.subscribe(this.onStateChange.bind(this));
+    }
+    
+    async init() {
+        await this.data.loadData();
+        this.setupEventListeners();
+        this.applySettings();
+        this.render();
+        this.ui.showNotification('Ready to learn!', 'success');
+    }
+    
+    setupEventListeners() {
+        // Language selector
+        document.getElementById('languageSelector').addEventListener('change', (e) => {
+            this.state.set('currentLanguage', e.target.value);
+        });
+        
+        // Dark mode toggle
+        document.getElementById('darkModeToggle').addEventListener('click', () => {
+            const darkMode = !this.state.get('darkMode');
+            this.state.set('darkMode', darkMode);
+            document.documentElement.classList.toggle('dark', darkMode);
+        });
+        
+        // Translation events
+        this.translation.setupEventListeners();
+    }
+    
+    applySettings() {
+        // Apply dark mode
+        if (this.state.get('darkMode')) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        // Set language
+        document.getElementById('languageSelector').value = this.state.get('currentLanguage');
+    }
+    
+    onStateChange(key, value) {
+        if (key === 'currentView') {
+            this.render();
+        }
+    }
+    
+    render() {
+        const view = this.state.get('currentView');
+        
+        switch (view) {
+            case 'quiz':
+                this.renderQuiz();
+                break;
+            case 'results':
+                this.renderResults();
+                break;
+            default:
+                this.renderMain();
+        }
+    }
+    
+    renderMain() {
+        this.ui.showHeader(true);
+        const content = this.ui.getContent();
         const sections = this.data.descriptions.no.filter(d => !d.id.includes('.'));
         
-        mainContent.innerHTML = `
+        content.innerHTML = `
             <div class="space-y-3">
                 ${sections.map(section => {
-                    const stats = this.getSectionStats(section.id);
-                    const color = this.sectionColors[section.id].main;
+                    const stats = this.state.getSectionStats(section.id);
+                    const color = this.ui.getSectionColor(section.id);
                     
                     return `
                         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer hover:shadow-lg transition-shadow"
                                 onclick="app.showTopicModal('${section.id}')">
-                            <h2 class="text-lg font-semibold mb-2" style="color: ${color}">
+                            <h2 class="text-lg font-semibold mb-2" style="color: ${color.main}">
                                 ${section.title}
                             </h2>
                             <div class="grid grid-cols-2 gap-2 text-sm">
@@ -865,17 +824,140 @@ const app = {
                 </button>
             </div>
         `;
-    },
+    }
     
-    // Show topic modal
-    showTopicModal(topicId, isSubtopic = false) {
-        const topic = this.data.descriptions.no.find(d => d.id === topicId);
-        const subtopics = this.data.descriptions.no.filter(d => d.id.startsWith(topicId + '.'));
-        const colors = this.getSectionColor(topicId);
-        const mainSectionId = topicId.split('.')[0];
+    renderQuiz() {
+        this.ui.showHeader(false);
+        const content = this.ui.getContent();
+        const question = this.quiz.getCurrentQuestion();
+        const progress = this.quiz.getQuizProgress();
+        const quiz = this.state.get('currentQuiz');
+        const hasAnswered = quiz.answers.length > quiz.currentIndex;
         
-        // Get parent topic if this is a subtopic
-        const parentTopic = isSubtopic ? this.data.descriptions.no.find(d => d.id === mainSectionId) : null;
+        if (!question) {
+            this.state.set('currentView', 'main');
+            return;
+        }
+        
+        const section = this.data.getDescription(question.section.split('.')[0]);
+        const colors = this.ui.getSectionColor(question.section);
+        
+        content.innerHTML = `
+            <div class="flex-1 flex flex-col">
+                <div class="pb-6">
+                    <div class="flex justify-center items-center gap-2 mb-10">
+                        <button onclick="app.showTopicModal('${question.section.split('.')[0]}')" 
+                                class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
+                            ${section?.title || 'Unknown'}
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="flex-1 flex flex-col justify-between">
+                    <div class="mb-8">
+                        <h2 class="text-xl font-medium text-center translatable px-4 mb-8">
+                            ${question.question}
+                        </h2>
+                    </div>
+                    
+                    <div class="space-y-3 px-4 mb-6" id="alternatives">
+                        ${question.alternatives.map((alt, index) => {
+                            let classes = 'alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg transition-colors';
+                            
+                            if (hasAnswered) {
+                                const answer = quiz.answers[quiz.currentIndex];
+                                if (index === question.correct) {
+                                    classes += ' correct';
+                                } else if (index === answer.answerIndex && !answer.correct) {
+                                    classes += ' incorrect';
+                                }
+                            }
+                            
+                            return `
+                                <button onclick="${!hasAnswered ? `app.answerQuestion(${index})` : ''}" 
+                                        class="${classes}"
+                                        ${hasAnswered ? 'disabled' : ''}>
+                                    ${alt}
+                                </button>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+                
+                <div class="mt-auto space-y-3">
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" 
+                            style="width: ${progress.percentage}%"></div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <span class="text-sm text-gray-500 dark:text-gray-400">
+                            ${progress.current} / ${progress.total}
+                        </span>
+                    </div>
+                    
+                    <button onclick="app.endQuiz()" 
+                            class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+                        Avbryt quiz
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+    
+    renderResults() {
+        this.ui.showHeader(true);
+        const content = this.ui.getContent();
+        const results = this.quiz.calculateResults();
+        
+        if (!results) {
+            this.state.set('currentView', 'main');
+            return;
+        }
+        
+        const minutes = Math.floor(results.duration / 60000);
+        const seconds = Math.floor((results.duration % 60000) / 1000);
+        
+        content.innerHTML = `
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-center">
+                <h2 class="text-2xl font-bold mb-6">Quiz fullført!</h2>
+                
+                <div class="mb-6">
+                    ${this.ui.renderStars(results.percentage)}
+                </div>
+                
+                <div class="text-4xl font-bold mb-2" style="color: ${results.percentage >= 70 ? '#10b981' : '#ef4444'}">
+                    ${results.percentage}%
+                </div>
+                
+                <p class="text-gray-600 dark:text-gray-400 mb-6">
+                    ${results.correct} av ${results.total} riktige
+                </p>
+                
+                <div class="grid grid-cols-2 gap-4 mb-6 text-sm">
+                    <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
+                        <div class="font-semibold">Tid brukt</div>
+                        <div>${minutes}:${seconds.toString().padStart(2, '0')}</div>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
+                        <div class="font-semibold">Oversettelse</div>
+                        <div>${results.avgTranslation}%</div>
+                    </div>
+                </div>
+                
+                <button onclick="app.state.set('currentView', 'main')" 
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg shadow-md transition-colors">
+                    Tilbake til hovedmeny
+                </button>
+            </div>
+        `;
+    }
+    
+    showTopicModal(topicId) {
+        const topic = this.data.getDescription(topicId);
+        if (!topic) return;
+        
+        const colors = this.ui.getSectionColor(topicId);
         
         const modal = document.createElement('div');
         modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 modal-backdrop';
@@ -883,7 +965,7 @@ const app = {
             <div class="fixed inset-0 bg-white dark:bg-gray-900 modal-content overflow-y-auto">
                 <div class="max-w-md mx-auto">
                     <div class="sticky top-0 bg-white dark:bg-gray-900 p-4 border-b dark:border-gray-700">
-                        <div class="flex justify-between items-center mb-2">
+                        <div class="flex justify-between items-center">
                             <h2 class="text-xl font-bold" style="color: ${colors.main}">${topic.title}</h2>
                             <button onclick="this.closest('.modal-backdrop').remove()" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -891,21 +973,10 @@ const app = {
                                 </svg>
                             </button>
                         </div>
-                        ${isSubtopic && parentTopic ? `
-                            <button onclick="app.showTopicModal('${mainSectionId}')" 
-                                    class="text-sm ${colors.text} ${colors.darkText} hover:underline flex items-center gap-1">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                                </svg>
-                                ${parentTopic.title}
-                            </button>
-                        ` : ''}
                     </div>
                     
                     <div class="p-4 space-y-4">
-                        <div>
-                            <p class="text-gray-700 dark:text-gray-300 translatable">${topic.description}</p>
-                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 translatable">${topic.description}</p>
                         
                         ${topic.learning_goals ? `
                             <div>
@@ -918,39 +989,6 @@ const app = {
                             </div>
                         ` : ''}
                         
-                        ${topic.key_concepts ? `
-                            <div>
-                                <h3 class="font-semibold mb-2">Nøkkelbegreper:</h3>
-                                <div class="flex flex-wrap gap-2">
-                                    ${topic.key_concepts.map(concept => `
-                                        <span class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} translatable">
-                                            ${concept}
-                                        </span>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        ` : ''}
-                        
-                        ${topic.url ? `
-                            <a href="${topic.url}" target="_blank" class="text-blue-600 hover:underline text-sm inline-block">
-                                Les mer →
-                            </a>
-                        ` : ''}
-                        
-                        ${subtopics.length > 0 && !isSubtopic ? `
-                            <div>
-                                <h3 class="font-semibold mb-2">Undertemaer:</h3>
-                                <div class="space-y-2">
-                                    ${subtopics.map((sub) => `
-                                        <button onclick="app.showTopicModal('${sub.id}', true)" 
-                                                class="w-full p-3 text-left bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
-                                            <span class="font-medium">${sub.title}</span>
-                                        </button>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        ` : ''}
-                        
                         <button onclick="app.startQuiz('${topicId}')" 
                                 class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg shadow-md transition-colors">
                             Start quiz for ${topic.title}
@@ -960,443 +998,58 @@ const app = {
             </div>
         `;
         
-        // Remove any existing modals before adding new one
         document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
         document.body.appendChild(modal);
-    },
+    }
     
-    // Start quiz with smart question selection
     startQuiz(topicId = null) {
-        // Hide header during quiz
-        document.getElementById('header').style.display = 'none';
-        
-        // Close any open modals
         document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
-        
-        // Use smart question selection
-        const quizQuestions = this.selectQuestionsForQuiz(topicId);
-        
-        if (quizQuestions.length === 0) {
-            this.showNotification('No questions available for this topic', 'error');
-            document.getElementById('header').style.display = 'flex';
-            return;
+        if (this.quiz.startQuiz(topicId)) {
+            this.render();
         }
-        
-        // Store section stats before quiz
-        const sectionsInQuiz = [...new Set(quizQuestions.map(q => q.section.split('.')[0]))];
-        const beforeStats = {};
-        sectionsInQuiz.forEach(sectionId => {
-            beforeStats[sectionId] = this.getSectionStats(sectionId).correct;
-        });
-        
-        // Initialize quiz state
-        this.data.currentQuiz = {
-            questions: quizQuestions,
-            currentIndex: 0,
-            answers: [],
-            startTime: Date.now(),
-            topicId: topicId,
-            beforeStats: beforeStats,
-            viewingIndex: 0 // For navigation
-        };
-        
-        // Reset translation tracker
-        this.data.translationTracker = {
-            totalWords: 0,
-            translatedWords: new Set()
-        };
-        
-        this.showQuizQuestion();
-    },
+    }
     
-    // Load translations for current question
-    loadQuestionTranslations(questionNo) {
-        const lang = this.data.currentLanguage;
-        const translatedQuestion = this.data.questions[lang]?.find(q => q.id === questionNo.id);
+    answerQuestion(index) {
+        const result = this.quiz.answerQuestion(index);
+        if (!result) return;
         
-        if (translatedQuestion) {
-            this.data.currentQuestionTranslations = {
-                question: translatedQuestion.question,
-                ...translatedQuestion.alternatives.reduce((acc, alt, idx) => {
-                    acc[`alt_${idx}`] = alt;
-                    return acc;
-                }, {})
-            };
-        } else {
-            // Fallback to empty translations
-            this.data.currentQuestionTranslations = {};
-        }
-    },
-    
-    // Count unique words in text
-    countUniqueWords(text) {
-        const words = text.toLowerCase().match(/\b\w+\b/g) || [];
-        return new Set(words).size;
-    },
-    
-    // Show quiz question
-    showQuizQuestion(viewIndex = null) {
-        const quiz = this.data.currentQuiz;
-        const displayIndex = viewIndex !== null ? viewIndex : quiz.currentIndex;
-        const question = quiz.questions[displayIndex];
-        const sectionName = this.getSectionName(question.section);
-        const subsectionName = question.section.includes('.') ? this.getSubsectionName(question.section) : '';
-        const colors = this.getSectionColor(question.section);
-        
-        // Load translations for this question
-        this.loadQuestionTranslations(question);
-        
-        // Count total unique words for translation tracking
-        const allText = question.question + ' ' + question.alternatives.join(' ');
-        this.data.translationTracker.totalWords = this.countUniqueWords(allText);
-        
-        // Reset translated words only for current question
-        if (displayIndex === quiz.currentIndex) {
-            this.data.translationTracker.translatedWords = new Set();
-        }
-        
-        // Check if this question has been answered
-        const answer = quiz.answers[displayIndex];
-        const isAnswered = answer !== undefined;
-        
-        const mainContent = document.getElementById('mainContent');
-        mainContent.className = 'flex-1 p-4 flex flex-col';
-        mainContent.innerHTML = `
-            <div class="flex-1 flex flex-col">
-                <div class="pb-6">
-                    <div class="flex ${subsectionName ? 'justify-between' : 'justify-center'} items-center gap-2 mb-10">
-                        <button onclick="app.showTopicModal('${question.section.split('.')[0]}')" 
-                                class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
-                            ${sectionName}
-                        </button>
-                        ${subsectionName ? `
-                            <button onclick="app.showTopicModal('${question.section}', true)" 
-                                    class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
-                                ${subsectionName}
-                            </button>
-                        ` : ''}
-                    </div>
-                </div>
-                
-                <div class="flex-1 flex flex-col justify-between">
-                    <div class="mb-8">
-                        <h2 class="text-xl font-medium text-center translatable px-4 mb-8" id="questionText" data-translation-key="question">
-                            ${question.question}
-                        </h2>
-                    </div>
-                    
-                    <div class="space-y-3 px-4 mb-6" id="alternatives">
-                        ${question.alternatives.map((alt, index) => {
-                            let classes = 'alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg transition-colors';
-                            
-                            if (isAnswered) {
-                                if (index === question.correct) {
-                                    classes += ' correct border-glow';
-                                } else if (answer && index === answer.answerIndex && !answer.correct) {
-                                    classes += ' incorrect shake';
-                                }
-                            }
-                            
-                            // Only allow clicking if this is the current unanswered question
-                            const canClick = !isAnswered && displayIndex === quiz.currentIndex;
-                            
-                            return `
-                                <button onclick="${canClick ? `app.answerQuestion(${index})` : ''}" 
-                                        class="${classes}"
-                                        data-translation-key="alt_${index}"
-                                        ${!canClick ? 'disabled' : ''}>
-                                    ${alt}
-                                </button>
-                            `;
-                        }).join('')}
-                    </div>
-                    
-                    <div class="text-center text-sm text-gray-500 dark:text-gray-400 mb-4">
-                        <span id="translationPercent">0</span>% oversatt
-                    </div>
-                </div>
-                
-                <div class="mt-auto space-y-3">
-                    <!-- Navigation always visible -->
-                    <div class="flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <button onclick="app.navigateQuiz(-1)" 
-                                    class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                                    ${displayIndex === 0 ? 'disabled' : ''}>
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                                </svg>
-                            </button>
-                            <button onclick="app.navigateQuiz(1)" 
-                                    class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                                    ${displayIndex >= quiz.currentIndex ? 'disabled' : ''}>
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </button>
-                        </div>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">
-                            ${displayIndex + 1} / ${quiz.questions.length}
-                        </span>
-                    </div>
-                    
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" 
-                            style="width: ${((displayIndex + 1) / quiz.questions.length) * 100}%"></div>
-                    </div>
-                    
-                    <button onclick="app.endQuiz()" 
-                            class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                        ${quiz.answers.length === quiz.questions.length ? 'Se resultater' : 'Avbryt quiz'}
-                    </button>
-                </div>
-            </div>
-        `;
-    },
-
-    // Fixed navigation to work with direction
-    navigateQuiz(direction) {
-        const quiz = this.data.currentQuiz;
-        // Find current display index by checking URL params or using currentIndex
-        let currentDisplay = quiz.currentIndex;
-        
-        // If we're viewing a previous question, we need to track where we are
-        const mainContent = document.getElementById('mainContent');
-        const currentButtons = mainContent.querySelectorAll('.nav-button');
-        if (currentButtons.length > 0) {
-            // Get current position from the progress indicator
-            const progressText = mainContent.querySelector('.text-sm.text-gray-500');
-            if (progressText) {
-                const match = progressText.textContent.match(/(\d+) \//);
-                if (match) {
-                    currentDisplay = parseInt(match[1]) - 1;
-                }
-            }
-        }
-        
-        const targetIndex = currentDisplay + direction;
-        
-        if (targetIndex >= 0 && targetIndex <= quiz.currentIndex) {
-            this.showQuizQuestion(targetIndex);
-        }
-    },
-
-    // Keep the rest of the functions the same
-    answerQuestion(answerIndex) {
-        const quiz = this.data.currentQuiz;
-        const question = quiz.questions[quiz.currentIndex];
-        const isCorrect = answerIndex === question.correct;
-        
-        // Calculate translation percentage
-        const translationPercent = this.data.translationTracker.totalWords > 0
-            ? Math.min(100, Math.round((this.data.translationTracker.translatedWords.size / this.data.translationTracker.totalWords) * 100))
-            : 0;
-        
-        // Store answer
-        quiz.answers.push({
-            questionId: question.id,
-            section: question.section,
-            correct: isCorrect,
-            answerIndex: answerIndex,
-            translationPercent: translationPercent,
-            timestamp: Date.now()
-        });
-        
-        // Show result animation
+        // Update UI
         const buttons = document.querySelectorAll('.alternative-btn');
-        buttons.forEach((btn, index) => {
+        buttons.forEach((btn, i) => {
             btn.disabled = true;
-            if (index === question.correct) {
-                btn.classList.add('correct');
-                if (isCorrect && index === answerIndex) {
-                    btn.classList.add('border-glow');
-                }
-            } else if (index === answerIndex && !isCorrect) {
+            if (i === result.correctIndex) {
+                btn.classList.add('correct', 'border-glow');
+            } else if (i === index && !result.isCorrect) {
                 btn.classList.add('incorrect', 'shake');
             }
         });
         
-        // Auto-advance after delay
+        // Auto-advance
         setTimeout(() => {
-            if (quiz.currentIndex < quiz.questions.length - 1) {
-                quiz.currentIndex++;
-                this.showQuizQuestion();
+            if (!this.quiz.nextQuestion()) {
+                this.state.set('currentView', 'results');
             } else {
-                this.showQuizResults();
+                this.render();
             }
         }, 1500);
-    },
-
+    }
+    
     endQuiz() {
-        const quiz = this.data.currentQuiz;
-        if (quiz.answers.length === quiz.questions.length) {
-            this.showQuizResults();
-        } else {
-            if (confirm('Er du sikker på at du vil avslutte quizen?')) {
-                this.showMainPage();
-            }
-        }
-    },
-
-    reviewQuiz() {
-        document.getElementById('header').style.display = 'none';
-        this.showQuizQuestion(0);
-    },
-
-    // Show quiz question
-    showQuizQuestion(viewIndex = null) {
-        const quiz = this.data.currentQuiz;
-        const displayIndex = viewIndex !== null ? viewIndex : quiz.currentIndex;
-        const question = quiz.questions[displayIndex];
-        const sectionName = this.getSectionName(question.section);
-        const subsectionName = question.section.includes('.') ? this.getSubsectionName(question.section) : '';
-        const colors = this.getSectionColor(question.section);
-        
-        // Load translations for this question
-        this.loadQuestionTranslations(question);
-        
-        // Count total unique words for translation tracking
-        const allText = question.question + ' ' + question.alternatives.join(' ');
-        this.data.translationTracker.totalWords = this.countUniqueWords(allText);
-        
-        // If viewing history, preserve translated words
-        if (viewIndex === null) {
-            this.data.translationTracker.translatedWords = new Set();
-        }
-        
-        // Check if this question has been answered
-        const answer = quiz.answers[displayIndex];
-        const isAnswered = answer !== undefined;
-        const isReviewing = viewIndex !== null;
-        
-        const mainContent = document.getElementById('mainContent');
-        mainContent.className = 'flex-1 p-4 flex flex-col';
-        mainContent.innerHTML = `
-            <div class="flex-1 flex flex-col">
-                <div class="pb-6">
-                    <div class="flex ${subsectionName ? 'justify-between' : 'justify-center'} items-center gap-2 mb-10">
-                        <button onclick="app.showTopicModal('${question.section.split('.')[0]}')" 
-                                class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
-                            ${sectionName}
-                        </button>
-                        ${subsectionName ? `
-                            <button onclick="app.showTopicModal('${question.section}', true)" 
-                                    class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
-                                ${subsectionName}
-                            </button>
-                        ` : ''}
-                    </div>
-                </div>
-                
-                <div class="flex-1 flex flex-col justify-between">
-                    <div class="mb-8">
-                        <h2 class="text-xl font-medium text-center translatable px-4 mb-8" id="questionText" data-translation-key="question">
-                            ${question.question}
-                        </h2>
-                    </div>
-                    
-                    <div class="space-y-3 px-4 mb-6" id="alternatives">
-                        ${question.alternatives.map((alt, index) => {
-                            let classes = 'alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg transition-colors';
-                            
-                            if (isAnswered) {
-                                if (index === question.correct) {
-                                    classes += ' correct border-glow';
-                                } else if (answer && index === answer.answerIndex && !answer.correct) {
-                                    classes += ' incorrect shake';
-                                }
-                            }
-                            
-                            return `
-                                <button onclick="${!isAnswered && !isReviewing ? `app.answerQuestion(${index})` : ''}" 
-                                        class="${classes}"
-                                        data-translation-key="alt_${index}"
-                                        ${isAnswered || isReviewing ? 'disabled' : ''}>
-                                    ${alt}
-                                </button>
-                            `;
-                        }).join('')}
-                    </div>
-                    
-                    ${!isReviewing ? `
-                        <div class="text-center text-sm text-gray-500 dark:text-gray-400 mb-4">
-                            <span id="translationPercent">0</span>% oversatt
-                        </div>
-                    ` : ''}
-                </div>
-                
-                <div class="mt-auto space-y-3">
-                    ${!isReviewing ? `
-                        <div class="flex justify-between items-center">
-                            <div class="flex gap-2">
-                                <button onclick="app.navigateQuiz(-1)" 
-                                        class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                                        ${quiz.currentIndex === 0 ? 'disabled' : ''}>
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                                    </svg>
-                                </button>
-                                <button onclick="app.navigateQuiz(1)" 
-                                        class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                                        ${quiz.currentIndex === 0 ? 'disabled' : ''}>
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <span class="text-sm text-gray-500 dark:text-gray-400">
-                                ${quiz.currentIndex + 1} / ${quiz.questions.length}
-                            </span>
-                        </div>
-                    ` : ''}
-                    
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" 
-                            style="width: ${((displayIndex + 1) / quiz.questions.length) * 100}%"></div>
-                    </div>
-                    
-                    <button onclick="app.${isReviewing ? 'showQuizResults' : 'showMainPage'}()" 
-                            class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                        ${isReviewing ? 'Tilbake til resultater' : 'Avbryt quiz'}
-                    </button>
-                </div>
-            </div>
-        `;
-    },
-    
-    // Render star rating
-    renderStars(percentage) {
-        const stars = 5;
-        const filledStars = Math.floor((percentage / 100) * stars);
-        const hasHalfStar = ((percentage / 100) * stars) % 1 >= 0.5;
-        
-        let html = '';
-        for (let i = 0; i < stars; i++) {
-            if (i < filledStars) {
-                html += '<span class="star filled text-2xl">★</span>';
-            } else if (i === filledStars && hasHalfStar) {
-                html += '<span class="star half-filled text-2xl">★</span>';
-            } else {
-                html += '<span class="star text-2xl">★</span>';
-            }
-        }
-        
-        return html;
-    },
-    
-    // Update UI based on language change
-    updateUI() {
-        const currentView = document.querySelector('#mainContent').innerHTML;
-        if (currentView.includes('Start quiz')) {
-            this.showMainPage();
+        if (confirm('Er du sikker på at du vil avslutte quizen?')) {
+            this.state.set('currentView', 'main');
+            this.state.set('currentQuiz', null);
         }
     }
-};
+}
 
-// Initialize app when DOM is loaded
+// Initialize app
+const app = new App();
 document.addEventListener('DOMContentLoaded', () => {
     app.init();
 });
+
+// Make app globally accessible for onclick handlers
+window.app = app;
 </script>
 </body>
 </html>
