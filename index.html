@@ -264,7 +264,7 @@
     <div id="notificationContainer" class="fixed top-4 right-4 z-50"></div>
 
 <script>
-console.log("Version: 2.01");
+console.log("Version: 1.05");
 
 // Central State Management
 class StateManager {
@@ -508,12 +508,15 @@ class QuizManager {
         const question = quiz.questions[quiz.currentIndex];
         const isCorrect = answerIndex === question.correct;
         
+        // Get translation percentage from TranslationManager
+        const translationPercent = app.translation.getCurrentPercentage();
+        
         const answer = {
             questionId: question.id,
             section: question.section,
             correct: isCorrect,
             answerIndex: answerIndex,
-            translationPercent: this.calculateTranslationPercent(),
+            translationPercent: translationPercent,
             timestamp: Date.now()
         };
         
@@ -629,140 +632,273 @@ class QuizManager {
 }
 
 // Translation Manager
+// Translation Manager - Complete rewrite
 class TranslationManager {
     constructor(stateManager, dataManager) {
         this.state = stateManager;
         this.data = dataManager;
-        this.translations = {
-            pb: {
-                "alle": "todos",
-                "innvandrere": "imigrantes",
-                "norge": "noruega",
-                "har": "têm",
-                "plikt": "obrigação",
-                "til": "de",
-                "å": "a",
-                "ta": "fazer",
-                "norskopplæring": "curso de norueguês",
-                "rett": "certo",
-                "galt": "errado",
-                "barn": "crianças",
-                "gratis": "gratuita",
-                "utdanning": "educação",
-                "demokrati": "democracia",
-                "er": "é",
-                "et": "uma"
-            },
-            en: {
-                "alle": "all",
-                "innvandrere": "immigrants",
-                "norge": "norway",
-                "har": "have",
-                "plikt": "obligation",
-                "til": "to",
-                "å": "to",
-                "ta": "take",
-                "norskopplæring": "norwegian classes",
-                "rett": "right",
-                "galt": "wrong",
-                "barn": "children",
-                "gratis": "free",
-                "utdanning": "education",
-                "demokrati": "democracy",
-                "er": "is",
-                "et": "a"
-            }
-        };
+        this.currentQuestionWords = new Map(); // Maps element to word array
+        this.translatedTexts = {}; // Stores translations for current question
+        this.totalWords = 0;
+        this.uniqueWords = new Set();
+        this.translatedWords = new Set();
+        this.isTranslating = false;
+        this.pressTimer = null;
     }
     
     setupEventListeners() {
-        let pressTimer;
         const tooltip = document.getElementById('translationTooltip');
         
         const showTranslation = (element, x, y) => {
             if (!element || !element.classList.contains('translatable')) return;
             
-            const word = this.getWordAtPosition(element, x, y);
-            if (!word) return;
+            const wordInfo = this.getWordAtPosition(element, x, y);
+            if (!wordInfo) return;
             
-            const translation = this.translateWord(word.word);
+            const translation = this.getTranslationWithContext(element, wordInfo.index);
+            if (!translation) return;
             
+            // Track this word as translated
+            const wordKey = wordInfo.word.toLowerCase();
+            if (!this.translatedWords.has(wordKey)) {
+                this.translatedWords.add(wordKey);
+                this.updateTranslationPercentage();
+            }
+            
+            // Position and show tooltip
             tooltip.textContent = translation;
             tooltip.style.left = x + 'px';
             tooltip.style.top = y + 'px';
             tooltip.classList.remove('hidden');
             
-            // Track translated word
-            const translatedWords = this.state.get('translatedWords');
-            translatedWords.add(word.word.toLowerCase());
-            this.state.set('translatedWords', translatedWords);
+            this.isTranslating = true;
         };
         
         const hideTranslation = () => {
             tooltip.classList.add('hidden');
-            clearTimeout(pressTimer);
+            this.isTranslating = false;
+            if (this.pressTimer) {
+                clearTimeout(this.pressTimer);
+                this.pressTimer = null;
+            }
         };
         
-        // Touch events
+        // Touch events for mobile
         document.addEventListener('touchstart', (e) => {
             const target = e.target.closest('.translatable');
             if (target && !target.closest('.alternative-btn')) {
                 e.preventDefault();
-                pressTimer = setTimeout(() => {
+                
+                this.pressTimer = setTimeout(() => {
                     const touch = e.touches[0];
                     showTranslation(target, touch.clientX, touch.clientY);
                 }, 500);
             }
         });
         
+        document.addEventListener('touchmove', (e) => {
+            if (this.isTranslating) {
+                e.preventDefault();
+                const touch = e.touches[0];
+                const element = document.elementFromPoint(touch.clientX, touch.clientY);
+                const translatable = element?.closest('.translatable');
+                
+                if (translatable) {
+                    showTranslation(translatable, touch.clientX, touch.clientY);
+                } else {
+                    hideTranslation();
+                }
+            }
+        });
+        
         document.addEventListener('touchend', hideTranslation);
         document.addEventListener('touchcancel', hideTranslation);
         
-        // Mouse events
+        // Mouse events for desktop testing
         let mouseTimer;
-        document.addEventListener('mousemove', (e) => {
+        document.addEventListener('mousedown', (e) => {
             const target = e.target.closest('.translatable');
             if (target && !target.closest('.alternative-btn')) {
-                clearTimeout(mouseTimer);
                 mouseTimer = setTimeout(() => {
                     showTranslation(target, e.clientX, e.clientY);
                 }, 500);
-            } else {
-                clearTimeout(mouseTimer);
-                hideTranslation();
             }
+        });
+        
+        document.addEventListener('mousemove', (e) => {
+            if (this.isTranslating) {
+                const target = e.target.closest('.translatable');
+                if (target) {
+                    showTranslation(target, e.clientX, e.clientY);
+                } else {
+                    hideTranslation();
+                }
+            }
+        });
+        
+        document.addEventListener('mouseup', () => {
+            clearTimeout(mouseTimer);
+            hideTranslation();
         });
     }
     
-    getWordAtPosition(element, clientX, clientY) {
-        const range = document.caretRangeFromPoint(clientX, clientY);
+    // Initialize translation data for current question
+    initializeQuestion(questionNo, questionPbEn) {
+        this.currentQuestionWords.clear();
+        this.translatedTexts = {};
+        this.totalWords = 0;
+        this.uniqueWords.clear();
+        this.translatedWords.clear();
+        
+        // Store translations
+        if (questionPbEn) {
+            this.translatedTexts.question = questionPbEn.question;
+            questionPbEn.alternatives.forEach((alt, idx) => {
+                this.translatedTexts[`alt_${idx}`] = alt;
+            });
+        }
+        
+        // Process all translatable elements after DOM update
+        setTimeout(() => {
+            document.querySelectorAll('.translatable').forEach(element => {
+                const key = element.getAttribute('data-translation-key');
+                const words = this.parseWords(element.textContent);
+                this.currentQuestionWords.set(element, words);
+                
+                // Count unique words for percentage calculation
+                words.forEach(word => {
+                    const normalized = word.text.toLowerCase().replace(/[.,!?]/g, '');
+                    if (normalized.length > 1) { // Skip single letters
+                        this.uniqueWords.add(normalized);
+                    }
+                });
+            });
+            
+            this.totalWords = this.uniqueWords.size;
+            this.updateTranslationPercentage();
+        }, 100);
+    }
+    
+    // Parse text into words with positions
+    parseWords(text) {
+        const words = [];
+        const regex = /\S+/g;
+        let match;
+        
+        while ((match = regex.exec(text)) !== null) {
+            words.push({
+                text: match[0],
+                start: match.index,
+                end: match.index + match[0].length,
+                index: words.length
+            });
+        }
+        
+        return words;
+    }
+    
+    // Get word info at specific position
+    getWordAtPosition(element, x, y) {
+        const words = this.currentQuestionWords.get(element);
+        if (!words || words.length === 0) return null;
+        
+        // Create a range from the point
+        const range = document.caretRangeFromPoint(x, y);
         if (!range) return null;
         
         const textNode = range.startContainer;
         if (textNode.nodeType !== Node.TEXT_NODE) return null;
         
-        const text = textNode.textContent;
         const offset = range.startOffset;
+        const elementText = element.textContent;
         
-        let start = offset;
-        let end = offset;
+        // Find which word contains this offset
+        for (const word of words) {
+            if (offset >= word.start && offset <= word.end) {
+                return word;
+            }
+        }
         
-        while (start > 0 && /\S/.test(text[start - 1])) start--;
-        while (end < text.length && /\S/.test(text[end])) end++;
+        // If no exact match, find closest word
+        let closestWord = words[0];
+        let closestDistance = Math.abs(offset - closestWord.start);
         
-        if (start === end) return null;
+        for (const word of words) {
+            const distance = Math.min(
+                Math.abs(offset - word.start),
+                Math.abs(offset - word.end)
+            );
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestWord = word;
+            }
+        }
         
-        return {
-            word: text.substring(start, end),
-            start: start,
-            end: end
-        };
+        return closestWord;
     }
     
-    translateWord(word) {
-        const lang = this.state.get('currentLanguage');
-        const cleanWord = word.toLowerCase().replace(/[.,!?]/g, '');
-        return this.translations[lang]?.[cleanWord] || word;
+    // Get translation with context
+    getTranslationWithContext(element, wordIndex) {
+        const key = element.getAttribute('data-translation-key');
+        const translatedText = this.translatedTexts[key];
+        
+        if (!translatedText) return null;
+        
+        // Parse translated text into words
+        const translatedWords = this.parseWords(translatedText);
+        
+        if (wordIndex >= translatedWords.length) {
+            wordIndex = translatedWords.length - 1;
+        }
+        
+        // Get context: target word + 2 words on each side
+        const contextStart = Math.max(0, wordIndex - 2);
+        const contextEnd = Math.min(translatedWords.length - 1, wordIndex + 2);
+        
+        let contextWords = [];
+        for (let i = contextStart; i <= contextEnd; i++) {
+            if (i === wordIndex) {
+                // Highlight the target word
+                contextWords.push(`[${translatedWords[i].text}]`);
+            } else {
+                contextWords.push(translatedWords[i].text);
+            }
+        }
+        
+        // Add ellipsis if needed
+        if (contextStart > 0) contextWords.unshift('...');
+        if (contextEnd < translatedWords.length - 1) contextWords.push('...');
+        
+        return contextWords.join(' ');
+    }
+    
+    // Update translation percentage
+    updateTranslationPercentage() {
+        const percentEl = document.getElementById('translationPercent');
+        if (!percentEl || this.totalWords === 0) return;
+        
+        const percentage = Math.min(100, Math.round((this.translatedWords.size / this.totalWords) * 100));
+        percentEl.textContent = percentage;
+    }
+    
+    // Get current translation percentage
+    getCurrentPercentage() {
+        if (this.totalWords === 0) return 0;
+        return Math.min(100, Math.round((this.translatedWords.size / this.totalWords) * 100));
+    }
+    
+    // Reset for new question
+    reset() {
+        this.currentQuestionWords.clear();
+        this.translatedTexts = {};
+        this.totalWords = 0;
+        this.uniqueWords.clear();
+        this.translatedWords.clear();
+        this.isTranslating = false;
+        if (this.pressTimer) {
+            clearTimeout(this.pressTimer);
+            this.pressTimer = null;
+        }
     }
 }
 
@@ -949,16 +1085,21 @@ class App {
         const progress = this.quiz.getQuizProgress();
         const quiz = this.state.get('currentQuiz');
         
+        if (!question) {
+            this.state.set('currentView', 'main');
+            return;
+        }
+        
+        // Initialize translations for this question
+        const lang = this.state.get('currentLanguage');
+        const questionTranslated = this.data.questions[lang]?.find(q => q.id === question.id);
+        this.translation.initializeQuestion(question, questionTranslated);
+        
         // Check if the specific question at this index has been answered
         const hasAnswered = this.quiz.isQuestionAnswered(currentIndex);
         
         // Check if we're viewing the current question (not history)
         const isViewingCurrent = this.quiz.isViewingCurrentQuestion();
-        
-        if (!question) {
-            this.state.set('currentView', 'main');
-            return;
-        }
         
         const section = this.data.getDescription(question.section.split('.')[0]);
         const colors = this.ui.getSectionColor(question.section);
@@ -976,7 +1117,7 @@ class App {
                     </div>
                     
                     <div class="mb-8">
-                        <h2 class="text-xl font-medium text-center translatable px-4">
+                        <h2 class="text-xl font-medium text-center translatable px-4" data-translation-key="question">
                             ${question.question}
                         </h2>
                     </div>
@@ -999,7 +1140,8 @@ class App {
                             
                             return `
                                 <button onclick="${canClick ? `app.answerQuestion(${index})` : ''}" 
-                                        class="${classes}"
+                                        class="${classes} translatable"
+                                        data-translation-key="alt_${index}"
                                         ${!canClick ? 'disabled' : ''}>
                                     ${alt}
                                 </button>
@@ -1009,6 +1151,11 @@ class App {
                 </div>
                 
                 <div class="quiz-footer p-4 bg-gray-50 dark:bg-gray-800">
+                    <!-- Translation percentage -->
+                    <div class="text-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                        <span id="translationPercent">0</span>% oversatt
+                    </div>
+                    
                     <!-- Navigation buttons -->
                     <div class="flex justify-between items-center mb-3">
                         <div class="flex gap-2">
