@@ -543,8 +543,6 @@ class QuizManager {
 }
 
 // Translation Manager
-// Translation Manager - Character-based tracking with visual markers
-// Translation Manager - With marker in original text
 class TranslationManager {
     constructor(stateManager, dataManager) {
         this.state = stateManager;
@@ -558,17 +556,11 @@ class TranslationManager {
         this.pressTimer = null;
         this.currentElement = null;
         this.currentCharIndex = null;
-        this.textMarker = null;
         this.contextRadius = 15; // Characters to show on each side
     }
     
     setupEventListeners() {
         const tooltip = document.getElementById('translationTooltip');
-        
-        // Create text marker element
-        this.textMarker = document.createElement('span');
-        this.textMarker.className = 'translation-text-marker text-blue-600 dark:text-blue-400 font-bold mx-[1px]';
-        this.textMarker.innerHTML = '|';
         
         const updateTranslation = (element, x, y) => {
             if (!element || !element.classList.contains('translatable')) return;
@@ -576,11 +568,14 @@ class TranslationManager {
             const charInfo = this.getCharAtPosition(element, x, y);
             if (!charInfo) return;
             
-            // Update text marker position
-            this.updateTextMarker(element, charInfo.index);
-            
             // Check if we're at a different position
             if (element !== this.currentElement || charInfo.index !== this.currentCharIndex) {
+                // Remove previous highlighting
+                this.removeCharacterHighlight();
+                
+                // Highlight current character
+                this.highlightCharacter(element, charInfo.index);
+                
                 const translation = this.getTranslationWithContext(element, charInfo.index);
                 if (!translation) return;
                 
@@ -651,7 +646,7 @@ class TranslationManager {
         
         const hideTranslation = () => {
             tooltip.classList.add('hidden');
-            this.removeTextMarker();
+            this.removeCharacterHighlight();
             this.isTranslating = false;
             this.currentElement = null;
             this.currentCharIndex = null;
@@ -704,7 +699,7 @@ class TranslationManager {
                 } else {
                     // Hide tooltip if not over translatable element
                     tooltip.classList.add('hidden');
-                    this.removeTextMarker();
+                    this.removeCharacterHighlight();
                     if (this.currentElement) {
                         this.currentElement.classList.remove('translating');
                     }
@@ -765,7 +760,7 @@ class TranslationManager {
                 } else {
                     // Hide tooltip if not over translatable element
                     tooltip.classList.add('hidden');
-                    this.removeTextMarker();
+                    this.removeCharacterHighlight();
                     if (this.currentElement) {
                         this.currentElement.classList.remove('translating');
                     }
@@ -804,38 +799,42 @@ class TranslationManager {
         });
     }
     
-    // Update text marker position in original text
-    updateTextMarker(element, charIndex) {
-        // Remove existing marker
-        this.removeTextMarker();
-        
+    // Highlight a specific character by wrapping it in a span
+    highlightCharacter(element, charIndex) {
         const text = element.textContent;
         if (charIndex < 0 || charIndex >= text.length) return;
         
-        // Create text nodes and insert marker
-        const beforeText = text.substring(0, charIndex);
-        const afterText = text.substring(charIndex);
+        // Store original text if not already stored
+        if (!element.hasAttribute('data-original-text')) {
+            element.setAttribute('data-original-text', text);
+        }
         
-        // Clear element and rebuild with marker
-        element.textContent = '';
+        // Create new content with highlighted character
+        const beforeText = text.substring(0, charIndex);
+        const charText = text[charIndex];
+        const afterText = text.substring(charIndex + 1);
+        
+        element.innerHTML = '';
         
         if (beforeText) {
             element.appendChild(document.createTextNode(beforeText));
         }
         
-        element.appendChild(this.textMarker);
+        const charSpan = document.createElement('span');
+        charSpan.className = 'text-red-500 font-bold';
+        charSpan.textContent = charText;
+        element.appendChild(charSpan);
         
         if (afterText) {
             element.appendChild(document.createTextNode(afterText));
         }
     }
     
-    // Remove text marker and restore original text
-    removeTextMarker() {
-        if (this.textMarker.parentNode) {
-            const parent = this.textMarker.parentNode;
-            const text = parent.textContent.replace('|', '');
-            parent.textContent = text;
+    // Remove character highlighting and restore original text
+    removeCharacterHighlight() {
+        if (this.currentElement && this.currentElement.hasAttribute('data-original-text')) {
+            const originalText = this.currentElement.getAttribute('data-original-text');
+            this.currentElement.textContent = originalText;
         }
     }
     
@@ -930,7 +929,7 @@ class TranslationManager {
     // Get translation with context based on character position
     getTranslationWithContext(element, charIndex) {
         const key = element.getAttribute('data-translation-key');
-        const norwegianText = element.textContent.replace('|', ''); // Remove marker if present
+        const norwegianText = element.getAttribute('data-original-text') || element.textContent;
         const translatedText = this.translatedTexts[key];
         
         if (!translatedText) return null;
@@ -977,7 +976,7 @@ class TranslationManager {
     
     // Reset for new question
     reset() {
-        this.removeTextMarker();
+        this.removeCharacterHighlight();
         this.currentQuestionChars.clear();
         this.translatedTexts = {};
         this.totalChars = 0;
