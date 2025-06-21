@@ -60,6 +60,11 @@
             to { transform: translateY(0); }
         }
         
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25% { opacity: 0.3; }
+        }
+        
         /* Animation classes */
         .border-glow {
             animation: borderGlow 1s ease-in-out;
@@ -98,29 +103,15 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         
-        /* Translation hover marker */
-        .translation-hover-marker {
-            position: fixed;
-            width: 4px;
-            height: 4px;
-            background: #3b82f6;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 999;
-            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
-            animation: pulse 1s ease-in-out infinite;
-        }
-        
-        /* Highlighted word in translation */
-        .translation-highlight {
-            font-weight: 600;
+        /* Text marker in original text */
+        .translation-text-marker {
             color: #3b82f6;
-            text-decoration: underline;
-            text-decoration-style: dotted;
-            text-underline-offset: 2px;
+            font-weight: bold;
+            animation: blink 1s ease-in-out infinite;
+            margin: 0 1px;
         }
         
-        .dark .translation-highlight {
+        .dark .translation-text-marker {
             color: #60a5fa;
         }
         
@@ -661,6 +652,7 @@ class QuizManager {
 
 // Translation Manager
 // Translation Manager - Character-based tracking with visual markers
+// Translation Manager - With marker in original text
 class TranslationManager {
     constructor(stateManager, dataManager) {
         this.state = stateManager;
@@ -674,18 +666,17 @@ class TranslationManager {
         this.pressTimer = null;
         this.currentElement = null;
         this.currentCharIndex = null;
-        this.hoverMarker = null;
+        this.textMarker = null;
         this.contextRadius = 15; // Characters to show on each side
     }
     
     setupEventListeners() {
         const tooltip = document.getElementById('translationTooltip');
         
-        // Create hover marker element
-        this.hoverMarker = document.createElement('div');
-        this.hoverMarker.className = 'translation-hover-marker';
-        this.hoverMarker.style.display = 'none';
-        document.body.appendChild(this.hoverMarker);
+        // Create text marker element
+        this.textMarker = document.createElement('span');
+        this.textMarker.className = 'translation-text-marker';
+        this.textMarker.innerHTML = '|';
         
         const updateTranslation = (element, x, y) => {
             if (!element || !element.classList.contains('translatable')) return;
@@ -693,8 +684,8 @@ class TranslationManager {
             const charInfo = this.getCharAtPosition(element, x, y);
             if (!charInfo) return;
             
-            // Update hover marker position
-            this.updateHoverMarker(element, charInfo.index, x, y);
+            // Update text marker position
+            this.updateTextMarker(element, charInfo.index);
             
             // Check if we're at a different position
             if (element !== this.currentElement || charInfo.index !== this.currentCharIndex) {
@@ -716,7 +707,7 @@ class TranslationManager {
                 this.updateTranslationPercentage();
                 
                 // Update tooltip content
-                tooltip.innerHTML = translation;
+                tooltip.textContent = translation;
                 
                 // Position tooltip above the element
                 const rect = element.getBoundingClientRect();
@@ -757,7 +748,6 @@ class TranslationManager {
             if (!element || !element.classList.contains('translatable')) return;
             
             this.isTranslating = true;
-            this.hoverMarker.style.display = 'block';
             
             // Add haptic feedback if available
             if ('vibrate' in navigator) {
@@ -769,7 +759,7 @@ class TranslationManager {
         
         const hideTranslation = () => {
             tooltip.classList.add('hidden');
-            this.hoverMarker.style.display = 'none';
+            this.removeTextMarker();
             this.isTranslating = false;
             this.currentElement = null;
             this.currentCharIndex = null;
@@ -822,7 +812,7 @@ class TranslationManager {
                 } else {
                     // Hide tooltip if not over translatable element
                     tooltip.classList.add('hidden');
-                    this.hoverMarker.style.display = 'none';
+                    this.removeTextMarker();
                     if (this.currentElement) {
                         this.currentElement.classList.remove('translating');
                     }
@@ -883,7 +873,7 @@ class TranslationManager {
                 } else {
                     // Hide tooltip if not over translatable element
                     tooltip.classList.add('hidden');
-                    this.hoverMarker.style.display = 'none';
+                    this.removeTextMarker();
                     if (this.currentElement) {
                         this.currentElement.classList.remove('translating');
                     }
@@ -920,6 +910,41 @@ class TranslationManager {
                 e.preventDefault();
             }
         });
+    }
+    
+    // Update text marker position in original text
+    updateTextMarker(element, charIndex) {
+        // Remove existing marker
+        this.removeTextMarker();
+        
+        const text = element.textContent;
+        if (charIndex < 0 || charIndex >= text.length) return;
+        
+        // Create text nodes and insert marker
+        const beforeText = text.substring(0, charIndex);
+        const afterText = text.substring(charIndex);
+        
+        // Clear element and rebuild with marker
+        element.textContent = '';
+        
+        if (beforeText) {
+            element.appendChild(document.createTextNode(beforeText));
+        }
+        
+        element.appendChild(this.textMarker);
+        
+        if (afterText) {
+            element.appendChild(document.createTextNode(afterText));
+        }
+    }
+    
+    // Remove text marker and restore original text
+    removeTextMarker() {
+        if (this.textMarker.parentNode) {
+            const parent = this.textMarker.parentNode;
+            const text = parent.textContent.replace('|', '');
+            parent.textContent = text;
+        }
     }
     
     // Initialize translation data for current question
@@ -1010,20 +1035,10 @@ class TranslationManager {
         };
     }
     
-    // Update hover marker position
-    updateHoverMarker(element, charIndex, x, y) {
-        const text = element.textContent;
-        const char = text[charIndex];
-        
-        // Position marker at cursor location
-        this.hoverMarker.style.left = (x - 2) + 'px';
-        this.hoverMarker.style.top = (y - 2) + 'px';
-    }
-    
     // Get translation with context based on character position
     getTranslationWithContext(element, charIndex) {
         const key = element.getAttribute('data-translation-key');
-        const norwegianText = element.textContent;
+        const norwegianText = element.textContent.replace('|', ''); // Remove marker if present
         const translatedText = this.translatedTexts[key];
         
         if (!translatedText) return null;
@@ -1032,11 +1047,7 @@ class TranslationManager {
         const startIdx = Math.max(0, charIndex - this.contextRadius);
         const endIdx = Math.min(norwegianText.length, charIndex + this.contextRadius + 1);
         
-        // Get the Norwegian context
-        const norwegianContext = norwegianText.substring(startIdx, endIdx);
-        
         // For simple mapping, assume similar position in translated text
-        // This is a simplification - in production you'd want proper alignment
         const ratio = charIndex / norwegianText.length;
         const translatedCharIndex = Math.floor(ratio * translatedText.length);
         
@@ -1049,32 +1060,7 @@ class TranslationManager {
         if (transStartIdx > 0) translatedContext = '...' + translatedContext;
         if (transEndIdx < translatedText.length) translatedContext = translatedContext + '...';
         
-        // Highlight the center character/word
-        const centerStart = translatedCharIndex - transStartIdx;
-        const words = translatedContext.split(' ');
-        let charCount = 0;
-        let highlightedText = '';
-        
-        for (let i = 0; i < words.length; i++) {
-            const word = words[i];
-            const wordStart = charCount;
-            const wordEnd = charCount + word.length;
-            
-            if (centerStart >= wordStart && centerStart < wordEnd) {
-                highlightedText += `<span class="translation-highlight">${word}</span>`;
-            } else {
-                highlightedText += word;
-            }
-            
-            if (i < words.length - 1) {
-                highlightedText += ' ';
-                charCount += word.length + 1;
-            } else {
-                charCount += word.length;
-            }
-        }
-        
-        return highlightedText;
+        return translatedContext;
     }
     
     // Update translation percentage
@@ -1099,6 +1085,7 @@ class TranslationManager {
     
     // Reset for new question
     reset() {
+        this.removeTextMarker();
         this.currentQuestionChars.clear();
         this.translatedTexts = {};
         this.totalChars = 0;
@@ -1110,9 +1097,6 @@ class TranslationManager {
         if (this.pressTimer) {
             clearTimeout(this.pressTimer);
             this.pressTimer = null;
-        }
-        if (this.hoverMarker) {
-            this.hoverMarker.style.display = 'none';
         }
     }
 }
