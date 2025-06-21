@@ -557,6 +557,7 @@ class TranslationManager {
         this.currentElement = null;
         this.currentCharIndex = null;
         this.contextRadius = 15; // Characters to show on each side
+        this.charPositionsCache = new WeakMap(); // Cache character positions for performance
     }
     
     setupEventListeners() {
@@ -799,6 +800,105 @@ class TranslationManager {
         });
     }
     
+    // Get character positions for an element
+    getCharacterPositions(element) {
+        // Check cache first
+        if (this.charPositionsCache.has(element)) {
+            return this.charPositionsCache.get(element);
+        }
+        
+        const text = element.textContent;
+        const positions = [];
+        
+        // Temporarily wrap each character in a span to get exact positions
+        const originalHTML = element.innerHTML;
+        element.innerHTML = '';
+        
+        for (let i = 0; i < text.length; i++) {
+            const span = document.createElement('span');
+            span.textContent = text[i];
+            element.appendChild(span);
+        }
+        
+        // Get position of each character span
+        const spans = element.querySelectorAll('span');
+        spans.forEach((span, index) => {
+            const rect = span.getBoundingClientRect();
+            positions.push({
+                index: index,
+                left: rect.left,
+                right: rect.right,
+                top: rect.top,
+                bottom: rect.bottom,
+                centerX: rect.left + rect.width / 2,
+                centerY: rect.top + rect.height / 2
+            });
+        });
+        
+        // Restore original content
+        element.innerHTML = originalHTML;
+        
+        // Cache the positions
+        this.charPositionsCache.set(element, positions);
+        
+        // Clear cache after a short delay (in case of resize/reflow)
+        setTimeout(() => {
+            this.charPositionsCache.delete(element);
+        }, 1000);
+        
+        return positions;
+    }
+    
+    // Get character at specific position using exact character positions
+    getCharAtPosition(element, x, y) {
+        const text = this.currentQuestionChars.get(element);
+        if (!text || text.length === 0) return null;
+        
+        // Get exact character positions
+        const positions = this.getCharacterPositions(element);
+        
+        // Find the character closest to the touch point
+        let closestChar = null;
+        let minDistance = Infinity;
+        
+        positions.forEach(pos => {
+            // Calculate distance from touch point to character center
+            const distance = Math.sqrt(
+                Math.pow(x - pos.centerX, 2) + 
+                Math.pow(y - pos.centerY, 2)
+            );
+            
+            // Also check if the point is within the character's bounding box
+            const isWithinChar = x >= pos.left && x <= pos.right && 
+                               y >= pos.top && y <= pos.bottom;
+            
+            // Prefer characters that contain the point, otherwise use closest
+            if (isWithinChar) {
+                if (!closestChar || distance < minDistance) {
+                    minDistance = distance;
+                    closestChar = pos;
+                }
+            } else if (!closestChar || (!closestChar.isWithin && distance < minDistance)) {
+                minDistance = distance;
+                closestChar = pos;
+                closestChar.isWithin = false;
+            }
+        });
+        
+        if (closestChar) {
+            return {
+                index: closestChar.index,
+                char: text[closestChar.index] || ''
+            };
+        }
+        
+        // Fallback to first character if nothing found
+        return {
+            index: 0,
+            char: text[0] || ''
+        };
+    }
+    
     // Highlight a specific character by wrapping it in a span
     highlightCharacter(element, charIndex) {
         const text = element.textContent;
@@ -835,6 +935,8 @@ class TranslationManager {
         if (this.currentElement && this.currentElement.hasAttribute('data-original-text')) {
             const originalText = this.currentElement.getAttribute('data-original-text');
             this.currentElement.textContent = originalText;
+            // Clear position cache when content changes
+            this.charPositionsCache.delete(this.currentElement);
         }
     }
     
@@ -845,6 +947,7 @@ class TranslationManager {
         this.totalChars = 0;
         this.uniqueChars.clear();
         this.translatedChars.clear();
+        this.charPositionsCache = new WeakMap(); // Reset cache
         
         // Store translations
         if (questionPbEn) {
@@ -875,55 +978,6 @@ class TranslationManager {
             this.totalChars = this.uniqueChars.size;
             this.updateTranslationPercentage();
         }, 100);
-    }
-    
-    // Get character at specific position
-    getCharAtPosition(element, x, y) {
-        const text = this.currentQuestionChars.get(element);
-        if (!text || text.length === 0) return null;
-        
-        // Try to use the caret range API for accuracy
-        if (document.caretRangeFromPoint) {
-            const range = document.caretRangeFromPoint(x, y);
-            if (range && range.startContainer.nodeType === Node.TEXT_NODE) {
-                return {
-                    index: range.startOffset,
-                    char: text[range.startOffset] || ''
-                };
-            }
-        }
-        
-        // Fallback: estimate based on position
-        const rect = element.getBoundingClientRect();
-        const relativeX = x - rect.left;
-        
-        // For single-line text
-        if (rect.height < 60) {
-            const position = Math.max(0, Math.min(1, relativeX / rect.width));
-            const index = Math.floor(position * text.length);
-            return {
-                index: Math.max(0, Math.min(index, text.length - 1)),
-                char: text[index] || ''
-            };
-        }
-        
-        // For multi-line text - more complex estimation
-        const relativeY = y - rect.top;
-        const style = window.getComputedStyle(element);
-        const lineHeight = parseInt(style.lineHeight) || 24;
-        const fontSize = parseInt(style.fontSize) || 16;
-        const charWidth = fontSize * 0.6; // Rough estimate
-        
-        const line = Math.floor(relativeY / lineHeight);
-        const charsPerLine = Math.floor(rect.width / charWidth);
-        const lineStart = line * charsPerLine;
-        const charInLine = Math.floor(relativeX / charWidth);
-        const index = lineStart + charInLine;
-        
-        return {
-            index: Math.max(0, Math.min(index, text.length - 1)),
-            char: text[index] || ''
-        };
     }
     
     // Get translation with context based on character position
@@ -985,6 +1039,7 @@ class TranslationManager {
         this.isTranslating = false;
         this.currentElement = null;
         this.currentCharIndex = null;
+        this.charPositionsCache = new WeakMap();
         if (this.pressTimer) {
             clearTimeout(this.pressTimer);
             this.pressTimer = null;
