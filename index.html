@@ -539,7 +539,7 @@ class QuizManager {
             quiz.currentIndex++;
             this.state.update({
                 currentQuiz: quiz,
-                viewingIndex: null
+                viewingIndex: null  // Clear viewing index when moving to next question
             });
             return true;
         }
@@ -573,6 +573,25 @@ class QuizManager {
         const viewingIndex = this.state.get('viewingIndex');
         return viewingIndex !== null ? viewingIndex : quiz.currentIndex;
     }
+
+    // Add new method to QuizManager class
+    isQuestionAnswered(index) {
+        const quiz = this.state.get('currentQuiz');
+        if (!quiz) return false;
+        
+        // Check if there's an answer for this specific question index
+        return index < quiz.answers.length;
+    }
+
+    // Add new method to QuizManager class  
+    isViewingCurrentQuestion() {
+        const quiz = this.state.get('currentQuiz');
+        if (!quiz) return false;
+        
+        const viewingIndex = this.state.get('viewingIndex');
+        return viewingIndex === null || viewingIndex === quiz.currentIndex;
+    }
+
     
     getQuizProgress() {
         const quiz = this.state.get('currentQuiz');
@@ -929,8 +948,12 @@ class App {
         const currentIndex = this.quiz.getCurrentQuestionIndex();
         const progress = this.quiz.getQuizProgress();
         const quiz = this.state.get('currentQuiz');
-        const hasAnswered = currentIndex < quiz.answers.length;
-        const isViewing = this.state.get('viewingIndex') !== null;
+        
+        // Check if the specific question at this index has been answered
+        const hasAnswered = this.quiz.isQuestionAnswered(currentIndex);
+        
+        // Check if we're viewing the current question (not history)
+        const isViewingCurrent = this.quiz.isViewingCurrentQuestion();
         
         if (!question) {
             this.state.set('currentView', 'main');
@@ -971,7 +994,8 @@ class App {
                                 }
                             }
                             
-                            const canClick = !hasAnswered && !isViewing;
+                            // Can click if: it's the current question AND not answered AND we're viewing current
+                            const canClick = isViewingCurrent && !hasAnswered;
                             
                             return `
                                 <button onclick="${canClick ? `app.answerQuestion(${index})` : ''}" 
@@ -1159,8 +1183,10 @@ class App {
     endQuiz() {
         const quiz = this.state.get('currentQuiz');
         if (quiz && quiz.answers.length === quiz.questions.length) {
+            // Quiz is complete, show results
             this.state.set('currentView', 'results');
-        } else if (confirm('Er du sikker på at du vil avslutte quizen?')) {
+        } else {
+            // Quiz is incomplete, just exit without confirmation
             this.state.update({
                 currentView: 'main',
                 currentQuiz: null,
