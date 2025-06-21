@@ -1,0 +1,326 @@
+[
+    {
+      "id": "1",
+      "title": "Familie og helse",
+      "description": "Dette temaet gir en innføring i grunnleggende strukturer og verdier som preger det norske samfunnet, med fokus på individets rolle og ansvar. Innholdet dekker sentrale arenaer for deltakelse og personlig utvikling, som utdanning, arbeid og digital kompetanse. Målet er å gi nyankomne en forståelse av de systemene og forventningene som danner grunnlaget for et aktivt og integrert liv i Norge. Temaet belyser hvordan staten legger til rette for deltakelse, men også hvilket ansvar den enkelte har for å benytte seg av disse mulighetene.",
+      "learning_goals": [
+        "Forstå sammenhengen mellom utdanning, arbeid og samfunnsdeltakelse i Norge.",
+        "Gjøre rede for hovedprinsippene i det norske utdanningssystemet og arbeidslivet.",
+        "Reflektere over betydningen av digital dømmekraft som en kjernekompetanse i dagens samfunn."
+      ],
+      "key_concepts": [
+        "Samfunnsdeltakelse",
+        "Integrering",
+        "Like muligheter",
+        "Individuelt ansvar",
+        "Kompetanse"
+      ]
+    },
+    {
+      "id": "1.1",
+      "title": "Skole og utdanning",
+      "url": "https://samfunnskunnskap.no/nb/skole-og-utdanning.html",
+      "description": "Det norske utdanningssystemet presenteres som en fundamental pilar for sosial integrasjon og realisering av verdien om likhet. Systemet er bygget på prinsippet om gratis og lik rett til utdanning for alle, fra grunnskole til høyere utdanning. En sentral verdi er likeverd, understøttet av statlige ordninger som Lånekassen, som skal sikre at tilgang til utdanning er uavhengig av sosial og økonomisk bakgrunn. Det legges vekt på et forpliktende samarbeid mellom hjem og skole, samt prinsippet om livslang læring for å møte et samfunn i endring. Språkopplæring fremheves som den avgjørende nøkkelen til fullverdig deltakelse i samfunns- og arbeidsliv.",
+      "learning_goals": [
+        "Beskrive hovedtrekkene i det norske utdanningsløpet, fra grunnskole til høyere utdanning.",
+        "Forklare formålet med ordninger som Lånekassen og retten til voksenopplæring.",
+        "Gjøre rede for forventningene til foreldre i samarbeidet mellom hjem og skole.",
+        "Forstå betydningen av norskopplæring og anerkjenning av utenlandsk kompetanse (godkjenning og realkompetansevurdering)."
+      ],
+      "key_concepts": [
+        "Grunnskole",
+        "Videregående skole",
+        "Høyere utdanning",
+        "Like rettigheter",
+        "Lånekassen",
+        "Samarbeid hjem–skole",
+        "Livslang læring",
+        "Godkjenning",
+        "Realkompetansevurdering",
+        "Norskopplæring"
+      ]
+    },
+    {
+      "id": "1.2",
+      "title": "Arbeidsliv",
+      "url": "https://samfunnskunnskap.no/nb/arbeidsliv.html",
+      "description": "Det norske arbeidslivet er et høyt organisert system basert på et trepartssamarbeid mellom arbeidstakere, arbeidsgivere og myndighetene. Systemet er regulert av lover som Arbeidsmiljøloven, som sikrer arbeidstakeres rettigheter knyttet til arbeidstid, sikkerhet og ferie. En høy andel av arbeidstakere er medlem i en fagforening. Arbeidsdeltakelse er tett knyttet til finansieringen av velferdsstaten gjennom et progressivt skattesystem, hvor prinsippet er å bidra etter evne og motta etter behov. Svart arbeid anses ikke bare som ulovlig, men som et brudd på den sosiale kontrakten. Samtidig avsløres en spenning mellom det formelle systemet og den uformelle virkeligheten, der en stor andel jobber formidles via nettverk.",
+      "learning_goals": [
+        "Forklare hva trepartssamarbeidet innebærer og hvilken rolle fagforeninger har.",
+        "Gjøre rede for sentrale lover og regler i arbeidslivet, som Arbeidsmiljøloven.",
+        "Forstå sammenhengen mellom lønn, skatt og finansieringen av velferdsstaten.",
+        "Beskrive konsekvensene av svart arbeid, både juridisk og moralsk.",
+        "Reflektere over skillet mellom formelle og uformelle veier til arbeid i Norge."
+      ],
+      "key_concepts": [
+        "Trepartssamarbeid",
+        "Fagforening",
+        "Arbeidsmiljøloven",
+        "Velferdsstaten",
+        "Progressiv skatt",
+        "Svart arbeid",
+        "Nettverksbygging",
+        "Praksisplass"
+      ]
+    },
+    {
+      "id": "1.3",
+      "title": "Kritisk tenkning og digital dømmekraft",
+      "url": "https://samfunnskunnskap.no/nb/kritisk-tenkning-og-digital-dommekraft.html",
+      "description": "I et moderne samfunn er digital kompetanse en forutsetning for deltakelse i både utdanning, arbeidsliv og som samfunnsborger. Dette temaet omhandler utviklingen av kritisk tenkning og digital dømmekraft. Sentrale konsepter er etikk, personvern og kildekritikk. Kunnskap om disse områdene er essensielt for å navigere i et komplekst medielandskap, beskytte egen integritet på nett og vurdere informasjon på en selvstendig måte. Evnen til å skille mellom pålitelig og upålitelig informasjon, for eksempel ved bruk av faktasjekktjenester, er en kjerneferdighet.",
+      "learning_goals": [
+        "Definere begrepene etikk, personvern og kritisk tenkning i en digital kontekst.",
+        "Anvende kildekritiske prinsipper for å vurdere informasjon på internett og i sosiale medier.",
+        "Forstå viktigheten av personvern og hvordan man kan beskytte egne data.",
+        "Identifisere verktøy og metoder for å verifisere informasjon."
+      ],
+      "key_concepts": [
+        "Etikk",
+        "Personvern",
+        "Kritisk tenkning",
+        "Digital dømmekraft",
+        "Kildekritikk",
+        "Faktasjekk",
+        "Desinformasjon"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Demokrati og velferdsstat",
+      "description": "Dette temaet utforsker hvordan det norske samfunnet er organisert, med et særskilt fokus på samspillet mellom individ, familie og stat. Det belyser normer og verdier som styrer dagliglivet, fra familierelasjoner til personlig økonomi og helse. En sentral del er forståelsen av velferdsstatens rolle som et sikkerhetsnett, men også som en beskytter av individets grunnleggende rettigheter til et fritt og selvstendig liv. Temaet tar for seg hvordan man som ny i Norge kan navigere i dette systemet og forstå balansen mellom rettigheter og plikter.",
+      "learning_goals": [
+        "Forstå de sentrale prinsippene for den norske velferdsstaten.",
+        "Gjøre rede for hvordan staten og individet samhandler på områder som helse, familie og økonomi.",
+        "Reflektere over norske sosiale normer knyttet til familieliv og fritid.",
+        "Kjenne til de lovfestede rettighetene som beskytter individets frihet og autonomi."
+      ],
+      "key_concepts": [
+        "Velferdsstat",
+        "Sosial kontrakt",
+        "Individuell autonomi",
+        "Rettigheter og plikter",
+        "Sosiale normer"
+      ]
+    },
+    {
+      "id": "2.1",
+      "title": "Ny i Norge",
+      "url": "https://samfunnskunnskap.no/nb/ny-i-norge.html",
+      "description": "Dette kapittelet anerkjenner de varierte årsakene til innvandring og de emosjonelle utfordringene ved å etablere seg i et nytt land. Det gir en demografisk kontekst som viser at innvandrere og deres etterkommere utgjør en betydelig og integrert del av befolkningen (ca. 18 %). Ved å trekke linjer til Norges egen historie som et fattig land med stor utvandring, søker materialet å normalisere erfaringen med migrasjon og skape en felles referanseramme. Målet er å rammesette den nyankomnes situasjon som en del av en større, felles norsk fortelling.",
+      "learning_goals": [
+        "Reflektere over ulike årsaker til migrasjon og prosessen med å etablere seg i et nytt land.",
+        "Kjenne til den demografiske sammensetningen i Norge med hensyn til innvandring.",
+        "Forstå hvordan Norges historie med fattigdom og utvandring kan gi perspektiv på dagens innvandring."
+      ],
+      "key_concepts": [
+        "Migrasjon",
+        "Integrering",
+        "Demografi",
+        "Innvandrerbefolkning",
+        "Kulturmøte"
+      ]
+    },
+    {
+      "id": "2.2",
+      "title": "Familieliv",
+      "url": "https://samfunnskunnskap.no/nb/familieliv.html",
+      "description": "Familiebegrepet i Norge defineres på en inkluderende måte som omfatter ulike familieformer, slik som kjernefamilien, enslige forsørgere og likekjønnede par med barn. Kapittelet anerkjenner at migrasjon kan medføre påkjenninger for familiedynamikken, ettersom familiemedlemmer kan tilpasse seg i ulikt tempo. Det understrekes at åpen kommunikasjon og gjensidig støtte er avgjørende for å håndtere disse utfordringene. Formålet er å gi nyankomne en rask innføring i den juridiske og sosiale aksepten for et mangfold av familiestrukturer.",
+      "learning_goals": [
+        "Beskrive og anerkjenne mangfoldet av familieformer som er akseptert i Norge.",
+        "Forstå hvordan migrasjon kan påvirke familierelasjoner.",
+        "Reflektere over viktigheten av kommunikasjon for å bevare gode familierelasjoner under og etter en migrasjonsprosess."
+      ],
+      "key_concepts": [
+        "Familieformer",
+        "Kjernefamilie",
+        "Likekjønnet ekteskap",
+        "Familiedynamikk",
+        "Kommunikasjon"
+      ]
+    },
+    {
+      "id": "2.3",
+      "title": "Fritid",
+      "url": "https://samfunnskunnskap.no/nb/fritid.html",
+      "description": "Fritid defineres som en distinkt kulturell kategori – den tiden man selv disponerer utenfor forpliktelser som arbeid, spising og søvn. Kapittelet anerkjenner at dette konseptet kan være nytt for noen, og utforsker gråsoner, som for eksempel grensen mellom arbeid og husarbeid. Det reises også spørsmål ved en rettferdig fordeling av fritid mellom kjønnene. Formålet er å introdusere fritid som en viktig del av livskvaliteten i Norge og oppmuntre til refleksjon rundt egen tidsbruk.",
+      "learning_goals": [
+        "Definere begrepet 'fritid' i en norsk kontekst.",
+        "Reflektere over hvordan fritid fordeles og verdsettes i eget liv.",
+        "Diskutere mulige forskjeller i tilgang på fritid mellom ulike grupper, for eksempel mellom menn og kvinner."
+      ],
+      "key_concepts": [
+        "Fritid",
+        "Arbeid-fritid-balanse",
+        "Livskvalitet",
+        "Tidsbruk",
+        "Rekreasjon"
+      ]
+    },
+    {
+      "id": "2.4",
+      "title": "Helse",
+      "url": "https://samfunnskunnskap.no/nb/helse.html",
+      "description": "Helseforståelsen i Norge presenteres som noe mer enn bare fravær av sykdom; det omfatter en helhetlig opplevelse av velvære. En sentral verdi er pasientens autonomi. Det beskrives et skifte fra en tradisjonell, paternalistisk legemodell til en modell basert på delt ansvar og dialog. Pasienten forventes å være en informert og aktiv deltaker i beslutninger som angår egen helse. Dette speiler de overordnede samfunnsverdiene om individuelt ansvar, selvbestemmelse og informert samtykke.",
+      "learning_goals": [
+        "Forklare den helhetlige forståelsen av helsebegrepet i Norge.",
+        "Beskrive den moderne pasientrollen som en aktiv og informert deltaker.",
+        "Forstå prinsippet om delt ansvar mellom lege og pasient.",
+        "Gjenkjenne sammenhengen mellom helsesyn og generelle samfunnsverdier som autonomi."
+      ],
+      "key_concepts": [
+        "Helhetlig helse",
+        "Pasientautonomi",
+        "Informert samtykke",
+        "Delt ansvar",
+        "Lege-pasient-forhold"
+      ]
+    },
+    {
+      "id": "2.5",
+      "title": "Personlig økonomi",
+      "url": "https://samfunnskunnskap.no/nb/personlig-okonomi.html",
+      "description": "Dette kapittelet dekker praktiske ferdigheter som budsjettering, men har også et bredere, kulturorientert perspektiv. Det oppfordrer til refleksjon over kulturelle forskjeller i holdninger til forbruk, rikdom og fattigdom. Ved å sammenligne norske økonomiske vaner med de fra eget hjemland, oppmuntres det til en dypere og mer nyansert forståelse av økonomisk adferd. Målet er å bevege seg utover ren finansforvaltning og over til kulturell kompetanse på det økonomiske feltet.",
+      "learning_goals": [
+        "Sette opp et enkelt personlig budsjett.",
+        "Forstå og bruke sentrale begreper knyttet til personlig økonomi.",
+        "Reflektere over og sammenligne kulturelle holdninger til penger, forbruk og sparing.",
+        "Identifisere ressurser for økonomisk rådgivning."
+      ],
+      "key_concepts": [
+        "Budsjett",
+        "Forbruk",
+        "Sparing",
+        "Inntekt",
+        "Utgifter",
+        "Kulturelle holdninger"
+      ]
+    },
+    {
+      "id": "2.6",
+      "title": "Retten til et fritt og selvstendig liv",
+      "url": "https://samfunnskunnskap.no/nb/retten-til-et-fritt-og-selvstendig-liv.html",
+      "description": "Personlig frihet og retten til å ta egne livsvalg er en grunnleggende og lovbeskyttet verdi i det norske samfunnet. Dette kapittelet understreker alvoret i denne rettigheten ved å direkte konfrontere de mest alvorlige bruddene på den, slik som vold i nære relasjoner, negativ sosial kontroll, tvangsekteskap og kjønnslemlestelse. Disse handlingene defineres utvetydig som ulovlige og uakseptable. Staten og dens lovverk posisjoneres som den ultimate garantisten for individuell frihet, selv når denne trues av individets egen familie eller nærmiljø. Dette definerer et beskyttende forhold mellom stat og individ som kan overstyre tradisjonell eller kulturell autoritet.",
+      "learning_goals": [
+        "Definere retten til et fritt og selvstendig liv som en fundamental norsk verdi.",
+        "Identifisere handlinger som er ulovlige og representerer brudd på denne retten, som tvangsekteskap og vold.",
+        "Skille mellom akseptabel sosial påvirkning, uakseptabelt press og ulovlig tvang.",
+        "Forstå at staten og norsk lov beskytter individets rettigheter, også overfor familie og sosialt miljø."
+      ],
+      "key_concepts": [
+        "Personlig frihet",
+        "Selvbestemmelse",
+        "Vold i nære relasjoner",
+        "Negativ sosial kontroll",
+        "Tvangsekteskap",
+        "Kjønnslemlestelse",
+        "Lovbeskyttelse"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Historie, geografi og levesett",
+      "description": "Dette temaet tar for seg de grunnleggende pilarene i norsk nasjonal identitet: en felles historie, et demokratisk styresett og et dypt forhold til naturen. Kapitlene viser hvordan disse elementene er vevd sammen og til sammen former det moderne Norge. Fra geografiske og politiske fakta, via historiske linjer og demokratiske prinsipper, til det komplekse forholdet mellom naturressurser og bærekraft, gir temaet en helhetlig forståelse av hva som definerer nasjonen i dag.",
+      "learning_goals": [
+        "Gjøre rede for sentrale fakta om Norges geografi, styreform og befolkning.",
+        "Forstå hvordan historien har formet dagens norske samfunn og dets verdier.",
+        "Beskrive hovedprinsippene i det norske demokratiet.",
+        "Analysere forholdet mellom Norges velstand fra naturressurser og behovet for en bærekraftig utvikling."
+      ],
+      "key_concepts": [
+        "Nasjonal identitet",
+        "Konstitusjonelt monarki",
+        "Demokrati",
+        "Bærekraft",
+        "Velferdsstat",
+        "Likestilling"
+      ]
+    },
+    {
+      "id": "3.1",
+      "title": "Dette er Norge",
+      "url": "https://samfunnskunnskap.no/nb/dette-er-norge.html",
+      "description": "Dette kapittelet introduserer grunnleggende fakta om Norge, inkludert geografi, befolkningstall (5,5 millioner), styreform (konstitusjonelt monarki) og språk. Det fremhever verdiene likestilling og likeverd som hjørnesteiner i samfunnet, og sporer den historiske kampen for kvinners rettigheter og dagens vern mot diskriminering. Videre beskrives Norges religiøse landskap som sekulært, preget av en kristen og humanistisk kulturarv, men hvor religionsfrihet – inkludert frihet fra religion – er et sentralt prinsipp. Statens nøytrale holdning vises gjennom likeverdig økonomisk støtte til alle godkjente tros- og livssynssamfunn.",
+      "learning_goals": [
+        "Gjengi nøkkelfakta om Norges geografi, befolkning og styreform.",
+        "Forklare betydningen av verdiene likestilling og likeverd i det norske samfunnet.",
+        "Beskrive prinsippet om religionsfrihet og statens rolle overfor tros- og livssynssamfunn.",
+        "Forstå det juridiske vernet mot diskriminering."
+      ],
+      "key_concepts": [
+        "Konstitusjonelt monarki",
+        "Likestilling",
+        "Likeverd",
+        "Diskrimineringsvern",
+        "Religionsfrihet",
+        "Livssyn",
+        "Humanisme",
+        "Sekulær stat"
+      ]
+    },
+    {
+      "id": "3.2",
+      "title": "Historie",
+      "url": "https://samfunnskunnskap.no/nb/historie.html",
+      "description": "Norgeshistorien presenteres som en fortelling om fremgang som forklarer fremveksten av det moderne Norge. Fremstillingen er en lineær reise fra de første bosetterne og vikingtiden, via unionstider og verdenskriger, frem til dagens flerkulturelle og demokratiske velferdsstat. Historiefaget brukes her som et verktøy for å legitimere og forklare nåtidens verdier og institusjoner. Fortellingen underbygger en forståelse av hvordan historiske hendelser har formet den nasjonen Norge er i dag.",
+      "learning_goals": [
+        "Beskrive hovedtrekkene i Norges historiske utvikling fra vikingtid til i dag.",
+        "Forklare hvordan sentrale historiske hendelser, som unionsoppløsninger og verdenskrigene, har påvirket Norge.",
+        "Forstå hvordan historien brukes til å forklare fremveksten av den moderne velferdsstaten og dens verdier."
+      ],
+      "key_concepts": [
+        "Vikingtiden",
+        "Unionstid",
+        "Andre verdenskrig",
+        "Velferdsstatens fremvekst",
+        "Flerkulturelt samfunn",
+        "Historisk narrativ"
+      ]
+    },
+    {
+      "id": "3.3",
+      "title": "Menneskerettigheter og demokrati",
+      "url": "https://samfunnskunnskap.no/nb/menneskerettigheter-og-demokrati.html",
+      "description": "Dette kapittelet beskriver den politiske arkitekturen i Norge. Det starter med universelle menneskerettigheter, slik de er forankret i norsk lov, og det demokratiske prinsippet om balansen mellom rettigheter og plikter. Styresettet er basert på maktfordelingsprinsippet, der makten er delt mellom en lovgivende (Stortinget), en utøvende (Regjeringen) og en dømmende (Domstolene) makt. Videre forklares de tre forvaltningsnivåene – stat, fylke og kommune – og deres ansvarsområder. Retten til å stemme ved valg fremheves som borgernes fremste verktøy for å påvirke landets styre.",
+      "learning_goals": [
+        "Gjøre rede for maktfordelingsprinsippet og de tre statsmaktene.",
+        "Beskrive de tre forvaltningsnivåene (stat, fylke, kommune) og gi eksempler på deres ansvarsområder.",
+        "Forklare kravene for stemmerett ved kommune- og stortingsvalg.",
+        "Forstå balansen mellom rettigheter og plikter i et demokrati."
+      ],
+      "key_concepts": [
+        "Menneskerettigheter",
+        "Demokrati",
+        "Maktfordelingsprinsippet",
+        "Stortinget",
+        "Regjeringen",
+        "Domstolene",
+        "Forvaltningsnivåer (stat, fylke, kommune)",
+        "Stemmerett",
+        "Politiske partier"
+      ]
+    },
+    {
+      "id": "3.4",
+      "title": "Bærekraft",
+      "url": "https://samfunnskunnskap.no/nb/baerekraft.html",
+      "description": "Dette kapittelet utforsker det komplekse forholdet Norge har til sitt naturmiljø. Norges velstand knyttes direkte til naturressurser, spesielt olje og gass, men også fisk og skog. Den unike allemannsretten, som gir fri tilgang til utmark, presenteres side om side med en streng plikt til å ta vare på naturen. Temaet belyser den sentrale spenningen i dagens Norge: velferdsstaten er i stor grad finansiert av inntekter fra fossile brensler, samtidig som landet har forpliktet seg til en bærekraftig utvikling og 'det grønne skiftet' for å bekjempe klimaendringer. Kapittelet fokuserer på individets ansvar gjennom kildesortering, gjenbruk og miljøvennlige valg, men anerkjenner den underliggende strukturelle motsetningen.",
+      "learning_goals": [
+        "Forklare sammenhengen mellom Norges naturressurser, spesielt olje, og landets økonomiske velstand.",
+        "Beskrive innholdet i allemannsretten og den tilhørende plikten til å verne om naturen.",
+        "Forstå begrepet bærekraftig utvikling og dets betydning i en norsk og global kontekst.",
+        "Identifisere praktiske handlinger enkeltpersoner kan gjøre for miljøvern (f.eks. kildesortering, gjenbruk).",
+        "Reflektere over spenningen mellom Norges rolle som oljenasjon og ambisjonene om et grønt skifte."
+      ],
+      "key_concepts": [
+        "Bærekraftig utvikling",
+        "Naturressurser",
+        "Allemannsretten",
+        "Det grønne skiftet",
+        "Klimaendringer",
+        "Natur- og miljøvern",
+        "Gjenbruk",
+        "Gjenvinning",
+        "Kildesortering"
+      ]
+    }
+  ]

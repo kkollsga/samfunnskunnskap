@@ -1,0 +1,5161 @@
+[
+    {
+      "id": "1_1",
+      "question": "Alle innvandrere i Norge har plikt til å ta norskopplæring.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "1_2",
+      "question": "Det er oppholdstillatelsen som bestemmer om en innvandrer får gratis norskopplæring eller ikke.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "1_3",
+      "question": "De som selv må betale for norskopplæring, må ta minimum 600 timer.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "1_4",
+      "question": "Nordiske borgere har ikke plikt til å gå på norskkurs.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "1_5",
+      "question": "Alle må slutte på norskkurs etter 600 timer.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "1_6",
+      "question": "Må en statsborger fra et EØS-land søke om oppholdstillatelse i Norge?",
+      "alternatives": [
+        "Ja",
+        "Nei"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "1_7",
+      "question": "Får alle som har familie i Norge oppholdstillatelse automatisk?",
+      "alternatives": [
+        "Ja",
+        "Nei"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "1_8",
+      "question": "Har alle utlendinger i Norge samme oppholdsgrunnlag?",
+      "alternatives": [
+        "Ja",
+        "Nei"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "1_9",
+      "question": "Er det mulig å få oppholdstillatelse i Norge på bakgrunn av sterke menneskelige hensyn?",
+      "alternatives": [
+        "Ja",
+        "Nei"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "1_10",
+      "question": "Er det mulig å søke asyl i Norge?",
+      "alternatives": [
+        "Ja",
+        "Nei"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "1_11",
+      "question": "Kommer alle flyktninger til Norge gjennom FN-systemet?",
+      "alternatives": [
+        "Ja",
+        "Nei"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "1_12",
+      "question": "Når fikk Norge sin egen grunnlov?",
+      "alternatives": [
+        "1814",
+        "1350",
+        "1905"
+      ],
+      "correct": 0,
+      "section": "3.2"
+    },
+    {
+      "id": "1_13",
+      "question": "Når ble Norge en oljenasjon?",
+      "alternatives": [
+        "1940",
+        "1905",
+        "1969"
+      ],
+      "correct": 2,
+      "section": "3.2"
+    },
+    {
+      "id": "1_14",
+      "question": "Omtrent når var vikingtiden?",
+      "alternatives": [
+        "1350-1814",
+        "800-1050",
+        "1940-1945"
+      ],
+      "correct": 1,
+      "section": "3.2"
+    },
+    {
+      "id": "1_15",
+      "question": "Når var Norge i union med Danmark?",
+      "alternatives": [
+        "1905-1940",
+        "1350-1814",
+        "1814-1905"
+      ],
+      "correct": 1,
+      "section": "3.2"
+    },
+    {
+      "id": "2_16",
+      "question": "Når var Norge okkupert av Tyskland?",
+      "alternatives": [
+        "1905-1910",
+        "1840-1845",
+        "1940-1945"
+      ],
+      "correct": 2,
+      "section": "3.2"
+    },
+    {
+      "id": "2_17",
+      "question": "Når var nasjonalromantikken?",
+      "alternatives": [
+        "På 1000-tallet",
+        "På 1800-tallet",
+        "På 1500-tallet"
+      ],
+      "correct": 1,
+      "section": "3.2"
+    },
+    {
+      "id": "2_18",
+      "question": "Når ble Norges union med Sverige oppløst?",
+      "alternatives": [
+        "1969",
+        "1905",
+        "1945"
+      ],
+      "correct": 1,
+      "section": "3.2"
+    },
+    {
+      "id": "2_19",
+      "question": "Norge har en statskirke.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "2_20",
+      "question": "Den norske kirken er romersk-katolsk.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "2_21",
+      "question": "Det er religionsfrihet i Norge.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "2_22",
+      "question": "Alle som bor i Norge, er medlem av et trossamfunn.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "2_23",
+      "question": "Det er flere buddhister enn muslimer i Norge.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "2_24",
+      "question": "Staten finansierer flere trossamfunn.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "2_25",
+      "question": "Hvem skal ha fødselsmelding når et barn blir født?",
+      "alternatives": [
+        "Jordmoren",
+        "Folkeregisteret",
+        "Foreldrene"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "2_26",
+      "question": "Hvem har som regel Hovedansvaret for et barn og barnets oppdragelse?",
+      "alternatives": [
+        "Skolen",
+        "Barnehagen",
+        "Foreldrene"
+      ],
+      "correct": 2,
+      "section": "2.2"
+    },
+    {
+      "id": "2_27",
+      "question": "Hva er myndighetsalderen i Norge?",
+      "alternatives": [
+        "15 år",
+        "18 år",
+        "20 år"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "2_28",
+      "question": "Hva sier barneloven om bruk av vold i oppdragelsen?",
+      "alternatives": [
+        "Det er tillatt",
+        "Det er forbudt",
+        "Ingenting"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "2_29",
+      "question": "Hvor gammel må man være for å avgjøre spørsmål om egen utdanning?",
+      "alternatives": [
+        "15 år",
+        "18 år",
+        "20 år"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "3_30",
+      "question": "Alle som er over 16 år, som ikke er gift fra før og som har lovlig opphold i Norge kan inngå ekteskap her.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "3_31",
+      "question": "Kvinner og menn har samme rett til fritt å velge ektefelle selv.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "3_32",
+      "question": "Den som presser noen til å gifte seg kan få fengselsstraff.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "3_33",
+      "question": "Et ektepar som ønsker å skille seg må være separert i minimum to år før de kan få skilsmisse.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "3_34",
+      "question": "Kvinner og menn har samme rett til å ta ut separasjon og be om skilsmisse.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "3_35",
+      "question": "Ektefeller har et felles ansvar for å forsørge og ta seg av familien.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "3_36",
+      "question": "En mann kan bestemme selv om kona skal få vite hvor mye han tjener.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.5"
+    },
+    {
+      "id": "3_37",
+      "question": "Hva er egenandel?",
+      "alternatives": [
+        "Resept på medisiner til behandling av kroniske sykdommer.",
+        "Den summen du må betale når du har vært hos legen.",
+        "Et bevis på at du skal ha gratis helsetjenester resten av året."
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "3_38",
+      "question": "Hva er blå resept?",
+      "alternatives": [
+        "Den summen du må betale når du har vært hos legen.",
+        "Et bevis på at du skal ha gratis helsetjenester resten av året.",
+        "Resept på medisiner til behandling av kroniske sykdommer."
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "3_39",
+      "question": "Hva er frikort?",
+      "alternatives": [
+        "Den summen du må betale når du har vært hos legen.",
+        "Resept på medisiner til behandling av kroniske sykdommer.",
+        "Et bevis på at du skal ha gratis helsetjenester resten av året."
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "3_40",
+      "question": "Alle barn får tilbud om kontroll på helsestasjonen.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "4_41",
+      "question": "Foreldrene må betale en egenandel på helsestasjonen.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "4_42",
+      "question": "Det er slutt på helsekontrollene når barnet begynner på skolen.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "4_43",
+      "question": "Du kan selv velge hvilken lege du vil ha som din egen fastlege.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "4_44",
+      "question": "Ingen legemidler selges uten resept.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "4_45",
+      "question": "Medisiner på blå resept er ekstra dyre for pasienten.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "4_46",
+      "question": "Alle norske statsborgere har rett til gratis tannlege.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "4_47",
+      "question": "Hvis du blir lagt inn på sykehus i Norge, betaler du ikke egenandel.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "4_48",
+      "question": "Poliklinisk behandling betyr at du får behandling ved et sykehus, men at du ikke er innlagt på sykehuset.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "4_49",
+      "question": "Du må betale en høyere egenandel hos legespesialist hvis du ikke har henvisning fra legen din.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "4_50",
+      "question": "Det er gratis å få behandling på legevakten.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "4_51",
+      "question": "Svangerskapskontroller er gratis.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "4_52",
+      "question": "Barnehage er obligatorisk for alle barn.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "4_53",
+      "question": "Under halvparten av alle barn går i barnehage.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "4_54",
+      "question": "Ca 88,5% av barn mellom 1 og 5 år går i barnehage.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "4_55",
+      "question": "Foreldrene betaler alt det koster å ha barn i barnehagen.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "4_56",
+      "question": "Det er kommunen som betaler mye av utgiftene til barnehager.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "5_57",
+      "question": "Ingen betaler mer enn 2405 kroner i måneden for en barnehageplass.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "5_58",
+      "question": "Er videregående skole obligatorisk?",
+      "alternatives": [
+        "Ja",
+        "Nei"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "5_59",
+      "question": "Tar de fleste ungdommene videre utdanning etter grunnskolen?",
+      "alternatives": [
+        "Ja",
+        "Nei"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "5_60",
+      "question": "Må elevene i videregående skole kjøpe skolebøkene?",
+      "alternatives": [
+        "Ja",
+        "Nei"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "5_61",
+      "question": "Når ble det innført obligatorisk skolegang for alle barn i Norge?",
+      "alternatives": [
+        "På 1900-tallet",
+        "På 1700-tallet",
+        "På 1500-tallet"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "5_62",
+      "question": "Hvor mange år er det obligatorisk å gå på skole i dag?",
+      "alternatives": [
+        "10",
+        "13",
+        "7"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "5_63",
+      "question": "Hva var de viktigste næringene i Norge på 1800 tallet?",
+      "alternatives": [
+        "Jordbruk, skogbruk og fiske",
+        "Industri og service",
+        "Handel og industri"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "5_64",
+      "question": "Hva var den viktigste næringen i Norge rundt år 1900?",
+      "alternatives": [
+        "Industri",
+        "Olje",
+        "Handel"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "5_65",
+      "question": "Hva jobber de fleste med i Norge i dag?",
+      "alternatives": [
+        "Handel og service",
+        "Olje",
+        "Jordbruk, skogbruk og fiske"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "5_66",
+      "question": "Alle arbeidstakere i Norge har rett til arbeidskontrakt.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "5_67",
+      "question": "En normal arbeidsuke er 25 timer.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "5_68",
+      "question": "Arbeidstakere i Norge har rett til minimum sju uker ferie i løpet av et år.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "5_69",
+      "question": "Arbeidstakere i Norge har rett til å være borte fra jobben med full lønn ved egen eller barns sykdom.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "5_70",
+      "question": "Arbeidstakere som får barn, har rett til permisjon med lønn.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "6_71",
+      "question": "Arbeidstakere har ikke rett til lønn under opplæring.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "6_72",
+      "question": "Hvor bestiller du skattekort?",
+      "alternatives": [
+        "Hos arbeidsgiver",
+        "Hos skatteetaten",
+        "Hos NAV"
+      ],
+      "correct": 1,
+      "section": "2.5"
+    },
+    {
+      "id": "6_73",
+      "question": "Hva kalles lønnen du får før skatt, pensjonsinnbetaling og annet er trukket fra?",
+      "alternatives": [
+        "Nettolønn",
+        "Bruttolønn",
+        "Lønnsslipp"
+      ],
+      "correct": 1,
+      "section": "2.5"
+    },
+    {
+      "id": "6_74",
+      "question": "Hva kalles lønnen du får etter at skatt, pensjonsinnbetaling og annet er trukket fra?",
+      "alternatives": [
+        "Nettolønn",
+        "Bruttolønn",
+        "Lønnsslipp"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "6_75",
+      "question": "I Norge er det private organisasjoner som har hovedansvaret for velferden.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "6_76",
+      "question": "Inntekter fra olje- og gassproduksjon finansierer all velferden i Norge.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "6_77",
+      "question": "Velferdssamfunnet i Norge blir hovedsakelig finansiert av at innbyggerne betaler skatter og avgifter.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "6_78",
+      "question": "Frivillige organisasjoner og privatpersoner gjør en viktig innsats i velferdssamfunnet.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "6_79",
+      "question": "At velferdsgodene er universelle, betyr:",
+      "alternatives": [
+        "At alle innbyggere som betaler skatt har rett til å nyte godt av dem",
+        "At alle innbyggerne har rett til å nyte godt av dem",
+        "At alle norske statsborgere har rett til å nyte godt av dem"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "6_80",
+      "question": "At velferdsgodene er universelle betyr at de er gratis.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "6_81",
+      "question": "Gratis skolegang for alle barn.",
+      "alternatives": [
+        "Plikt",
+        "Rettighet"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "6_82",
+      "question": "Behandling på sykehus.",
+      "alternatives": [
+        "Plikt",
+        "Rettighet"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "6_83",
+      "question": "Betale skatt.",
+      "alternatives": [
+        "Plikt",
+        "Rettighet"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "7_84",
+      "question": "Dagpenger ved arbeidsledighet.",
+      "alternatives": [
+        "Plikt",
+        "Rettighet"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "7_85",
+      "question": "Betale avgifter.",
+      "alternatives": [
+        "Plikt",
+        "Rettighet"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "7_86",
+      "question": "Sørge for at barna går på skolen.",
+      "alternatives": [
+        "Plikt",
+        "Rettighet"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "7_87",
+      "question": "Introduksjonsstøtte.",
+      "alternatives": [
+        "Plikt",
+        "Rettighet"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "7_88",
+      "question": "Gi riktig informasjon om inntekt og livssituasjon.",
+      "alternatives": [
+        "Plikt",
+        "Rettighet"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "7_89",
+      "question": "Barnetrygd.",
+      "alternatives": [
+        "Plikt",
+        "Rettighet"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "7_90",
+      "question": "Velferdssamfunnet i Norge er 200 år gammelt.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "7_91",
+      "question": "Det norske velferdssystemmet gjelder for både fattige og rike.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "7_92",
+      "question": "For 100 år siden fantes det et system i Norge som vi kan kalle sosialhjelpsstaten.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "7_93",
+      "question": "Også for 100 år siden kunne alle i samfunnet nyte godt av velferdsgodene.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "7_94",
+      "question": "Det velferdsgodet som har lengst tradisjoner er gratis grunnskoleopplæring.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "7_95",
+      "question": "De fleste velferdsgodene ble bygget opp før den 2. Verdenskrig.",
+      "alternatives": [
+        "Rett",
+        "Galt"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "8_1",
+      "question": "Hvem av disse har rett til gratis norskopplæring?",
+      "alternatives": [
+        "Au pairer",
+        "Flyktninger",
+        "Arbeidsinnvandrere"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "8_2",
+      "question": "Hvem kan delta på Introduksjonsprogrammet?",
+      "alternatives": [
+        "Nyankomne flyktninger over 18 år",
+        "De fleste arbeidsinnvandrere",
+        "Alle asylsøkere under 16 år"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "8_3",
+      "question": "Hva er målet med arbeidspraksis for innvandrere?",
+      "alternatives": [
+        "Å gjøre deltakeren kjent med norsk arbeidsliv",
+        "Å skaffe deltakeren arbeidstillatelse",
+        "Å få godkjent deltakerens utdanning"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "8_4",
+      "question": "Hva må du ha for å ha lønnet arbeid?",
+      "alternatives": [
+        "Førerkort",
+        "Skattekort",
+        "Forsikringskort"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "8_5",
+      "question": "Hvilke av disse tjenestene har Nav ansvar for?",
+      "alternatives": [
+        "Barnetrygd",
+        "Fritidstilbud",
+        "Grunnskole"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "8_6",
+      "question": "Hva skjedde i 1940?",
+      "alternatives": [
+        "Norge ble et selvstendig land.",
+        "Norge fikk sin første president.",
+        "Norge ble okkupert av Tyskland."
+      ],
+      "correct": 2,
+      "section": "3.2"
+    },
+    {
+      "id": "9_7",
+      "question": "Bosettingen i Norge endret seg siste halvdel av 1800-tallet. Hva skjedde?",
+      "alternatives": [
+        "Mange flyttet fra byene til kysten.",
+        "Mange flyttet fra landsbygda til byene.",
+        "Mange flyttet fra kysten til landsbygda."
+      ],
+      "correct": 1,
+      "section": "3.2"
+    },
+    {
+      "id": "9_8",
+      "question": "Det blir inngått litt mer enn 20 000 ekteskap i Norge hvert år. Hvor mange gifte par skiller seg hvert år?",
+      "alternatives": [
+        "Cirka 5 000",
+        "Cirka 10 000",
+        "Cirka 15 000"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "9_9",
+      "question": "Hvem har hovedansvaret for barnas oppdragelse?",
+      "alternatives": [
+        "Foreldrene",
+        "Barnehagen",
+        "Skolen"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "9_10",
+      "question": "Må begge partene i et ekteskap være enige for å kunne bli skilt?",
+      "alternatives": [
+        "Ja",
+        "Nei",
+        "Noen ganger"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "9_11",
+      "question": "Hvor lenge har foreldre plikt til å forsørge barna sine?",
+      "alternatives": [
+        "Til barna er ferdig med grunnskolen",
+        "Til barna har fått egen jobb",
+        "Til barna har fylt 18 år"
+      ],
+      "correct": 2,
+      "section": "2.2"
+    },
+    {
+      "id": "10_12",
+      "question": "Kari og Jens er skilt. De har to barn på fem og sju år. Hvilke rettigheter har barna deres ifølge loven?",
+      "alternatives": [
+        "Barna har rett til å bo sammen med hverandre.",
+        "Barna har rett til å ha kontakt med begge foreldrene.",
+        "Barna har rett til å velge hvem av foreldrene de vil bo hos."
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "10_13",
+      "question": "Mari vil melde seg inn i et politisk parti. Foreldrene er uenige i dette. Hvor gammel må Mari være for å bestemme dette selv?",
+      "alternatives": [
+        "12 år",
+        "15 år",
+        "18 år"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "10_14",
+      "question": "Hvem betaler for pasienter som er innlagt på norske sykehus?",
+      "alternatives": [
+        "Pasienten",
+        "Staten",
+        "Forsikringsselskap"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "10_15",
+      "question": "Hvor mye betaler foreldre i Norge for vaksinasjonsprogrammet for barn?",
+      "alternatives": [
+        "Ingenting",
+        "Cirka 100 kr per vaksine",
+        "Cirka 200 kr per vaksine"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "10_16",
+      "question": "Hasan er 16 år. Han går til tannlegen en gang i året. Hvor mye betaler han for vanlig tannbehandling?",
+      "alternatives": [
+        "Hele kostnaden",
+        "Halvparten av kostnaden",
+        "Ingenting"
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "11_17",
+      "question": "Hvem kan få fastlege?",
+      "alternatives": [
+        "Alle innbyggere i Norge",
+        "Alle voksne i Norge",
+        "Alle barn i Norge"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "11_18",
+      "question": "Hvorfor bør kvinner gå til svangerskapskontroll?",
+      "alternatives": [
+        "For å søke om barnetrygd",
+        "For å sikre mor og barns helse",
+        "For å få godkjent fødselspermisjon"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "11_19",
+      "question": "Hvem finansierer universitets- og høyskoleutdanning i Norge?",
+      "alternatives": [
+        "Staten",
+        "Familien",
+        "Store firmaer"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "11_20",
+      "question": "Kari vil studere på universitetet. Hva er riktig?",
+      "alternatives": [
+        "Hun må ha fylt 19 år.",
+        "Hun må ha god økonomi.",
+        "Hun må ha generell studiekompetanse."
+      ],
+      "correct": 2,
+      "section": "1.1"
+    },
+    {
+      "id": "11_21",
+      "question": "Når begynner barn normalt i første klasse på skolen?",
+      "alternatives": [
+        "Det året de fyller 6 år",
+        "Det året de fyller 7 år",
+        "Det året de fyller 8 år"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "11_22",
+      "question": "Mary går i 8. klasse. Hun har vært syk lenge og har problemer med å følge undervisningen i flere fag. Hva skjer med Mary når neste skoleår starter?",
+      "alternatives": [
+        "Hun må gå 8. klasse en gang til",
+        "Hun får slutte med fagene hun strever med",
+        "Hun fortsetter i 9. klasse"
+      ],
+      "correct": 2,
+      "section": "1.1"
+    },
+    {
+      "id": "12_23",
+      "question": "Hva skal foreldre og skole samarbeide om?",
+      "alternatives": [
+        "Barnas faglige og sosiale utvikling",
+        "Barnas fritidsaktiviteter",
+        "Barnas ukepenger"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "12_24",
+      "question": "Hvor mange prosent av de yrkesaktive i Norge jobber i det offentlige?",
+      "alternatives": [
+        "Cirka 30%",
+        "Cirka 50%",
+        "Cirka 70%"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "12_25",
+      "question": "Det har skjedd store forandringer i arbeidsmarkedet i løpet av de siste 30 årene. Hva er riktig?",
+      "alternatives": [
+        "Færre jobber med industri og produksjon",
+        "Flere jobber med fiske og jordbruk",
+        "Bare kvinner jobber med handel og service"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "12_26",
+      "question": "Hva er de viktigste inntektskildene til staten og kommunene?",
+      "alternatives": [
+        "Skatter og avgifter fra privatpersoner og bedrifter",
+        "Overføringer fra internasjonale organisasjoner",
+        "Salg av varer og tjenester til andre land"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "12_27",
+      "question": "Hvilke var de viktigste næringene i Norge rundt år 1850?",
+      "alternatives": [
+        "Jordbruk, skogbruk og fiske",
+        "Industri og varetransport",
+        "Handel og service"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "13_28",
+      "question": "Hvor ofte er det stortingsvalg?",
+      "alternatives": [
+        "Hvert år",
+        "Hvert annet år",
+        "Hvert fjerde år"
+      ],
+      "correct": 2,
+      "section": "3.3"
+    },
+    {
+      "id": "13_29",
+      "question": "Hvor ofte har regjeringen møte med kongen?",
+      "alternatives": [
+        "En gang i uken",
+        "En gang i måneden",
+        "En gang i året"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "13_30",
+      "question": "Hva heter den norske nasjonalforsamlingen?",
+      "alternatives": [
+        "Departementet",
+        "Regjeringen",
+        "Stortinget"
+      ],
+      "correct": 2,
+      "section": "3.3"
+    },
+    {
+      "id": "13_31",
+      "question": "Norge er et demokrati. Hva innebærer det?",
+      "alternatives": [
+        "Folket bestemmer hvem som skal styre landet",
+        "De rike bestemmer hvem som skal styre landet.",
+        "Domstolene bestemmer hvem som skal styre landet."
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "13_32",
+      "question": "Hvilke plikter har befolkningen i det norske velferdssamfunnet?",
+      "alternatives": [
+        "Å betale skatt og oppgi riktig informasjon om seg selv",
+        "Å betale skatt og gi penger til hjelpeorganisasjoner",
+        "Å betale skatt og stemme ved alle politiske valg"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "14_1",
+      "question": "Hva trenger en som vil bosette seg i Norge?",
+      "alternatives": [
+        "Lovlig opphold",
+        "Alle som vil kan bosette seg i Norge",
+        "Skattekort"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "14_2",
+      "question": "Trenger statsborger fra et EU/EØS/EFTA-land å søke oppholdstillatelse i Norge?",
+      "alternatives": [
+        "Nei",
+        "Ja"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "14_3",
+      "question": "Hvilken type oppholdstillatelse bør en søke som ønsker å stifte familie med en som allerede bor i Norge?",
+      "alternatives": [
+        "Familiegjenforening-Familieinnvandringstillatelse",
+        "Oppholdstillatelse for arbeid",
+        "Oppholdstillatelse som flyktning"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "14_4",
+      "question": "Hvor bestiller man skattekort?",
+      "alternatives": [
+        "Skatteetaten",
+        "Folkeregisteret",
+        "NAV"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "14_5",
+      "question": "Hvilken statens kontor jobber med alt relatert til arbeid, familie og pensjon?",
+      "alternatives": [
+        "NAV",
+        "Skatteetaten",
+        "Folkeregisteret"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "14_6",
+      "question": "Hva heter statens kontor som har oversikt over alle personer som bor eller har vært bosatt i Norge?",
+      "alternatives": [
+        "Folkeregisteret",
+        "Skatteetaten",
+        "NAV"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "14_7",
+      "question": "Hva heter statens kontor for autorisasjon av helsepersonell?",
+      "alternatives": [
+        "Helsedirektoratet",
+        "NOKUT",
+        "Utdanningsdirektoratet"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "14_8",
+      "question": "Hvor kan personer som har kompetanse fra et annet land, søke om å få kompetansen godkjent i Norge?",
+      "alternatives": [
+        "NOKUT",
+        "Helsedirektoratet",
+        "Utdanningsdirektoratet"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "14_9",
+      "question": "Hva het den første konge over hele Norge?",
+      "alternatives": [
+        "Harald Hårfagre",
+        "Håkon V Magnusson",
+        "Harald Hardråde"
+      ],
+      "correct": 0,
+      "section": "3.2"
+    },
+    {
+      "id": "14_10",
+      "question": "Når ble Harald Hårfagre Norges konge?",
+      "alternatives": [
+        "På 1000-tallet",
+        "På 800-tallet",
+        "På 900-tallet"
+      ],
+      "correct": 1,
+      "section": "3.2"
+    },
+    {
+      "id": "15_21",
+      "question": "Norges største innsjø heter:",
+      "alternatives": [
+        "Tinnsjå",
+        "Mjøsa",
+        "Salvatnet"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "15_22",
+      "question": "Norges lengste elv heter:",
+      "alternatives": [
+        "Trysilelva",
+        "Klarälven",
+        "Glomma"
+      ],
+      "correct": 2,
+      "section": "3.1"
+    },
+    {
+      "id": "15_23",
+      "question": "Nesten halvparten av arealet i Norge består av:",
+      "alternatives": [
+        "Dyrket mark",
+        "Fjell",
+        "Fjord"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "15_24",
+      "question": "Hvor stor % av norske arealet er dekket med skog?",
+      "alternatives": [
+        "50%",
+        "30%",
+        "70%"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "15_25",
+      "question": "Etter reformen i Norge, 19 fylker ble omdannet til hvor mange regioner?",
+      "alternatives": [
+        "12",
+        "11",
+        "10"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "15_26",
+      "question": "Omtrent hvor mange byer er det i Norge?",
+      "alternatives": [
+        "300",
+        "200",
+        "100"
+      ],
+      "correct": 2,
+      "section": "3.1"
+    },
+    {
+      "id": "15_27",
+      "question": "Hva heter den største byen i Norge med ca. 600.000 innbyggere?",
+      "alternatives": [
+        "Oslo",
+        "Bergen",
+        "Trondheim"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "15_28",
+      "question": "Hvor mange mennesker bor i Norge?",
+      "alternatives": [
+        "Over 4 millioner",
+        "Over 5 millioner",
+        "Over 6 millioner"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "15_29",
+      "question": "Byene i Norge med størst prosentandel innbyggere med innvandrerbakgrunn er?",
+      "alternatives": [
+        "Bergen og Stavanger",
+        "Trondheim og Kristiansand",
+        "Oslo og Drammen"
+      ],
+      "correct": 2,
+      "section": "3.1"
+    },
+    {
+      "id": "15_30",
+      "question": "Hvor stor % av innbyggerne i Norge har bakgrunn fra utlandet?",
+      "alternatives": [
+        "70%",
+        "7%",
+        "17%"
+      ],
+      "correct": 2,
+      "section": "3.1"
+    },
+    {
+      "id": "16_31",
+      "question": "Hva heter Europas nordligste by på fastlandet?",
+      "alternatives": [
+        "Tromsø",
+        "Hammerfest",
+        "Kirkenes"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "16_32",
+      "question": "Klimaet i Norge varierer fra landsdel til landsdel. I hvilken norske landsdel er det mye regn?",
+      "alternatives": [
+        "Sørlandet",
+        "Vestlandet",
+        "Nord-Norge"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "16_33",
+      "question": "I hvilken Norges landsdel skinner sola midt på natta om sommeren?",
+      "alternatives": [
+        "Nord-Norge",
+        "Midt-Norge",
+        "Østlandet"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "16_34",
+      "question": "17. mai feires:",
+      "alternatives": [
+        "Forening av norske landsdelene",
+        "Norsk selvstendighet",
+        "Nasjonaldag"
+      ],
+      "correct": 2,
+      "section": "3.1"
+    },
+    {
+      "id": "16_35",
+      "question": "Den internasjonale kvinnedagen er:",
+      "alternatives": [
+        "8. mars",
+        "1. januar",
+        "17. mai"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "16_36",
+      "question": "Juleaften er:",
+      "alternatives": [
+        "24. desember",
+        "1. januar",
+        "17. mai"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "16_37",
+      "question": "Påsken er:",
+      "alternatives": [
+        "en kristen høytid",
+        "en buddhistisk høytid",
+        "en muslimsk høytid"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "16_38",
+      "question": "I Norge dør hvert år omtrent:",
+      "alternatives": [
+        "80.000 mennesker",
+        "40.000 mennesker",
+        "20.000 mennesker"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "16_39",
+      "question": "Konfirmasjon er en måte å bekrefte dåpen på. Hvor gammel er en person som vil konfirmere seg?",
+      "alternatives": [
+        "40-41 år",
+        "14-15 år",
+        "20-21 år"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "16_40",
+      "question": "Hvem er de som bestemmer om barnet skal døpes eller ikke?",
+      "alternatives": [
+        "Presten",
+        "Staten",
+        "Foreldre"
+      ],
+      "correct": 2,
+      "section": "2.2"
+    },
+    {
+      "id": "17_1",
+      "question": "Er det tillatt også for personer av samme kjønn å inngå ekteskap i Norge:",
+      "alternatives": [
+        "Ikke alltid",
+        "Bare i spesielle tilfeller",
+        "Ja, det er tillatt"
+      ],
+      "correct": 2,
+      "section": "2.2"
+    },
+    {
+      "id": "17_2",
+      "question": "Hvilken formulering for 1. nyttårsdag passer best:",
+      "alternatives": [
+        "Det er internasjonale kvinnedagen",
+        "Det er internasjonale arbeiderdagen",
+        "Det begynner neste året"
+      ],
+      "correct": 2,
+      "section": "3.1"
+    },
+    {
+      "id": "17_3",
+      "question": "Hvilken religion er dominerende i Norge?",
+      "alternatives": [
+        "Luthersk kristendom (protestantisme)",
+        "Ortodoks kristendom",
+        "Muslimsk"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "17_4",
+      "question": "Hvor stor prosent av nordmenn har ikke religiøst livssyn?",
+      "alternatives": [
+        "18%",
+        "8%",
+        "80%"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "17_5",
+      "question": "Hva betyr at samfunnet er sekulært?",
+      "alternatives": [
+        "Det betyr at religion har stadig mer og mer betydning i samfunnet",
+        "Det betyr at religion har mindre betydning i samfunnet",
+        "Det betyr at religion har ikke betydning i samfunnet i det hele tatt"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "17_6",
+      "question": "Den norske kirken er?",
+      "alternatives": [
+        "Kongeskirke",
+        "Folkekirke",
+        "Statskirken"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "17_47",
+      "question": "Hvor stor prosent av nordmenn er medlemmer i den norske kirken?",
+      "alternatives": [
+        "90%",
+        "70%",
+        "50%"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "17_48",
+      "question": "Hvor mange barn fødes i Norge hvert år?",
+      "alternatives": [
+        "ca. 100.000",
+        "ca. 6000",
+        "ca. 60.000"
+      ],
+      "correct": 2,
+      "section": "3.1"
+    },
+    {
+      "id": "17_49",
+      "question": "Hvor stor prosent av nordmenn bor sammen, men gifter seg ikke?",
+      "alternatives": [
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "17_50",
+      "question": "Hvor stor prosent er skilte i Norge?",
+      "alternatives": [
+        "75%",
+        "50%",
+        "25%"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "18_51",
+      "question": "Hva er kontantstøtte?",
+      "alternatives": [
+        "En økonomisk stønad som blir gitt for alle barn mellom ett og to år som ikke går i barnehage",
+        "En økonomisk støtte som blir gitt for alle familier som sliter med personlig økonomi",
+        "En økonomisk støtte som blir gitt for alle barn under 18 år som er bosatt i Norge"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "18_52",
+      "question": "Hva er barnetrygd?",
+      "alternatives": [
+        "En økonomisk støtte som blir gitt for alle familier som sliter med personlig økonomi",
+        "En økonomisk støtte som blir gitt for alle barn under 18 år som er bosatt i Norge",
+        "En økonomisk stønad som blir gitt for alle barn mellom ett og to år som ikke går i barnehage"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "18_53",
+      "question": "Hvem gir fødselsmelding til Folkeregisteret når et barn blir født på sykehus i Norge?",
+      "alternatives": [
+        "Foreldre",
+        "Jordmor eller lege",
+        "Det blir automatisk registrert i Folkeregisteret"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "18_54",
+      "question": "Hvor gammel må et barn bli for å ha selv rett til å avgjøre spørsmål om utdanning og om å melde seg ut og inn av organisasjoner?",
+      "alternatives": [
+        "12 år",
+        "15 år",
+        "18 år"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "18_55",
+      "question": "Hvilken del av skolegang er obligatorisk i Norge?",
+      "alternatives": [
+        "Høyere utdanninger",
+        "Grunnskole",
+        "Videregående skole"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "18_56",
+      "question": "Hva heter loven som sier mye om foreldrenes plikter overfor barna og barnas rettigheter overfor foreldrene?",
+      "alternatives": [
+        "Forsørgelsesplikt",
+        "Barneloven",
+        "Foreldreloven"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "18_57",
+      "question": "Hva er poenget med Barnevernet?",
+      "alternatives": [
+        "Å ta kontakt med foreldre for å få mer informasjon om hvordan barnet har det",
+        "Å straffe foreldrene",
+        "Det å hjelpe barn som befinner seg i sårbare livssituasjoner og trenger ekstra hjelp og beskyttelse"
+      ],
+      "correct": 2,
+      "section": "2.2"
+    },
+    {
+      "id": "18_58",
+      "question": "I Norge går alle barn på skolen fra de er?",
+      "alternatives": [
+        "6 år",
+        "7 år",
+        "8 år"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "18_59",
+      "question": "Hvilken påstand er riktig?",
+      "alternatives": [
+        "Barn er avhengige av foreldrene",
+        "Foreldrene er avhengig av barn",
+        "Både foreldrene og barn er avhengig av hverandre"
+      ],
+      "correct": 2,
+      "section": "2.2"
+    },
+    {
+      "id": "18_60",
+      "question": "I Norge har alle barn rett og plikt til?",
+      "alternatives": [
+        "Ti års grunnskole opplæring",
+        "Videregående opplæring",
+        "7 barne skole, 3 ungdommer skole"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "19_61",
+      "question": "Hvor stor prosent av nordmenn eier boligen sin selv?",
+      "alternatives": [
+        "50%",
+        "25%",
+        "75%"
+      ],
+      "correct": 2,
+      "section": "2.5"
+    },
+    {
+      "id": "19_62",
+      "question": "For å varme opp boligen er det vanligst å bruke?",
+      "alternatives": [
+        "Ved",
+        "Elektrisitet",
+        "Olje"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "19_1",
+      "question": "Hva betyr likestilling?",
+      "alternatives": [
+        "At samfunnet jobber for å gi alle muligheter for arbeid",
+        "Likt lønn for likt arbeid",
+        "At mennesker har like stor verdi og de skal ha de samme mulighetene i Norge uavhengig av kjønn, rase etc."
+      ],
+      "correct": 2,
+      "section": "2.6"
+    },
+    {
+      "id": "19_2",
+      "question": "Likestilling mellom kjønnene inneholder?",
+      "alternatives": [
+        "menn og kvinner har samme rettigheter",
+        "kvinner sitter hjemme, passer på barna og har ikke muligheter som menn",
+        "det er opp til familie å velge hva skal mann gjøre og hva skal kvinne gjøre"
+      ],
+      "correct": 0,
+      "section": "2.6"
+    },
+    {
+      "id": "19_3",
+      "question": "Hvor stor prosent er kvinner som er ledere i arbeidslivet?",
+      "alternatives": [
+        "40%",
+        "30%",
+        "20%"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "19_4",
+      "question": "I Norge jobber folk deltid eller heltid. Hvilket kjønn jobber mer deltid?",
+      "alternatives": [
+        "Kvinne",
+        "Mann"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "19_5",
+      "question": "Hvor lang fengselsstraff kan de forvente som presser eller truer en annen person til å inngå ekteskap?",
+      "alternatives": [
+        "Inntil seks år",
+        "Inntil to år",
+        "Inntil et år"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "19_8",
+      "question": "Dersom man bestemmer seg for at man ikke ønsker å leve sammen med ektefellen lenger, kan man kreve:",
+      "alternatives": [
+        "Adaptasjon",
+        "Ekteskap",
+        "Separasjon"
+      ],
+      "correct": 2,
+      "section": "2.2"
+    },
+    {
+      "id": "19_9",
+      "question": "Skilsmisse kan kreves etter?",
+      "alternatives": [
+        "Separasjon i to år",
+        "Separasjon i et år",
+        "Separasjon i tre år"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "19_70",
+      "question": "Når kan skilsmisse kreves uten separasjon?",
+      "alternatives": [
+        "Om oppholdstillatelse til ektefelle utgår",
+        "Hvis en ektefelle vil skille seg",
+        "Dersom den andre ektefellen har utsatt han eller henne eller barna for drapsforsøk, vold, alvorlig mishandling eller har skapt frykt for dette"
+      ],
+      "correct": 2,
+      "section": "2.2"
+    },
+    {
+      "id": "20_71",
+      "question": "Det som to ektefeller kjøper sammen:",
+      "alternatives": [
+        "Eier de sammen",
+        "Eier kvinnen",
+        "Eier mannen"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "20_72",
+      "question": "Samboere har de samme rettighetene og pliktene overfor hverandre som det ektefeller har. Er den påstanden riktig?",
+      "alternatives": [
+        "Ja den er riktig",
+        "Nei, absolutt ikke"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "20_73",
+      "question": "Hva er vold?",
+      "alternatives": [
+        "Vold er en relasjon med 2 mennesker som fører til ualvorlige konsekvenser",
+        "Vold er reagering i affekt på forskjellige typer handlinger",
+        "Vold er et overgrep mot andre. Alle handlinger som påfører en annen person skade, smerte eller redsel"
+      ],
+      "correct": 2,
+      "section": "2.6"
+    },
+    {
+      "id": "20_74",
+      "question": "Hvilken type vold er forbudt i Norge?",
+      "alternatives": [
+        "Fysisk vold",
+        "Psykisk vold",
+        "Både fysisk og psykisk"
+      ],
+      "correct": 2,
+      "section": "2.6"
+    },
+    {
+      "id": "20_75",
+      "question": "Kan man søke oppholdstillatelse i Norge hvis han eller hun var utsatt for vold i utlandet?",
+      "alternatives": [
+        "Innimellom, men ikke alltid",
+        "Ja",
+        "Bare i spesielle tilfeller"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "20_76",
+      "question": "Hvem er det som har stort ansvar for min helse?",
+      "alternatives": [
+        "Staten har ansvar, men jeg selv må godkjenne det ansvaret",
+        "Helsevesenet i velferdssamfunn har ansvar for min helse",
+        "Det er meg selv med måten jeg velger å leve livet på"
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "20_77",
+      "question": "Hva betyr taushetsplikt relatert til helsetjenester og leger?",
+      "alternatives": [
+        "Det betyr at lege og pasient bestemmer sammen om behandlingen",
+        "Det betyr at legen er absolutt autoritet som bestemmer behandlingen",
+        "Det betyr at helsepersonell ikke kan gi opplysninger om pasienten til noen uten at pasienten selv godkjenner det"
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "20_78",
+      "question": "Hvem lever lengere i Norge?",
+      "alternatives": [
+        "Både menn og kvinner lever likt",
+        "Menn",
+        "Kvinner"
+      ],
+      "correct": 2,
+      "section": "3.1"
+    },
+    {
+      "id": "20_79",
+      "question": "Hvor lenge lever menn i gjennomsnitt i Norge?",
+      "alternatives": [
+        "81 år",
+        "74 år",
+        "84 år"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "20_80",
+      "question": "Hva betyr det hvis man får en medisin på blå resept?",
+      "alternatives": [
+        "At man betaler ingenting",
+        "At man betaler egenandel",
+        "At man betaler full pris"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "21_1",
+      "question": "På hvilket telefonnummer ringer man hvis han eller hun trenger akutt hjelp av ambulansesentralen?",
+      "alternatives": [
+        "113",
+        "112",
+        "110"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "21_2",
+      "question": "Hvilke spørsmål bør man besvare når man ringer ambulanse?",
+      "alternatives": [
+        "Hvem er du? (Navn, telefonnummer, hvor du ringer fra), Hva har hendt? (hvor mange er skadet, er det alvorlige skader osv.), Hvor er du? (nøyaktig adresse eller stedsangivelse)",
+        "Hvordan går det med deg? Hvorfor ringer du oss?",
+        "Hvilken type sykdom du har? Har du lang eller kort sykehistorie?"
+      ],
+      "correct": 0,
+      "section": "2.4"
+  },
+  {
+    "id": "21_3",
+    "question": "Hva betyr frikort?",
+    "alternatives": [
+      "Frikort er gratis primære helsetjenester resten av året hvis du har betalt allerede 2500 kroner i egenandel i løpet av et kalenderår. Så slipper du å betale egenandel resten av året.",
+      "Frikort er gratis primære helsetjenester resten av året hvis du har betalt allerede 25.000 kroner i egenandel i løpet av et kalenderår",
+      "Frikort er gratis primære helsetjenester resten av året hvis du har betalt allerede 250 kroner i egenandel i løpet av et kalenderår"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "21_4",
+    "question": "Hva er poenget med helsestasjoner i Norge når vi snakker om barn?",
+    "alternatives": [
+      "På helsestasjoner i Norge kan barn komme når de har alvorlige problemer med helse",
+      "Man sjekker hvordan barnet utvikler seg, om det vokser som det skal og legger på seg som normalt, om syn og hørsel fungerer bra, og om barnet lærer å forstå og snakke",
+      "Helsestasjon gir akutt hjelp til de som trenger"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "21_5",
+    "question": "Helsekontroll hos barn i Norge er:",
+    "alternatives": [
+      "avhengig av foreldrenes økonomi",
+      "man betaler egenandel før kontroll",
+      "gratis"
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "21_6",
+    "question": "En sykehjemsplass i Norge koster ca. 80.000 kroner i året. Hvem betaler det?",
+    "alternatives": [
+      "Brukeren betaler hele beløpet",
+      "Staten betaler hele beløpet",
+      "Egenandel betaler brukeren selv og resten betaler kommune"
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "21_7",
+    "question": "Hvordan defineres demens?",
+    "alternatives": [
+      "Demens er en tilstand der lungene er sliten, og man hoster mye",
+      "Demens er en tilstand der hjertet er skadet, og blodårene blir tette",
+      "Demens er en tilstand der hjernen er skadet, og både hukommelse, følelsesliv og sosial funksjonsevne blir skadet."
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "21_8",
+    "question": "Hvor mange eldre personer i Norge sliter med depresjon?",
+    "alternatives": [
+      "300.000 mennesker",
+      "200.000 mennesker",
+      "100.000 mennesker"
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "21_9",
+    "question": "Hvor stor prosent av eldre personer i Norge, som er over 90 år, bor på sykehjem?",
+    "alternatives": [
+      "90%",
+      "75%",
+      "50%"
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "22_9",
+    "question": "Når man snakker om disiplin i norske skolesystemet, hvilken påstand passer best?",
+    "alternatives": [
+      "Disiplin i skolen skal foregå på en måte som inkluderer noen former av vold",
+      "Lærere er absolutt autoritet som alle barn må respektere",
+      "Læreren skal vise elevene respekt, og elevene skal vise læreren respekt"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "22_10",
+    "question": "Hvor stor prosent av barna i Norge går på offentlige skoler?",
+    "alternatives": [
+      "97,5%",
+      "87,5%",
+      "70%"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "22_11",
+    "question": "Hvor mange skoledager på grunnskolen er hvert år i Norge?",
+    "alternatives": [
+      "230 skoledager",
+      "190 skoledager",
+      "90 skoledager"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "22_12",
+    "question": "På hvilken måte er grunnskole i Norge fordelt?",
+    "alternatives": [
+      "Barnehage, forskole og ungdomsskole",
+      "Barneskole og ungdomsskole",
+      "Grunnskole er ikke fordelt"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "22_13",
+    "question": "Får barna karakterer i ungdomsskole?",
+    "alternatives": [
+      "Ja, barn får karakterer på ungdomsskole fra 8. til 10. trinn og karakterskalaen går fra 1 til 6, der 1 er den dårligste karakteren, og 6 er den beste karakteren",
+      "Barn får karakterer, men ikke i alle fag",
+      "Nei, barn får ikke karakterer på ungdomsskole. Barna får en muntlig og skriftlig vurdering, men ikke karakterer"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "22_14",
+    "question": "Hvor lenge varer grunnskole i Norge?",
+    "alternatives": [
+      "8 år",
+      "9 år",
+      "10 år"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "22_15",
+    "question": "Blant annet skal undervisningen og aktivitetene i skolen lære elevene:",
+    "alternatives": [
+      "At ingen av oss er like",
+      "At alle mennesker har like stor verdi",
+      "Å lete etter informasjon og godta denne informasjonen ukritisk"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "22_16",
+    "question": "Det er viktig at eleven, foreldrene og læreren snakker sammen. Hvor mange slike samtaler skal være minst i løpet av et skoleår?",
+    "alternatives": [
+      "10 samtaler",
+      "5 samtaler",
+      "2 samtaler"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "22_17",
+    "question": "Det er vanlig at foreldrene møter læreren og de andre foreldrene. De snakker om klassen og klassemiljøet og om planer og aktiviteter. Hvor mange slike foreldremøter skal være minst hvert år?",
+    "alternatives": [
+      "5 foreldremøter",
+      "10 foreldremøter",
+      "2 foreldremøter"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "23_90",
+    "question": "Psykiske problemer rammer mennesker?",
+    "alternatives": [
+      "I ulike perioder i livet",
+      "Som er unge og psykiske lidelser kommer ofte etter kriser i livet",
+      "Som er eldre og syke"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "23_91",
+    "question": "Hvordan er utviklingen i en psykisk migrasjonskrise?",
+    "alternatives": [
+      "I den første perioden er livet bra. Etter en tid vil mange føle seg deprimert og ha mange negative tanker om det nye landet. Etter hvert vil livet stabilisere seg for de fleste.",
+      "I den første perioden er livet vanskelig og etter en tid mange føler seg fornøyd med positive tanker om det nye landet",
+      "I starten blir savn og lengsel etter fedrelandet stort, men etter hvert forsvinner følelsen av mangel og lengsel"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "23_92",
+    "question": "Hvilket norsk uttrykk passer best til helse generelt?",
+    "alternatives": [
+      "Stakkars deg",
+      "Man kan ikke få både i pose og sekk",
+      "En god latter forlenger livet"
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "23_93",
+    "question": "Hvis man spiser sunt og er fysisk aktiv?",
+    "alternatives": [
+      "Har man stor risiko for å få sykdommer",
+      "Har man gode sjanser for å leve lenger",
+      "Lever man ikke vel"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "23_94",
+    "question": "I Norge har de fleste?",
+    "alternatives": [
+      "Skjuler sine psykiske lidelser for andre for å unngå skam",
+      "Negative tanker og holdninger om en person som opplever depresjon, angst og andre psykiske lidelser",
+      "En åpen og forståelsesfull holdning til psykisk sykdom"
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "23_95",
+    "question": "I offentlige høyskoler i Norge betales:",
+    "alternatives": [
+      "Egenandel",
+      "Ingenting",
+      "Full pris"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "23_96",
+    "question": "Hva er poenget med barnehage?",
+    "alternatives": [
+      "Det er poenget med barnehage er at barna leker sammen med sine foreldre og at foreldrene bruker mer tid på sine barn",
+      "Barnehage er obligatorisk for alle barn i Norge og poenget er at barna forbereder seg til arbeidslivet",
+      "Det å bli mer selvstendig, være sammen med andre, lære noe nytt og forberede seg til å begynne på skole"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "23_97",
+    "question": "På hvilken måte kan foreldrene vite mer om sitt barn og bli kjent med hva deres barn gjør i barnehagen:",
+    "alternatives": [
+      "Foreldrene blir invitert til foreldremøter og individuelle foreldresamtaler",
+      "Foreldrene kan ta kontakt med barnehage for å spørre seg om det",
+      "Foreldrene tar kontakt med barnehage via mailen og der kan de stille spørsmål om barna sine som vekker deres interesse"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "23_98",
+    "question": "Hva betyr makspris (for tiden 3000 kr per måned) for barnehageplassen?",
+    "alternatives": [
+      "At ingen foreldre skal betale mer enn denne prisen",
+      "At det er opp til barnehagen å bestemme om makspris"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "24_108",
+    "question": "Ungdommer er ferdige med grunnskolen når de er 16 år. Hvilken rett har de da når det gjelder videregående skole?",
+    "alternatives": [
+      "De har rett til 3 års videregående opplæring",
+      "De kan velge om de vil fortsette på videregående skole eller ikke",
+      "De har rett til videregående opplæring frem til de fyller 24 år"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "24_109",
+    "question": "Selv om universiteter og høyskoler er gratis, trenger man penger til andre utgifter mens man studerer. Det er derfor vanlig at studenter låner penger fra Lånekassen. Bortsett fra det, hva er poenget med Lånekassen også?",
+    "alternatives": [
+      "Det å støtte og oppmuntre kvinner til å utdanne seg videre",
+      "Det å sikre at alle som vil studere, får denne muligheten helt uavhengig av familiens økonomi",
+      "Poenget med Statens Lånekasse er å tjene litt penger på renter som studenter skal betale i fremtiden"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "24_110",
+    "question": "Hvem har høyere utdanningsnivå?",
+    "alternatives": [
+      "De har likt utdanningsnivå",
+      "Menn",
+      "Kvinner"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "24_111",
+    "question": "Hvor stor prosent av nordmenn studerer på universiteter eller høyskoler?",
+    "alternatives": [
+      "30%",
+      "40%",
+      "60%"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "24_112",
+    "question": "Hvor stor prosent av dagens studenter i Norge er menn?",
+    "alternatives": [
+      "30%",
+      "40%",
+      "60%"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "24_113",
+    "question": "Har voksne personer i Norge rett til å ta videregående utdanning?",
+    "alternatives": [
+      "Nei",
+      "Bare i spesielle tilfeller",
+      "Ja"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "24_114",
+    "question": "Hvis du har lært et yrke i utlandet og ikke har papirer på dette, hva kan du gjøre?",
+    "alternatives": [
+      "Du kan eventuelt søke om yrkesprøving",
+      "Du må ta alt på nytt i Norge",
+      "Du kan ikke jobbe som en faglig person innen denne bransjen"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "24_115",
+    "question": "De viktigste inntektene for staten og kommunene kommer fra?",
+    "alternatives": [
+      "Skatt og avgifter",
+      "Telekommunikasjoner",
+      "Olje og gass industri"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "24_116",
+    "question": "Hva betyr begrepet oljenasjon?",
+    "alternatives": [
+      "En oljenasjon er et land der olje og oljeindustri er ikke så godt utviklet",
+      "En oljenasjon er et land der olje og oljeindustri er en viktig næring",
+      "En oljenasjon er et land der olje og oljeindustri tjener lite penger på olje som ressurs"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "24_117",
+    "question": "Hvor stor prosent av befolkningen i Norge er arbeidsuføre/førtidspensjonister?",
+    "alternatives": [
+      "2%",
+      "10%",
+      "5%"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "25_118",
+    "question": "Arbeidstakere som får barn har rett til ett års permisjon:",
+    "alternatives": [
+      "Med 80% av full lønn",
+      "Med 66% av full lønn",
+      "Med full lønn"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "25_120",
+    "question": "Hva er poenget med fagforeninger?",
+    "alternatives": [
+      "Å jobbe for arbeidstakernes interesse",
+      "Å skape et godt miljø på arbeidsplassen",
+      "Det å beskytte arbeidsgivernes interesse"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "25_121",
+    "question": "Hva betyr det å sørge for helse, miljø og sikkerhet (HMS) på arbeidsplassen?",
+    "alternatives": [
+      "Det betyr å skape godt samarbeid på arbeidsplassen",
+      "Det betyr å skape profitt for bedriften",
+      "Det er bedre å ta vare på arbeidstakernes helse, arbeidsmiljø og sikkerhet på jobben"
+    ],
+    "correct": 2,
+    "section": "1.2"
+  },
+  {
+    "id": "25_122",
+    "question": "Hva er poenget med forskjellige arbeidsmarkedskurs på NAV?",
+    "alternatives": [
+      "Det å kvalifisere deltakerne-arbeidsledige til å komme i arbeid",
+      "Det å holde deltakerne-arbeidsledige oppdatert og informert om sine rettigheter og plikter i Norge",
+      "Det å gjøre lettere for arbeidsgivere til å finne potensielle arbeidstakere"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "25_123",
+    "question": "Alle nyankomne flyktninger i Norge får tilbud om gratis introduksjonsprogram. Hva inneholder introduksjonsprogrammet?",
+    "alternatives": [
+      "Introduksjonsprogram skal bidra til at flyktninger skal føle seg trygge i Norge",
+      "Introduksjonsprogram inneholder opplæring i norsk og samfunnskunnskap sammen med språkpraksis eller arbeidspraksis i forskjellige bedrifter i løpet av programmet. Hensikten med introduksjonsprogrammet er at deltakeren skal kvalifisere seg til å komme i arbeid eller til å ta videre utdanning",
+      "Introduksjonsprogram inneholder forskjellige informasjoner om svart arbeid og utbetalt arbeidspraksis"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "25_124",
+    "question": "Personer som har vært uten arbeid i lang tid, og som er avhengige av økonomisk sosialstøtte, kan få tilbud om å delta i et kvalifiseringsprogram gjennom NAV. Hva er poenget med kvalifiseringsprogrammet?",
+    "alternatives": [
+      "Poenget er at deltakerne-arbeidsledige får opplæring og arbeidstrening slik at han eller hun lettere skal kunne komme i arbeid igjen",
+      "Poenget er at deltakerne-arbeidsledige blir kjent med sine rettigheter og plikter når de er sykemeldte",
+      "Poenget er at deltakerne-arbeidsledige blir friske"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "25_125",
+    "question": "Bedrifter kan få økonomisk hjelp fra NAV til å sette i gang kurs for ansatte som trenger mer opplæring i lesing, skriving, regning, muntlig og skriftlig fremstilling i norsk språk. Er denne påstanden riktig?",
+    "alternatives": [
+      "Ja, den er riktig",
+      "Nei, den er ikke riktig"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "25_126",
+    "question": "Arbeidstakere i Norge har rett til å være borte fra jobben med full lønn i 24 dager i løpet av året hvis de selv eller barna er syke, uten legebesøk, på såkalt egenmelding. Er denne påstanden riktig?",
+    "alternatives": [
+      "Ja, den er riktig",
+      "Nei, den er ikke riktig"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "26_8",
+    "question": "Hvilken påstand er riktig?",
+    "alternatives": [
+      "Arbeid kan ikke gi oss noen som helst nytte",
+      "Arbeid kan gi oss selvstendighet og en meningsfylt hverdag",
+      "Arbeid kan gi oss bare hodepine"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "26_9",
+    "question": "I dag finner vi de fleste jobbene i?",
+    "alternatives": [
+      "Olje og gass industri",
+      "Telekommunikasjoner",
+      "Handel og service"
+    ],
+    "correct": 2,
+    "section": "1.2"
+  },
+  {
+    "id": "26_10",
+    "question": "I løpet av den første halvdelen av 1900-tallet ble:",
+    "alternatives": [
+      "Jordbruk den viktigste næringen",
+      "det skapt mange nye industriarbeidsplasser",
+      "Olje funnet"
+    ],
+    "correct": 1,
+    "section": "3.2"
+  },
+  {
+    "id": "26_11",
+    "question": "Hva heter den statens instansen som vedtar lovene?",
+    "alternatives": [
+      "Regjeringen",
+      "Stortinget",
+      "Domstolen"
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "26_12",
+    "question": "Hva heter den viktigste del av loven som regulerer arbeidsforhold?",
+    "alternatives": [
+      "Arbeidsmiljøloven og ferieloven",
+      "Arbeidskontrakt og arbeidstilbud",
+      "Miljøloven"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "26_13",
+    "question": "Hvem må følge arbeidsmiljøloven?",
+    "alternatives": [
+      "Både arbeidsgiver og arbeidstaker",
+      "Arbeidstaker",
+      "Arbeidsgiver"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "26_124",
+    "question": "Fravær fra jobben er en del av?",
+    "alternatives": [
+      "Ikke lovregulert",
+      "Muntlig avtale mellom arbeidsgiver og arbeidstaker",
+      "Arbeidsmiljøloven"
+    ],
+    "correct": 2,
+    "section": "1.2"
+  },
+  {
+    "id": "26_125",
+    "question": "En normal arbeidsuke er?",
+    "alternatives": [
+      "40 timer",
+      "37,5 timer",
+      "48 timer"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "26_126",
+    "question": "Arbeidstakere i Norge har rett til minimum?",
+    "alternatives": [
+      "Fem ukers ferie",
+      "Seks ukers ferie",
+      "Fire ukers ferie"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "26_127",
+    "question": "Arbeidstakere i Norge har rett til å være borte fra jobben med full lønn i 24 dager i løpet av året hvis de selv eller barna er syke, uten legebesøk, på såkalt egenmelding. Er denne påstanden riktig?",
+    "alternatives": [
+      "Ja, den er riktig",
+      "Bare i spesielle tilfeller",
+      "Nei, den er ikke riktig"
+    ],
+    "correct": 2,
+    "section": "1.2"
+  },
+  {
+    "id": "27_128",
+    "question": "Hvor lenge kan en arbeidstaker være borte fra jobben med full lønn hvis den er syk og leverer sykemelding til arbeidsgiveren?",
+    "alternatives": [
+      "Ett år",
+      "En måned",
+      "En uke"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "27_129",
+    "question": "Arbeidstakere som får barn har rett til ett års permisjon:",
+    "alternatives": [
+      "Med 66% av full lønn",
+      "Med 80% av full lønn",
+      "Med full lønn"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "27_130",
+    "question": "Arbeidstakerens interesseorganisasjon i Norge kalles?",
+    "alternatives": [
+      "Fagforeninger",
+      "LO",
+      "NHO"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "27_131",
+    "question": "Hva er poenget med fagforeninger?",
+    "alternatives": [
+      "Å jobbe for arbeidstakernes interesse",
+      "Å skape et godt miljø på arbeidsplassen",
+      "Det å beskytte arbeidsgivernes interesse"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "27_132",
+    "question": "Hva betyr det å sørge for helse, miljø og sikkerhet (HMS) på arbeidsplassen?",
+    "alternatives": [
+      "Det betyr å skape godt samarbeid på arbeidsplassen",
+      "Det betyr å skape profitt for bedriften",
+      "Det er bedre å ta vare på arbeidstakernes helse, arbeidsmiljø og sikkerhet på jobben"
+    ],
+    "correct": 2,
+    "section": "1.2"
+  },
+  {
+    "id": "27_133",
+    "question": "Hva er poenget med forskjellige arbeidsmarkedskurs på NAV?",
+    "alternatives": [
+      "Det å kvalifisere deltakerne-arbeidsledige til å komme i arbeid",
+      "Det å holde deltakerne-arbeidsledige oppdatert og informert om sine rettigheter og plikter i Norge",
+      "Det å gjøre lettere for arbeidsgivere til å finne potensielle arbeidstakere"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "27_134",
+    "question": "Alle nyankomne flyktninger i Norge får tilbud om gratis introduksjonsprogram. Hva inneholder introduksjonsprogram?",
+    "alternatives": [
+      "Introduksjonsprogram skal bidra til at flyktninger skal føle seg trygge i Norge",
+      "Introduksjonsprogram inneholder opplæring i norsk og samfunnskunnskap sammen med språkpraksis eller arbeidspraksis i forskjellige bedrifter i løpet av programmet. Hensikten med introduksjonsprogrammet er at deltakeren skal kvalifisere seg til å komme i arbeid eller til å ta videre utdanning",
+      "Introduksjonsprogram inneholder forskjellige informasjoner om svart arbeid og ubetalt arbeidspraksis"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "27_135",
+    "question": "Personer som har vært uten arbeid i lang tid, og som er avhengige av økonomisk sosialstøtte, kan få tilbud om å delta i et kvalifiseringsprogram gjennom NAV. Hva er poenget med kvalifiseringsprogrammet?",
+    "alternatives": [
+      "Poenget er at deltakerne-arbeidsledige får opplæring og arbeidstrening slik at han eller hun lettere skal kunne komme i arbeid igjen",
+      "Poenget er at deltakerne-arbeidsledige blir kjent med sine rettigheter og plikter når de er sykemeldte",
+      "Poenget er at deltakerne-arbeidsledige blir friske"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "27_136",
+    "question": "Bedrifter kan få økonomisk hjelp fra NAV til å sette i gang kurs for ansatte som trenger mer opplæring i lesing, skriving, regning, muntlig og skriftlig fremstilling i norsk språk. Er denne påstanden riktig?",
+    "alternatives": [
+      "Ja",
+      "Nei"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "28_137",
+    "question": "Hvor stor prosent av yrkesaktive jobber i privat sektor i Norge?",
+    "alternatives": [
+      "70%",
+      "50%",
+      "30%"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "28_138",
+    "question": "Hva som er mest viktig å gjøre i jobbsøkingsprosess?",
+    "alternatives": [
+      "Det er viktig å ha referanser",
+      "Det er viktig å bruke kontakter og nettverk, og vise at du er interessert i jobben",
+      "Det er viktig å ha en god CV og søknad"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "28_139",
+    "question": "Blir alle jobbene annonsert?",
+    "alternatives": [
+      "Ja absolutt det er en plikt",
+      "Nei, det blir ikke alle jobbene annonsert, men mange blir det",
+      "Bare en færre del av jobbene blir annonsert"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "28_140",
+    "question": "I dagens Norge er det vanlig å levere jobbsøknader?",
+    "alternatives": [
+      "Elektronisk på nettet",
+      "Via posten",
+      "Rett på hånd"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "28_141",
+    "question": "I Norge ligger gjennomsnittlig brutto årslønn for heltidsansatte rundt?",
+    "alternatives": [
+      "250.000 nok i året",
+      "500.000 nok i året",
+      "750.000 nok i året"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "28_142",
+    "question": "I gjennomsnitt betaler en arbeidstaker?",
+    "alternatives": [
+      "ca. 45% av bruttolønnen sin i skatt",
+      "ca. 35% av bruttolønnen sin i skatt",
+      "ca. 25% av bruttolønnen sin i skatt"
+    ],
+    "correct": 2,
+    "section": "2.5"
+  },
+  {
+    "id": "28_143",
+    "question": "Nettolønnen er lønnen du får utbetalt?",
+    "alternatives": [
+      "Før skatt",
+      "Etter skatt",
+      "Sammen med skatt"
+    ],
+    "correct": 1,
+    "section": "2.5"
+  },
+  {
+    "id": "28_144",
+    "question": "Hva finansieres mest av skatter og avgifter som både arbeidstakere og arbeidsgivere betaler til staten?",
+    "alternatives": [
+      "Politiske kampanjer",
+      "Velferdsgodene våre",
+      "Hjelp til andre land som trenger penger mest"
+    ],
+    "correct": 1,
+    "section": "2.5"
+  },
+  {
+    "id": "28_145",
+    "question": "Svart arbeid er:",
+    "alternatives": [
+      "Ulovlig og umoralsk arbeid og regnes som økonomisk kriminalitet",
+      "Er veldig moralsk",
+      "Lovlig arbeidsforhold"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "28_146",
+    "question": "Hva betyr egentlig å arbeide svart?",
+    "alternatives": [
+      "Det betyr å tjene litt ekstra",
+      "Det er en type hobby for mange nordmenn",
+      "Det betyr å jobbe uten arbeidskontrakt og uten å betale skatt"
+    ],
+    "correct": 2,
+    "section": "1.2"
+  },
+  {
+    "id": "29_165",
+    "question": "Maktfordelingsprinsippet deler makten mellom tre uavhengige myndigheter: lovgivende myndighet, utøvende myndighet og dømmende myndighet. Hvilken del av myndighetene dømmer i konkrete saker når loven er brutt?",
+    "alternatives": [
+      "Regjeringen",
+      "Stortinget",
+      "Domstolen"
+    ],
+    "correct": 2,
+    "section": "3.3"
+  },
+  {
+    "id": "29_166",
+    "question": "Norge er et monarki. Har den norske kongen stor politisk makt?",
+    "alternatives": [
+      "Kongen av Norge har ingen politisk makt",
+      "Nei, egentlig ikke. Den norske kongen har liten politisk makt",
+      "Ja absolutt. Den norske kongen har stor politisk makt"
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "29_167",
+    "question": "Stortingsvalg er:",
+    "alternatives": [
+      "hvert annet år",
+      "hvert fjerde år",
+      "hvert femte år"
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "29_168",
+    "question": "Hvem har formell makt i Norge?",
+    "alternatives": [
+      "Stortingspolitikere",
+      "Media",
+      "Interesseorganisasjoner"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "29_169",
+    "question": "Hva kaller vi lobbyisme?",
+    "alternatives": [
+      "Lobbyisme kaller vi når innbyggerne danner eller melder seg inn i ulike interesseorganisasjoner og kjemper for ulike saker i kommunene.",
+      "Når personer eller organisasjoner forsøker å påvirke politikere og deres beslutninger på uformelle måter, heter det lobbyisme",
+      "Stortingspolitikerne vedtar lover, lovendringer og budsjetter og på denne måten har de formell makt til å påvirke hvilken politikk som føres nasjonalt og lokalt."
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "29_170",
+    "question": "Har media stor makt i dagens Norge og i hele verden, generelt?",
+    "alternatives": [
+      "Ja, radio, TV, internett, aviser og så videre har stor påvirkningskraft og påvirker både vanlige seere, lesere, lyttere og politikere.",
+      "Nei, radio, TV, internett, aviser og så videre har ingen påvirkningskraft og påvirker hverken vanlige seere, lesere, lyttere og politikere.",
+      "Radio, TV, internett, aviser og så videre har veldig lite påvirkningskraft og påvirker i lite grad seere, lesere, lyttere og politikere."
+    ],
+    "correct": 0,
+    "section": "1.3"
+  },
+  {
+    "id": "29_171",
+    "question": "Norge er et monarki. Hva heter kongen i dagens Norge?",
+    "alternatives": [
+      "Harald V",
+      "Haakon 7",
+      "Olaf 5"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "29_172",
+    "question": "Har internasjonale organisasjoner, som Norge er medlem i, påvirkning på norsk politikk?",
+    "alternatives": [
+      "Ja, så klart",
+      "Nei, absolutt ikke",
+      "Veldig lite. Ingen betydelig innflytelse"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "30_173",
+    "question": "Hvilke internasjonale organisasjoner er Norge medlem i?",
+    "alternatives": [
+      "Forente nasjoner-FN, forsvarsalliansen-NATO (North Atlantic Treaty Organization), Den europeiske unionen - EU og Schengen-avtalen",
+      "Forente nasjoner-FN, forsvarsalliansen-NATO (North Atlantic Treaty Organization), EØS (Det europeiske økonomiske samarbeidsområde)",
+      "Forente nasjoner-FN, forsvarsalliansen-NATO (North Atlantic Treaty Organization), EØS (Det europeiske økonomiske samarbeidsområde) og Schengen-avtalen"
+    ],
+    "correct": 2,
+    "section": "3.3"
+  },
+  {
+    "id": "30_174",
+    "question": "Hva er det som gjør at en stat kan kalles velferdsstat?",
+    "alternatives": [
+      "Fordeling av både offentlige og private ressursene slik at alle innbyggerne får tilgang til grunnleggende goder som bolig, mat, medisinsk hjelp og skolegang gjør at en stat kan kalles velferdsstaten",
+      "Fordeling av private ressursene slik at alle innbyggerne får tilgang til grunnleggende goder som bolig, mat, medisinsk hjelp og skolegang gjør at en stat kan kalles velferdsstaten",
+      "Fordeling av offentlige ressursene slik at alle innbyggerne får tilgang til grunnleggende goder som bolig, mat, medisinsk hjelp og skolegang gjør at en stat kan kalles velferdsstaten"
+    ],
+    "correct": 2,
+    "section": "2.0"
+  },
+  {
+    "id": "30_175",
+    "question": "På hvilken måte finansieres velferd i Norge, såkalt, det norske velferdssamfunnet?",
+    "alternatives": [
+      "Velferdssamfunnet finansieres av skatter og avgifter som innbyggere betaler samt med penger som kommer fra olje og gassindustri",
+      "Velferdssamfunnet finansieres av penger som kommer fra telekommunikasjonsselskapet Telenor",
+      "Velferdssamfunnet finansieres av jordbruk, skogbruk og fiskeindustri"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "30_176",
+    "question": "Hva er en viktig forutsetning for at velferdsstaten skal fungere bra?",
+    "alternatives": [
+      "Det er kjempeviktig i velferdssamfunnet er at innbyggerne misbruker sosiale og velferdsgoder. De må stole på seg selv",
+      "Det som er kjempeviktig i velferdssamfunnet er at staten bruker innbyggerne som ressurs. Staten må presse innbyggerne på en eller annen måte",
+      "Det som er kjempeviktig i velferdssamfunnet er tillit mellom staten og innbyggerne. De må stole på hverandre"
+    ],
+    "correct": 2,
+    "section": "2.0"
+  },
+  {
+    "id": "30_177",
+    "question": "Det å ligge på sykehus i Norge er:",
+    "alternatives": [
+      "Delvis gratis og det betyr at man må betale egenandel",
+      "Helt gratis",
+      "Fullt betalt av pasienter og brukere"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "30_178",
+    "question": "NAV er forkortelse for?",
+    "alternatives": [
+      "Norges arbeids- og velferdsdirektoratet",
+      "Norges vann og avløpsetaten",
+      "Norske ansattes veiledning"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "30_179",
+    "question": "Hva er et hovedmål til NAV?",
+    "alternatives": [
+      "Å presse og pushe oss til å komme i arbeid",
+      "Å yte støtte og hjelp hvis vi trenger økonomisk hjelp i sykdomsperioder og i andre vanskelige perioder i livet eller hjelpe innbyggerne hvis de trenger å kvalifisere seg til å komme i arbeid",
+      "Å hjelpe oss til å misbruke velferdsgoder"
+    ],
+    "correct": 1,
+    "section": "2.0"
+  },
+  {
+    "id": "30_180",
+    "question": "Hva krever velferdsmodellen som vi har i Norge?",
+    "alternatives": [
+      "Den krever selvstendighet, misbruk av systemet, svart arbeid og så videre",
+      "Den krever solidaritet og vilje til å betale skatter og avgifter som videre finansierer velferdsgodene våre",
+      "Den krever ingen medfølelse eller ansvar for fellesskapet"
+    ],
+    "correct": 1,
+    "section": "2.0"
+  },
+  {
+    "id": "31_190",
+    "question": "Nordiske borgere har ikke plikt til å gå på norskkurs. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "31_191",
+    "question": "Alle må slutte på norskkurs etter 600 timer. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "31_192",
+    "question": "Må en statsborger fra et EØS-land søke om oppholdstillatelse i Norge? Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "31_193",
+    "question": "Får alle som har familie i Norge oppholdstillatelse automatisk? Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "31_194",
+    "question": "Har alle utlendinger i Norge samme oppholdsgrunnlag? Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "31_195",
+    "question": "Er det mulig å få oppholdstillatelse i Norge på bakgrunn av sterke menneskelig hensyn? Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "31_196",
+    "question": "Er det mulig å søke asyl i Norge? Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "31_197",
+    "question": "Kommer alle flyktninger til Norge gjennom FN-systemet? Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "32_109",
+    "question": "Hvem skal ha fødselsmelding når et barn blir født?",
+    "alternatives": [
+      "Folkeregisteret",
+      "Foreldrene",
+      "Jordmoren"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "32_110",
+    "question": "Hvem har som regel hovedansvaret for et barn og barnets oppdragelse?",
+    "alternatives": [
+      "Barnehagen",
+      "Foreldrene",
+      "Skolen"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "32_111",
+    "question": "Hva er myndighetsalderen i Norge?",
+    "alternatives": [
+      "18 år",
+      "15 år",
+      "12 år"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "32_112",
+    "question": "Hva sier barneloven om bruk av vold i oppdragelsen?",
+    "alternatives": [
+      "Det er tillatt",
+      "Det er forbudt",
+      "Ingenting"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "32_113",
+    "question": "Alle som er over 18 år, som ikke er gift fra før og som har lovlig opphold i Norge kan inngå ekteskap her. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "32_114",
+    "question": "Kvinner og menn har samme rett til fritt å velge ektefelle selv. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "32_115",
+    "question": "Den som presser noen til å gifte seg kan ikke få fengselsstraff. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "32_116",
+    "question": "Kvinner og menn har samme rett til å ta ut separasjon og be om skilsmisse. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "32_117",
+    "question": "Ektefeller har et felles ansvar for å forsørge og ta seg av familien. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "33_127",
+    "question": "Du må betale en høyere egenandel hos legespesialist hvis du ikke har henvisning fra legen din. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "33_128",
+    "question": "Det er gratis å få behandling på legevakten. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også",
+      "Denne påstanden er feil. Man må betale egenandel på legevakt",
+      "Denne påstanden er riktig"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "33_129",
+    "question": "Svangerskapskontroller er gratis. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "33_130",
+    "question": "Barnehage er obligatorisk for alle barn. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "33_131",
+    "question": "Under halvparten av alle barn går i barnehage. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "33_132",
+    "question": "Nesten 9 av 10 barn mellom 1 og 5 år går i barnehage. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "33_133",
+    "question": "Foreldrene betaler alt det koster å ha barn i barnehagen. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil. Foreldrene må betale bare egenandel",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "33_134",
+    "question": "Det er kommunen som betaler mye av utgiftene til barnehager. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "33_135",
+    "question": "Stortinget bestemmer et maksbeløp for hvor mye foreldre skal betale for en barnehageplass. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "34_236",
+    "question": "Når ble det innført obligatorisk skolegang for alle barn i Norge?",
+    "alternatives": [
+      "1900-tallet",
+      "1700-tallet",
+      "1500-tallet"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "34_237",
+    "question": "Hvor mange år er det obligatorisk å delta i opplæring i dag?",
+    "alternatives": [
+      "13",
+      "10",
+      "7"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "34_238",
+    "question": "Hva var de viktigste næringene i Norge på 1800/1850-tallet?",
+    "alternatives": [
+      "Jordbruk, skogbruk og fiske",
+      "Handel og industri",
+      "Industri og service"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "34_239",
+    "question": "Hva var den viktigste næringen i Norge rundt på 1900-tallet?",
+    "alternatives": [
+      "Industri",
+      "Handel",
+      "Olje og gass"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "34_240",
+    "question": "Alle arbeidstakere i Norge har rett til arbeidskontrakt. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "34_241",
+    "question": "Er normal arbeidsuke er 25 timer. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil. En normal arbeidsuke er 37.5 timer",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "34_242",
+    "question": "Arbeidstakere i Norge har rett til minimum sju uker ferie i løpet av et år. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil. Arbeidstakere i Norge har rett til minimum fem uker ferie i løpet av et år",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "34_243",
+    "question": "Arbeidstakere i Norge har rett til å være borte fra jobben med full lønn ved egen eller barns sykdom. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "34_244",
+    "question": "Arbeidstakere som får barn, har rett til permisjon med lønn. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "35_245",
+    "question": "Arbeidstakere har ikke rett til lønn under opplæring. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil. Opplæring er betalt i Norge",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "35_246",
+    "question": "Bedrifter betaler ikke skatt til kommunen. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil. Bedrifter betaler skatt til både kommune og staten",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "35_247",
+    "question": "Trygdeutbetalinger er skattefrie. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "35_248",
+    "question": "Mesteparten av velferdssamfunnet i Norge er finansiert av inntektene fra olje og gass. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil. Det norske velferdssamfunnet er hovedsakelig finansiert gjennom skatter og avgifter",
+      "Denne påstanden er riktig. Det norske velferdssamfunnet er hovedsakelig finansiert fra olje og gass",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "35_249",
+    "question": "Skatteinntekter er viktige for å finansiere velferdssamfunnet. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "2.5"
+  },
+  {
+    "id": "35_250",
+    "question": "Det er staten og ikke kommunene som har ansvaret for driften av de fleste velferdsgodene. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil. Det er kommunene som har ansvaret for størstedelen av velferdsgodene",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "35_251",
+    "question": "Staten overfører penger til kommunene. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 1,
+    "section": "2.0"
+  },
+  {
+    "id": "35_252",
+    "question": "Mesteparten av kommunens penger går til administrasjon. Er denne påstanden rett, galt eller kan være både rett og galt?",
+    "alternatives": [
+      "Denne påstanden er feil",
+      "Denne påstanden er riktig",
+      "Denne påstanden varierer. Den kan være riktig, men kan være feil i noen tilfeller også"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "36_264",
+    "question": "Omtrent hvor mange % av befolkningen bor alene?",
+    "alternatives": [
+      "40%",
+      "10%",
+      "20%"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "36_265",
+    "question": "Norge er et demokrati. Hva innebærer det?",
+    "alternatives": [
+      "Folket bestemmer hvem som skal styre landet",
+      "De rike bestemmer hvem som skal styre landet",
+      "Domstolene bestemmer hvem som skal styre landet"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "36_266",
+    "question": "Hvem betaler hvis du er innlagt på offentlig sykehus?",
+    "alternatives": [
+      "Staten",
+      "Arbeidsgiver",
+      "Pasient"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "36_267",
+    "question": "Hvor kan man søke om stipend og lån til utdanning?",
+    "alternatives": [
+      "Lånekassen",
+      "Universitet eller høgskolen",
+      "NAV"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "36_268",
+    "question": "Hvem får gratis behandling hos tannlege?",
+    "alternatives": [
+      "Alle under 18 år",
+      "Alle over 18 år",
+      "Alle med frikort"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "36_269",
+    "question": "Når fant man olje i Norge for første gang?",
+    "alternatives": [
+      "På slutten av 1960-tallet",
+      "På slutten av 1930-tallet",
+      "På slutten av 1980-tallet"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "36_270",
+    "question": "Omtrent hvor mye av Norges areal er dyrket mark?",
+    "alternatives": [
+      "3%",
+      "18%",
+      "48%"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "36_271",
+    "question": "Hva er skolefritidsordning/aktivitetsskole?",
+    "alternatives": [
+      "Et tilbud til familier om barnepass før og etter skoletid",
+      "Et fag på videregående skole",
+      "Et pedagogisk tilbud til alle elever fra 8. til 10. trinn"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "36_272",
+    "question": "Hvem har rett til å ta ut skilsmisse?",
+    "alternatives": [
+      "Både kvinner og menn",
+      "Bare menn",
+      "Bare kvinner"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "36_273",
+    "question": "Hva koster det å gå på offentlig grunnskole?",
+    "alternatives": [
+      "Det er gratis for alle",
+      "Prisen er basert på foreldrenes inntekt",
+      "Prisen varierer fra kommune til kommune"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "37_274",
+    "question": "Hvem har rett til fastlege?",
+    "alternatives": [
+      "Alle innbyggere i Norge",
+      "Bare de med fast inntekt",
+      "Bare norske statsborgere"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "37_275",
+    "question": "Hvem får tilbud om gratis vaksiner i vaksinasjonsprogrammet?",
+    "alternatives": [
+      "Alle barn og unge som er bosatt i Norge",
+      "Bare barn og unge som er norske statsborgere",
+      "Bare norske statsborgere"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "37_276",
+    "question": "Hva betyr religionsfrihet?",
+    "alternatives": [
+      "At man kan tro hva man vil",
+      "At religion er forbudt i Norge",
+      "At staten bestemmer hva man skal tro på"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "37_277",
+    "question": "Hvor mye betaler man hos tannlegen hvis man er mellom 18 og 20 år?",
+    "alternatives": [
+      "25% av full pris",
+      "Ingenting",
+      "50% av full pris"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "37_278",
+    "question": "Hvilket år fikk samene sitt eget sameting?",
+    "alternatives": [
+      "1989",
+      "1939",
+      "1967"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "37_279",
+    "question": "Hvor mye må gravide kvinner betale for svangerskapskontroller?",
+    "alternatives": [
+      "Ingenting",
+      "Full pris",
+      "En egenandel"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "37_280",
+    "question": "Hvilke internasjonale organisasjoner er Norge medlem av?",
+    "alternatives": [
+      "NATO, FN, EØS, Schengen",
+      "NATO, EU",
+      "NAFTA"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "37_281",
+    "question": "Kari vil studere på universitetet. Hva er riktig?",
+    "alternatives": [
+      "Hun må ha generell studiekompetanse",
+      "Hun må ha fylt 19 år",
+      "Hun må ha god økonomi"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "37_282",
+    "question": "Mary går i 8. klasse. Hun har vært syk lenge og har problemer med å følge undervisning i flere fag. Hva skjer med Mary når neste skoleår starter?",
+    "alternatives": [
+      "Hun fortsetter i 9. klasse",
+      "Hun må gå 8. klasse en gang til",
+      "Hun får slutte med fagene hun strever med"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "37_283",
+    "question": "Må begge partene i et ekteskap være enige for å kunne bli skilt?",
+    "alternatives": [
+      "Nei",
+      "Ja"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "38_284",
+    "question": "Hasan er 16 år. Han går til tannlegen en gang i året. Hvor mye betaler han for vanlig tannbehandling?",
+    "alternatives": [
+      "Ingenting",
+      "Hele kostnaden",
+      "Halvparten av kostnaden"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "38_285",
+    "question": "Hvem av disse har rett til gratis norskopplæring?",
+    "alternatives": [
+      "Flyktninger",
+      "Au pairer",
+      "Arbeidsinnvandrere"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "38_286",
+    "question": "Hva skjedde i 1940?",
+    "alternatives": [
+      "Norge ble okkupert av Tyskland",
+      "Norge ble et selvstendig land",
+      "Norge fikk sin første president"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "38_287",
+    "question": "Hvorfor bør kvinner gå til svangerskapskontroll?",
+    "alternatives": [
+      "For å sikre mor og barns helse",
+      "For å søke om barnetrygd",
+      "For å få godkjent fødselspermisjon"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "38_288",
+    "question": "Hvem kan delta på Introduksjonsprogrammet?",
+    "alternatives": [
+      "Nyankomne flyktninger over 18 år",
+      "De fleste arbeidsinnvandrere",
+      "Alle asylsøkere under 16 år"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "38_289",
+    "question": "Hva er viktigste inntektskildene til staten og kommunene?",
+    "alternatives": [
+      "Skatter og avgifter fra privatpersoner og bedrifter",
+      "Overføringer fra internasjonale organisasjoner",
+      "Salg av varer og tjenester til andre land"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "38_290",
+    "question": "Hvor ofte har regjeringen møte med kongen?",
+    "alternatives": [
+      "En gang i uken",
+      "En gang i måneden",
+      "En gang i året"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "38_291",
+    "question": "Hvem betaler for pasienter som er innlagt på norske sykehus?",
+    "alternatives": [
+      "Staten",
+      "Pasienten",
+      "Forsikringsselskap"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "38_292",
+    "question": "Hva er målet med arbeidspraksis for innvandrere?",
+    "alternatives": [
+      "Å gjøre deltakeren kjent med norsk arbeidsliv",
+      "Å skaffe deltakeren arbeidstillatelse",
+      "Å få godkjent deltakerens utdanning"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "38_293",
+    "question": "Mari vil melde seg inn i et politisk parti. Foreldrene er uenige i dette. Hvor gammel må Mari være for å bestemme dette selv?",
+    "alternatives": [
+      "15 år",
+      "12 år",
+      "18 år"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "39_294",
+    "question": "Hva må du ha for å ha lønnet arbeid?",
+    "alternatives": [
+      "Skattekort",
+      "Førerkort",
+      "Forsikringskort"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "39_295",
+    "question": "Bosettingen i Norge endret seg siste halvdel av 1800-tallet. Hva skjedde?",
+    "alternatives": [
+      "Mange flyttet fra landsbygda til byene",
+      "Mange flyttet fra byene til kysten",
+      "Mange flyttet fra kysten til landsbygda"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "39_296",
+    "question": "Hvem finansierer universitets- og høyskoleutdanningen i Norge?",
+    "alternatives": [
+      "Staten",
+      "Familien",
+      "Store firmaer"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "39_297",
+    "question": "Hvilke fylker ligger i Nord-Norge?",
+    "alternatives": [
+      "Finnmark, Troms, Nordland",
+      "Oppland, Hedmark, Akershus",
+      "Hordaland, Rogaland, Vest-Agder"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "39_298",
+    "question": "Hvor lenge har foreldre plikt til å forsørge barna sine?",
+    "alternatives": [
+      "Til barna har fylt 18 år",
+      "Til barna er ferdig med grunnskolen",
+      "Til barna har fått egen jobb"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "39_299",
+    "question": "Hvor mange prosent av de yrkesaktive i Norge jobber i det offentlige?",
+    "alternatives": [
+      "Ca. 30%",
+      "Ca. 50%",
+      "Ca. 70%"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "39_300",
+    "question": "Tom har fått jobb i en butikk. Han skal ha en arbeidskontrakt. Når skal han senest ha fått kontrakten?",
+    "alternatives": [
+      "Når han begynner i jobben",
+      "Etter en prøvetid på tre uker",
+      "Når arbeidsgiveren bestemmer seg for det"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "39_301",
+    "question": "Hvor mye betaler foreldre i Norge for vaksinasjonsprogrammet for barn?",
+    "alternatives": [
+      "Ingenting",
+      "Ca. 100 kr per vaksine",
+      "Ca. 200 kr per vaksine"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "39_302",
+    "question": "Når begynner barn normalt i første klasse på skolen?",
+    "alternatives": [
+      "Det året de fyller 6 år",
+      "Det året de fyller 7 år",
+      "Det året de fyller 8 år"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "39_303",
+    "question": "Kari og Jens er skilt. De har to barn på fem og sju år. Hvilke rettigheter har barna deres ifølge loven?",
+    "alternatives": [
+      "Barna har rett til å ha kontakt med begge foreldrene",
+      "Barna har rett til å bo sammen med hverandre",
+      "Barna har rett til å velge hvem av foreldrene de vil bo hos"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "40_304",
+    "question": "Det har skjedd store forandringer i arbeidsmarkedet i løpet av de siste 30 årene. Hva er riktig?",
+    "alternatives": [
+      "Færre jobber med industri og produksjon",
+      "Flere jobber med fiske og jordbruk",
+      "Bare kvinner jobber med handel og service"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "40_305",
+    "question": "Hva skal foreldre og skole samarbeide om?",
+    "alternatives": [
+      "Barnas faglige og sosiale utvikling",
+      "Barnas fritidsaktiviteter",
+      "Barnas ukepenger"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "40_306",
+    "question": "Hvilke av disse tjenestene har NAV ansvar for?",
+    "alternatives": [
+      "Barnetrygd",
+      "Fritidstilbud",
+      "Grunnskole"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "40_307",
+    "question": "Det blir inngått litt mer enn 20.000 ekteskap i Norge hvert år. Hvor mange gifte par skiller seg hvert år?",
+    "alternatives": [
+      "Ca. 10.000",
+      "Ca. 5.000",
+      "Ca. 15.000"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "40_308",
+    "question": "Hva er gjennomsnittsalderen til de som gifter seg for første gang i Norge?",
+    "alternatives": [
+      "Ca. 30 år",
+      "Ca. 20 år",
+      "Ca. 40 år"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "40_309",
+    "question": "Hvem har hovedansvaret for velferdsordningene i Norge?",
+    "alternatives": [
+      "Stat og kommune",
+      "Store private firmaer",
+      "Frivillige organisasjoner"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "40_310",
+    "question": "Hva heter de tre største byene i Norge?",
+    "alternatives": [
+      "Oslo, Bergen, Trondheim",
+      "Stavanger, Oslo, Tromsø",
+      "Bergen, Drammen, Trondheim"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "40_311",
+    "question": "Hvem får foreldre i Norge barnetrygd for?",
+    "alternatives": [
+      "Alle barn under 18 år, bosatt i Norge",
+      "Alle barn under 13 år bosatt i Norge",
+      "Alle barn under 15 år bosatt i Norge"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "40_312",
+    "question": "Hvem skal betale hvis en flyktning har behov for tolk?",
+    "alternatives": [
+      "Det offentlige skal betale",
+      "Flyktningen må betale selv",
+      "Røde Kors betaler det meste"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "40_313",
+    "question": "Når er påsken?",
+    "alternatives": [
+      "I mars/april",
+      "I desember",
+      "I mai"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "41_314",
+    "question": "Hva er gratis for voksne i Norge?",
+    "alternatives": [
+      "Innleggelse på offentlig sykehus",
+      "Undersøkelse hos tannlegen",
+      "Time hos fastlegen"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "41_315",
+    "question": "Hvor gamle må barn være for å ha rett til å bestemme over egen utdanning selv?",
+    "alternatives": [
+      "15 år",
+      "7 år",
+      "12 år"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "41_316",
+    "question": "Hvem er målgruppa for introduksjonsprogrammet?",
+    "alternatives": [
+      "Alle flyktninger mellom 18 og 55 år",
+      "Alle asylsøkere mellom 18 og 55 år",
+      "Alle innvandrere mellom 18 og 55 år"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "41_317",
+    "question": "Hvem leder regjeringen?",
+    "alternatives": [
+      "Statsministeren",
+      "Ordføreren",
+      "Kongen"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "41_318",
+    "question": "Hva innebærer en permanent oppholdstillatelse?",
+    "alternatives": [
+      "Man kan bo og arbeide i Norge så lenge man vil",
+      "Man kan bo og arbeide i Norge i 5 år",
+      "Man kan bo og arbeide i Norge i inntil 10 år"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "41_319",
+    "question": "Hva er ett av hovedmålene til NAV?",
+    "alternatives": [
+      "At flere innbyggere kommer i arbeid",
+      "At flere kvinner er hjemmeværende",
+      "At flere barn får plass i barnehage"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "41_320",
+    "question": "Er lærer lov til å bruke fysisk straff overfor elevene?",
+    "alternatives": [
+      "Nei",
+      "Ja",
+      "Noen ganger"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "41_321",
+    "question": "Hva slags styreform har Norge?",
+    "alternatives": [
+      "Monarki",
+      "Republikk",
+      "Diktatur"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "41_322",
+    "question": "Når man har jobb i Norge, har man rett på en arbeidskontrakt. Hva må stå i kontrakten?",
+    "alternatives": [
+      "Lønn og arbeidstid",
+      "Regler for skatt",
+      "Tidligere arbeidserfaring"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "41_323",
+    "question": "Hvem har hovedansvaret for å skaffe folk jobb i Norge?",
+    "alternatives": [
+      "Folk selv",
+      "Staten",
+      "NAV"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "43_324",
+    "question": "Når ble verdenserklæringen om menneskerettigheter vedtatt?",
+    "alternatives": [
+      "1948",
+      "1908",
+      "2008"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "43_325",
+    "question": "Hva er rett?",
+    "alternatives": [
+      "I Norge er det ikke så vanlig at barn går på private skoler",
+      "Bare rike nordmenn sender barna sine på privatskoler",
+      "Svært mange barn går på private skoler i Norge"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "43_326",
+    "question": "I det norske velferdssystemet har befolkningen økonomiske rettigheter. Hva er eksempler på slike rettigheter?",
+    "alternatives": [
+      "Sykepenger, dagpenger, introduksjonsstøtte og barnetrygd",
+      "Sykepenger, dagpenger, introduksjonsstøtte og god lønn",
+      "Sykepenger, dagpenger, introduksjonsstøtte og lav skatt"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "43_327",
+    "question": "Hvilke land grenser Norge til?",
+    "alternatives": [
+      "Sverige, Finland og Russland",
+      "Danmark, Sverige og Finland",
+      "Island, Danmark og Sverige"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "43_328",
+    "question": "Hvor kan man bytte fastlege?",
+    "alternatives": [
+      "På nettstedet helsenorge.no (tidligere MinFastlege)",
+      "Ved helsestasjonen",
+      "Hos folkeregisteret"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "43_329",
+    "question": "Hva er riktig?",
+    "alternatives": [
+      "Alle barn mellom 0-6 år får tilbud om gratis helsekontroll",
+      "Ingen barn i skolealder får tilbud om gratis helsekontroll",
+      "Alle barn i Norge får tilbud om gratis helsekontroll som del av barnehelseprogrammet"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "43_330",
+    "question": "Hva er Statens lånekasse for utdanning?",
+    "alternatives": [
+      "En statlig bank studenter kan låne penger fra",
+      "Et statlig kontor som leier ut studenthybler",
+      "Et statlig bibliotek for undervisningsmateriell"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "43_331",
+    "question": "Hva må alle som jobber i Norge gjøre?",
+    "alternatives": [
+      "Betale skatt",
+      "Jobbe overtid",
+      "Delta på kurs"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "43_332",
+    "question": "Hvorfor er 1814 et viktig år i norsk historie?",
+    "alternatives": [
+      "Norge fikk sin egen grunnlov",
+      "En dansk prins ble konge av Norge",
+      "Unionen med Sverige ble oppløst"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "43_333",
+    "question": "Inge-Lise er 16 år hun vil da bli medlem av kirken. Foreldrene hennes er uenige. Hva er riktig?",
+    "alternatives": [
+      "Inge-Lise kan bestemme selv",
+      "Foreldrene bestemmer om hennes medlemskap",
+      "Kirkerådet skal bestemme om det"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "44_334",
+    "question": "Kjartan er 45 år gammel. Han gar til tannlegen på behandling. Hva er riktig?",
+    "alternatives": [
+      "Han må betale hele beløpet",
+      "Han betaler halvprisen",
+      "Han betaler en egenandel for tannbehandling"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "44_335",
+    "question": "Marit er 14 år. Foreldrene har skilt seg. Marit vil gjerne bo hos pappa, men moren er uenig. Hva er det som er riktig?",
+    "alternatives": [
+      "Marit kan bestemme selv",
+      "Barnevernet skal bestemme",
+      "Foreldrene må bestemme"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "44_336",
+    "question": "Hvilket yrke kan du ikke utdanne deg til på videregående skole?",
+    "alternatives": [
+      "Lege",
+      "Bygg og anleggsteknikk",
+      "Elektro og datateknologi"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "44_337",
+    "question": "Hva er svart arbeid/svarte penger?",
+    "alternatives": [
+      "Arbeid som man ikke betaler skatt for",
+      "Arbeid som er godkjent som en hobby",
+      "Arbeid som er regulert med et arbeidsforhold"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "44_338",
+    "question": "Hvor søker man barnetrygd?",
+    "alternatives": [
+      "Man søker barnetrygd hos NAV",
+      "En familieforsørger søker barnetrygden hos UDI",
+      "En person som har behov for barnetrygden søker etter den hos Barnehagers Landsforbund"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "44_339",
+    "question": "Berit er sykemeldt i 2 måneder. Hvor mye får hun i lønna?",
+    "alternatives": [
+      "Berit får full lønn i hele perioden",
+      "Fra dag nr. 1 får Berit 80% av lønn",
+      "Første 14 dager får hun full lønn, deretter 80% av lønn"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "44_340",
+    "question": "Hva bruker staten skattepenger til?",
+    "alternatives": [
+      "Velferdsgodene",
+      "Investering",
+      "Aksjer"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "44_341",
+    "question": "Hva gjør en miljøarbeider?",
+    "alternatives": [
+      "En miljøarbeider skaper trivsel for mennesker som trenger oppfølging og hjelp",
+      "En miljøarbeider er personen som jobber med planter og grøntarealer",
+      "En miljøarbeider er personen som skaper et godt arbeidsmiljø"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "44_342",
+    "question": "Hvor mange byer i Norge har flere enn 500.000 innbyggere?",
+    "alternatives": [
+      "Det er bare en by i Norge som har mer en halv million innbyggere",
+      "Det er to byer i Norge som har mer en halv million innbyggere",
+      "Det er tre byer i Norge som har mer en halv million innbyggere"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "44_343",
+    "question": "Velferdsgodene er universelle, hva betyr dette?",
+    "alternatives": [
+      "Dette betyr at alle innbyggerne i et land har like rettigheter til de velferdsgodene som staten tilbyr (Trygdeytelser, barnehager, skoler, medisinsk hjelp osv.)",
+      "Dette betyr at alle innbyggerne i et land har ulike rettigheter til de velferdsgodene som staten eier.",
+      "Dette betyr at alle innbyggerne ikke har tilgang til de velferdsgodene som staten tilbyr"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "45_344",
+    "question": "Hvis du ønsker å ringe til ambulanse hvilket nummer du må ringe til?",
+    "alternatives": [
+      "113",
+      "110",
+      "112"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "45_345",
+    "question": "Hvem kan søke asyl i Norge?",
+    "alternatives": [
+      "Mennesker som kan søke asyl i Norge er de som har fått et arbeidstilbud fra en norsk arbeidsgiver",
+      "Mennesker som kan søke asyl i Norge er de som befinner seg ved en norsk grense",
+      "Mennesker som kan søke asyl i Norge er de som er forfulgte eller de som opplevde umenneskelige handlinger i hjemlandet sitt"
+    ],
+    "correct": 2,
+    "section": "2.1"
+  },
+  {
+    "id": "45_346",
+    "question": "Hvem er det som vedtar lover i Norge?",
+    "alternatives": [
+      "Stortinget vedtar lover i Norge",
+      "Regjeringen vedtar lover i Norge",
+      "Domstolen vedtar lover i Norge"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "45_347",
+    "question": "Hva heter urbefolkningen i Norge?",
+    "alternatives": [
+      "Urfolket i Norge er samer",
+      "Det finnes ikke urbefolkning i Norge",
+      "Urbefolkningen i Norge er nordmenn"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "45_348",
+    "question": "Hva er gratis for voksne i Norge?",
+    "alternatives": [
+      "Innleggelse på offentlige sykehus",
+      "Tannlegebesøk",
+      "Allmennlegetjeneste"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "45_349",
+    "question": "Hvor bodde de fleste innbyggerne i Norge på 1850-tallet?",
+    "alternatives": [
+      "De fleste bodde på landsbygda",
+      "De fleste bodde ved kysten",
+      "De fleste bodde i store byer"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "45_350",
+    "question": "Når er julen?",
+    "alternatives": [
+      "I desember",
+      "I januar",
+      "I mai"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "45_352",
+    "question": "Når har en person lov til å gifte seg? Hvor gammel må man være?",
+    "alternatives": [
+      "Når hun/han er over 18 år og velger selv å gifte seg",
+      "Når familier blir enige om ekteskapet",
+      "Etter fylt 16 år bestemmer man selv"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "45_353",
+    "question": "Hvordan kan man unngå livsstilssykdommer?",
+    "alternatives": [
+      "Spise sunt og være fysisk aktiv",
+      "Jobbe mye og sove uregelmessig",
+      "Trene mye og være forvirrende"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "45_354",
+    "question": "Hva er riktig?",
+    "alternatives": [
+      "Ingen i Norge kan dømmes til fengsel uten at det har vært en rettssak først",
+      "Alle barn har ikke rett til tilpasset undervisning på det trinnet de går",
+      "Arbeidstakere har ikke rett til å være borte fra jobben med full lønn ved barns sykdom"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "46_355",
+    "question": "Hvilke plikter har befolkningen i det norske velferdssamfunnet?",
+    "alternatives": [
+      "Å betale skatt og oppgi riktig informasjon om seg selv",
+      "Å betale skatt og gi penger til hjelpeorganisasjoner",
+      "Å betale skatt og stemme ved alle politiske valg"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "46_356",
+    "question": "Har man rett til tolk når man skal til undersøkelse på sykehuset?",
+    "alternatives": [
+      "Ja",
+      "Nei",
+      "Bare i spesielle tilfeller"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "46_357",
+    "question": "Hvor mange mennesker bor det i Norge?",
+    "alternatives": [
+      "ca. 5 millioner",
+      "ca. 6 millioner",
+      "ca. 4 millioner"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "46_358",
+    "question": "Hvem har ansvaret for å sikre innbyggernes velferd i Norge?",
+    "alternatives": [
+      "Det offentlige",
+      "Politikere",
+      "Oljenæringen"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "46_359",
+    "question": "Hvem har ansvar for å vedta statsbudsjett?",
+    "alternatives": [
+      "Stortinget",
+      "Regjeringen",
+      "Domstolen"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "46_360",
+    "question": "Hvor søker man studieplass? Hvis du ønsker å gå til universitet, hvor kan du søke?",
+    "alternatives": [
+      "På nettstedet samordnaopptak.no",
+      "Sende søknaden per post til høyskolen",
+      "Levere søknaden direkte til universitetet"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "46_361",
+    "question": "Hva sier Norges lov om abort?",
+    "alternatives": [
+      "Kvinnen selv bestemmer tidlig i svangerskapet",
+      "Kvinnen har ikke rett til å avgjøre om hun ville avbryte svangerskapet",
+      "Kvinnen og mannen bør avgjøre sammen om hun ville avbryte svangerskapet"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  },
+  {
+    "id": "46_362",
+    "question": "Hvem må du henvende deg til hvis du vil gifte deg?",
+    "alternatives": [
+      "Folkeregisteret",
+      "NAV",
+      "UDI"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "46_363",
+    "question": "Tom finner en jobbannonse. Hva bør han gjøre hvis han vil ha jobben?",
+    "alternatives": [
+      "Skrive en jobbsøknad og CV",
+      "Skrive en mail til arbeidsgiver",
+      "Ta kontakt med personen som er ansvarlig for ansettelse"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "46_364",
+    "question": "Hvem får tilbud om gratis helsekontroll?",
+    "alternatives": [
+      "Alle barn mellom 0 og 18 år",
+      "Alle barn mellom 0 og 16 år",
+      "Alle barn mellom 0 og 20 år"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "47_365",
+    "question": "Hva sier arbeidsmiljøloven om ferier?",
+    "alternatives": [
+      "Alle som jobber har rett på ferie",
+      "Arbeidsgiveren bestemmer om arbeidstakeren har rett på ferie eller ikke",
+      "Arbeidsgiver og arbeidstaker må lage en intern avtale om ferie og fritid"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "47_366",
+    "question": "Hva er statsministerens oppgave?",
+    "alternatives": [
+      "Å lede regjeringen",
+      "Å lede Stortinget",
+      "Å lede Domstolen"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "47_367",
+    "question": "Hva ønsket de fleste nordmenn på slutten av 1800 tallet?",
+    "alternatives": [
+      "At Norge skulle blir et selvstendig land",
+      "At Norge skulle forsetter unionen med Danmark",
+      "At Norge skulle forsetter unionen med Sverige"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "47_368",
+    "question": "Hva innebærer loven om rett og plikt til 600 timer undervisning?",
+    "alternatives": [
+      "Man får undervisning i norsk i 550 timer, og i samfunnskunnskap i 50 timer",
+      "Man får undervisning i norsk språk i 350 timer og i samfunnskunnskap i 350 timer",
+      "Man får undervisning i norsk i 300 timer og i samfunnskunnskap i 300 timer"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "47_369",
+    "question": "Hva er riktig ifølge likestillingsloven?",
+    "alternatives": [
+      "Kvinner og menn skal ha like muligheter til utdanning og arbeid",
+      "Kvinner og menn skal ha like muligheter til utdanning, men ulike muligheter til arbeid",
+      "Kvinner og menn skal ha ulike muligheter til utdanning og arbeid"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  },
+  {
+    "id": "47_370",
+    "question": "De som flytter, har plikt til å melde fra om ny adresse innen 8 dager. Hvem må du melde til når du skal flytte?",
+    "alternatives": [
+      "Folkeregisteret",
+      "Politiet",
+      "NAV"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "47_371",
+    "question": "Hva menes med begrepet likestilling?",
+    "alternatives": [
+      "Likestilling handler om at all skal ha like muligheter og rettigheter",
+      "At alle personer skal ha ulike rettigheter og muligheter i samfunnet, avhengig av kjønn",
+      "At alle personer skal ha ulike rettigheter og muligheter i samfunnet, avhengig av opprinnelse"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  },
+  {
+    "id": "47_372",
+    "question": "Hvem skal bestemme abort i svangerskap i perioder før uke 13?",
+    "alternatives": [
+      "Kvinne selv",
+      "Kvinne og man må være enige sammen",
+      "Fastlegen"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "47_373",
+    "question": "Hvor mye % er kvinner som studerer mere en mann i Norge?",
+    "alternatives": [
+      "Over 60%",
+      "ca. 20%",
+      "40%"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "47_374",
+    "question": "Hva er gjennomsnittsalderen for å gifte seg for føste gang i Norge?",
+    "alternatives": [
+      "33 år",
+      "44 år",
+      "20 ár"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "48_375",
+    "question": "Hva er riktig om videregående skole i Norge?",
+    "alternatives": [
+      "Gratis",
+      "Man må betaler selv alt",
+      "Man betaler egen andel"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "48_376",
+    "question": "Hvem bestemmer den som skal sitte på Stortinget?",
+    "alternatives": [
+      "stemt til stortingsvalget",
+      "Kongen og nær arbeiderne som han jobber med",
+      "Stortinget velger selv"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "48_377",
+    "question": "Hva er riktig om barnevaksineprogrammet i Norge?",
+    "alternatives": [
+      "Forelde som skal bestemme",
+      "Det er obligatorisk for alle barn",
+      "Barnevaksineprogrammet er gratis for familien som har for lite penger"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "48_378",
+    "question": "Hva er riktig om kvinne omskjæring i Norge?",
+    "alternatives": [
+      "Det er straffbart",
+      "Poreldrenes kultur som gjelder på",
+      "Det følger den kulturen som man har hatt fra før"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  },
+  {
+    "id": "48_379",
+    "question": "Hvem må ha skattekort?",
+    "alternatives": [
+      "Alle som jobber og får lønn",
+      "Man tjener over 60.000 år",
+      "Man tjener over 100.000 år"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "48_380",
+    "question": "Hva som er riktig om fastlege?",
+    "alternatives": [
+      "Fastlege en én lege som man skal til når man er syk",
+      "Staten skal velge fastlege til folket sitt",
+      "Man går til fastlegen når man er syk uten å vente på kø"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "48_381",
+    "question": "Hva er viktigst oppgave for barnevern?",
+    "alternatives": [
+      "Hjelpe familie og barn hjemme",
+      "Kontrollere barnehage",
+      "Godkjenne adopsjon fra utlandet"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "48_382",
+    "question": "Hvilket land var Norge union med?",
+    "alternatives": [
+      "Danmark og Sverige",
+      "Sverige og Island",
+      "Danmark og Tyskland"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "48_383",
+    "question": "Hva er NAV ansvar for?",
+    "alternatives": [
+      "Hjelpe folk til å arbeide og aktiviteter",
+      "Hjelpe folk til å fullført videregående",
+      "Hjelpe folk til å søke dagpenger"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "48_384",
+    "question": "Representanter til Stortinget velges fra?",
+    "alternatives": [
+      "Politiske partier",
+      "Regjeringen",
+      "Høyesterett"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "49_385",
+    "question": "Hva heter Norges høyeste fjell?",
+    "alternatives": [
+      "Galdhøpiggen",
+      " Glittertinden",
+      "Snøhetta"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "49_386",
+    "question": "Hva er de tre viktigste næringene i Norge?",
+    "alternatives": [
+      "Næringsmidler, petroleum/kjemiske produkter og maskiner/utstyr",
+      "Papir, petroleum/kjemiske produkter og trevarer",
+      "Tekstiler/bekledning, petroleum/kjemiske produkter og forlag/grafisk"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "49_387",
+    "question": "Hvis norsk lov strider mot din tro, innebærer religionsfriheten at du har rett til å la troen gå over loven?",
+    "alternatives": [
+      "Nei, loven gjelder alle",
+      "Ja, alle borgere har rett til å utøve sin religion",
+      "Nei, med unntak i familiespørsmål og innenfor husets fire vegger"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  },
+  {
+    "id": "49_388",
+    "question": "Hvordan fungerer maktfordelingsprinsippet i Norge?",
+    "alternatives": [
+      "Prinsippet sikrer at maktutøvelse er delt på tre uavhengige myndigheter",
+      "Prinsippet sikrer at maktutøvelse er delt på tre avhengige myndigheter",
+      "Prinsippet sikrer at maktutøvelse er delt på to avhengige myndigheter"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "49_389",
+    "question": "Hvordan velges representantene til Stortinget?",
+    "alternatives": [
+      "Hvert fylke er en valgkrets med et gitt antall plasser i Stortinget. Antall stemmer i hvert fylke avgjør hvor mange representanter hvert parti får fra hvert fylke",
+      "Fylkestingene velger hvem som møter på Stortinget for hvert fylke",
+      "Partiene stiller lister nasjonalt, med lederen på førsteplass. Partiene får antall plasser etter hvor mange stemmer de får nasjonalt"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "49_390",
+    "question": "Makten er delt mellom storting, regjering og domstolene. Hvilken makt ligger til hver av disse tre institusjonene?",
+    "alternatives": [
+      "Den lovgivende, utøvende og dømmende makt",
+      "Folkets makt, embetsmennenes makt og dommerens makt",
+      "Makten over kommunene, makten over staten og makten over politiet"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "49_391",
+    "question": "Representanter til Stortinget velges fra?",
+    "alternatives": [
+      "Politiske partier",
+      "Regjeringen",
+      "Høyesterett"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "49_392",
+    "question": "Hva er konges rolle i konstitusjonen?",
+    "alternatives": [
+      "Konges rolle er i hovedsak representativ og seremonielt",
+      "Kongen bestemmer hvem som skal sitte i regjeringen",
+      "Han bestemmer over utenrikspolitikken"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "49_393",
+    "question": "Ytringsfriheten og religionsfriheten er beskyttet i Grunnloven. Betyr det at en norsk borger har rett til å kritisere en annen norsk borgers tro?",
+    "alternatives": [
+      "Ja, ytringsfriheten betyr at du kan både kritisere religioner og religiøse ledere",
+      "Nei, religionsfriheten går over ytringsfriheten",
+      "Nei, du har bare lov å kritisere og diskutere din egen religion"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  },
+  {
+    "id": "50_40",
+    "question": "Hva er statens lånekasse for utdanning?",
+    "alternatives": [
+      "Et statlig kontor som leier ut studenthybler",
+      "Et statlig bibliotek for undervisningsmateriell",
+      "En statlig bank studenter kan låne penger fra"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "50_41",
+    "question": "Hva er rett?",
+    "alternatives": [
+      "I Norge er det ikke så vanlig at barn går på private skoler",
+      "Bare rike norskmenn sender bana sine på private skoler",
+      "Svært mange barn går på private skoler i Norge"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "50_42",
+    "question": "Hvem har rett til videregående opplæring?",
+    "alternatives": [
+      "Alle ungdommer som har gode nok karakterer",
+      "Alle ungdommer som ønsker å studere",
+      "Alle ungdommer som har fullført norsk grunnskole"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "50_44",
+    "question": "Når ble det innført obligatorisk skolegang for alle i Norge?",
+    "alternatives": [
+      "1842",
+      "1739",
+      "1814",
+      "1907"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "50_45",
+    "question": "Når ble det innført 10-årig grunnskole i Norge?",
+    "alternatives": [
+      "1969",
+      "1972",
+      "1991",
+      "1997"
+    ],
+    "correct": 3,
+    "section": "1.1"
+  },
+  {
+    "id": "50_46",
+    "question": "Har en lærer lov til å bruke fysisk straff overfor elevene?",
+    "alternatives": [
+      "Ja",
+      "Nei",
+      "noen ganger"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "50_47",
+    "question": "Hvem har ansvaret for å oppdra barna?",
+    "alternatives": [
+      "Barna selv",
+      "Foreldre",
+      "Staten"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "51_394",
+    "question": "Hvis du kan norsk, hvilke to andre skandinaviske språk ligger så nært norsk at du vil kunne lese og forstå det meste av dem?",
+    "alternatives": [
+      "Dansk og Svensk",
+      "Finsk og Svensk",
+      "Islandsk og Dansk"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "51_395",
+    "question": "Hvilke tre offisielle skriftspråk er det i Norge?",
+    "alternatives": [
+      "Norsk (bokmål og nynorsk som sidestilte målformer) og samisk",
+      "Bokmål, nynorsk og engelsk",
+      "Bokmål, nynorsk og et valgfritt"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "51_396",
+    "question": "Hvor ofte er det valg i Norge?",
+    "alternatives": [
+      "Hvert fjerde år er det stortingsvalg og hvert fjerde år er det lokalvalg. Det er to år mellom hvert valg",
+      "Det varierer. Stortinget eller regjeringen bestemmer når det skal være valg",
+      "Hvert fjerde år"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "51_397",
+    "question": "Har en kvinne og en mann lik rett til å ta ut separasjon og dermed skilsmisse?",
+    "alternatives": [
+      "Ja, loven skiller ikke mellom kvinner og menn når det gjelder skilsmisser",
+      "Nei, mannen må akseptere skilsmissen først",
+      "Ja, hvis kvinnen kan bevise at mannen ikke har oppfylt forpliktelsene i ekteskapet så er rettighetene like"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  },
+  {
+    "id": "51_398",
+    "question": "Hva står i opplæringsloven?",
+    "alternatives": [
+      "All barn har rett og plikt til 10 års skole",
+      "All barn har rett og plikt til både grunnskole (grunnutdanningen) og videregående utdanning",
+      "Ingen barn har plikt til å utdanne seg"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "51_399",
+    "question": "Hvilket oljefelt har vært lengst i produksjon i Norge?",
+    "alternatives": [
+      "Ekofiskfeltet",
+      "Trollfeltet",
+      "Statfjordfeltet"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "51_400",
+    "question": "Kari og Jens er skilt. Hvem har hovedansvar til barna sine?",
+    "alternatives": [
+      "Både mor og far",
+      "Mor",
+      "Far"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "51_401",
+    "question": "Hvilken religion er skrevet inn i den norske Grunnloven?",
+    "alternatives": [
+      "Den evangelisk-lutherske religion",
+      "Ingen. Norge er en sekulær stat",
+      "Den romersk-katolske religion, som var størst i Norge i 1814"
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "51_402",
+    "question": "Norge er et demokrati. Hva innebærer det?",
+    "alternatives": [
+      "Folket bestemmer hvem som skal styre landet",
+      "De rike bestemmer hvem som skal styre landet",
+      "Domstolene bestemmer hvem som skal styre landet"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "51_403",
+    "question": "Har to kvinner eller to menn lov til inngå ekteskap?",
+    "alternatives": [
+      "Ja, ekteskapsloven skiller ikke mellom ekteskap mellom to av samme kjønn, og ekteskap mellom mann og kvinne",
+      "Nei, ekteskap mellom to av samme kjønn er ikke lov i Den norske kirke og dermed forbudt i Norge",
+      "Nei, ekteskap er forbehold mann og kvinne. Homofile og lesbiske par kan inngå partnerskap"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  }
+]

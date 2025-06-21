@@ -1,0 +1,326 @@
+[
+    {
+      "id": "1",
+      "title": "Family and Health",
+      "description": "This theme offers an introduction to the fundamental structures and values that characterize Norwegian society, focusing on the role and responsibility of the individual. The content covers central arenas for participation and personal development, such as education, work, and digital competence. The goal is to provide newcomers with an understanding of the systems and expectations that form the basis for an active and integrated life in Norway. The theme clarifies how the state facilitates participation, but also the responsibility that each individual has to take advantage of these opportunities.",
+      "learning_goals": [
+        "Understand the relationship between education, work, and social participation in Norway.",
+        "Explain the fundamental principles of the Norwegian educational system and labor market.",
+        "Reflect on the importance of digital discernment as an essential competence in today's society."
+      ],
+      "key_concepts": [
+        "Social participation",
+        "Integration",
+        "Equal opportunities",
+        "Individual responsibility",
+        "Competence"
+      ]
+    },
+    {
+      "id": "1.1",
+      "title": "School and Education",
+      "url": "https://samfunnskunnskap.no/nb/skole-og-utdanning.html",
+      "description": "The Norwegian educational system is presented as a fundamental pillar for social integration and the realization of the value of equality. The system is built on the principle of free and equal right to education for all, from primary school to higher education. A central value is equality, supported by state programs like the Lånekassen (State Educational Loan Fund), which aims to ensure that access to education is independent of social and economic background. Emphasis is placed on a committed cooperation between home and school, as well as the principle of lifelong learning to face a changing society. Language training is highlighted as the decisive key to full participation in social and professional life.",
+      "learning_goals": [
+        "Describe the main features of the Norwegian educational path, from primary school to higher education.",
+        "Explain the purpose of programs like the Lånekassen and the right to adult education.",
+        "Explain the expectations of parents in the cooperation between home and school.",
+        "Understand the importance of Norwegian language training and the recognition of foreign competence (validation and assessment of real competence)."
+      ],
+      "key_concepts": [
+        "Primary school",
+        "Secondary school",
+        "Higher education",
+        "Equal rights",
+        "Lånekassen",
+        "Home–school cooperation",
+        "Lifelong learning",
+        "Validation",
+        "Assessment of real competence",
+        "Norwegian language training"
+      ]
+    },
+    {
+      "id": "1.2",
+      "title": "Working Life",
+      "url": "https://samfunnskunnskap.no/nb/arbeidsliv.html",
+      "description": "The Norwegian labor market is a highly organized system based on a tripartite cooperation between employees, employers, and the authorities. The system is regulated by laws such as the Working Environment Act, which guarantees workers' rights regarding working hours, safety, and vacation. A high proportion of workers are members of a trade union. Labor force participation is closely linked to the financing of the welfare state through a progressive tax system, where the principle is to contribute according to ability and receive according to need. Undeclared work (svart arbeid) is not only considered illegal but a violation of the social contract. At the same time, a tension is revealed between the formal system and the informal reality, where a large portion of jobs are obtained through networks.",
+      "learning_goals": [
+        "Explain what the tripartite cooperation entails and the role of trade unions.",
+        "Describe the main laws and regulations in working life, such as the Working Environment Act.",
+        "Understand the connection between salary, tax, and the financing of the welfare state.",
+        "Describe the consequences of undeclared work, both legally and morally.",
+        "Reflect on the distinction between formal and informal paths to work in Norway."
+      ],
+      "key_concepts": [
+        "Tripartite cooperation",
+        "Trade union",
+        "Working Environment Act",
+        "Welfare state",
+        "Progressive tax",
+        "Undeclared work",
+        "Networking",
+        "Internship"
+      ]
+    },
+    {
+      "id": "1.3",
+      "title": "Critical Thinking and Digital Judgment",
+      "url": "https://samfunnskunnskap.no/nb/kritisk-tenkning-og-digital-dommekraft.html",
+      "description": "In a modern society, digital competence is a prerequisite for participation in education, working life, and as a citizen. This theme addresses the development of critical thinking and digital judgment. Central concepts are ethics, privacy, and source criticism. Knowledge in these areas is essential for navigating a complex media landscape, protecting one's integrity online, and evaluating information independently. The ability to distinguish between reliable and unreliable information, for example, by using fact-checking services, is a core skill.",
+      "learning_goals": [
+        "Define the concepts of ethics, privacy, and critical thinking in a digital context.",
+        "Apply principles of source criticism to evaluate information on the internet and in social media.",
+        "Understand the importance of privacy and how to protect one's own data.",
+        "Identify tools and methods for verifying information."
+      ],
+      "key_concepts": [
+        "Ethics",
+        "Privacy",
+        "Critical thinking",
+        "Digital judgment",
+        "Source criticism",
+        "Fact-checking",
+        "Disinformation"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Democracy and the Welfare State",
+      "description": "This theme explores how Norwegian society is organized, with a special focus on the interaction between the individual, family, and the state. It highlights norms and values that govern daily life, from family relationships to personal finance and health. A central part is understanding the role of the welfare state as a safety net, but also as a protector of the individual's fundamental rights to a free and independent life. The theme addresses how someone new to Norway can navigate this system and understand the balance between rights and obligations.",
+      "learning_goals": [
+        "Understand the central principles of the Norwegian welfare state.",
+        "Explain how the state and the individual interact in areas such as health, family, and economy.",
+        "Reflect on Norwegian social norms related to family life and leisure.",
+        "Know the statutory rights that protect the individual's freedom and autonomy."
+      ],
+      "key_concepts": [
+        "Welfare state",
+        "Social contract",
+        "Individual autonomy",
+        "Rights and obligations",
+        "Social norms"
+      ]
+    },
+    {
+      "id": "2.1",
+      "title": "New in Norway",
+      "url": "https://samfunnskunnskap.no/nb/ny-i-norge.html",
+      "description": "This chapter acknowledges the varied reasons for immigration and the emotional challenges of establishing oneself in a new country. It provides a demographic context showing that immigrants and their descendants constitute a significant and integrated part of the population (approx. 18%). By drawing parallels to Norway's own history as a poor country with large emigration, the material seeks to normalize the experience of migration and create a common frame of reference. The goal is to frame the newcomer's situation as part of a larger, shared Norwegian narrative.",
+      "learning_goals": [
+        "Reflect on different causes of migration and the process of establishing oneself in a new country.",
+        "Know the demographic composition of Norway with regard to immigration.",
+        "Understand how Norway's history of poverty and emigration can provide perspective on current immigration."
+      ],
+      "key_concepts": [
+        "Migration",
+        "Integration",
+        "Demography",
+        "Immigrant population",
+        "Cultural encounter"
+      ]
+    },
+    {
+      "id": "2.2",
+      "title": "Family Life",
+      "url": "https://samfunnskunnskap.no/nb/familieliv.html",
+      "description": "The concept of family in Norway is defined in an inclusive way that encompasses various family forms, such as the nuclear family, single parents, and same-sex couples with children. The chapter recognizes that migration can cause strains on family dynamics, as family members may adapt at different paces. It is emphasized that open communication and mutual support are crucial for handling these challenges. The purpose is to give newcomers a quick introduction to the legal and social acceptance of a diversity of family structures.",
+      "learning_goals": [
+        "Describe and recognize the diversity of family forms accepted in Norway.",
+        "Understand how migration can affect family relationships.",
+        "Reflect on the importance of communication to preserve good family relationships during and after a migration process."
+      ],
+      "key_concepts": [
+        "Family forms",
+        "Nuclear family",
+        "Same-sex marriage",
+        "Family dynamics",
+        "Communication"
+      ]
+    },
+    {
+      "id": "2.3",
+      "title": "Leisure",
+      "url": "https://samfunnskunnskap.no/nb/fritid.html",
+      "description": "Leisure is defined as a distinct cultural category – the time one disposes of for oneself outside of obligations such as work, eating, and sleeping. The chapter acknowledges that this concept may be new to some, and explores gray areas, such as the boundary between work and housework. The question of a fair distribution of leisure time between the sexes is also raised. The purpose is to introduce leisure as an important part of the quality of life in Norway and encourage reflection on one's own use of time.",
+      "learning_goals": [
+        "Define the concept of 'leisure' in a Norwegian context.",
+        "Reflect on how leisure time is distributed and valued in one's own life.",
+        "Discuss possible differences in access to leisure time between different groups, for example, between men and women."
+      ],
+      "key_concepts": [
+        "Leisure",
+        "Work-life balance",
+        "Quality of life",
+        "Use of time",
+        "Recreation"
+      ]
+    },
+    {
+      "id": "2.4",
+      "title": "Health",
+      "url": "https://samfunnskunnskap.no/nb/helse.html",
+      "description": "The understanding of health in Norway is presented as something more than just the absence of disease; it encompasses a holistic experience of well-being. A central value is patient autonomy. A shift is described from a traditional, paternalistic medical model to a model based on shared responsibility and dialogue. The patient is expected to be an informed and active participant in decisions concerning their own health. This reflects the overarching societal values of individual responsibility, self-determination, and informed consent.",
+      "learning_goals": [
+        "Explain the holistic understanding of the concept of health in Norway.",
+        "Describe the modern patient role as an active and informed participant.",
+        "Understand the principle of shared responsibility between doctor and patient.",
+        "Recognize the connection between the view of health and general societal values such as autonomy."
+      ],
+      "key_concepts": [
+        "Holistic health",
+        "Patient autonomy",
+        "Informed consent",
+        "Shared responsibility",
+        "Doctor-patient relationship"
+      ]
+    },
+    {
+      "id": "2.5",
+      "title": "Personal Finance",
+      "url": "https://samfunnskunnskap.no/nb/personlig-okonomi.html",
+      "description": "This chapter covers practical skills like budgeting, but also has a broader, culturally-oriented perspective. It encourages reflection on cultural differences in attitudes towards consumption, wealth, and poverty. By comparing Norwegian economic habits with those from one's home country, a deeper and more nuanced understanding of economic behavior is encouraged. The goal is to move beyond mere financial management to cultural competence in the economic field.",
+      "learning_goals": [
+        "Set up a simple personal budget.",
+        "Understand and use key concepts related to personal finance.",
+        "Reflect on and compare cultural attitudes towards money, consumption, and saving.",
+        "Identify resources for financial counseling."
+      ],
+      "key_concepts": [
+        "Budget",
+        "Consumption",
+        "Saving",
+        "Income",
+        "Expenses",
+        "Cultural attitudes"
+      ]
+    },
+    {
+      "id": "2.6",
+      "title": "The Right to a Free and Independent Life",
+      "url": "https://samfunnskunnskap.no/nb/retten-til-et-fritt-og-selvstendig-liv.html",
+      "description": "Personal freedom and the right to make one's own life choices are a fundamental and legally protected value in Norwegian society. This chapter underscores the seriousness of this right by directly confronting its most severe violations, such as domestic violence, negative social control, forced marriage, and female genital mutilation. These acts are unequivocally defined as illegal and unacceptable. The state and its legislation are positioned as the ultimate guarantor of individual freedom, even when it is threatened by the individual's own family or community. This defines a protective relationship between the state and the individual that can override traditional or cultural authority.",
+      "learning_goals": [
+        "Define the right to a free and independent life as a fundamental Norwegian value.",
+        "Identify acts that are illegal and represent violations of this right, such as forced marriage and violence.",
+        "Distinguish between acceptable social influence, unacceptable pressure, and illegal coercion.",
+        "Understand that the state and Norwegian law protect the individual's rights, also in relation to family and social environment."
+      ],
+      "key_concepts": [
+        "Personal freedom",
+        "Self-determination",
+        "Domestic violence",
+        "Negative social control",
+        "Forced marriage",
+        "Female genital mutilation",
+        "Legal protection"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "History, Geography, and Way of Life",
+      "description": "This theme addresses the fundamental pillars of Norwegian national identity: a common history, a democratic system of government, and a deep relationship with nature. The chapters show how these elements are interwoven and together shape modern Norway. From geographical and political facts, through historical lines and democratic principles, to the complex relationship between natural resources and sustainability, the theme provides a holistic understanding of what defines the nation today.",
+      "learning_goals": [
+        "Present central facts about Norway's geography, form of government, and population.",
+        "Understand how history has shaped today's Norwegian society and its values.",
+        "Describe the main principles of Norwegian democracy.",
+        "Analyze the relationship between Norway's wealth from natural resources and the need for sustainable development."
+      ],
+      "key_concepts": [
+        "National identity",
+        "Constitutional monarchy",
+        "Democracy",
+        "Sustainability",
+        "Welfare state",
+        "Gender equality"
+      ]
+    },
+    {
+      "id": "3.1",
+      "title": "This is Norway",
+      "url": "https://samfunnskunnskap.no/nb/dette-er-norge.html",
+      "description": "This chapter introduces fundamental facts about Norway, including geography, population (5.5 million), form of government (constitutional monarchy), and language. It highlights the values of gender equality and equal worth as cornerstones of society, and traces the historical struggle for women's rights and today's protection against discrimination. Furthermore, it describes Norway's religious landscape as secular, marked by a Christian and humanistic cultural heritage, but where freedom of religion – including freedom from religion – is a central principle. The state's neutral stance is demonstrated through equal financial support to all approved religious and life-stance communities.",
+      "learning_goals": [
+        "Recite key facts about Norway's geography, population, and form of government.",
+        "Explain the importance of the values of gender equality and equal worth in Norwegian society.",
+        "Describe the principle of freedom of religion and the state's role towards religious and life-stance communities.",
+        "Understand the legal protection against discrimination."
+      ],
+      "key_concepts": [
+        "Constitutional monarchy",
+        "Gender equality",
+        "Equal worth",
+        "Protection against discrimination",
+        "Freedom of religion",
+        "Life stance",
+        "Humanism",
+        "Secular state"
+      ]
+    },
+    {
+      "id": "3.2",
+      "title": "History",
+      "url": "https://samfunnskunnskap.no/nb/historie.html",
+      "description": "The history of Norway is presented as a narrative of progress that explains the emergence of modern Norway. The presentation is a linear journey from the first settlers and the Viking Age, through periods of union and world wars, to the current multicultural and democratic welfare state. The discipline of history is used here as a tool to legitimize and explain the values and institutions of the present. The narrative underpins an understanding of how historical events have shaped the nation that Norway is today.",
+      "learning_goals": [
+        "Describe the main features of Norway's historical development from the Viking Age to the present day.",
+        "Explain how central historical events, such as the dissolution of unions and the world wars, have affected Norway.",
+        "Understand how history is used to explain the emergence of the modern welfare state and its values."
+      ],
+      "key_concepts": [
+        "Viking Age",
+        "Union period",
+        "World War II",
+        "Emergence of the welfare state",
+        "Multicultural society",
+        "Historical narrative"
+      ]
+    },
+    {
+      "id": "3.3",
+      "title": "Human Rights and Democracy",
+      "url": "https://samfunnskunnskap.no/nb/menneskerettigheter-og-demokrati.html",
+      "description": "This chapter describes the political architecture of Norway. It begins with universal human rights, as they are enshrined in Norwegian law, and the democratic principle of the balance between rights and obligations. The system of government is based on the principle of the separation of powers, where power is divided between a legislative (the Storting), an executive (the Government), and a judicial (the Courts) power. Furthermore, the three levels of administration – state, county, and municipality – and their areas of responsibility are explained. The right to vote in elections is highlighted as the citizens' primary tool for influencing the country's governance.",
+      "learning_goals": [
+        "Explain the principle of the separation of powers and the three branches of government.",
+        "Describe the three levels of administration (state, county, municipality) and give examples of their areas of responsibility.",
+        "Explain the requirements for the right to vote in municipal and parliamentary elections.",
+        "Understand the balance between rights and obligations in a democracy."
+      ],
+      "key_concepts": [
+        "Human rights",
+        "Democracy",
+        "Separation of powers",
+        "The Storting (Parliament)",
+        "The Government",
+        "The Courts",
+        "Levels of administration (state, county, municipality)",
+        "Right to vote",
+        "Political parties"
+      ]
+    },
+    {
+      "id": "3.4",
+      "title": "Sustainability",
+      "url": "https://samfunnskunnskap.no/nb/baerekraft.html",
+      "description": "This chapter explores the complex relationship that Norway has with its natural environment. Norway's wealth is directly linked to natural resources, especially oil and gas, but also fish and forests. The unique right of public access (allemannsretten), which grants free access to uncultivated land, is presented alongside a strict duty to care for nature. The theme illuminates the central tension in Norway today: the welfare state is largely financed by revenues from fossil fuels, while the country has committed to sustainable development and the 'green transition' to combat climate change. The chapter focuses on the individual's responsibility through waste sorting, reuse, and environmentally friendly choices, but acknowledges the underlying structural contradiction.",
+      "learning_goals": [
+        "Explain the connection between Norway's natural resources, especially oil, and the country's economic prosperity.",
+        "Describe the content of the right of public access (allemannsretten) and the associated duty to protect nature.",
+        "Understand the concept of sustainable development and its importance in a Norwegian and global context.",
+        "Identify practical actions individuals can take for environmental protection (e.g., waste sorting, reuse).",
+        "Reflect on the tension between Norway's role as an oil nation and the ambitions of a green transition."
+      ],
+      "key_concepts": [
+        "Sustainable development",
+        "Natural resources",
+        "The right of public access (Allemannsretten)",
+        "The green transition",
+        "Climate change",
+        "Nature and environmental protection",
+        "Reuse",
+        "Recycling",
+        "Waste sorting"
+      ]
+    }
+  ]

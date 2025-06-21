@@ -1,0 +1,5161 @@
+[
+    {
+      "id": "1_1",
+      "question": "All immigrants in Norway are required to take Norwegian language training.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "1_2",
+      "question": "The residence permit determines whether or not an immigrant receives free Norwegian language training.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "1_3",
+      "question": "Those who have to pay for Norwegian language training themselves must take a minimum of 600 hours.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "1_4",
+      "question": "Nordic citizens are not obliged to attend Norwegian courses.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "1_5",
+      "question": "Everyone must stop the Norwegian course after 600 hours.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "1_6",
+      "question": "Does a citizen from an EEA country have to apply for a residence permit in Norway?",
+      "alternatives": [
+        "Yes",
+        "No"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "1_7",
+      "question": "Does everyone who has family in Norway automatically get a residence permit?",
+      "alternatives": [
+        "Yes",
+        "No"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "1_8",
+      "question": "Do all foreigners in Norway have the same grounds for residence?",
+      "alternatives": [
+        "Yes",
+        "No"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "1_9",
+      "question": "Is it possible to obtain a residence permit in Norway on the basis of strong humanitarian considerations?",
+      "alternatives": [
+        "Yes",
+        "No"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "1_10",
+      "question": "Is it possible to seek asylum in Norway?",
+      "alternatives": [
+        "Yes",
+        "No"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "1_11",
+      "question": "Do all refugees come to Norway through the UN system?",
+      "alternatives": [
+        "Yes",
+        "No"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "1_12",
+      "question": "When did Norway get its own constitution?",
+      "alternatives": [
+        "1814",
+        "1350",
+        "1905"
+      ],
+      "correct": 0,
+      "section": "3.2"
+    },
+    {
+      "id": "1_13",
+      "question": "When did Norway become an oil nation?",
+      "alternatives": [
+        "1940",
+        "1905",
+        "1969"
+      ],
+      "correct": 2,
+      "section": "3.2"
+    },
+    {
+      "id": "1_14",
+      "question": "Approximately when was the Viking Age?",
+      "alternatives": [
+        "1350-1814",
+        "800-1050",
+        "1940-1945"
+      ],
+      "correct": 1,
+      "section": "3.2"
+    },
+    {
+      "id": "1_15",
+      "question": "When was Norway in a union with Denmark?",
+      "alternatives": [
+        "1905-1940",
+        "1350-1814",
+        "1814-1905"
+      ],
+      "correct": 1,
+      "section": "3.2"
+    },
+    {
+      "id": "2_16",
+      "question": "When was Norway occupied by Germany?",
+      "alternatives": [
+        "1905-1910",
+        "1840-1845",
+        "1940-1945"
+      ],
+      "correct": 2,
+      "section": "3.2"
+    },
+    {
+      "id": "2_17",
+      "question": "When was National Romanticism?",
+      "alternatives": [
+        "In the 11th century",
+        "In the 19th century",
+        "In the 16th century"
+      ],
+      "correct": 1,
+      "section": "3.2"
+    },
+    {
+      "id": "2_18",
+      "question": "When was Norway's union with Sweden dissolved?",
+      "alternatives": [
+        "1969",
+        "1905",
+        "1945"
+      ],
+      "correct": 1,
+      "section": "3.2"
+    },
+    {
+      "id": "2_19",
+      "question": "Norway has a state church.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "2_20",
+      "question": "The Norwegian Church is Roman Catholic.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "2_21",
+      "question": "There is freedom of religion in Norway.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "2_22",
+      "question": "Everyone who lives in Norway is a member of a religious community.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "2_23",
+      "question": "There are more Buddhists than Muslims in Norway.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "2_24",
+      "question": "The state finances several religious communities.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "2_25",
+      "question": "Who should receive the birth notification when a child is born?",
+      "alternatives": [
+        "The midwife",
+        "The National Population Register",
+        "The parents"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "2_26",
+      "question": "Who usually has the main responsibility for a child and the child's upbringing?",
+      "alternatives": [
+        "The school",
+        "The kindergarten",
+        "The parents"
+      ],
+      "correct": 2,
+      "section": "2.2"
+    },
+    {
+      "id": "2_27",
+      "question": "What is the age of majority in Norway?",
+      "alternatives": [
+        "15 years",
+        "18 years",
+        "20 years"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "2_28",
+      "question": "What does the Children Act say about the use of violence in upbringing?",
+      "alternatives": [
+        "It is allowed",
+        "It is forbidden",
+        "Nothing"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "2_29",
+      "question": "How old must you be to decide on your own education?",
+      "alternatives": [
+        "15 years",
+        "18 years",
+        "20 years"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "3_30",
+      "question": "Anyone over the age of 16, who is not already married and who has legal residence in Norway, can get married here.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "3_31",
+      "question": "Women and men have the same right to freely choose their spouse.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "3_32",
+      "question": "Anyone who forces someone to marry can be sentenced to prison.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "3_33",
+      "question": "A married couple who wants to divorce must be separated for a minimum of two years before they can get a divorce.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "3_34",
+      "question": "Women and men have the same right to separate and request a divorce.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "3_35",
+      "question": "Spouses have a joint responsibility to provide for and take care of the family.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "3_36",
+      "question": "A man can decide for himself whether his wife should know how much he earns.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.5"
+    },
+    {
+      "id": "3_37",
+      "question": "What is a deductible?",
+      "alternatives": [
+        "Prescription for medicines for the treatment of chronic diseases.",
+        "The amount you have to pay when you have been to the doctor.",
+        "Proof that you will have free health services for the rest of the year."
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "3_38",
+      "question": "What is a blue prescription?",
+      "alternatives": [
+        "The amount you have to pay when you have been to the doctor.",
+        "Proof that you will have free health services for the rest of the year.",
+        "Prescription for medicines for the treatment of chronic diseases."
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "3_39",
+      "question": "What is an exemption card?",
+      "alternatives": [
+        "The amount you have to pay when you have been to the doctor.",
+        "Prescription for medicines for the treatment of chronic diseases.",
+        "Proof that you will have free health services for the rest of the year."
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "3_40",
+      "question": "All children are offered a check-up at the health center.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "4_41",
+      "question": "Parents have to pay a deductible at the health center.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "4_42",
+      "question": "Health checks end when the child starts school.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "4_43",
+      "question": "You can choose which doctor you want as your own general practitioner.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "4_44",
+      "question": "No medicines are sold without a prescription.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "4_45",
+      "question": "Medicines on a blue prescription are extra expensive for the patient.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "4_46",
+      "question": "All Norwegian citizens are entitled to free dental care.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "4_47",
+      "question": "If you are admitted to a hospital in Norway, you do not pay a deductible.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "4_48",
+      "question": "Outpatient treatment means that you receive treatment at a hospital, but that you are not admitted to the hospital.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "4_49",
+      "question": "You have to pay a higher deductible to a specialist if you do not have a referral from your doctor.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "4_50",
+      "question": "Treatment at the emergency room is free of charge.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "4_51",
+      "question": "Prenatal check-ups are free.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "4_52",
+      "question": "Kindergarten is compulsory for all children.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "4_53",
+      "question": "Less than half of all children attend kindergarten.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "4_54",
+      "question": "About 88.5% of children between 1 and 5 years old attend kindergarten.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "4_55",
+      "question": "Parents pay for everything it costs to have a child in kindergarten.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "4_56",
+      "question": "It is the municipality that pays a large part of the expenses for kindergartens.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "5_57",
+      "question": "No one pays more than 2405 kroner a month for a place in kindergarten.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "5_58",
+      "question": "Is upper secondary school compulsory?",
+      "alternatives": [
+        "Yes",
+        "No"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "5_59",
+      "question": "Do most young people take further education after primary school?",
+      "alternatives": [
+        "Yes",
+        "No"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "5_60",
+      "question": "Do pupils in upper secondary school have to buy their textbooks?",
+      "alternatives": [
+        "Yes",
+        "No"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "5_61",
+      "question": "When was compulsory schooling introduced for all children in Norway?",
+      "alternatives": [
+        "In the 20th century",
+        "In the 18th century",
+        "In the 16th century"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "5_62",
+      "question": "How many years of compulsory schooling are there today?",
+      "alternatives": [
+        "10",
+        "13",
+        "7"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "5_63",
+      "question": "What were the most important industries in Norway in the 19th century?",
+      "alternatives": [
+        "Agriculture, forestry and fishing",
+        "Industry and service",
+        "Trade and industry"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "5_64",
+      "question": "What was the most important industry in Norway around the year 1900?",
+      "alternatives": [
+        "Industry",
+        "Oil",
+        "Trade"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "5_65",
+      "question": "What do most people in Norway work with today?",
+      "alternatives": [
+        "Trade and service",
+        "Oil",
+        "Agriculture, forestry and fishing"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "5_66",
+      "question": "All employees in Norway are entitled to an employment contract.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "5_67",
+      "question": "A normal working week is 25 hours.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "5_68",
+      "question": "Employees in Norway are entitled to a minimum of seven weeks of holiday a year.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "5_69",
+      "question": "Employees in Norway have the right to be absent from work with full pay in the event of their own or their child's illness.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "5_70",
+      "question": "Employees who have children are entitled to paid leave.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "6_71",
+      "question": "Employees are not entitled to pay during training.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "6_72",
+      "question": "Where do you order a tax card?",
+      "alternatives": [
+        "From the employer",
+        "From the tax office",
+        "From NAV"
+      ],
+      "correct": 1,
+      "section": "2.5"
+    },
+    {
+      "id": "6_73",
+      "question": "What is the name of the salary you receive before tax, pension contributions and other deductions have been made?",
+      "alternatives": [
+        "Net salary",
+        "Gross salary",
+        "Payslip"
+      ],
+      "correct": 1,
+      "section": "2.5"
+    },
+    {
+      "id": "6_74",
+      "question": "What is the name of the salary you receive after tax, pension contributions and other deductions have been made?",
+      "alternatives": [
+        "Net salary",
+        "Gross salary",
+        "Payslip"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "6_75",
+      "question": "In Norway, private organizations have the main responsibility for welfare.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "6_76",
+      "question": "Income from oil and gas production finances all welfare in Norway.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "6_77",
+      "question": "The welfare society in Norway is mainly financed by citizens paying taxes and duties.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "6_78",
+      "question": "Voluntary organizations and private individuals make an important contribution to the welfare society.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "6_79",
+      "question": "That the welfare benefits are universal means:",
+      "alternatives": [
+        "That all citizens who pay tax have the right to enjoy them",
+        "That all citizens have the right to enjoy them",
+        "That all Norwegian citizens have the right to enjoy them"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "6_80",
+      "question": "That welfare benefits are universal means that they are free.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "6_81",
+      "question": "Free schooling for all children.",
+      "alternatives": [
+        "Duty",
+        "Right"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "6_82",
+      "question": "Treatment in a hospital.",
+      "alternatives": [
+        "Duty",
+        "Right"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "6_83",
+      "question": "Pay tax.",
+      "alternatives": [
+        "Duty",
+        "Right"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "7_84",
+      "question": "Unemployment benefits.",
+      "alternatives": [
+        "Duty",
+        "Right"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "7_85",
+      "question": "Pay fees.",
+      "alternatives": [
+        "Duty",
+        "Right"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "7_86",
+      "question": "Ensure that the children go to school.",
+      "alternatives": [
+        "Duty",
+        "Right"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "7_87",
+      "question": "Introduction benefit.",
+      "alternatives": [
+        "Duty",
+        "Right"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "7_88",
+      "question": "Provide correct information about income and life situation.",
+      "alternatives": [
+        "Duty",
+        "Right"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "7_89",
+      "question": "Child benefit.",
+      "alternatives": [
+        "Duty",
+        "Right"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "7_90",
+      "question": "The welfare society in Norway is 200 years old.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "7_91",
+      "question": "The Norwegian welfare system applies to both poor and rich.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "7_92",
+      "question": "100 years ago, there was a system in Norway that we can call the social assistance state.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "7_93",
+      "question": "Also 100 years ago, everyone in society could enjoy the welfare benefits.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "7_94",
+      "question": "The welfare benefit with the longest tradition is free primary education.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "7_95",
+      "question": "Most of the welfare benefits were built up before the Second World War.",
+      "alternatives": [
+        "Correct",
+        "Incorrect"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "8_1",
+      "question": "Which of these are entitled to free Norwegian language training?",
+      "alternatives": [
+        "Au pairs",
+        "Refugees",
+        "Labor immigrants"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "8_2",
+      "question": "Who can participate in the Introduction Program?",
+      "alternatives": [
+        "Newly arrived refugees over 18 years of age",
+        "Most labor immigrants",
+        "All asylum seekers under 16 years of age"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "8_3",
+      "question": "What is the goal of work practice for immigrants?",
+      "alternatives": [
+        "To make the participant familiar with Norwegian working life",
+        "To obtain a work permit for the participant",
+        "To have the participant's education approved"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "8_4",
+      "question": "What do you need to have to have paid work?",
+      "alternatives": [
+        "Driver's license",
+        "Tax card",
+        "Insurance card"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "8_5",
+      "question": "Which of these services is Nav responsible for?",
+      "alternatives": [
+        "Child benefit",
+        "Leisure activities",
+        "Primary school"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "8_6",
+      "question": "What happened in 1940?",
+      "alternatives": [
+        "Norway became an independent country.",
+        "Norway got its first president.",
+        "Norway was occupied by Germany."
+      ],
+      "correct": 2,
+      "section": "3.2"
+    },
+    {
+      "id": "9_7",
+      "question": "The settlement in Norway changed in the last half of the 19th century. What happened?",
+      "alternatives": [
+        "Many moved from the cities to the coast.",
+        "Many moved from the countryside to the cities.",
+        "Many moved from the coast to the countryside."
+      ],
+      "correct": 1,
+      "section": "3.2"
+    },
+    {
+      "id": "9_8",
+      "question": "A little more than 20,000 marriages are entered into in Norway each year. How many married couples divorce each year?",
+      "alternatives": [
+        "Approximately 5,000",
+        "Approximately 10,000",
+        "Approximately 15,000"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "9_9",
+      "question": "Who has the main responsibility for the children's upbringing?",
+      "alternatives": [
+        "The parents",
+        "The kindergarten",
+        "The school"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "9_10",
+      "question": "Do both parties to a marriage have to agree to be able to divorce?",
+      "alternatives": [
+        "Yes",
+        "No",
+        "Sometimes"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "9_11",
+      "question": "How long do parents have a duty to provide for their children?",
+      "alternatives": [
+        "Until the children have finished primary school",
+        "Until the children have got their own job",
+        "Until the children have reached the age of 18"
+      ],
+      "correct": 2,
+      "section": "2.2"
+    },
+    {
+      "id": "10_12",
+      "question": "Kari and Jens are divorced. They have two children aged five and seven. What are their children's rights according to the law?",
+      "alternatives": [
+        "The children have the right to live together.",
+        "The children have the right to have contact with both parents.",
+        "The children have the right to choose which of the parents they want to live with."
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "10_13",
+      "question": "Mari wants to join a political party. Her parents disagree. How old must Mari be to decide this for herself?",
+      "alternatives": [
+        "12 years old",
+        "15 years old",
+        "18 years old"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "10_14",
+      "question": "Who pays for patients who are admitted to Norwegian hospitals?",
+      "alternatives": [
+        "The patient",
+        "The state",
+        "Insurance company"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "10_15",
+      "question": "How much do parents in Norway pay for the vaccination program for children?",
+      "alternatives": [
+        "Nothing",
+        "Approximately 100 kr per vaccine",
+        "Approximately 200 kr per vaccine"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "10_16",
+      "question": "Hasan is 16 years old. He goes to the dentist once a year. How much does he pay for regular dental treatment?",
+      "alternatives": [
+        "The full cost",
+        "Half of the cost",
+        "Nothing"
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "11_17",
+      "question": "Who can get a general practitioner?",
+      "alternatives": [
+        "All inhabitants of Norway",
+        "All adults in Norway",
+        "All children in Norway"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "11_18",
+      "question": "Why should women go for prenatal check-ups?",
+      "alternatives": [
+        "To apply for child benefit",
+        "To ensure the health of mother and child",
+        "To get maternity leave approved"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "11_19",
+      "question": "Who finances university and college education in Norway?",
+      "alternatives": [
+        "The state",
+        "The family",
+        "Large companies"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "11_20",
+      "question": "Kari wants to study at university. What is correct?",
+      "alternatives": [
+        "She must have reached the age of 19.",
+        "She must have good finances.",
+        "She must have a general university admissions certificate."
+      ],
+      "correct": 2,
+      "section": "1.1"
+    },
+    {
+      "id": "11_21",
+      "question": "When do children normally start in the first grade of school?",
+      "alternatives": [
+        "The year they turn 6",
+        "The year they turn 7",
+        "The year they turn 8"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "11_22",
+      "question": "Mary is in 8th grade. She has been ill for a long time and has problems following the teaching in several subjects. What will happen to Mary when the next school year starts?",
+      "alternatives": [
+        "She has to repeat 8th grade",
+        "She gets to quit the subjects she is struggling with",
+        "She continues in 9th grade"
+      ],
+      "correct": 2,
+      "section": "1.1"
+    },
+    {
+      "id": "12_23",
+      "question": "What should parents and school cooperate on?",
+      "alternatives": [
+        "Children's academic and social development",
+        "Children's leisure activities",
+        "Children's weekly allowance"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "12_24",
+      "question": "What percentage of the working population in Norway works in the public sector?",
+      "alternatives": [
+        "Approximately 30%",
+        "Approximately 50%",
+        "Approximately 70%"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "12_25",
+      "question": "There have been major changes in the labor market over the last 30 years. What is correct?",
+      "alternatives": [
+        "Fewer people work in industry and production",
+        "More people work in fishing and agriculture",
+        "Only women work in trade and service"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "12_26",
+      "question": "What are the most important sources of income for the state and municipalities?",
+      "alternatives": [
+        "Taxes and duties from private individuals and companies",
+        "Transfers from international organizations",
+        "Sale of goods and services to other countries"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "12_27",
+      "question": "What were the most important industries in Norway around 1850?",
+      "alternatives": [
+        "Agriculture, forestry and fishing",
+        "Industry and goods transport",
+        "Trade and service"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "13_28",
+      "question": "How often are there parliamentary elections?",
+      "alternatives": [
+        "Every year",
+        "Every other year",
+        "Every fourth year"
+      ],
+      "correct": 2,
+      "section": "3.3"
+    },
+    {
+      "id": "13_29",
+      "question": "How often does the government meet with the king?",
+      "alternatives": [
+        "Once a week",
+        "Once a month",
+        "Once a year"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "13_30",
+      "question": "What is the name of the Norwegian national assembly?",
+      "alternatives": [
+        "The Ministry",
+        "The Government",
+        "The Parliament"
+      ],
+      "correct": 2,
+      "section": "3.3"
+    },
+    {
+      "id": "13_31",
+      "question": "Norway is a democracy. What does that mean?",
+      "alternatives": [
+        "The people decide who should govern the country",
+        "The rich decide who should govern the country.",
+        "The courts decide who should govern the country."
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "13_32",
+      "question": "What duties does the population have in the Norwegian welfare society?",
+      "alternatives": [
+        "To pay tax and provide correct information about oneself",
+        "To pay tax and give money to aid organizations",
+        "To pay tax and vote in all political elections"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "14_1",
+      "question": "What does someone who wants to settle in Norway need?",
+      "alternatives": [
+        "Legal residence",
+        "Anyone who wants can settle in Norway",
+        "Tax card"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "14_2",
+      "question": "Does a citizen from an EU/EEA/EFTA country need to apply for a residence permit in Norway?",
+      "alternatives": [
+        "No",
+        "Yes"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "14_3",
+      "question": "What type of residence permit should one apply for who wishes to start a family with someone who already lives in Norway?",
+      "alternatives": [
+        "Family reunification-Family immigration permit",
+        "Residence permit for work",
+        "Residence permit as a refugee"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "14_4",
+      "question": "Where do you order a tax card?",
+      "alternatives": [
+        "The Norwegian Tax Administration",
+        "The National Population Register",
+        "NAV"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "14_5",
+      "question": "Which state office deals with everything related to work, family and pensions?",
+      "alternatives": [
+        "NAV",
+        "The Norwegian Tax Administration",
+        "The National Population Register"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "14_6",
+      "question": "What is the name of the state office that has an overview of all persons who live or have lived in Norway?",
+      "alternatives": [
+        "The National Population Register",
+        "The Norwegian Tax Administration",
+        "NAV"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "14_7",
+      "question": "What is the name of the state office for the authorization of health personnel?",
+      "alternatives": [
+        "The Norwegian Directorate of Health",
+        "NOKUT",
+        "The Norwegian Directorate for Education and Training"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "14_8",
+      "question": "Where can persons who have competence from another country apply to have their competence recognized in Norway?",
+      "alternatives": [
+        "NOKUT",
+        "The Norwegian Directorate of Health",
+        "The Norwegian Directorate for Education and Training"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "14_9",
+      "question": "What was the name of the first king of all of Norway?",
+      "alternatives": [
+        "Harald Fairhair",
+        "Håkon V Magnusson",
+        "Harald Hardrada"
+      ],
+      "correct": 0,
+      "section": "3.2"
+    },
+    {
+      "id": "14_10",
+      "question": "When did Harald Fairhair become king of Norway?",
+      "alternatives": [
+        "In the 11th century",
+        "In the 9th century",
+        "In the 10th century"
+      ],
+      "correct": 1,
+      "section": "3.2"
+    },
+    {
+      "id": "15_21",
+      "question": "Norway's largest lake is called:",
+      "alternatives": [
+        "Tinnsjå",
+        "Mjøsa",
+        "Salvatnet"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "15_22",
+      "question": "Norway's longest river is called:",
+      "alternatives": [
+        "Trysilelva",
+        "Klarälven",
+        "Glomma"
+      ],
+      "correct": 2,
+      "section": "3.1"
+    },
+    {
+      "id": "15_23",
+      "question": "Almost half of the area in Norway consists of:",
+      "alternatives": [
+        "Cultivated land",
+        "Mountains",
+        "Fjord"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "15_24",
+      "question": "What percentage of the Norwegian area is covered with forest?",
+      "alternatives": [
+        "50%",
+        "30%",
+        "70%"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "15_25",
+      "question": "After the reform in Norway, 19 counties were transformed into how many regions?",
+      "alternatives": [
+        "12",
+        "11",
+        "10"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "15_26",
+      "question": "Approximately how many cities are there in Norway?",
+      "alternatives": [
+        "300",
+        "200",
+        "100"
+      ],
+      "correct": 2,
+      "section": "3.1"
+    },
+    {
+      "id": "15_27",
+      "question": "What is the name of the largest city in Norway with approx. 600,000 inhabitants?",
+      "alternatives": [
+        "Oslo",
+        "Bergen",
+        "Trondheim"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "15_28",
+      "question": "How many people live in Norway?",
+      "alternatives": [
+        "Over 4 million",
+        "Over 5 million",
+        "Over 6 million"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "15_29",
+      "question": "The cities in Norway with the largest percentage of inhabitants with an immigrant background are?",
+      "alternatives": [
+        "Bergen and Stavanger",
+        "Trondheim and Kristiansand",
+        "Oslo and Drammen"
+      ],
+      "correct": 2,
+      "section": "3.1"
+    },
+    {
+      "id": "15_30",
+      "question": "What percentage of the inhabitants of Norway have a background from abroad?",
+      "alternatives": [
+        "70%",
+        "7%",
+        "17%"
+      ],
+      "correct": 2,
+      "section": "3.1"
+    },
+    {
+      "id": "16_31",
+      "question": "What is the name of Europe's northernmost city on the mainland?",
+      "alternatives": [
+        "Tromsø",
+        "Hammerfest",
+        "Kirkenes"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "16_32",
+      "question": "The climate in Norway varies from region to region. In which Norwegian region is there a lot of rain?",
+      "alternatives": [
+        "Southern Norway",
+        "Western Norway",
+        "Northern Norway"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "16_33",
+      "question": "In which part of Norway does the sun shine in the middle of the night in summer?",
+      "alternatives": [
+        "Northern Norway",
+        "Central Norway",
+        "Eastern Norway"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "16_34",
+      "question": "May 17th is celebrated:",
+      "alternatives": [
+        "Unification of the Norwegian regions",
+        "Norwegian independence",
+        "National Day"
+      ],
+      "correct": 2,
+      "section": "3.1"
+    },
+    {
+      "id": "16_35",
+      "question": "International Women's Day is:",
+      "alternatives": [
+        "March 8",
+        "January 1",
+        "May 17"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "16_36",
+      "question": "Christmas Eve is:",
+      "alternatives": [
+        "December 24",
+        "January 1",
+        "May 17"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "16_37",
+      "question": "Easter is:",
+      "alternatives": [
+        "a Christian holiday",
+        "a Buddhist holiday",
+        "a Muslim holiday"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "16_38",
+      "question": "In Norway, approximately how many people die each year:",
+      "alternatives": [
+        "80,000 people",
+        "40,000 people",
+        "20,000 people"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "16_39",
+      "question": "Confirmation is a way of confirming baptism. How old is a person who wants to be confirmed?",
+      "alternatives": [
+        "40-41 years",
+        "14-15 years",
+        "20-21 years"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "16_40",
+      "question": "Who decides whether the child should be baptized or not?",
+      "alternatives": [
+        "The priest",
+        "The state",
+        "Parents"
+      ],
+      "correct": 2,
+      "section": "2.2"
+    },
+    {
+      "id": "17_1",
+      "question": "Is it also permissible for people of the same sex to marry in Norway:",
+      "alternatives": [
+        "Not always",
+        "Only in special cases",
+        "Yes, it is allowed"
+      ],
+      "correct": 2,
+      "section": "2.2"
+    },
+    {
+      "id": "17_2",
+      "question": "Which wording for New Year's Day is most appropriate:",
+      "alternatives": [
+        "It is International Women's Day",
+        "It is International Workers' Day",
+        "It begins next year"
+      ],
+      "correct": 2,
+      "section": "3.1"
+    },
+    {
+      "id": "17_3",
+      "question": "What religion is dominant in Norway?",
+      "alternatives": [
+        "Lutheran Christianity (Protestantism)",
+        "Orthodox Christianity",
+        "Muslim"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "17_4",
+      "question": "What percentage of Norwegians have no religious view of life?",
+      "alternatives": [
+        "18%",
+        "8%",
+        "80%"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "17_5",
+      "question": "What does it mean that society is secular?",
+      "alternatives": [
+        "It means that religion has more and more importance in society",
+        "It means that religion has less importance in society",
+        "It means that religion has no importance in society at all"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "17_6",
+      "question": "The Church of Norway is?",
+      "alternatives": [
+        "King's Church",
+        "People's Church",
+        "State Church"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "17_47",
+      "question": "What percentage of Norwegians are members of the Church of Norway?",
+      "alternatives": [
+        "90%",
+        "70%",
+        "50%"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "17_48",
+      "question": "How many children are born in Norway each year?",
+      "alternatives": [
+        "approx. 100,000",
+        "approx. 6,000",
+        "approx. 60,000"
+      ],
+      "correct": 2,
+      "section": "3.1"
+    },
+    {
+      "id": "17_49",
+      "question": "What percentage of Norwegians live together but do not marry?",
+      "alternatives": [
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "17_50",
+      "question": "What percentage are divorced in Norway?",
+      "alternatives": [
+        "75%",
+        "50%",
+        "25%"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "18_51",
+      "question": "What is cash-for-care benefit?",
+      "alternatives": [
+        "A financial benefit that is given for all children between one and two years of age who do not attend kindergarten",
+        "A financial support that is given for all families who are struggling with personal finances",
+        "A financial support that is given for all children under 18 who are resident in Norway"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "18_52",
+      "question": "What is child benefit?",
+      "alternatives": [
+        "A financial support that is given for all families who are struggling with personal finances",
+        "A financial support that is given for all children under 18 who are resident in Norway",
+        "A financial benefit that is given for all children between one and two years of age who do not attend kindergarten"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "18_53",
+      "question": "Who gives birth notification to the National Population Register when a child is born in a hospital in Norway?",
+      "alternatives": [
+        "Parents",
+        "Midwife or doctor",
+        "It is automatically registered in the National Population Register"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "18_54",
+      "question": "How old must a child be to have the right to decide on matters of education and to join and leave organizations?",
+      "alternatives": [
+        "12 years",
+        "15 years",
+        "18 years"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "18_55",
+      "question": "Which part of schooling is compulsory in Norway?",
+      "alternatives": [
+        "Higher education",
+        "Primary and lower secondary school",
+        "Upper secondary school"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "18_56",
+      "question": "What is the name of the law that says a lot about the parents' duties towards the children and the children's rights towards the parents?",
+      "alternatives": [
+        "Duty of maintenance",
+        "The Children Act",
+        "The Parents Act"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "18_57",
+      "question": "What is the point of Child Welfare Services?",
+      "alternatives": [
+        "To contact parents to get more information about how the child is doing",
+        "To punish the parents",
+        "To help children who are in vulnerable life situations and need extra help and protection"
+      ],
+      "correct": 2,
+      "section": "2.2"
+    },
+    {
+      "id": "18_58",
+      "question": "In Norway, all children go to school from the age of?",
+      "alternatives": [
+        "6 years",
+        "7 years",
+        "8 years"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "18_59",
+      "question": "Which statement is correct?",
+      "alternatives": [
+        "Children are dependent on their parents",
+        "Parents are dependent on children",
+        "Both parents and children are dependent on each other"
+      ],
+      "correct": 2,
+      "section": "2.2"
+    },
+    {
+      "id": "18_60",
+      "question": "In Norway, all children have the right and duty to?",
+      "alternatives": [
+        "Ten years of primary and lower secondary education",
+        "Upper secondary education",
+        "7 years of primary school, 3 years of lower secondary school"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "19_61",
+      "question": "What percentage of Norwegians own their own home?",
+      "alternatives": [
+        "50%",
+        "25%",
+        "75%"
+      ],
+      "correct": 2,
+      "section": "2.5"
+    },
+    {
+      "id": "19_62",
+      "question": "To heat the home, it is most common to use?",
+      "alternatives": [
+        "Wood",
+        "Electricity",
+        "Oil"
+      ],
+      "correct": 1,
+      "section": "3.1"
+    },
+    {
+      "id": "19_1",
+      "question": "What does gender equality mean?",
+      "alternatives": [
+        "That society works to provide everyone with opportunities for work",
+        "Equal pay for equal work",
+        "That people have equal value and they should have the same opportunities in Norway regardless of gender, race, etc."
+      ],
+      "correct": 2,
+      "section": "2.6"
+    },
+    {
+      "id": "19_2",
+      "question": "Gender equality includes?",
+      "alternatives": [
+        "men and women have the same rights",
+        "women sit at home, look after the children and do not have the same opportunities as men",
+        "it is up to the family to choose what a man should do and what a woman should do"
+      ],
+      "correct": 0,
+      "section": "2.6"
+    },
+    {
+      "id": "19_3",
+      "question": "What percentage of women are leaders in the workforce?",
+      "alternatives": [
+        "40%",
+        "30%",
+        "20%"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "19_4",
+      "question": "In Norway, people work part-time or full-time. Which gender works more part-time?",
+      "alternatives": [
+        "Woman",
+        "Man"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "19_5",
+      "question": "What length of prison sentence can those who pressure or threaten another person to enter into marriage expect?",
+      "alternatives": [
+        "Up to six years",
+        "Up to two years",
+        "Up to one year"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "19_8",
+      "question": "If you decide that you no longer want to live with your spouse, you can demand:",
+      "alternatives": [
+        "Adaptation",
+        "Marriage",
+        "Separation"
+      ],
+      "correct": 2,
+      "section": "2.2"
+    },
+    {
+      "id": "19_9",
+      "question": "Divorce can be requested after?",
+      "alternatives": [
+        "Separation for two years",
+        "Separation for one year",
+        "Separation for three years"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "19_70",
+      "question": "When can a divorce be requested without separation?",
+      "alternatives": [
+        "If the spouse's residence permit expires",
+        "If one spouse wants a divorce",
+        "If the other spouse has subjected him or her or the children to attempted murder, violence, serious abuse or has created fear of this"
+      ],
+      "correct": 2,
+      "section": "2.2"
+    },
+    {
+      "id": "20_71",
+      "question": "What two spouses buy together:",
+      "alternatives": [
+        "They own together",
+        "The woman owns",
+        "The man owns"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "20_72",
+      "question": "Cohabitants have the same rights and obligations towards each other as spouses have. Is this statement correct?",
+      "alternatives": [
+        "Yes, it is correct",
+        "No, absolutely not"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "20_73",
+      "question": "What is violence?",
+      "alternatives": [
+        "Violence is a relationship with 2 people that leads to non-serious consequences",
+        "Violence is reacting in affect to different types of actions",
+        "Violence is an assault against others. All actions that cause another person harm, pain or fear"
+      ],
+      "correct": 2,
+      "section": "2.6"
+    },
+    {
+      "id": "20_74",
+      "question": "Which type of violence is prohibited in Norway?",
+      "alternatives": [
+        "Physical violence",
+        "Psychological violence",
+        "Both physical and psychological"
+      ],
+      "correct": 2,
+      "section": "2.6"
+    },
+    {
+      "id": "20_75",
+      "question": "Can one apply for a residence permit in Norway if he or she was subjected to violence abroad?",
+      "alternatives": [
+        "Occasionally, but not always",
+        "Yes",
+        "Only in special cases"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "20_76",
+      "question": "Who has a great responsibility for my health?",
+      "alternatives": [
+        "The state has responsibility, but I myself must approve that responsibility",
+        "The health service in the welfare society is responsible for my health",
+        "It is myself with the way I choose to live my life"
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "20_77",
+      "question": "What does confidentiality mean in relation to health services and doctors?",
+      "alternatives": [
+        "It means that the doctor and patient decide together on the treatment",
+        "It means that the doctor is the absolute authority who decides the treatment",
+        "It means that health personnel cannot give information about the patient to anyone without the patient's own approval"
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "20_78",
+      "question": "Who lives longer in Norway?",
+      "alternatives": [
+        "Both men and women live equally",
+        "Men",
+        "Women"
+      ],
+      "correct": 2,
+      "section": "3.1"
+    },
+    {
+      "id": "20_79",
+      "question": "How long do men live on average in Norway?",
+      "alternatives": [
+        "81 years",
+        "74 years",
+        "84 years"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "20_80",
+      "question": "What does it mean if you get a medicine on a blue prescription?",
+      "alternatives": [
+        "That you pay nothing",
+        "That you pay a deductible",
+        "That you pay the full price"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "21_1",
+      "question": "On which telephone number do you call if he or she needs urgent help from the ambulance control center?",
+      "alternatives": [
+        "113",
+        "112",
+        "110"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "21_2",
+      "question": "What questions should one answer when calling an ambulance?",
+      "alternatives": [
+        "Who are you? (Name, telephone number, where you are calling from), What has happened? (how many are injured, are there serious injuries, etc.), Where are you? (exact address or location)",
+        "How are you? Why are you calling us?",
+        "What type of illness do you have? Do you have a long or short medical history?"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "21_3",
+      "question": "What does an exemption card mean?",
+      "alternatives": [
+        "An exemption card is free primary health care for the rest of the year if you have already paid 2500 kroner in deductibles during a calendar year. Then you do not have to pay a deductible for the rest of the year.",
+        "An exemption card is free primary health care for the rest of the year if you have already paid 25,000 kroner in deductibles during a calendar year",
+        "An exemption card is free primary health care for the rest of the year if you have already paid 250 kroner in deductibles during a calendar year"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "21_4",
+      "question": "What is the point of health centers in Norway when we talk about children?",
+      "alternatives": [
+        "At health centers in Norway, children can come when they have serious health problems",
+        "You check how the child is developing, whether it is growing as it should and gaining weight normally, whether sight and hearing are working well, and whether the child is learning to understand and speak",
+        "The health center provides emergency help to those who need it"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "21_5",
+      "question": "Health checks for children in Norway are:",
+      "alternatives": [
+        "dependent on the parents' finances",
+        "you pay a deductible before the check-up",
+        "free"
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "21_6",
+      "question": "A nursing home place in Norway costs approx. 80,000 kroner a year. Who pays for it?",
+      "alternatives": [
+        "The user pays the full amount",
+        "The state pays the full amount",
+        "The user pays a deductible and the rest is paid by the municipality"
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "21_7",
+      "question": "How is dementia defined?",
+      "alternatives": [
+        "Dementia is a condition where the lungs are tired, and you cough a lot",
+        "Dementia is a condition where the heart is damaged, and the blood vessels become clogged",
+        "Dementia is a condition where the brain is damaged, and both memory, emotional life and social functioning are damaged."
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "21_8",
+      "question": "How many elderly people in Norway suffer from depression?",
+      "alternatives": [
+        "300,000 people",
+        "200,000 people",
+        "100,000 people"
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "21_9",
+      "question": "What percentage of elderly people in Norway, who are over 90 years old, live in nursing homes?",
+      "alternatives": [
+        "90%",
+        "75%",
+        "50%"
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "22_9",
+      "question": "When talking about discipline in the Norwegian school system, which statement is most appropriate?",
+      "alternatives": [
+        "Discipline in school should take place in a way that includes some forms of violence",
+        "Teachers are the absolute authority that all children must respect",
+        "The teacher must show the pupils respect, and the pupils must show the teacher respect"
+      ],
+      "correct": 2,
+      "section": "1.1"
+    },
+    {
+      "id": "22_10",
+      "question": "What percentage of children in Norway attend public schools?",
+      "alternatives": [
+        "97.5%",
+        "87.5%",
+        "70%"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "22_11",
+      "question": "How many school days in primary and lower secondary school are there each year in Norway?",
+      "alternatives": [
+        "230 school days",
+        "190 school days",
+        "90 school days"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "22_12",
+      "question": "In what way is primary and lower secondary school in Norway divided?",
+      "alternatives": [
+        "Kindergarten, preschool and lower secondary school",
+        "Primary school and lower secondary school",
+        "Primary and lower secondary school is not divided"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "22_13",
+      "question": "Do children get grades in lower secondary school?",
+      "alternatives": [
+        "Yes, children get grades in lower secondary school from 8th to 10th grade and the grading scale goes from 1 to 6, where 1 is the lowest grade and 6 is the best grade",
+        "Children get grades, but not in all subjects",
+        "No, children do not get grades in lower secondary school. The children receive an oral and written assessment, but not grades"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "22_14",
+      "question": "How long does primary and lower secondary school last in Norway?",
+      "alternatives": [
+        "8 years",
+        "9 years",
+        "10 years"
+      ],
+      "correct": 2,
+      "section": "1.1"
+    },
+    {
+      "id": "22_15",
+      "question": "Among other things, the teaching and activities in the school should teach the pupils:",
+      "alternatives": [
+        "That none of us are alike",
+        "That all people have equal value",
+        "To search for information and accept this information uncritically"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "22_16",
+      "question": "It is important that the pupil, parents and teacher talk together. How many such conversations should there be at least during a school year?",
+      "alternatives": [
+        "10 conversations",
+        "5 conversations",
+        "2 conversations"
+      ],
+      "correct": 2,
+      "section": "1.1"
+    },
+    {
+      "id": "22_17",
+      "question": "It is common for parents to meet the teacher and the other parents. They talk about the class and the class environment and about plans and activities. How many such parent-teacher meetings should there be at least each year?",
+      "alternatives": [
+        "5 parent-teacher meetings",
+        "10 parent-teacher meetings",
+        "2 parent-teacher meetings"
+      ],
+      "correct": 2,
+      "section": "1.1"
+    },
+    {
+      "id": "23_90",
+      "question": "Mental health problems affect people?",
+      "alternatives": [
+        "In different periods of life",
+        "Who are young and mental disorders often come after crises in life",
+        "Who are old and sick"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "23_91",
+      "question": "How does a psychological migration crisis develop?",
+      "alternatives": [
+        "In the first period, life is good. After a while, many will feel depressed and have many negative thoughts about the new country. Eventually, life will stabilize for most people.",
+        "In the first period, life is difficult and after a while many feel satisfied with positive thoughts about the new country",
+        "In the beginning, longing and yearning for the homeland is great, but eventually the feeling of lack and longing disappears"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "23_92",
+      "question": "Which Norwegian expression is most suitable for health in general?",
+      "alternatives": [
+        "Poor you",
+        "You can't have your cake and eat it too",
+        "A good laugh prolongs life"
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "23_93",
+      "question": "If you eat healthy and are physically active?",
+      "alternatives": [
+        "You have a high risk of getting diseases",
+        "You have a good chance of living longer",
+        "You do not live well"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "23_94",
+      "question": "In Norway, most people have?",
+      "alternatives": [
+        "Hide their mental disorders from others to avoid shame",
+        "Negative thoughts and attitudes about a person who experiences depression, anxiety and other mental disorders",
+        "An open and understanding attitude to mental illness"
+      ],
+      "correct": 2,
+      "section": "2.4"
+    },
+    {
+      "id": "23_95",
+      "question": "In public colleges in Norway, you pay:",
+      "alternatives": [
+        "Deductible",
+        "Nothing",
+        "Full price"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "23_96",
+      "question": "What is the point of kindergarten?",
+      "alternatives": [
+        "The point of kindergarten is that the children play together with their parents and that the parents spend more time with their children",
+        "Kindergarten is compulsory for all children in Norway and the point is that the children prepare for working life",
+        "To become more independent, be with others, learn something new and prepare to start school"
+      ],
+      "correct": 2,
+      "section": "1.1"
+    },
+    {
+      "id": "23_97",
+      "question": "In what way can parents know more about their child and get to know what their child does in kindergarten:",
+      "alternatives": [
+        "Parents are invited to parent-teacher meetings and individual parent conferences",
+        "Parents can contact the kindergarten to ask about it",
+        "Parents contact the kindergarten via email and there they can ask questions about their children that arouse their interest"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "23_98",
+      "question": "What does the maximum price (currently 3000 kr per month) for a kindergarten place mean?",
+      "alternatives": [
+        "That no parent should pay more than this price",
+        "That it is up to the kindergarten to decide on the maximum price"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "24_108",
+      "question": "Young people finish primary and lower secondary school when they are 16. What right do they have then when it comes to upper secondary school?",
+      "alternatives": [
+        "They have the right to 3 years of upper secondary education",
+        "They can choose whether they want to continue to upper secondary school or not",
+        "They have the right to upper secondary education until they turn 24"
+      ],
+      "correct": 2,
+      "section": "1.1"
+    },
+    {
+      "id": "24_109",
+      "question": "Even though universities and colleges are free, you need money for other expenses while you study. It is therefore common for students to borrow money from the Norwegian State Educational Loan Fund. Apart from that, what is the point of the Norwegian State Educational Loan Fund as well?",
+      "alternatives": [
+        "To support and encourage women to pursue further education",
+        "To ensure that everyone who wants to study gets this opportunity completely regardless of the family's finances",
+        "The point of the Norwegian State Educational Loan Fund is to earn some money on interest that students will have to pay in the future"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "24_110",
+      "question": "Who has a higher level of education?",
+      "alternatives": [
+        "They have the same level of education",
+        "Men",
+        "Women"
+      ],
+      "correct": 2,
+      "section": "1.1"
+    },
+    {
+      "id": "24_111",
+      "question": "What percentage of Norwegians study at universities or colleges?",
+      "alternatives": [
+        "30%",
+        "40%",
+        "60%"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "24_112",
+      "question": "What percentage of today's students in Norway are men?",
+      "alternatives": [
+        "30%",
+        "40%",
+        "60%"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "24_113",
+      "question": "Do adults in Norway have the right to take upper secondary education?",
+      "alternatives": [
+        "No",
+        "Only in special cases",
+        "Yes"
+      ],
+      "correct": 2,
+      "section": "1.1"
+    },
+    {
+      "id": "24_114",
+      "question": "If you have learned a profession abroad and do not have papers for it, what can you do?",
+      "alternatives": [
+        "You can possibly apply for a vocational test",
+        "You have to take everything again in Norway",
+        "You cannot work as a professional in this industry"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "24_115",
+      "question": "The most important income for the state and municipalities comes from?",
+      "alternatives": [
+        "Tax and duties",
+        "Telecommunications",
+        "Oil and gas industry"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "24_116",
+      "question": "What does the term oil nation mean?",
+      "alternatives": [
+        "An oil nation is a country where the oil and oil industry are not so well developed",
+        "An oil nation is a country where the oil and oil industry are an important industry",
+        "An oil nation is a country where the oil and oil industry make little money from oil as a resource"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "24_117",
+      "question": "What percentage of the population in Norway are disabled/early retirees?",
+      "alternatives": [
+        "2%",
+        "10%",
+        "5%"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "25_118",
+      "question": "Employees who have children are entitled to one year's leave:",
+      "alternatives": [
+        "With 80% of full pay",
+        "With 66% of full pay",
+        "With full pay"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "25_120",
+      "question": "What is the point of trade unions?",
+      "alternatives": [
+        "To work for the interests of employees",
+        "To create a good environment at the workplace",
+        "To protect the interests of employers"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "25_121",
+      "question": "What does it mean to ensure health, environment and safety (HES) at the workplace?",
+      "alternatives": [
+        "It means creating good cooperation at the workplace",
+        "It means creating profit for the company",
+        "It is better to take care of the employees' health, working environment and safety at work"
+      ],
+      "correct": 2,
+      "section": "1.2"
+    },
+    {
+      "id": "25_122",
+      "question": "What is the point of various labor market courses at NAV?",
+      "alternatives": [
+        "To qualify the participants-unemployed to get a job",
+        "To keep the participants-unemployed updated and informed about their rights and obligations in Norway",
+        "To make it easier for employers to find potential employees"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "25_123",
+      "question": "All newly arrived refugees in Norway are offered a free introduction program. What does the introduction program contain?",
+      "alternatives": [
+        "The introduction program should help refugees to feel safe in Norway",
+        "The introduction program contains training in Norwegian and social studies along with language practice or work practice in various companies during the program. The purpose of the introduction program is for the participant to qualify for work or to take further education",
+        "The introduction program contains various information about undeclared work and paid work practice"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "25_124",
+      "question": "People who have been out of work for a long time, and who are dependent on financial social assistance, can be offered to participate in a qualification program through NAV. What is the point of the qualification program?",
+      "alternatives": [
+        "The point is that the participants-unemployed receive training and work training so that he or she can more easily get back to work",
+        "The point is that the participants-unemployed get to know their rights and obligations when they are on sick leave",
+        "The point is that the participants-unemployed get well"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "25_125",
+      "question": "Companies can receive financial help from NAV to start courses for employees who need more training in reading, writing, arithmetic, oral and written presentation in the Norwegian language. Is this statement correct?",
+      "alternatives": [
+        "Yes, it is correct",
+        "No, it is not correct"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "25_126",
+      "question": "Employees in Norway have the right to be absent from work with full pay for 24 days during the year if they themselves or their children are ill, without a doctor's visit, on a so-called self-certification. Is this statement correct?",
+      "alternatives": [
+        "Yes, it is correct",
+        "No, it is not correct"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "26_8",
+      "question": "Which statement is correct?",
+      "alternatives": [
+        "Work cannot give us any benefit whatsoever",
+        "Work can give us independence and a meaningful everyday life",
+        "Work can only give us a headache"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "26_9",
+      "question": "Today we find most of the jobs in?",
+      "alternatives": [
+        "Oil and gas industry",
+        "Telecommunications",
+        "Trade and service"
+      ],
+      "correct": 2,
+      "section": "1.2"
+    },
+    {
+      "id": "26_10",
+      "question": "During the first half of the 20th century:",
+      "alternatives": [
+        "Agriculture became the most important industry",
+        "many new industrial jobs were created",
+        "Oil was found"
+      ],
+      "correct": 1,
+      "section": "3.2"
+    },
+    {
+      "id": "26_11",
+      "question": "What is the name of the state body that passes laws?",
+      "alternatives": [
+        "The Government",
+        "The Parliament",
+        "The Judiciary"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "26_12",
+      "question": "What is the name of the most important part of the law that regulates working conditions?",
+      "alternatives": [
+        "The Working Environment Act and the Holiday Act",
+        "Employment contract and job offer",
+        "The Environment Act"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "26_13",
+      "question": "Who must follow the Working Environment Act?",
+      "alternatives": [
+        "Both employer and employee",
+        "Employee",
+        "Employer"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "26_124",
+      "question": "Absence from work is part of?",
+      "alternatives": [
+        "Not legally regulated",
+        "Verbal agreement between employer and employee",
+        "The Working Environment Act"
+      ],
+      "correct": 2,
+      "section": "1.2"
+    },
+    {
+      "id": "26_125",
+      "question": "A normal working week is?",
+      "alternatives": [
+        "40 hours",
+        "37.5 hours",
+        "48 hours"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "26_126",
+      "question": "Employees in Norway are entitled to a minimum of?",
+      "alternatives": [
+        "Five weeks of holiday",
+        "Six weeks of holiday",
+        "Four weeks of holiday"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "26_127",
+      "question": "Employees in Norway have the right to be absent from work with full pay for 24 days during the year if they themselves or their children are ill, without a doctor's visit, on a so-called self-certification. Is this statement correct?",
+      "alternatives": [
+        "Yes, it is correct",
+        "Only in special cases",
+        "No, it is not correct"
+      ],
+      "correct": 2,
+      "section": "1.2"
+    },
+    {
+      "id": "27_128",
+      "question": "How long can an employee be absent from work with full pay if they are ill and submit a sick note to the employer?",
+      "alternatives": [
+        "One year",
+        "One month",
+        "One week"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "27_129",
+      "question": "Employees who have children are entitled to one year's leave:",
+      "alternatives": [
+        "With 66% of full pay",
+        "With 80% of full pay",
+        "With full pay"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "27_130",
+      "question": "The employees' interest organization in Norway is called?",
+      "alternatives": [
+        "Trade unions",
+        "LO",
+        "NHO"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "27_131",
+      "question": "What is the point of trade unions?",
+      "alternatives": [
+        "To work for the interests of employees",
+        "To create a good environment at the workplace",
+        "To protect the interests of employers"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "27_132",
+      "question": "What does it mean to ensure health, environment and safety (HES) at the workplace?",
+      "alternatives": [
+        "It means creating good cooperation at the workplace",
+        "It means creating profit for the company",
+        "It is better to take care of the employees' health, working environment and safety at work"
+      ],
+      "correct": 2,
+      "section": "1.2"
+    },
+    {
+      "id": "27_133",
+      "question": "What is the point of various labor market courses at NAV?",
+      "alternatives": [
+        "To qualify the participants-unemployed to get a job",
+        "To keep the participants-unemployed updated and informed about their rights and obligations in Norway",
+        "To make it easier for employers to find potential employees"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "27_134",
+      "question": "All newly arrived refugees in Norway are offered a free introduction program. What does the introduction program contain?",
+      "alternatives": [
+        "The introduction program should help refugees to feel safe in Norway",
+        "The introduction program contains training in Norwegian and social studies along with language practice or work practice in various companies during the program. The purpose of the introduction program is for the participant to qualify for work or to take further education",
+        "The introduction program contains various information about undeclared work and unpaid work practice"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "27_135",
+      "question": "People who have been out of work for a long time, and who are dependent on financial social assistance, can be offered to participate in a qualification program through NAV. What is the point of the qualification program?",
+      "alternatives": [
+        "The point is that the participants-unemployed receive training and work training so that he or she can more easily get back to work",
+        "The point is that the participants-unemployed get to know their rights and obligations when they are on sick leave",
+        "The point is that the participants-unemployed get well"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "27_136",
+      "question": "Companies can receive financial help from NAV to start courses for employees who need more training in reading, writing, arithmetic, oral and written presentation in the Norwegian language. Is this statement correct?",
+      "alternatives": [
+        "Yes",
+        "No"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "28_137",
+      "question": "What percentage of the working population works in the private sector in Norway?",
+      "alternatives": [
+        "70%",
+        "50%",
+        "30%"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "28_138",
+      "question": "What is the most important thing to do in the job search process?",
+      "alternatives": [
+        "It is important to have references",
+        "It is important to use contacts and networks, and show that you are interested in the job",
+        "It is important to have a good CV and application"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "28_139",
+      "question": "Are all jobs advertised?",
+      "alternatives": [
+        "Yes, absolutely, it is a duty",
+        "No, not all jobs are advertised, but many are",
+        "Only a few jobs are advertised"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "28_140",
+      "question": "In today's Norway, it is common to submit job applications?",
+      "alternatives": [
+        "Electronically on the internet",
+        "By post",
+        "Directly by hand"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "28_141",
+      "question": "In Norway, the average gross annual salary for full-time employees is around?",
+      "alternatives": [
+        "250,000 nok a year",
+        "500,000 nok a year",
+        "750,000 nok a year"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "28_142",
+      "question": "On average, an employee pays?",
+      "alternatives": [
+        "approx. 45% of their gross salary in tax",
+        "approx. 35% of their gross salary in tax",
+        "approx. 25% of their gross salary in tax"
+      ],
+      "correct": 2,
+      "section": "2.5"
+    },
+    {
+      "id": "28_143",
+      "question": "Net salary is the salary you get paid?",
+      "alternatives": [
+        "Before tax",
+        "After tax",
+        "Together with tax"
+      ],
+      "correct": 1,
+      "section": "2.5"
+    },
+    {
+      "id": "28_144",
+      "question": "What is mostly financed by taxes and duties that both employees and employers pay to the state?",
+      "alternatives": [
+        "Political campaigns",
+        "Our welfare benefits",
+        "Help to other countries that need money the most"
+      ],
+      "correct": 1,
+      "section": "2.5"
+    },
+    {
+      "id": "28_145",
+      "question": "Undeclared work is:",
+      "alternatives": [
+        "Illegal and immoral work and is considered economic crime",
+        "Is very moral",
+        "Legal employment relationship"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "28_146",
+      "question": "What does it really mean to work undeclared?",
+      "alternatives": [
+        "It means earning a little extra",
+        "It is a type of hobby for many Norwegians",
+        "It means working without an employment contract and without paying tax"
+      ],
+      "correct": 2,
+      "section": "1.2"
+    },
+    {
+      "id": "29_165",
+      "question": "The principle of separation of powers divides power between three independent authorities: the legislative authority, the executive authority and the judicial authority. Which part of the authorities judges in concrete cases when the law is broken?",
+      "alternatives": [
+        "The Government",
+        "The Parliament",
+        "The Judiciary"
+      ],
+      "correct": 2,
+      "section": "3.3"
+    },
+    {
+      "id": "29_166",
+      "question": "Norway is a monarchy. Does the Norwegian king have great political power?",
+      "alternatives": [
+        "The King of Norway has no political power",
+        "No, not really. The Norwegian king has little political power",
+        "Yes, absolutely. The Norwegian king has great political power"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "29_167",
+      "question": "Parliamentary elections are:",
+      "alternatives": [
+        "every other year",
+        "every fourth year",
+        "every fifth year"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "29_168",
+      "question": "Who has formal power in Norway?",
+      "alternatives": [
+        "Members of Parliament",
+        "The media",
+        "Interest organizations"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "29_169",
+      "question": "What do we call lobbying?",
+      "alternatives": [
+        "We call it lobbying when citizens form or join various interest organizations and fight for various issues in the municipalities.",
+        "When persons or organizations try to influence politicians and their decisions in informal ways, it is called lobbying",
+        "The members of Parliament pass laws, amendments and budgets and in this way they have formal power to influence what policies are pursued nationally and locally."
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "29_170",
+      "question": "Does the media have great power in today's Norway and in the whole world, in general?",
+      "alternatives": [
+        "Yes, radio, TV, the internet, newspapers and so on have a great influence and influence both ordinary viewers, readers, listeners and politicians.",
+        "No, radio, TV, the internet, newspapers and so on have no influence and influence neither ordinary viewers, readers, listeners and politicians.",
+        "Radio, TV, the internet, newspapers and so on have very little influence and influence to a small extent viewers, readers, listeners and politicians."
+      ],
+      "correct": 0,
+      "section": "1.3"
+    },
+    {
+      "id": "29_171",
+      "question": "Norway is a monarchy. What is the name of the king in today's Norway?",
+      "alternatives": [
+        "Harald V",
+        "Haakon 7",
+        "Olaf 5"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "29_172",
+      "question": "Do international organizations, of which Norway is a member, have an influence on Norwegian politics?",
+      "alternatives": [
+        "Yes, of course",
+        "No, absolutely not",
+        "Very little. No significant influence"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "30_173",
+      "question": "Which international organizations is Norway a member of?",
+      "alternatives": [
+        "United Nations-UN, defense alliance-NATO (North Atlantic Treaty Organization), The European Union - EU and the Schengen Agreement",
+        "United Nations-UN, defense alliance-NATO (North Atlantic Treaty Organization), EEA (The European Economic Area)",
+        "United Nations-UN, defense alliance-NATO (North Atlantic Treaty Organization), EEA (The European Economic Area) and the Schengen Agreement"
+      ],
+      "correct": 2,
+      "section": "3.3"
+    },
+    {
+      "id": "30_174",
+      "question": "What is it that makes a state a welfare state?",
+      "alternatives": [
+        "The distribution of both public and private resources so that all citizens have access to basic goods such as housing, food, medical help and schooling makes a state a welfare state",
+        "The distribution of private resources so that all citizens have access to basic goods such as housing, food, medical help and schooling makes a state a welfare state",
+        "The distribution of public resources so that all citizens have access to basic goods such as housing, food, medical help and schooling makes a state a welfare state"
+      ],
+      "correct": 2,
+      "section": "2.0"
+    },
+    {
+      "id": "30_175",
+      "question": "In what way is welfare in Norway financed, so-called, the Norwegian welfare society?",
+      "alternatives": [
+        "The welfare society is financed by taxes and duties that citizens pay as well as with money that comes from the oil and gas industry",
+        "The welfare society is financed by money that comes from the telecommunications company Telenor",
+        "The welfare society is financed by agriculture, forestry and the fishing industry"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "30_176",
+      "question": "What is an important prerequisite for the welfare state to function well?",
+      "alternatives": [
+        "It is very important in the welfare society that citizens misuse social and welfare benefits. They must trust themselves",
+        "What is very important in the welfare society is that the state uses the citizens as a resource. The state must pressure the citizens in one way or another",
+        "What is very important in the welfare society is trust between the state and the citizens. They must trust each other"
+      ],
+      "correct": 2,
+      "section": "2.0"
+    },
+    {
+      "id": "30_177",
+      "question": "Being in a hospital in Norway is:",
+      "alternatives": [
+        "Partially free and that means you have to pay a deductible",
+        "Completely free",
+        "Fully paid by patients and users"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "30_178",
+      "question": "NAV is an abbreviation for?",
+      "alternatives": [
+        "The Norwegian Labour and Welfare Administration",
+        "The Norwegian Water and Sewerage Authority",
+        "Norwegian Employees' Guidance"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "30_179",
+      "question": "What is a main goal of NAV?",
+      "alternatives": [
+        "To pressure and push us to get a job",
+        "To provide support and help if we need financial help during periods of illness and in other difficult periods of life or help citizens if they need to qualify for work",
+        "To help us to misuse welfare benefits"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "30_180",
+      "question": "What does the welfare model we have in Norway require?",
+      "alternatives": [
+        "It requires independence, abuse of the system, undeclared work and so on",
+        "It requires solidarity and a willingness to pay taxes and duties that further finance our welfare benefits",
+        "It requires no compassion or responsibility for the community"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "31_190",
+      "question": "Nordic citizens are not obliged to attend Norwegian courses. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "31_191",
+      "question": "Everyone must stop the Norwegian course after 600 hours. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "31_192",
+      "question": "Does a citizen from an EEA country have to apply for a residence permit in Norway? Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "31_193",
+      "question": "Does everyone who has family in Norway automatically get a residence permit? Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "31_194",
+      "question": "Do all foreigners in Norway have the same grounds for residence? Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "31_195",
+      "question": "Is it possible to obtain a residence permit in Norway on the basis of strong humanitarian considerations? Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "31_196",
+      "question": "Is it possible to seek asylum in Norway? Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "2.1"
+    },
+    {
+      "id": "31_197",
+      "question": "Do all refugees come to Norway through the UN system? Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "32_109",
+      "question": "Who should receive the birth notification when a child is born?",
+      "alternatives": [
+        "The National Population Register",
+        "The parents",
+        "The midwife"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "32_110",
+      "question": "Who usually has the main responsibility for a child and the child's upbringing?",
+      "alternatives": [
+        "The kindergarten",
+        "The parents",
+        "The school"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "32_111",
+      "question": "What is the age of majority in Norway?",
+      "alternatives": [
+        "18 years",
+        "15 years",
+        "12 years"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "32_112",
+      "question": "What does the Children Act say about the use of violence in upbringing?",
+      "alternatives": [
+        "It is allowed",
+        "It is forbidden",
+        "Nothing"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "32_113",
+      "question": "Anyone over the age of 18, who is not already married and who has legal residence in Norway, can get married here. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "32_114",
+      "question": "Women and men have the same right to freely choose their spouse. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "32_115",
+      "question": "Anyone who forces someone to marry cannot be sentenced to prison. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "32_116",
+      "question": "Women and men have the same right to separate and request a divorce. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "32_117",
+      "question": "Spouses have a joint responsibility to provide for and take care of the family. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "33_127",
+      "question": "You have to pay a higher deductible to a specialist if you do not have a referral from your doctor. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "33_128",
+      "question": "Treatment at the emergency room is free of charge. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement varies. It can be correct, but it can also be incorrect in some cases",
+        "This statement is incorrect. You have to pay a deductible at the emergency room",
+        "This statement is correct"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "33_129",
+      "question": "Prenatal check-ups are free. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "2.4"
+    },
+    {
+      "id": "33_130",
+      "question": "Kindergarten is compulsory for all children. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "33_131",
+      "question": "Less than half of all children attend kindergarten. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "33_132",
+      "question": "Almost 9 out of 10 children between 1 and 5 years old attend kindergarten. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "33_133",
+      "question": "Parents pay for everything it costs to have a child in kindergarten. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect. Parents only have to pay a deductible",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "33_134",
+      "question": "It is the municipality that pays a large part of the expenses for kindergartens. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "33_135",
+      "question": "The Parliament decides a maximum amount for how much parents should pay for a place in kindergarten. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "34_236",
+      "question": "When was compulsory schooling introduced for all children in Norway?",
+      "alternatives": [
+        "1900s",
+        "1700s",
+        "1500s"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "34_237",
+      "question": "How many years is it compulsory to attend education today?",
+      "alternatives": [
+        "13",
+        "10",
+        "7"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "34_238",
+      "question": "What were the most important industries in Norway in the 1800s/1850s?",
+      "alternatives": [
+        "Agriculture, forestry and fishing",
+        "Trade and industry",
+        "Industry and service"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "34_239",
+      "question": "What was the most important industry in Norway around the 1900s?",
+      "alternatives": [
+        "Industry",
+        "Trade",
+        "Oil and gas"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "34_240",
+      "question": "All employees in Norway are entitled to an employment contract. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "34_241",
+      "question": "Is a normal working week 25 hours. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect. A normal working week is 37.5 hours",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "34_242",
+      "question": "Employees in Norway are entitled to a minimum of seven weeks of holiday a year. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect. Employees in Norway are entitled to a minimum of five weeks of holiday a year",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "34_243",
+      "question": "Employees in Norway have the right to be absent from work with full pay in the event of their own or their child's illness. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "34_244",
+      "question": "Employees who have children are entitled to paid leave. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "1.2"
+    },
+    {
+      "id": "35_245",
+      "question": "Employees are not entitled to pay during training. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect. Training is paid in Norway",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "35_246",
+      "question": "Companies do not pay tax to the municipality. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect. Companies pay tax to both the municipality and the state",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "35_247",
+      "question": "Social security payments are tax-free. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "35_248",
+      "question": "Most of the welfare society in Norway is financed by income from oil and gas. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect. The Norwegian welfare society is mainly financed through taxes and duties",
+        "This statement is correct. The Norwegian welfare society is mainly financed from oil and gas",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "35_249",
+      "question": "Tax revenues are important for financing the welfare society. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "2.5"
+    },
+    {
+      "id": "35_250",
+      "question": "It is the state and not the municipalities that are responsible for the operation of most welfare benefits. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect. It is the municipalities that are responsible for the majority of welfare benefits",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "35_251",
+      "question": "The state transfers money to the municipalities. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 1,
+      "section": "2.0"
+    },
+    {
+      "id": "35_252",
+      "question": "Most of the municipality's money goes to administration. Is this statement correct, incorrect or can it be both correct and incorrect?",
+      "alternatives": [
+        "This statement is incorrect",
+        "This statement is correct",
+        "This statement varies. It can be correct, but it can also be incorrect in some cases"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "36_264",
+      "question": "Approximately what % of the population lives alone?",
+      "alternatives": [
+        "40%",
+        "10%",
+        "20%"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "36_265",
+      "question": "Norway is a democracy. What does that mean?",
+      "alternatives": [
+        "The people decide who should govern the country",
+        "The rich decide who should govern the country",
+        "The courts decide who should govern the country"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "36_266",
+      "question": "Who pays if you are admitted to a public hospital?",
+      "alternatives": [
+        "The state",
+        "The employer",
+        "The patient"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "36_267",
+      "question": "Where can one apply for a scholarship and loan for education?",
+      "alternatives": [
+        "The Norwegian State Educational Loan Fund",
+        "The university or college",
+        "NAV"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "36_268",
+      "question": "Who gets free dental treatment?",
+      "alternatives": [
+        "Everyone under 18 years of age",
+        "Everyone over 18 years of age",
+        "Everyone with an exemption card"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "36_269",
+      "question": "When was oil first found in Norway?",
+      "alternatives": [
+        "At the end of the 1960s",
+        "At the end of the 1930s",
+        "At the end of the 1980s"
+      ],
+      "correct": 0,
+      "section": "3.2"
+    },
+    {
+      "id": "36_270",
+      "question": "Approximately how much of Norway's area is cultivated land?",
+      "alternatives": [
+        "3%",
+        "18%",
+        "48%"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "36_271",
+      "question": "What is after-school program/activity school?",
+      "alternatives": [
+        "An offer to families for childcare before and after school hours",
+        "A subject in upper secondary school",
+        "An educational offer for all pupils from 8th to 10th grade"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "36_272",
+      "question": "Who has the right to get a divorce?",
+      "alternatives": [
+        "Both women and men",
+        "Only men",
+        "Only women"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "36_273",
+      "question": "What does it cost to go to a public primary and lower secondary school?",
+      "alternatives": [
+        "It is free for everyone",
+        "The price is based on the parents' income",
+        "The price varies from municipality to municipality"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "37_274",
+      "question": "Who is entitled to a general practitioner?",
+      "alternatives": [
+        "All inhabitants of Norway",
+        "Only those with a fixed income",
+        "Only Norwegian citizens"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "37_275",
+      "question": "Who is offered free vaccines in the vaccination program?",
+      "alternatives": [
+        "All children and young people who are resident in Norway",
+        "Only children and young people who are Norwegian citizens",
+        "Only Norwegian citizens"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "37_276",
+      "question": "What does freedom of religion mean?",
+      "alternatives": [
+        "That you can believe what you want",
+        "That religion is forbidden in Norway",
+        "That the state decides what you should believe in"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "37_277",
+      "question": "How much do you pay at the dentist if you are between 18 and 20 years old?",
+      "alternatives": [
+        "25% of the full price",
+        "Nothing",
+        "50% of the full price"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "37_278",
+      "question": "In which year did the Sami get their own Sami Parliament?",
+      "alternatives": [
+        "1989",
+        "1939",
+        "1967"
+      ],
+      "correct": 0,
+      "section": "3.2"
+    },
+    {
+      "id": "37_279",
+      "question": "How much do pregnant women have to pay for prenatal check-ups?",
+      "alternatives": [
+        "Nothing",
+        "Full price",
+        "A deductible"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "37_280",
+      "question": "Which international organizations is Norway a member of?",
+      "alternatives": [
+        "NATO, UN, EEA, Schengen",
+        "NATO, EU",
+        "NAFTA"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "37_281",
+      "question": "Kari wants to study at university. What is correct?",
+      "alternatives": [
+        "She must have a general university admissions certificate",
+        "She must have reached the age of 19",
+        "She must have good finances"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "37_282",
+      "question": "Mary is in 8th grade. She has been ill for a long time and has problems following the teaching in several subjects. What will happen to Mary when the next school year starts?",
+      "alternatives": [
+        "She continues in 9th grade",
+        "She has to repeat 8th grade",
+        "She gets to quit the subjects she is struggling with"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "37_283",
+      "question": "Do both parties to a marriage have to agree to be able to divorce?",
+      "alternatives": [
+        "No",
+        "Yes"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "38_284",
+      "question": "Hasan is 16 years old. He goes to the dentist once a year. How much does he pay for regular dental treatment?",
+      "alternatives": [
+        "Nothing",
+        "The full cost",
+        "Half of the cost"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "38_285",
+      "question": "Which of these are entitled to free Norwegian language training?",
+      "alternatives": [
+        "Refugees",
+        "Au pairs",
+        "Labor immigrants"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "38_286",
+      "question": "What happened in 1940?",
+      "alternatives": [
+        "Norway was occupied by Germany",
+        "Norway became an independent country",
+        "Norway got its first president"
+      ],
+      "correct": 0,
+      "section": "3.2"
+    },
+    {
+      "id": "38_287",
+      "question": "Why should women go for prenatal check-ups?",
+      "alternatives": [
+        "To ensure the health of mother and child",
+        "To apply for child benefit",
+        "To get maternity leave approved"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "38_288",
+      "question": "Who can participate in the Introduction Program?",
+      "alternatives": [
+        "Newly arrived refugees over 18 years of age",
+        "Most labor immigrants",
+        "All asylum seekers under 16 years of age"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "38_289",
+      "question": "What are the most important sources of income for the state and municipalities?",
+      "alternatives": [
+        "Taxes and duties from private individuals and companies",
+        "Transfers from international organizations",
+        "Sale of goods and services to other countries"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "38_290",
+      "question": "How often does the government meet with the king?",
+      "alternatives": [
+        "Once a week",
+        "Once a month",
+        "Once a year"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "38_291",
+      "question": "Who pays for patients who are admitted to Norwegian hospitals?",
+      "alternatives": [
+        "The state",
+        "The patient",
+        "Insurance company"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "38_292",
+      "question": "What is the goal of work practice for immigrants?",
+      "alternatives": [
+        "To make the participant familiar with Norwegian working life",
+        "To obtain a work permit for the participant",
+        "To have the participant's education approved"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "38_293",
+      "question": "Mari wants to join a political party. Her parents disagree. How old must Mari be to decide this for herself?",
+      "alternatives": [
+        "15 years old",
+        "12 years old",
+        "18 years old"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "39_294",
+      "question": "What do you need to have to have paid work?",
+      "alternatives": [
+        "Tax card",
+        "Driver's license",
+        "Insurance card"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "39_295",
+      "question": "The settlement in Norway changed in the last half of the 19th century. What happened?",
+      "alternatives": [
+        "Many moved from the countryside to the cities",
+        "Many moved from the cities to the coast",
+        "Many moved from the coast to the countryside"
+      ],
+      "correct": 0,
+      "section": "3.2"
+    },
+    {
+      "id": "39_296",
+      "question": "Who finances university and college education in Norway?",
+      "alternatives": [
+        "The state",
+        "The family",
+        "Large companies"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "39_297",
+      "question": "Which counties are in Northern Norway?",
+      "alternatives": [
+        "Finnmark, Troms, Nordland",
+        "Oppland, Hedmark, Akershus",
+        "Hordaland, Rogaland, Vest-Agder"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "39_298",
+      "question": "How long do parents have a duty to provide for their children?",
+      "alternatives": [
+        "Until the children have reached the age of 18",
+        "Until the children have finished primary school",
+        "Until the children have got their own job"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "39_299",
+      "question": "What percentage of the working population in Norway works in the public sector?",
+      "alternatives": [
+        "Approx. 30%",
+        "Approx. 50%",
+        "Approx. 70%"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "39_300",
+      "question": "Tom has got a job in a shop. He is going to have an employment contract. When should he have received the contract at the latest?",
+      "alternatives": [
+        "When he starts the job",
+        "After a trial period of three weeks",
+        "When the employer decides to do so"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "39_301",
+      "question": "How much do parents in Norway pay for the vaccination program for children?",
+      "alternatives": [
+        "Nothing",
+        "Approx. 100 kr per vaccine",
+        "Approx. 200 kr per vaccine"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "39_302",
+      "question": "When do children normally start in the first grade of school?",
+      "alternatives": [
+        "The year they turn 6",
+        "The year they turn 7",
+        "The year they turn 8"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "39_303",
+      "question": "Kari and Jens are divorced. They have two children aged five and seven. What are their children's rights according to the law?",
+      "alternatives": [
+        "The children have the right to have contact with both parents",
+        "The children have the right to live together",
+        "The children have the right to choose which of the parents they want to live with"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "40_304",
+      "question": "There have been major changes in the labor market over the last 30 years. What is correct?",
+      "alternatives": [
+        "Fewer people work in industry and production",
+        "More people work in fishing and agriculture",
+        "Only women work in trade and service"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "40_305",
+      "question": "What should parents and school cooperate on?",
+      "alternatives": [
+        "Children's academic and social development",
+        "Children's leisure activities",
+        "Children's weekly allowance"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "40_306",
+      "question": "Which of these services is NAV responsible for?",
+      "alternatives": [
+        "Child benefit",
+        "Leisure activities",
+        "Primary school"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "40_307",
+      "question": "A little more than 20,000 marriages are entered into in Norway each year. How many married couples divorce each year?",
+      "alternatives": [
+        "Approx. 10,000",
+        "Approx. 5,000",
+        "Approx. 15,000"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "40_308",
+      "question": "What is the average age of those who marry for the first time in Norway?",
+      "alternatives": [
+        "Approx. 30 years",
+        "Approx. 20 years",
+        "Approx. 40 years"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "40_309",
+      "question": "Who has the main responsibility for the welfare schemes in Norway?",
+      "alternatives": [
+        "State and municipality",
+        "Large private companies",
+        "Voluntary organizations"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "40_310",
+      "question": "What are the names of the three largest cities in Norway?",
+      "alternatives": [
+        "Oslo, Bergen, Trondheim",
+        "Stavanger, Oslo, Tromsø",
+        "Bergen, Drammen, Trondheim"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "40_311",
+      "question": "Who do parents in Norway receive child benefit for?",
+      "alternatives": [
+        "All children under 18 years of age, resident in Norway",
+        "All children under 13 years of age resident in Norway",
+        "All children under 15 years of age resident in Norway"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "40_312",
+      "question": "Who should pay if a refugee needs an interpreter?",
+      "alternatives": [
+        "The public should pay",
+        "The refugee must pay for themselves",
+        "The Red Cross pays most of it"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "40_313",
+      "question": "When is Easter?",
+      "alternatives": [
+        "In March/April",
+        "In December",
+        "In May"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "41_314",
+      "question": "What is free for adults in Norway?",
+      "alternatives": [
+        "Admission to a public hospital",
+        "Examination at the dentist",
+        "Appointment with the general practitioner"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "41_315",
+      "question": "How old must children be to have the right to decide on their own education?",
+      "alternatives": [
+        "15 years old",
+        "7 years old",
+        "12 years old"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "41_316",
+      "question": "Who is the target group for the introduction program?",
+      "alternatives": [
+        "All refugees between 18 and 55 years of age",
+        "All asylum seekers between 18 and 55 years of age",
+        "All immigrants between 18 and 55 years of age"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "41_317",
+      "question": "Who leads the government?",
+      "alternatives": [
+        "The Prime Minister",
+        "The Mayor",
+        "The King"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "41_318",
+      "question": "What does a permanent residence permit entail?",
+      "alternatives": [
+        "You can live and work in Norway for as long as you want",
+        "You can live and work in Norway for 5 years",
+        "You can live and work in Norway for up to 10 years"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "41_319",
+      "question": "What is one of the main goals of NAV?",
+      "alternatives": [
+        "That more citizens get into work",
+        "That more women are housewives",
+        "That more children get a place in kindergarten"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "41_320",
+      "question": "Is a teacher allowed to use physical punishment on pupils?",
+      "alternatives": [
+        "No",
+        "Yes",
+        "Sometimes"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "41_321",
+      "question": "What form of government does Norway have?",
+      "alternatives": [
+        "Monarchy",
+        "Republic",
+        "Dictatorship"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "41_322",
+      "question": "When you have a job in Norway, you are entitled to an employment contract. What must be in the contract?",
+      "alternatives": [
+        "Salary and working hours",
+        "Rules for tax",
+        "Previous work experience"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "41_323",
+      "question": "Who has the main responsibility for getting people a job in Norway?",
+      "alternatives": [
+        "People themselves",
+        "The state",
+        "NAV"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "43_324",
+      "question": "When was the Universal Declaration of Human Rights adopted?",
+      "alternatives": [
+        "1948",
+        "1908",
+        "2008"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "43_325",
+      "question": "What is correct?",
+      "alternatives": [
+        "In Norway, it is not very common for children to go to private schools",
+        "Only rich Norwegians send their children to private schools",
+        "Very many children go to private schools in Norway"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "43_326",
+      "question": "In the Norwegian welfare system, the population has economic rights. What are examples of such rights?",
+      "alternatives": [
+        "Sickness benefit, unemployment benefit, introduction benefit and child benefit",
+        "Sickness benefit, unemployment benefit, introduction benefit and good pay",
+        "Sickness benefit, unemployment benefit, introduction benefit and low tax"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "43_327",
+      "question": "Which countries does Norway border on?",
+      "alternatives": [
+        "Sweden, Finland and Russia",
+        "Denmark, Sweden and Finland",
+        "Iceland, Denmark and Sweden"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "43_328",
+      "question": "Where can one change general practitioner?",
+      "alternatives": [
+        "On the website helsenorge.no (formerly MinFastlege)",
+        "At the health center",
+        "At the National Population Register"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "43_329",
+      "question": "What is correct?",
+      "alternatives": [
+        "All children between 0-6 years are offered a free health check-up",
+        "No school-age children are offered a free health check-up",
+        "All children in Norway are offered a free health check-up as part of the child health program"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "43_330",
+      "question": "What is the Norwegian State Educational Loan Fund?",
+      "alternatives": [
+        "A state bank from which students can borrow money",
+        "A state office that rents out student housing",
+        "A state library for teaching materials"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "43_331",
+      "question": "What must everyone who works in Norway do?",
+      "alternatives": [
+        "Pay tax",
+        "Work overtime",
+        "Participate in courses"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "43_332",
+      "question": "Why is 1814 an important year in Norwegian history?",
+      "alternatives": [
+        "Norway got its own constitution",
+        "A Danish prince became king of Norway",
+        "The union with Sweden was dissolved"
+      ],
+      "correct": 0,
+      "section": "3.2"
+    },
+    {
+      "id": "43_333",
+      "question": "Inge-Lise is 16 years old and wants to join the church. Her parents disagree. What is correct?",
+      "alternatives": [
+        "Inge-Lise can decide for herself",
+        "The parents decide on her membership",
+        "The Church Council shall decide on it"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "44_334",
+      "question": "Kjartan is 45 years old. He is going to the dentist for treatment. What is correct?",
+      "alternatives": [
+        "He has to pay the full amount",
+        "He pays half the price",
+        "He pays a deductible for dental treatment"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "44_335",
+      "question": "Marit is 14 years old. Her parents have divorced. Marit would like to live with her dad, but her mother disagrees. What is correct?",
+      "alternatives": [
+        "Marit can decide for herself",
+        "Child Welfare Services shall decide",
+        "The parents must decide"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "44_336",
+      "question": "What profession can you not train for in upper secondary school?",
+      "alternatives": [
+        "Doctor",
+        "Building and construction technology",
+        "Electrical and computer technology"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "44_337",
+      "question": "What is undeclared work/black money?",
+      "alternatives": [
+        "Work for which you do not pay tax",
+        "Work that is approved as a hobby",
+        "Work that is regulated by an employment relationship"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "44_338",
+      "question": "Where do you apply for child benefit?",
+      "alternatives": [
+        "You apply for child benefit from NAV",
+        "A family provider applies for child benefit from the UDI",
+        "A person who needs child benefit applies for it from the National Association of Kindergartens"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "44_339",
+      "question": "Berit is on sick leave for 2 months. How much does she get in salary?",
+      "alternatives": [
+        "Berit gets full pay for the entire period",
+        "From day 1, Berit gets 80% of her salary",
+        "For the first 14 days she gets full pay, then 80% of her salary"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "44_340",
+      "question": "What does the state use tax money for?",
+      "alternatives": [
+        "Welfare benefits",
+        "Investment",
+        "Shares"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "44_341",
+      "question": "What does a social educator do?",
+      "alternatives": [
+        "A social educator creates well-being for people who need follow-up and help",
+        "A social educator is a person who works with plants and green areas",
+        "A social educator is a person who creates a good working environment"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "44_342",
+      "question": "How many cities in Norway have more than 500,000 inhabitants?",
+      "alternatives": [
+        "There is only one city in Norway that has more than half a million inhabitants",
+        "There are two cities in Norway that have more than half a million inhabitants",
+        "There are three cities in Norway that have more than half a million inhabitants"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "44_343",
+      "question": "Welfare benefits are universal, what does this mean?",
+      "alternatives": [
+        "This means that all citizens of a country have equal rights to the welfare benefits offered by the state (social security benefits, kindergartens, schools, medical help, etc.)",
+        "This means that all citizens of a country have different rights to the welfare benefits that the state owns.",
+        "This means that all citizens do not have access to the welfare benefits offered by the state"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "45_344",
+      "question": "If you want to call an ambulance, what number do you have to call?",
+      "alternatives": [
+        "113",
+        "110",
+        "112"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "45_345",
+      "question": "Who can seek asylum in Norway?",
+      "alternatives": [
+        "People who can seek asylum in Norway are those who have received a job offer from a Norwegian employer",
+        "People who can seek asylum in Norway are those who are at a Norwegian border",
+        "People who can seek asylum in Norway are those who are persecuted or those who have experienced inhumane acts in their home country"
+      ],
+      "correct": 2,
+      "section": "2.1"
+    },
+    {
+      "id": "45_346",
+      "question": "Who passes laws in Norway?",
+      "alternatives": [
+        "The Parliament passes laws in Norway",
+        "The Government passes laws in Norway",
+        "The Judiciary passes laws in Norway"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "45_347",
+      "question": "What is the name of the indigenous people of Norway?",
+      "alternatives": [
+        "The indigenous people of Norway are the Sami",
+        "There are no indigenous people in Norway",
+        "The indigenous people of Norway are Norwegians"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "45_348",
+      "question": "What is free for adults in Norway?",
+      "alternatives": [
+        "Admission to public hospitals",
+        "Dentist visit",
+        "General practitioner service"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "45_349",
+      "question": "Where did most of the inhabitants of Norway live in the 1850s?",
+      "alternatives": [
+        "Most lived in the countryside",
+        "Most lived by the coast",
+        "Most lived in large cities"
+      ],
+      "correct": 0,
+      "section": "3.2"
+    },
+    {
+      "id": "45_350",
+      "question": "When is Christmas?",
+      "alternatives": [
+        "In December",
+        "In January",
+        "In May"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "45_352",
+      "question": "When is a person allowed to marry? How old must one be?",
+      "alternatives": [
+        "When she/he is over 18 and chooses to marry",
+        "When families agree on the marriage",
+        "After the age of 16, you decide for yourself"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "45_353",
+      "question": "How can one avoid lifestyle diseases?",
+      "alternatives": [
+        "Eat healthy and be physically active",
+        "Work a lot and sleep irregularly",
+        "Train a lot and be confused"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "45_354",
+      "question": "What is correct?",
+      "alternatives": [
+        "No one in Norway can be sentenced to prison without a trial first",
+        "All children do not have the right to adapted education at the grade they are in",
+        "Employees do not have the right to be absent from work with full pay in the event of a child's illness"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "46_355",
+      "question": "What duties does the population have in the Norwegian welfare society?",
+      "alternatives": [
+        "To pay tax and provide correct information about oneself",
+        "To pay tax and give money to aid organizations",
+        "To pay tax and vote in all political elections"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "46_356",
+      "question": "Do you have the right to an interpreter when you go for an examination at the hospital?",
+      "alternatives": [
+        "Yes",
+        "No",
+        "Only in special cases"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "46_357",
+      "question": "How many people live in Norway?",
+      "alternatives": [
+        "approx. 5 million",
+        "approx. 6 million",
+        "approx. 4 million"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "46_358",
+      "question": "Who is responsible for ensuring the welfare of the citizens in Norway?",
+      "alternatives": [
+        "The public sector",
+        "Politicians",
+        "The oil industry"
+      ],
+      "correct": 0,
+      "section": "2.0"
+    },
+    {
+      "id": "46_359",
+      "question": "Who is responsible for passing the state budget?",
+      "alternatives": [
+        "The Parliament",
+        "The Government",
+        "The Judiciary"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "46_360",
+      "question": "Where do you apply for a study place? If you want to go to university, where can you apply?",
+      "alternatives": [
+        "On the website samordnaopptak.no",
+        "Send the application by post to the college",
+        "Submit the application directly to the university"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "46_361",
+      "question": "What does Norwegian law say about abortion?",
+      "alternatives": [
+        "The woman herself decides early in the pregnancy",
+        "The woman does not have the right to decide whether she wants to terminate the pregnancy",
+        "The woman and the man should decide together whether she wants to terminate the pregnancy"
+      ],
+      "correct": 0,
+      "section": "2.6"
+    },
+    {
+      "id": "46_362",
+      "question": "Who do you have to contact if you want to get married?",
+      "alternatives": [
+        "The National Population Register",
+        "NAV",
+        "UDI"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "46_363",
+      "question": "Tom finds a job advertisement. What should he do if he wants the job?",
+      "alternatives": [
+        "Write a job application and CV",
+        "Write an email to the employer",
+        "Contact the person responsible for hiring"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "46_364",
+      "question": "Who is offered a free health check-up?",
+      "alternatives": [
+        "All children between 0 and 18 years of age",
+        "All children between 0 and 16 years of age",
+        "All children between 0 and 20 years of age"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "47_365",
+      "question": "What does the Working Environment Act say about holidays?",
+      "alternatives": [
+        "Everyone who works is entitled to a holiday",
+        "The employer decides whether the employee is entitled to a holiday or not",
+        "The employer and employee must make an internal agreement on holidays and time off"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "47_366",
+      "question": "What is the Prime Minister's task?",
+      "alternatives": [
+        "To lead the government",
+        "To lead the Parliament",
+        "To lead the Judiciary"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "47_367",
+      "question": "What did most Norwegians want at the end of the 19th century?",
+      "alternatives": [
+        "That Norway should become an independent country",
+        "That Norway should continue the union with Denmark",
+        "That Norway should continue the union with Sweden"
+      ],
+      "correct": 0,
+      "section": "3.2"
+    },
+    {
+      "id": "47_368",
+      "question": "What does the law on the right and duty to 600 hours of tuition entail?",
+      "alternatives": [
+        "You get 550 hours of tuition in Norwegian, and 50 hours in social studies",
+        "You get 350 hours of tuition in the Norwegian language and 350 hours in social studies",
+        "You get 300 hours of tuition in Norwegian and 300 hours in social studies"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "47_369",
+      "question": "What is correct according to the Gender Equality Act?",
+      "alternatives": [
+        "Women and men shall have equal opportunities for education and work",
+        "Women and men shall have equal opportunities for education, but different opportunities for work",
+        "Women and men shall have different opportunities for education and work"
+      ],
+      "correct": 0,
+      "section": "2.6"
+    },
+    {
+      "id": "47_370",
+      "question": "Those who move have a duty to report their new address within 8 days. Who do you have to report to when you move?",
+      "alternatives": [
+        "The National Population Register",
+        "The police",
+        "NAV"
+      ],
+      "correct": 0,
+      "section": "2.1"
+    },
+    {
+      "id": "47_371",
+      "question": "What is meant by the term gender equality?",
+      "alternatives": [
+        "Gender equality is about everyone having equal opportunities and rights",
+        "That all persons should have different rights and opportunities in society, depending on gender",
+        "That all persons should have different rights and opportunities in society, depending on origin"
+      ],
+      "correct": 0,
+      "section": "2.6"
+    },
+    {
+      "id": "47_372",
+      "question": "Who should decide on abortion in pregnancy in periods before week 13?",
+      "alternatives": [
+        "The woman herself",
+        "The woman and the man must agree together",
+        "The general practitioner"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "47_373",
+      "question": "What percentage of women study more than men in Norway?",
+      "alternatives": [
+        "Over 60%",
+        "approx. 20%",
+        "40%"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "47_374",
+      "question": "What is the average age for getting married for the first time in Norway?",
+      "alternatives": [
+        "33 years",
+        "44 years",
+        "20 years"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "48_375",
+      "question": "What is correct about upper secondary school in Norway?",
+      "alternatives": [
+        "Free",
+        "You have to pay for everything yourself",
+        "You pay a deductible"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "48_376",
+      "question": "Who decides who will sit in the Parliament?",
+      "alternatives": [
+        "voted in the parliamentary election",
+        "The King and the close workers he works with",
+        "The Parliament chooses for itself"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "48_377",
+      "question": "What is correct about the childhood vaccination program in Norway?",
+      "alternatives": [
+        "The parents should decide",
+        "It is compulsory for all children",
+        "The childhood vaccination program is free for families who have too little money"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "48_378",
+      "question": "What is correct about female circumcision in Norway?",
+      "alternatives": [
+        "It is punishable",
+        "The parents' culture applies",
+        "It follows the culture that one has had before"
+      ],
+      "correct": 0,
+      "section": "2.6"
+    },
+    {
+      "id": "48_379",
+      "question": "Who must have a tax card?",
+      "alternatives": [
+        "Everyone who works and receives a salary",
+        "You earn over 60,000 a year",
+        "You earn over 100,000 a year"
+      ],
+      "correct": 0,
+      "section": "2.5"
+    },
+    {
+      "id": "48_380",
+      "question": "What is correct about a general practitioner?",
+      "alternatives": [
+        "A general practitioner is one doctor you should go to when you are ill",
+        "The state should choose a general practitioner for its people",
+        "You go to the general practitioner when you are ill without waiting in a queue"
+      ],
+      "correct": 0,
+      "section": "2.4"
+    },
+    {
+      "id": "48_381",
+      "question": "What is the most important task for child welfare?",
+      "alternatives": [
+        "Helping families and children at home",
+        "Controlling kindergartens",
+        "Approving adoption from abroad"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "48_382",
+      "question": "What country was Norway in a union with?",
+      "alternatives": [
+        "Denmark and Sweden",
+        "Sweden and Iceland",
+        "Denmark and Germany"
+      ],
+      "correct": 0,
+      "section": "3.2"
+    },
+    {
+      "id": "48_383",
+      "question": "What is NAV responsible for?",
+      "alternatives": [
+        "Helping people to work and activities",
+        "Helping people to complete upper secondary school",
+        "Helping people to apply for unemployment benefits"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "48_384",
+      "question": "Representatives to the Parliament are chosen from?",
+      "alternatives": [
+        "Political parties",
+        "The Government",
+        "The Supreme Court"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "49_385",
+      "question": "What is the name of Norway's highest mountain?",
+      "alternatives": [
+        "Galdhøpiggen",
+        "Glittertinden",
+        "Snøhetta"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "49_386",
+      "question": "What are the three most important industries in Norway?",
+      "alternatives": [
+        "Foodstuffs, petroleum/chemical products and machinery/equipment",
+        "Paper, petroleum/chemical products and wood products",
+        "Textiles/clothing, petroleum/chemical products and publishing/graphics"
+      ],
+      "correct": 0,
+      "section": "1.2"
+    },
+    {
+      "id": "49_387",
+      "question": "If Norwegian law conflicts with your faith, does freedom of religion mean that you have the right to let your faith take precedence over the law?",
+      "alternatives": [
+        "No, the law applies to everyone",
+        "Yes, all citizens have the right to practice their religion",
+        "No, with exceptions in family matters and within the four walls of the house"
+      ],
+      "correct": 0,
+      "section": "2.6"
+    },
+    {
+      "id": "49_388",
+      "question": "How does the principle of separation of powers work in Norway?",
+      "alternatives": [
+        "The principle ensures that the exercise of power is divided between three independent authorities",
+        "The principle ensures that the exercise of power is divided between three dependent authorities",
+        "The principle ensures that the exercise of power is divided between two dependent authorities"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "49_389",
+      "question": "How are the representatives to the Parliament chosen?",
+      "alternatives": [
+        "Each county is a constituency with a given number of seats in the Parliament. The number of votes in each county determines how many representatives each party gets from each county",
+        "The county councils choose who will sit in the Parliament for each county",
+        "The parties submit lists nationally, with the leader in first place. The parties get the number of seats according to how many votes they get nationally"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "49_390",
+      "question": "Power is divided between the parliament, government and the courts. What power lies with each of these three institutions?",
+      "alternatives": [
+        "The legislative, executive and judicial power",
+        "The power of the people, the power of the civil servants and the power of the judge",
+        "The power over the municipalities, the power over the state and the power over the police"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "49_391",
+      "question": "Representatives to the Parliament are chosen from?",
+      "alternatives": [
+        "Political parties",
+        "The Government",
+        "The Supreme Court"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "49_392",
+      "question": "What is the king's role in the constitution?",
+      "alternatives": [
+        "The king's role is mainly representative and ceremonial",
+        "The king decides who will sit in the government",
+        "He decides on foreign policy"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "49_393",
+      "question": "Freedom of speech and freedom of religion are protected in the Constitution. Does this mean that a Norwegian citizen has the right to criticize another Norwegian citizen's faith?",
+      "alternatives": [
+        "Yes, freedom of speech means that you can both criticize religions and religious leaders",
+        "No, freedom of religion takes precedence over freedom of speech",
+        "No, you are only allowed to criticize and discuss your own religion"
+      ],
+      "correct": 0,
+      "section": "2.6"
+    },
+    {
+      "id": "50_40",
+      "question": "What is the Norwegian State Educational Loan Fund?",
+      "alternatives": [
+        "A state office that rents out student housing",
+        "A state library for teaching materials",
+        "A state bank from which students can borrow money"
+      ],
+      "correct": 2,
+      "section": "1.1"
+    },
+    {
+      "id": "50_41",
+      "question": "What is correct?",
+      "alternatives": [
+        "In Norway it is not very common for children to go to private schools",
+        "Only rich Norwegians send their children to private schools",
+        "A great many children go to private schools in Norway"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "50_42",
+      "question": "Who is entitled to upper secondary education?",
+      "alternatives": [
+        "All young people who have good enough grades",
+        "All young people who want to study",
+        "All young people who have completed Norwegian primary and lower secondary school"
+      ],
+      "correct": 2,
+      "section": "1.1"
+    },
+    {
+      "id": "50_44",
+      "question": "When was compulsory schooling for all introduced in Norway?",
+      "alternatives": [
+        "1842",
+        "1739",
+        "1814",
+        "1907"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "50_45",
+      "question": "When was 10-year primary and lower secondary school introduced in Norway?",
+      "alternatives": [
+        "1969",
+        "1972",
+        "1991",
+        "1997"
+      ],
+      "correct": 3,
+      "section": "1.1"
+    },
+    {
+      "id": "50_46",
+      "question": "Is a teacher allowed to use physical punishment on pupils?",
+      "alternatives": [
+        "Yes",
+        "No",
+        "sometimes"
+      ],
+      "correct": 1,
+      "section": "1.1"
+    },
+    {
+      "id": "50_47",
+      "question": "Who is responsible for raising the children?",
+      "alternatives": [
+        "The children themselves",
+        "Parents",
+        "The state"
+      ],
+      "correct": 1,
+      "section": "2.2"
+    },
+    {
+      "id": "51_394",
+      "question": "If you know Norwegian, which two other Scandinavian languages are so close to Norwegian that you will be able to read and understand most of them?",
+      "alternatives": [
+        "Danish and Swedish",
+        "Finnish and Swedish",
+        "Icelandic and Danish"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "51_395",
+      "question": "What are the three official written languages in Norway?",
+      "alternatives": [
+        "Norwegian (Bokmål and Nynorsk as equal forms) and Sami",
+        "Bokmål, Nynorsk and English",
+        "Bokmål, Nynorsk and an optional one"
+      ],
+      "correct": 0,
+      "section": "3.1"
+    },
+    {
+      "id": "51_396",
+      "question": "How often are there elections in Norway?",
+      "alternatives": [
+        "Every four years there is a parliamentary election and every four years there is a local election. There are two years between each election",
+        "It varies. The Parliament or the government decides when there will be an election",
+        "Every four years"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "51_397",
+      "question": "Do a woman and a man have an equal right to a separation and thus a divorce?",
+      "alternatives": [
+        "Yes, the law does not distinguish between women and men when it comes to divorce",
+        "No, the man must accept the divorce first",
+        "Yes, if the woman can prove that the man has not fulfilled the obligations in the marriage, then the rights are equal"
+      ],
+      "correct": 0,
+      "section": "2.6"
+    },
+    {
+      "id": "51_398",
+      "question": "What is stated in the Education Act?",
+      "alternatives": [
+        "All children have the right and duty to 10 years of schooling",
+        "All children have the right and duty to both primary and lower secondary school (basic education) and upper secondary education",
+        "No child has a duty to educate themselves"
+      ],
+      "correct": 0,
+      "section": "1.1"
+    },
+    {
+      "id": "51_399",
+      "question": "Which oil field has been in production the longest in Norway?",
+      "alternatives": [
+        "The Ekofisk field",
+        "The Troll field",
+        "The Statfjord field"
+      ],
+      "correct": 0,
+      "section": "3.2"
+    },
+    {
+      "id": "51_400",
+      "question": "Kari and Jens are divorced. Who has the main responsibility for their children?",
+      "alternatives": [
+        "Both mother and father",
+        "Mother",
+        "Father"
+      ],
+      "correct": 0,
+      "section": "2.2"
+    },
+    {
+      "id": "51_401",
+      "question": "Which religion is enshrined in the Norwegian Constitution?",
+      "alternatives": [
+        "The Evangelical-Lutheran religion",
+        "None. Norway is a secular state",
+        "The Roman Catholic religion, which was the largest in Norway in 1814"
+      ],
+      "correct": 1,
+      "section": "3.3"
+    },
+    {
+      "id": "51_402",
+      "question": "Norway is a democracy. What does that mean?",
+      "alternatives": [
+        "The people decide who should govern the country",
+        "The rich decide who should govern the country",
+        "The courts decide who should govern the country"
+      ],
+      "correct": 0,
+      "section": "3.3"
+    },
+    {
+      "id": "51_403",
+      "question": "Are two women or two men allowed to marry?",
+      "alternatives": [
+        "Yes, the Marriage Act does not distinguish between marriage between two people of the same sex, and marriage between a man and a woman",
+        "No, marriage between two people of the same sex is not legal in the Church of Norway and therefore forbidden in Norway",
+        "No, marriage is reserved for a man and a woman. Homosexual and lesbian couples can enter into a partnership"
+      ],
+      "correct": 0,
+      "section": "2.6"
+    }
+  ]

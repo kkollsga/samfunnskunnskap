@@ -1,0 +1,5161 @@
+[
+  {
+    "id": "1_1",
+    "question": "Todos os imigrantes na Noruega têm a obrigação de fazer aulas de norueguês.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "1_2",
+    "question": "É a autorização de residência que determina se um imigrante recebe aulas gratuitas de norueguês ou não.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "1_3",
+    "question": "Aqueles que precisam pagar pelas aulas de norueguês devem fazer um mínimo de 600 horas.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "1_4",
+    "question": "Cidadãos nórdicos não têm a obrigação de frequentar cursos de norueguês.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "1_5",
+    "question": "Todos devem parar o curso de norueguês após 600 horas.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "1_6",
+    "question": "Um cidadão de um país do EEE precisa solicitar uma autorização de residência na Noruega?",
+    "alternatives": [
+      "Sim",
+      "Não"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "1_7",
+    "question": "Todos que têm família na Noruega recebem autorização de residência automaticamente?",
+    "alternatives": [
+      "Sim",
+      "Não"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "1_8",
+    "question": "Todos os estrangeiros na Noruega têm a mesma base para a residência?",
+    "alternatives": [
+      "Sim",
+      "Não"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "1_9",
+    "question": "É possível obter autorização de residência na Noruega com base em fortes razões humanitárias?",
+    "alternatives": [
+      "Sim",
+      "Não"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "1_10",
+    "question": "É possível pedir asilo na Noruega?",
+    "alternatives": [
+      "Sim",
+      "Não"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "1_11",
+    "question": "Todos os refugiados chegam à Noruega através do sistema da ONU?",
+    "alternatives": [
+      "Sim",
+      "Não"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "1_12",
+    "question": "Quando a Noruega obteve sua própria constituição?",
+    "alternatives": [
+      "1814",
+      "1350",
+      "1905"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "1_13",
+    "question": "Quando a Noruega se tornou uma nação petrolífera?",
+    "alternatives": [
+      "1940",
+      "1905",
+      "1969"
+    ],
+    "correct": 2,
+    "section": "3.2"
+  },
+  {
+    "id": "1_14",
+    "question": "Aproximadamente, quando foi a Era Viking?",
+    "alternatives": [
+      "1350-1814",
+      "800-1050",
+      "1940-1945"
+    ],
+    "correct": 1,
+    "section": "3.2"
+  },
+  {
+    "id": "1_15",
+    "question": "Quando a Noruega esteve em união com a Dinamarca?",
+    "alternatives": [
+      "1905-1940",
+      "1350-1814",
+      "1814-1905"
+    ],
+    "correct": 1,
+    "section": "3.2"
+  },
+  {
+    "id": "2_16",
+    "question": "Quando a Noruega foi ocupada pela Alemanha?",
+    "alternatives": [
+      "1905-1910",
+      "1840-1845",
+      "1940-1945"
+    ],
+    "correct": 2,
+    "section": "3.2"
+  },
+  {
+    "id": "2_17",
+    "question": "Quando foi o romantismo nacional?",
+    "alternatives": [
+      "No século XI",
+      "No século XIX",
+      "No século XVI"
+    ],
+    "correct": 1,
+    "section": "3.2"
+  },
+  {
+    "id": "2_18",
+    "question": "Quando a união da Noruega com a Suécia foi dissolvida?",
+    "alternatives": [
+      "1969",
+      "1905",
+      "1945"
+    ],
+    "correct": 1,
+    "section": "3.2"
+  },
+  {
+    "id": "2_19",
+    "question": "A Noruega tem uma igreja estatal.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "2_20",
+    "question": "A Igreja da Noruega é católica romana.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "2_21",
+    "question": "Há liberdade religiosa na Noruega.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "2_22",
+    "question": "Todos que vivem na Noruega são membros de uma comunidade religiosa.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "2_23",
+    "question": "Há mais budistas do que muçulmanos na Noruega.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "3.1"
+  },
+  {
+    "id": "2_24",
+    "question": "O Estado financia várias comunidades religiosas.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "2_25",
+    "question": "Quem deve receber a notificação de nascimento quando uma criança nasce?",
+    "alternatives": [
+      "A parteira",
+      "O Registro Civil",
+      "Os pais"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "2_26",
+    "question": "Quem geralmente tem a responsabilidade principal por uma criança e sua educação?",
+    "alternatives": [
+      "A escola",
+      "O jardim de infância",
+      "Os pais"
+    ],
+    "correct": 2,
+    "section": "2.2"
+  },
+  {
+    "id": "2_27",
+    "question": "Qual é a idade da maioridade na Noruega?",
+    "alternatives": [
+      "15 anos",
+      "18 anos",
+      "20 anos"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "2_28",
+    "question": "O que a lei da criança diz sobre o uso de violência na educação?",
+    "alternatives": [
+      "É permitido",
+      "É proibido",
+      "Nada"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "2_29",
+    "question": "Com que idade se pode decidir sobre a própria educação?",
+    "alternatives": [
+      "15 anos",
+      "18 anos",
+      "20 anos"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "3_30",
+    "question": "Todos com mais de 16 anos, que não sejam casados e que tenham residência legal na Noruega, podem casar-se aqui.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "3_31",
+    "question": "Mulheres e homens têm o mesmo direito de escolher livremente o seu cônjuge.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "3_32",
+    "question": "Quem força alguém a casar-se pode ser condenado à prisão.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "3_33",
+    "question": "Um casal que deseja se divorciar deve estar separado por no mínimo dois anos antes de poder obter o divórcio.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "3_34",
+    "question": "Mulheres e homens têm o mesmo direito de pedir a separação e o divórcio.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "3_35",
+    "question": "Os cônjuges têm a responsabilidade conjunta de sustentar e cuidar da família.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "3_36",
+    "question": "Um homem pode decidir se a sua esposa deve saber quanto ele ganha.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.5"
+  },
+  {
+    "id": "3_37",
+    "question": "O que é taxa de co-participação (egenandel)?",
+    "alternatives": [
+      "Receita para medicamentos para tratamento de doenças crônicas.",
+      "A quantia que você deve pagar após uma consulta médica.",
+      "Um comprovante de que você terá serviços de saúde gratuitos pelo resto do ano."
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "3_38",
+    "question": "O que é receita azul (blå resept)?",
+    "alternatives": [
+      "A quantia que você deve pagar após uma consulta médica.",
+      "Um comprovante de que você terá serviços de saúde gratuitos pelo resto do ano.",
+      "Receita para medicamentos para tratamento de doenças crônicas."
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "3_39",
+    "question": "O que é cartão de isenção (frikort)?",
+    "alternatives": [
+      "A quantia que você deve pagar após uma consulta médica.",
+      "Receita para medicamentos para tratamento de doenças crônicas.",
+      "Um comprovante de que você terá serviços de saúde gratuitos pelo resto do ano."
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "3_40",
+    "question": "Todas as crianças recebem oferta de acompanhamento no posto de saúde.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "4_41",
+    "question": "Os pais devem pagar uma taxa de co-participação no posto de saúde.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "4_42",
+    "question": "Os exames de saúde terminam quando a criança começa na escola.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "4_43",
+    "question": "Você pode escolher qual médico quer ter como seu médico de família.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "4_44",
+    "question": "Nenhum medicamento é vendido sem receita.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "4_45",
+    "question": "Medicamentos com receita azul são extra caros para o paciente.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "4_46",
+    "question": "Todos os cidadãos noruegueses têm direito a dentista gratuito.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "4_47",
+    "question": "Se você for internado em um hospital na Noruega, não paga taxa de co-participação.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "4_48",
+    "question": "Tratamento ambulatorial significa que você recebe tratamento em um hospital, mas não está internado no hospital.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "4_49",
+    "question": "Você deve pagar uma taxa de co-participação mais alta no médico especialista se não tiver um encaminhamento do seu médico.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "4_50",
+    "question": "O tratamento no pronto-socorro é gratuito.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "4_51",
+    "question": "As consultas de pré-natal são gratuitas.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "4_52",
+    "question": "O jardim de infância é obrigatório para todas as crianças.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "4_53",
+    "question": "Menos da metade de todas as crianças frequentam o jardim de infância.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "4_54",
+    "question": "Cerca de 88,5% das crianças entre 1 e 5 anos frequentam o jardim de infância.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "4_55",
+    "question": "Os pais pagam tudo o que custa ter uma criança no jardim de infância.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "4_56",
+    "question": "É o município que paga grande parte das despesas dos jardins de infância.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "5_57",
+    "question": "Ninguém paga mais de 2405 coroas por mês por uma vaga no jardim de infância.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "5_58",
+    "question": "O ensino médio é obrigatório?",
+    "alternatives": [
+      "Sim",
+      "Não"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "5_59",
+    "question": "A maioria dos jovens continua a estudar após o ensino fundamental?",
+    "alternatives": [
+      "Sim",
+      "Não"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "5_60",
+    "question": "Os alunos do ensino médio precisam comprar os livros escolares?",
+    "alternatives": [
+      "Sim",
+      "Não"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "5_61",
+    "question": "Quando foi introduzida a escolaridade obrigatória para todas as crianças na Noruega?",
+    "alternatives": [
+      "No século XX",
+      "No século XVIII",
+      "No século XVI"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "5_62",
+    "question": "Quantos anos de escolaridade são obrigatórios hoje?",
+    "alternatives": [
+      "10",
+      "13",
+      "7"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "5_63",
+    "question": "Quais eram as principais indústrias na Noruega no século XIX?",
+    "alternatives": [
+      "Agricultura, silvicultura e pesca",
+      "Indústria e serviços",
+      "Comércio e indústria"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "5_64",
+    "question": "Qual era a principal indústria na Noruega por volta do ano 1900?",
+    "alternatives": [
+      "Indústria",
+      "Petróleo",
+      "Comércio"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "5_65",
+    "question": "Com o que a maioria das pessoas trabalha na Noruega hoje?",
+    "alternatives": [
+      "Comércio e serviços",
+      "Petróleo",
+      "Agricultura, silvicultura e pesca"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "5_66",
+    "question": "Todos os trabalhadores na Noruega têm direito a um contrato de trabalho.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "5_67",
+    "question": "Uma semana de trabalho normal é de 25 horas.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "5_68",
+    "question": "Os trabalhadores na Noruega têm direito a um mínimo de sete semanas de férias por ano.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "5_69",
+    "question": "Os trabalhadores na Noruega têm direito a se ausentar do trabalho com salário integral em caso de doença própria ou de filho.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "5_70",
+    "question": "Os trabalhadores que têm filhos têm direito a licença remunerada.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "6_71",
+    "question": "Os trabalhadores não têm direito a salário durante o treinamento.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "6_72",
+    "question": "Onde você solicita o cartão de imposto?",
+    "alternatives": [
+      "No empregador",
+      "Na autoridade fiscal",
+      "No NAV"
+    ],
+    "correct": 1,
+    "section": "2.5"
+  },
+  {
+    "id": "6_73",
+    "question": "Como se chama o salário que você recebe antes da dedução de impostos, contribuições para pensão e outros?",
+    "alternatives": [
+      "Salário líquido",
+      "Salário bruto",
+      "Holerite"
+    ],
+    "correct": 1,
+    "section": "2.5"
+  },
+  {
+    "id": "6_74",
+    "question": "Como se chama o salário que você recebe após a dedução de impostos, contribuições para pensão e outros?",
+    "alternatives": [
+      "Salário líquido",
+      "Salário bruto",
+      "Holerite"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "6_75",
+    "question": "Na Noruega, são as organizações privadas que têm a principal responsabilidade pelo bem-estar.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.0"
+  },
+  {
+    "id": "6_76",
+    "question": "As receitas da produção de petróleo e gás financiam todo o bem-estar na Noruega.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.0"
+  },
+  {
+    "id": "6_77",
+    "question": "A sociedade de bem-estar na Noruega é financiada principalmente pelo pagamento de impostos e taxas pelos cidadãos.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "6_78",
+    "question": "Organizações voluntárias e indivíduos fazem um esforço importante na sociedade de bem-estar.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "6_79",
+    "question": "O fato de os benefícios sociais serem universais significa:",
+    "alternatives": [
+      "Que todos os cidadãos que pagam impostos têm o direito de usufruí-los",
+      "Que todos os cidadãos têm o direito de usufruí-los",
+      "Que todos os cidadãos noruegueses têm o direito de usufruí-los"
+    ],
+    "correct": 1,
+    "section": "2.0"
+  },
+  {
+    "id": "6_80",
+    "question": "O fato de os benefícios sociais serem universais significa que são gratuitos.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.0"
+  },
+  {
+    "id": "6_81",
+    "question": "Escolaridade gratuita para todas as crianças.",
+    "alternatives": [
+      "Dever",
+      "Direito"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "6_82",
+    "question": "Tratamento em hospital.",
+    "alternatives": [
+      "Dever",
+      "Direito"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "6_83",
+    "question": "Pagar imposto.",
+    "alternatives": [
+      "Dever",
+      "Direito"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "7_84",
+    "question": "Seguro-desemprego.",
+    "alternatives": [
+      "Dever",
+      "Direito"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "7_85",
+    "question": "Pagar taxas.",
+    "alternatives": [
+      "Dever",
+      "Direito"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "7_86",
+    "question": "Garantir que as crianças frequentem a escola.",
+    "alternatives": [
+      "Dever",
+      "Direito"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "7_87",
+    "question": "Apoio à introdução.",
+    "alternatives": [
+      "Dever",
+      "Direito"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "7_88",
+    "question": "Fornecer informações corretas sobre renda e situação de vida.",
+    "alternatives": [
+      "Dever",
+      "Direito"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "7_89",
+    "question": "Abono de família.",
+    "alternatives": [
+      "Dever",
+      "Direito"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "7_90",
+    "question": "A sociedade de bem-estar na Noruega tem 200 anos.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.0"
+  },
+  {
+    "id": "7_91",
+    "question": "O sistema de bem-estar norueguês aplica-se tanto a ricos como a pobres.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "7_92",
+    "question": "Há 100 anos, existia um sistema na Noruega que podemos chamar de estado de assistência social.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "7_93",
+    "question": "Também há 100 anos, todos na sociedade podiam usufruir dos benefícios sociais.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.0"
+  },
+  {
+    "id": "7_94",
+    "question": "O benefício social com a tradição mais longa é a educação primária gratuita.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "7_95",
+    "question": "A maioria dos benefícios sociais foi desenvolvida antes da Segunda Guerra Mundial.",
+    "alternatives": [
+      "Certo",
+      "Errado"
+    ],
+    "correct": 1,
+    "section": "2.0"
+  },
+  {
+    "id": "8_1",
+    "question": "Quem destes tem direito a aulas gratuitas de norueguês?",
+    "alternatives": [
+      "Au pairs",
+      "Refugiados",
+      "Imigrantes trabalhadores"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "8_2",
+    "question": "Quem pode participar do Programa de Introdução?",
+    "alternatives": [
+      "Refugiados recém-chegados com mais de 18 anos",
+      "A maioria dos imigrantes trabalhadores",
+      "Todos os requerentes de asilo com menos de 16 anos"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "8_3",
+    "question": "Qual é o objetivo da experiência de trabalho para imigrantes?",
+    "alternatives": [
+      "Familiarizar o participante com a vida profissional norueguesa",
+      "Obter uma autorização de trabalho para o participante",
+      "Obter a validação da educação do participante"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "8_4",
+    "question": "O que você precisa para ter um trabalho remunerado?",
+    "alternatives": [
+      "Carteira de motorista",
+      "Cartão de imposto",
+      "Cartão de seguro"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "8_5",
+    "question": "Por qual destes serviços o Nav é responsável?",
+    "alternatives": [
+      "Abono de família",
+      "Atividades de lazer",
+      "Ensino fundamental"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "8_6",
+    "question": "O que aconteceu em 1940?",
+    "alternatives": [
+      "A Noruega tornou-se um país independente.",
+      "A Noruega teve o seu primeiro presidente.",
+      "A Noruega foi ocupada pela Alemanha."
+    ],
+    "correct": 2,
+    "section": "3.2"
+  },
+  {
+    "id": "9_7",
+    "question": "O povoamento na Noruega mudou na segunda metade do século XIX. O que aconteceu?",
+    "alternatives": [
+      "Muitos se mudaram das cidades para a costa.",
+      "Muitos se mudaram do campo para as cidades.",
+      "Muitos se mudaram da costa para o campo."
+    ],
+    "correct": 1,
+    "section": "3.2"
+  },
+  {
+    "id": "9_8",
+    "question": "Cerca de 20.000 casamentos são celebrados na Noruega todos os anos. Quantos casais se divorciam anualmente?",
+    "alternatives": [
+      "Cerca de 5.000",
+      "Cerca de 10.000",
+      "Cerca de 15.000"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "9_9",
+    "question": "Quem tem a principal responsabilidade pela educação das crianças?",
+    "alternatives": [
+      "Os pais",
+      "O jardim de infância",
+      "A escola"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "9_10",
+    "question": "Ambas as partes de um casamento devem concordar para se divorciar?",
+    "alternatives": [
+      "Sim",
+      "Não",
+      "Às vezes"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "9_11",
+    "question": "Por quanto tempo os pais têm a obrigação de sustentar seus filhos?",
+    "alternatives": [
+      "Até que as crianças terminem o ensino fundamental",
+      "Até que as crianças consigam seu próprio emprego",
+      "Até que as crianças completem 18 anos"
+    ],
+    "correct": 2,
+    "section": "2.2"
+  },
+  {
+    "id": "10_12",
+    "question": "Kari e Jens são divorciados. Eles têm dois filhos de cinco e sete anos. Quais são os direitos dos filhos deles de acordo com a lei?",
+    "alternatives": [
+      "As crianças têm o direito de morar juntas.",
+      "As crianças têm o direito de ter contato com ambos os pais.",
+      "As crianças têm o direito de escolher com qual dos pais querem morar."
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "10_13",
+    "question": "Mari quer se filiar a um partido político. Seus pais não concordam com isso. Que idade Mari precisa ter para decidir isso sozinha?",
+    "alternatives": [
+      "12 anos",
+      "15 anos",
+      "18 anos"
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "10_14",
+    "question": "Quem paga pelos pacientes internados em hospitais noruegueses?",
+    "alternatives": [
+      "O paciente",
+      "O Estado",
+      "Companhia de seguros"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "10_15",
+    "question": "Quanto os pais na Noruega pagam pelo programa de vacinação infantil?",
+    "alternatives": [
+      "Nada",
+      "Cerca de 100 kr por vacina",
+      "Cerca de 200 kr por vacina"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "10_16",
+    "question": "Hasan tem 16 anos. Ele vai ao dentista uma vez por ano. Quanto ele paga pelo tratamento dentário regular?",
+    "alternatives": [
+      "O custo total",
+      "Metade do custo",
+      "Nada"
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "11_17",
+    "question": "Quem pode ter um médico de família?",
+    "alternatives": [
+      "Todos os residentes na Noruega",
+      "Todos os adultos na Noruega",
+      "Todas as crianças na Noruega"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "11_18",
+    "question": "Por que as mulheres devem fazer acompanhamento pré-natal?",
+    "alternatives": [
+      "Para solicitar o abono de família",
+      "Para garantir a saúde da mãe e do bebê",
+      "Para ter a licença-maternidade aprovada"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "11_19",
+    "question": "Quem financia a educação universitária e superior na Noruega?",
+    "alternatives": [
+      "O Estado",
+      "A família",
+      "Grandes empresas"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "11_20",
+    "question": "Kari quer estudar na universidade. O que está correto?",
+    "alternatives": [
+      "Ela deve ter completado 19 anos.",
+      "Ela deve ter uma boa situação financeira.",
+      "Ela deve ter qualificação geral para admissão em estudos superiores."
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "11_21",
+    "question": "Quando as crianças normalmente começam a primeira série na escola?",
+    "alternatives": [
+      "No ano em que completam 6 anos",
+      "No ano em que completam 7 anos",
+      "No ano em que completam 8 anos"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "11_22",
+    "question": "Mary está na 8ª série. Ela esteve doente por muito tempo e tem problemas para acompanhar as aulas em várias matérias. O que acontecerá com Mary quando o próximo ano letivo começar?",
+    "alternatives": [
+      "Ela terá que repetir a 8ª série",
+      "Ela poderá abandonar as matérias com as quais tem dificuldade",
+      "Ela continuará na 9ª série"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "12_23",
+    "question": "Sobre o que pais e escola devem colaborar?",
+    "alternatives": [
+      "O desenvolvimento acadêmico e social das crianças",
+      "As atividades de lazer das crianças",
+      "A mesada das crianças"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "12_24",
+    "question": "Qual porcentagem da força de trabalho na Noruega trabalha no setor público?",
+    "alternatives": [
+      "Cerca de 30%",
+      "Cerca de 50%",
+      "Cerca de 70%"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "12_25",
+    "question": "Houve grandes mudanças no mercado de trabalho nos últimos 30 anos. O que está correto?",
+    "alternatives": [
+      "Menos pessoas trabalham na indústria e produção",
+      "Mais pessoas trabalham na pesca e agricultura",
+      "Apenas mulheres trabalham no comércio e serviços"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "12_26",
+    "question": "Quais são as principais fontes de receita do estado e dos municípios?",
+    "alternatives": [
+      "Impostos e taxas de pessoas físicas e empresas",
+      "Transferências de organizações internacionais",
+      "Venda de bens e serviços para outros países"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "12_27",
+    "question": "Quais eram as principais indústrias na Noruega por volta de 1850?",
+    "alternatives": [
+      "Agricultura, silvicultura e pesca",
+      "Indústria e transporte de mercadorias",
+      "Comércio e serviços"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "13_28",
+    "question": "Com que frequência ocorrem as eleições parlamentares?",
+    "alternatives": [
+      "A cada ano",
+      "A cada dois anos",
+      "A cada quatro anos"
+    ],
+    "correct": 2,
+    "section": "3.3"
+  },
+  {
+    "id": "13_29",
+    "question": "Com que frequência o governo se reúne com o rei?",
+    "alternatives": [
+      "Uma vez por semana",
+      "Uma vez por mês",
+      "Uma vez por ano"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "13_30",
+    "question": "Como se chama a assembleia nacional norueguesa?",
+    "alternatives": [
+      "O Ministério",
+      "O Governo",
+      "O Parlamento (Stortinget)"
+    ],
+    "correct": 2,
+    "section": "3.3"
+  },
+  {
+    "id": "13_31",
+    "question": "A Noruega é uma democracia. O que isso implica?",
+    "alternatives": [
+      "O povo decide quem deve governar o país",
+      "Os ricos decidem quem deve governar o país.",
+      "Os tribunais decidem quem deve governar o país."
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "13_32",
+    "question": "Quais são os deveres da população na sociedade de bem-estar norueguesa?",
+    "alternatives": [
+      "Pagar impostos e fornecer informações corretas sobre si mesmo",
+      "Pagar impostos e doar dinheiro para organizações de ajuda",
+      "Pagar impostos e votar em todas as eleições políticas"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "14_1",
+    "question": "O que precisa quem quer se estabelecer na Noruega?",
+    "alternatives": [
+      "Residência legal",
+      "Todos que quiserem podem se estabelecer na Noruega",
+      "Cartão de imposto"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "14_2",
+    "question": "Um cidadão de um país da UE/EEE/EFTA precisa solicitar autorização de residência na Noruega?",
+    "alternatives": [
+      "Não",
+      "Sim"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "14_3",
+    "question": "Que tipo de autorização de residência deve ser solicitada por quem deseja formar família com alguém que já mora na Noruega?",
+    "alternatives": [
+      "Autorização de reunificação familiar/imigração familiar",
+      "Autorização de residência para trabalho",
+      "Autorização de residência como refugiado"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "14_4",
+    "question": "Onde se solicita o cartão de imposto?",
+    "alternatives": [
+      "Na Autoridade Fiscal (Skatteetaten)",
+      "No Registro Civil (Folkeregisteret)",
+      "No NAV"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "14_5",
+    "question": "Qual órgão do governo lida com tudo relacionado a trabalho, família e pensão?",
+    "alternatives": [
+      "NAV",
+      "Skatteetaten (Autoridade Fiscal)",
+      "Folkeregisteret (Registro Civil)"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "14_6",
+    "question": "Como se chama o órgão do governo que mantém um registro de todas as pessoas que moram ou moraram na Noruega?",
+    "alternatives": [
+      "Folkeregisteret (Registro Civil)",
+      "Skatteetaten (Autoridade Fiscal)",
+      "NAV"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "14_7",
+    "question": "Como se chama o órgão do governo para autorização de profissionais de saúde?",
+    "alternatives": [
+      "Diretoria de Saúde (Helsedirektoratet)",
+      "NOKUT",
+      "Diretoria de Educação (Utdanningsdirektoratet)"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "14_8",
+    "question": "Onde pessoas com qualificações de outro país podem solicitar o reconhecimento de suas competências na Noruega?",
+    "alternatives": [
+      "NOKUT",
+      "Helsedirektoratet (Diretoria de Saúde)",
+      "Utdanningsdirektoratet (Diretoria de Educação)"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "14_9",
+    "question": "Qual era o nome do primeiro rei de toda a Noruega?",
+    "alternatives": [
+      "Harald Cabelo Belo (Harald Hårfagre)",
+      "Håkon V Magnusson",
+      "Harald Hardråde"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "14_10",
+    "question": "Quando Harald Cabelo Belo se tornou rei da Noruega?",
+    "alternatives": [
+      "No século XI",
+      "No século IX",
+      "No século X"
+    ],
+    "correct": 1,
+    "section": "3.2"
+  },
+  {
+    "id": "15_21",
+    "question": "O maior lago da Noruega chama-se:",
+    "alternatives": [
+      "Tinnsjå",
+      "Mjøsa",
+      "Salvatnet"
+    ],
+    "correct": 1,
+    "section": "3.1"
+  },
+  {
+    "id": "15_22",
+    "question": "O rio mais longo da Noruega chama-se:",
+    "alternatives": [
+      "Trysilelva",
+      "Klarälven",
+      "Glomma"
+    ],
+    "correct": 2,
+    "section": "3.1"
+  },
+  {
+    "id": "15_23",
+    "question": "Quase metade da área da Noruega consiste em:",
+    "alternatives": [
+      "Terra cultivada",
+      "Montanha",
+      "Fiorde"
+    ],
+    "correct": 1,
+    "section": "3.1"
+  },
+  {
+    "id": "15_24",
+    "question": "Que porcentagem da área norueguesa é coberta por floresta?",
+    "alternatives": [
+      "50%",
+      "30%",
+      "70%"
+    ],
+    "correct": 1,
+    "section": "3.1"
+  },
+  {
+    "id": "15_25",
+    "question": "Após a reforma na Noruega, 19 condados foram transformados em quantas regiões?",
+    "alternatives": [
+      "12",
+      "11",
+      "10"
+    ],
+    "correct": 1,
+    "section": "3.1"
+  },
+  {
+    "id": "15_26",
+    "question": "Aproximadamente quantas cidades existem na Noruega?",
+    "alternatives": [
+      "300",
+      "200",
+      "100"
+    ],
+    "correct": 2,
+    "section": "3.1"
+  },
+  {
+    "id": "15_27",
+    "question": "Qual é a maior cidade da Noruega, com cerca de 600.000 habitantes?",
+    "alternatives": [
+      "Oslo",
+      "Bergen",
+      "Trondheim"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "15_28",
+    "question": "Quantas pessoas vivem na Noruega?",
+    "alternatives": [
+      "Mais de 4 milhões",
+      "Mais de 5 milhões",
+      "Mais de 6 milhões"
+    ],
+    "correct": 1,
+    "section": "3.1"
+  },
+  {
+    "id": "15_29",
+    "question": "As cidades na Noruega com a maior porcentagem de habitantes com background de imigrante são?",
+    "alternatives": [
+      "Bergen e Stavanger",
+      "Trondheim e Kristiansand",
+      "Oslo e Drammen"
+    ],
+    "correct": 2,
+    "section": "3.1"
+  },
+  {
+    "id": "15_30",
+    "question": "Que porcentagem dos habitantes da Noruega tem origem estrangeira?",
+    "alternatives": [
+      "70%",
+      "7%",
+      "17%"
+    ],
+    "correct": 2,
+    "section": "3.1"
+  },
+  {
+    "id": "16_31",
+    "question": "Qual é a cidade mais ao norte da Europa continental?",
+    "alternatives": [
+      "Tromsø",
+      "Hammerfest",
+      "Kirkenes"
+    ],
+    "correct": 1,
+    "section": "3.1"
+  },
+  {
+    "id": "16_32",
+    "question": "O clima na Noruega varia de região para região. Em qual região norueguesa chove muito?",
+    "alternatives": [
+      "Sørlandet (Sul da Noruega)",
+      "Vestlandet (Oeste da Noruega)",
+      "Nord-Norge (Norte da Noruega)"
+    ],
+    "correct": 1,
+    "section": "3.1"
+  },
+  {
+    "id": "16_33",
+    "question": "Em qual região da Noruega o sol brilha à meia-noite no verão?",
+    "alternatives": [
+      "Nord-Norge (Norte da Noruega)",
+      "Midt-Norge (Centro da Noruega)",
+      "Østlandet (Leste da Noruega)"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "16_34",
+    "question": "O dia 17 de maio é comemorado como:",
+    "alternatives": [
+      "Unificação das regiões norueguesas",
+      "Independência da Noruega",
+      "Dia Nacional"
+    ],
+    "correct": 2,
+    "section": "3.1"
+  },
+  {
+    "id": "16_35",
+    "question": "O Dia Internacional da Mulher é:",
+    "alternatives": [
+      "8 de março",
+      "1º de janeiro",
+      "17 de maio"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "16_36",
+    "question": "A Véspera de Natal é:",
+    "alternatives": [
+      "24 de dezembro",
+      "1º de janeiro",
+      "17 de maio"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "16_37",
+    "question": "A Páscoa é:",
+    "alternatives": [
+      "um feriado cristão",
+      "um feriado budista",
+      "um feriado muçulmano"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "16_38",
+    "question": "Na Noruega, morrem anualmente aproximadamente:",
+    "alternatives": [
+      "80.000 pessoas",
+      "40.000 pessoas",
+      "20.000 pessoas"
+    ],
+    "correct": 1,
+    "section": "3.1"
+  },
+  {
+    "id": "16_39",
+    "question": "A confirmação é uma forma de reafirmar o batismo. Que idade tem uma pessoa que quer se confirmar?",
+    "alternatives": [
+      "40-41 anos",
+      "14-15 anos",
+      "20-21 anos"
+    ],
+    "correct": 1,
+    "section": "3.1"
+  },
+  {
+    "id": "16_40",
+    "question": "Quem decide se a criança deve ser batizada ou não?",
+    "alternatives": [
+      "O padre",
+      "O Estado",
+      "Os pais"
+    ],
+    "correct": 2,
+    "section": "2.2"
+  },
+  {
+    "id": "17_1",
+    "question": "É permitido também para pessoas do mesmo sexo casarem-se na Noruega:",
+    "alternatives": [
+      "Nem sempre",
+      "Apenas em casos especiais",
+      "Sim, é permitido"
+    ],
+    "correct": 2,
+    "section": "2.2"
+  },
+  {
+    "id": "17_2",
+    "question": "Qual formulação para o 1º de janeiro se encaixa melhor:",
+    "alternatives": [
+      "É o Dia Internacional da Mulher",
+      "É o Dia Internacional do Trabalhador",
+      "Começa o próximo ano"
+    ],
+    "correct": 2,
+    "section": "3.1"
+  },
+  {
+    "id": "17_3",
+    "question": "Qual religião é dominante na Noruega?",
+    "alternatives": [
+      "Cristianismo Luterano (Protestantismo)",
+      "Cristianismo Ortodoxo",
+      "Muçulmana"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "17_4",
+    "question": "Qual porcentagem de noruegueses não tem uma visão de mundo religiosa?",
+    "alternatives": [
+      "18%",
+      "8%",
+      "80%"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "17_5",
+    "question": "O que significa uma sociedade ser secular?",
+    "alternatives": [
+      "Significa que a religião tem cada vez mais importância na sociedade",
+      "Significa que a religião tem menos importância na sociedade",
+      "Significa que a religião não tem importância nenhuma na sociedade"
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "17_6",
+    "question": "A Igreja da Noruega é?",
+    "alternatives": [
+      "Igreja do Rei",
+      "Igreja do Povo",
+      "Igreja do Estado"
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "17_47",
+    "question": "Qual porcentagem de noruegueses são membros da Igreja da Noruega?",
+    "alternatives": [
+      "90%",
+      "70%",
+      "50%"
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "17_48",
+    "question": "Quantas crianças nascem na Noruega a cada ano?",
+    "alternatives": [
+      "aprox. 100.000",
+      "aprox. 6.000",
+      "aprox. 60.000"
+    ],
+    "correct": 2,
+    "section": "3.1"
+  },
+  {
+    "id": "17_49",
+    "question": "Qual porcentagem de noruegueses vivem juntos, mas não se casam?",
+    "alternatives": [
+      "25%",
+      "50%",
+      "75%"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "17_50",
+    "question": "Qual a porcentagem de divorciados na Noruega?",
+    "alternatives": [
+      "75%",
+      "50%",
+      "25%"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "18_51",
+    "question": "O que é o subsídio de assistência (kontantstøtte)?",
+    "alternatives": [
+      "Um apoio financeiro concedido a todas as crianças entre um e dois anos que não frequentam o jardim de infância",
+      "Um apoio financeiro concedido a todas as famílias com dificuldades financeiras pessoais",
+      "Um apoio financeiro concedido a todas as crianças menores de 18 anos residentes na Noruega"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "18_52",
+    "question": "O que é o abono de família (barnetrygd)?",
+    "alternatives": [
+      "Um apoio financeiro concedido a todas as famílias com dificuldades financeiras pessoais",
+      "Um apoio financeiro concedido a todas as crianças menores de 18 anos residentes na Noruega",
+      "Um apoio financeiro concedido a todas as crianças entre um e dois anos que não frequentam o jardim de infância"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "18_53",
+    "question": "Quem notifica o Registro Civil sobre o nascimento de uma criança em um hospital na Noruega?",
+    "alternatives": [
+      "Os pais",
+      "A parteira ou o médico",
+      "É registrado automaticamente no Registro Civil"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "18_54",
+    "question": "A partir de que idade uma criança tem o direito de decidir por si mesma sobre questões de educação e de se filiar ou desfiliar de organizações?",
+    "alternatives": [
+      "12 anos",
+      "15 anos",
+      "18 anos"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "18_55",
+    "question": "Qual parte da escolaridade é obrigatória na Noruega?",
+    "alternatives": [
+      "Ensino superior",
+      "Ensino fundamental",
+      "Ensino médio"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "18_56",
+    "question": "Como se chama a lei que trata muito dos deveres dos pais para com os filhos e dos direitos dos filhos para com os pais?",
+    "alternatives": [
+      "Dever de sustento",
+      "Lei da Criança",
+      "Lei dos Pais"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "18_57",
+    "question": "Qual é o objetivo do Serviço de Proteção à Criança (Barnevernet)?",
+    "alternatives": [
+      "Entrar em contato com os pais para obter mais informações sobre como a criança está",
+      "Punir os pais",
+      "Ajudar crianças em situações de vida vulneráveis que precisam de ajuda e proteção extras"
+    ],
+    "correct": 2,
+    "section": "2.2"
+  },
+  {
+    "id": "18_58",
+    "question": "Na Noruega, todas as crianças vão para a escola a partir dos?",
+    "alternatives": [
+      "6 anos",
+      "7 anos",
+      "8 anos"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "18_59",
+    "question": "Qual afirmação está correta?",
+    "alternatives": [
+      "As crianças dependem dos pais",
+      "Os pais dependem das crianças",
+      "Tanto os pais quanto as crianças dependem uns dos outros"
+    ],
+    "correct": 2,
+    "section": "2.2"
+  },
+  {
+    "id": "18_60",
+    "question": "Na Noruega, todas as crianças têm o direito e o dever de?",
+    "alternatives": [
+      "Dez anos de ensino fundamental",
+      "Ensino médio",
+      "7 anos de escola primária, 3 anos de escola secundária"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "19_61",
+    "question": "Qual porcentagem de noruegueses possui a própria casa?",
+    "alternatives": [
+      "50%",
+      "25%",
+      "75%"
+    ],
+    "correct": 2,
+    "section": "2.5"
+  },
+  {
+    "id": "19_62",
+    "question": "Para aquecer a casa, o mais comum é usar?",
+    "alternatives": [
+      "Lenha",
+      "Eletricidade",
+      "Óleo"
+    ],
+    "correct": 1,
+    "section": "3.1"
+  },
+  {
+    "id": "19_1",
+    "question": "O que significa igualdade?",
+    "alternatives": [
+      "Que a sociedade trabalha para dar a todos oportunidades de trabalho",
+      "Salário igual para trabalho igual",
+      "Que as pessoas têm o mesmo valor e devem ter as mesmas oportunidades na Noruega, independentemente de gênero, raça, etc."
+    ],
+    "correct": 2,
+    "section": "2.6"
+  },
+  {
+    "id": "19_2",
+    "question": "A igualdade entre os sexos inclui?",
+    "alternatives": [
+      "homens e mulheres têm os mesmos direitos",
+      "mulheres ficam em casa, cuidam dos filhos e não têm as mesmas oportunidades que os homens",
+      "cabe à família escolher o que o homem deve fazer e o que a mulher deve fazer"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  },
+  {
+    "id": "19_3",
+    "question": "Qual a porcentagem de mulheres em cargos de liderança no mercado de trabalho?",
+    "alternatives": [
+      "40%",
+      "30%",
+      "20%"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "19_4",
+    "question": "Na Noruega, as pessoas trabalham em tempo parcial ou integral. Qual gênero trabalha mais em tempo parcial?",
+    "alternatives": [
+      "Mulher",
+      "Homem"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "19_5",
+    "question": "Qual a pena de prisão que podem esperar aqueles que pressionam ou ameaçam outra pessoa a se casar?",
+    "alternatives": [
+      "Até seis anos",
+      "Até dois anos",
+      "Até um ano"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "19_8",
+    "question": "Se alguém decidir que não quer mais viver com o cônjuge, pode exigir:",
+    "alternatives": [
+      "Adaptação",
+      "Casamento",
+      "Separação"
+    ],
+    "correct": 2,
+    "section": "2.2"
+  },
+  {
+    "id": "19_9",
+    "question": "O divórcio pode ser solicitado após?",
+    "alternatives": [
+      "Separação por dois anos",
+      "Separação por um ano",
+      "Separação por três anos"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "19_70",
+    "question": "Quando o divórcio pode ser solicitado sem separação?",
+    "alternatives": [
+      "Se a autorização de residência do cônjuge expirar",
+      "Se um dos cônjuges quiser se divorciar",
+      "Se o outro cônjuge o submeteu, ou aos filhos, a tentativa de homicídio, violência, maus-tratos graves ou criou medo disso"
+    ],
+    "correct": 2,
+    "section": "2.2"
+  },
+  {
+    "id": "20_71",
+    "question": "O que dois cônjuges compram juntos:",
+    "alternatives": [
+      "Eles possuem juntos",
+      "A mulher possui",
+      "O homem possui"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "20_72",
+    "question": "Os parceiros de união estável têm os mesmos direitos e deveres um para com o outro que os cônjuges casados. Esta afirmação está correta?",
+    "alternatives": [
+      "Sim, está correta",
+      "Não, absolutamente não"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "20_73",
+    "question": "O que é violência?",
+    "alternatives": [
+      "Violência é uma relação com 2 pessoas que leva a consequências não graves",
+      "Violência é reagir afetivamente a diferentes tipos de ações",
+      "Violência é um abuso contra os outros. Todas as ações que causam dano, dor ou medo a outra pessoa"
+    ],
+    "correct": 2,
+    "section": "2.6"
+  },
+  {
+    "id": "20_74",
+    "question": "Que tipo de violência é proibida na Noruega?",
+    "alternatives": [
+      "Violência física",
+      "Violência psicológica",
+      "Tanto física quanto psicológica"
+    ],
+    "correct": 2,
+    "section": "2.6"
+  },
+  {
+    "id": "20_75",
+    "question": "Pode-se solicitar autorização de residência na Noruega se ele ou ela foi vítima de violência no exterior?",
+    "alternatives": [
+      "Às vezes, mas nem sempre",
+      "Sim",
+      "Apenas em casos especiais"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "20_76",
+    "question": "Quem tem grande responsabilidade pela minha saúde?",
+    "alternatives": [
+      "O estado tem responsabilidade, mas eu mesmo devo aprovar essa responsabilidade",
+      "O sistema de saúde na sociedade de bem-estar tem responsabilidade pela minha saúde",
+      "Sou eu mesmo com a maneira que escolho viver minha vida"
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "20_77",
+    "question": "O que significa sigilo profissional em relação a serviços de saúde e médicos?",
+    "alternatives": [
+      "Significa que médico e paciente decidem juntos sobre o tratamento",
+      "Significa que o médico é a autoridade absoluta que decide o tratamento",
+      "Significa que o pessoal de saúde não pode fornecer informações sobre o paciente a ninguém sem que o próprio paciente autorize"
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "20_78",
+    "question": "Quem vive mais na Noruega?",
+    "alternatives": [
+      "Homens e mulheres vivem o mesmo tempo",
+      "Homens",
+      "Mulheres"
+    ],
+    "correct": 2,
+    "section": "3.1"
+  },
+  {
+    "id": "20_79",
+    "question": "Quanto tempo os homens vivem em média na Noruega?",
+    "alternatives": [
+      "81 anos",
+      "74 anos",
+      "84 anos"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "20_80",
+    "question": "O que significa se você recebe um medicamento com receita azul?",
+    "alternatives": [
+      "Que você não paga nada",
+      "Que você paga uma taxa de co-participação",
+      "Que você paga o preço total"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "21_1",
+    "question": "Para qual número de telefone se liga se precisar de ajuda de emergência da central de ambulâncias?",
+    "alternatives": [
+      "113",
+      "112",
+      "110"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "21_2",
+    "question": "Quais perguntas devem ser respondidas ao ligar para uma ambulância?",
+    "alternatives": [
+      "Quem é você? (Nome, número de telefone, de onde está ligando), O que aconteceu? (quantos estão feridos, há ferimentos graves, etc.), Onde você está? (endereço exato ou localização)",
+      "Como você está? Por que está nos ligando?",
+      "Que tipo de doença você tem? Você tem um histórico médico longo ou curto?"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "21_3",
+    "question": "O que significa o cartão de isenção (frikort)?",
+    "alternatives": [
+      "O cartão de isenção oferece serviços de saúde primários gratuitos pelo resto do ano se você já pagou 2.500 coroas em taxas de co-participação durante um ano civil. Assim, você não precisa pagar a taxa de co-participação pelo resto do ano.",
+      "O cartão de isenção oferece serviços de saúde primários gratuitos pelo resto do ano se você já pagou 25.000 coroas em taxas de co-participação durante um ano civil",
+      "O cartão de isenção oferece serviços de saúde primários gratuitos pelo resto do ano se você já pagou 250 coroas em taxas de co-participação durante um ano civil"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "21_4",
+    "question": "Qual é o objetivo dos postos de saúde na Noruega quando se trata de crianças?",
+    "alternatives": [
+      "Nos postos de saúde na Noruega, as crianças podem ir quando têm problemas de saúde graves",
+      "Verifica-se como a criança está se desenvolvendo, se está crescendo como deveria e ganhando peso normalmente, se a visão e a audição funcionam bem, e se a criança está aprendendo a entender e falar",
+      "O posto de saúde fornece ajuda de emergência para quem precisa"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "21_5",
+    "question": "O controle de saúde infantil na Noruega é:",
+    "alternatives": [
+      "dependente da situação financeira dos pais",
+      "paga-se uma taxa de co-participação antes do controle",
+      "gratuito"
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "21_6",
+    "question": "Um lugar em uma casa de repouso na Noruega custa aprox. 80.000 coroas por ano. Quem paga isso?",
+    "alternatives": [
+      "O usuário paga o valor total",
+      "O estado paga o valor total",
+      "O usuário paga uma taxa de co-participação e o município paga o resto"
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "21_7",
+    "question": "Como se define a demência?",
+    "alternatives": [
+      "Demência é uma condição em que os pulmões estão cansados e a pessoa tosse muito",
+      "Demência é uma condição em que o coração está danificado e os vasos sanguíneos ficam obstruídos",
+      "Demência é uma condição em que o cérebro está danificado e tanto a memória, a vida emocional quanto a capacidade de funcionamento social são prejudicadas."
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "21_8",
+    "question": "Quantos idosos na Noruega sofrem de depressão?",
+    "alternatives": [
+      "300.000 pessoas",
+      "200.000 pessoas",
+      "100.000 pessoas"
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "21_9",
+    "question": "Que porcentagem de idosos na Noruega, com mais de 90 anos, vive em casas de repouso?",
+    "alternatives": [
+      "90%",
+      "75%",
+      "50%"
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "22_9",
+    "question": "Quando se fala em disciplina no sistema escolar norueguês, qual afirmação se encaixa melhor?",
+    "alternatives": [
+      "A disciplina na escola deve ocorrer de uma forma que inclua algumas formas de violência",
+      "Os professores são autoridades absolutas que todas as crianças devem respeitar",
+      "O professor deve mostrar respeito aos alunos, e os alunos devem mostrar respeito ao professor"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "22_10",
+    "question": "Que porcentagem de crianças na Noruega frequenta escolas públicas?",
+    "alternatives": [
+      "97,5%",
+      "87,5%",
+      "70%"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "22_11",
+    "question": "Quantos dias letivos tem o ensino fundamental a cada ano na Noruega?",
+    "alternatives": [
+      "230 dias letivos",
+      "190 dias letivos",
+      "90 dias letivos"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "22_12",
+    "question": "De que forma o ensino fundamental na Noruega é dividido?",
+    "alternatives": [
+      "Jardim de infância, pré-escola e escola secundária",
+      "Escola primária e escola secundária",
+      "O ensino fundamental não é dividido"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "22_13",
+    "question": "As crianças recebem notas na escola secundária?",
+    "alternatives": [
+      "Sim, as crianças recebem notas na escola secundária da 8ª à 10ª série e a escala de notas vai de 1 a 6, onde 1 é a pior nota e 6 é a melhor nota",
+      "As crianças recebem notas, mas não em todas as matérias",
+      "Não, as crianças não recebem notas na escola secundária. As crianças recebem uma avaliação oral e escrita, mas não notas"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "22_14",
+    "question": "Quanto tempo dura o ensino fundamental na Noruega?",
+    "alternatives": [
+      "8 anos",
+      "9 anos",
+      "10 anos"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "22_15",
+    "question": "Entre outras coisas, o ensino e as atividades na escola devem ensinar os alunos:",
+    "alternatives": [
+      "Que nenhum de nós é igual",
+      "Que todas as pessoas têm o mesmo valor",
+      "A procurar informações e aceitá-las sem crítica"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "22_16",
+    "question": "É importante que o aluno, os pais e o professor conversem. Quantas dessas conversas devem ocorrer no mínimo durante um ano letivo?",
+    "alternatives": [
+      "10 conversas",
+      "5 conversas",
+      "2 conversas"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "22_17",
+    "question": "É comum que os pais se encontrem com o professor e os outros pais. Eles conversam sobre a turma e o ambiente da turma e sobre planos e atividades. Quantas dessas reuniões de pais devem ocorrer no mínimo a cada ano?",
+    "alternatives": [
+      "5 reuniões de pais",
+      "10 reuniões de pais",
+      "2 reuniões de pais"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "23_90",
+    "question": "Problemas de saúde mental afetam as pessoas?",
+    "alternatives": [
+      "Em diferentes períodos da vida",
+      "Que são jovens e os transtornos mentais geralmente ocorrem após crises na vida",
+      "Que são idosos e doentes"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "23_91",
+    "question": "Como é o desenvolvimento de uma crise de migração psicológica?",
+    "alternatives": [
+      "No primeiro período, a vida é boa. Depois de um tempo, muitos se sentirão deprimidos e terão muitos pensamentos negativos sobre o novo país. Com o tempo, a vida se estabilizará para a maioria.",
+      "No primeiro período, a vida é difícil e depois de um tempo muitos se sentem satisfeitos com pensamentos positivos sobre o novo país",
+      "No início, a saudade da pátria é grande, mas com o tempo o sentimento de falta e saudade desaparece"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "23_92",
+    "question": "Qual expressão norueguesa se encaixa melhor para a saúde em geral?",
+    "alternatives": [
+      "Pobre de você",
+      "Não se pode ter tudo",
+      "Uma boa risada prolonga a vida"
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "23_93",
+    "question": "Se alguém comer de forma saudável e for fisicamente ativo?",
+    "alternatives": [
+      "Tem um grande risco de contrair doenças",
+      "Tem boas chances de viver mais",
+      "Não vive bem"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "23_94",
+    "question": "Na Noruega, a maioria das pessoas?",
+    "alternatives": [
+      "Esconde seus transtornos mentais dos outros para evitar a vergonha",
+      "Tem pensamentos e atitudes negativas sobre uma pessoa que sofre de depressão, ansiedade e outros transtornos mentais",
+      "Tem uma atitude aberta e compreensiva em relação à doença mental"
+    ],
+    "correct": 2,
+    "section": "2.4"
+  },
+  {
+    "id": "23_95",
+    "question": "Nas faculdades públicas da Noruega, paga-se:",
+    "alternatives": [
+      "Taxa de co-participação",
+      "Nada",
+      "Preço total"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "23_96",
+    "question": "Qual é o objetivo do jardim de infância?",
+    "alternatives": [
+      "O objetivo do jardim de infância é que as crianças brinquem junto com seus pais e que os pais passem mais tempo com seus filhos",
+      "O jardim de infância é obrigatório para todas as crianças na Noruega e o objetivo é que as crianças se preparem para a vida profissional",
+      "Tornar-se mais independente, estar com os outros, aprender algo novo e se preparar para começar na escola"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "23_97",
+    "question": "De que forma os pais podem saber mais sobre seus filhos e conhecer o que eles fazem no jardim de infância:",
+    "alternatives": [
+      "Os pais são convidados para reuniões de pais e conversas individuais com os pais",
+      "Os pais podem entrar em contato com o jardim de infância para perguntar sobre isso",
+      "Os pais entram em contato com o jardim de infância por e-mail e lá podem fazer perguntas sobre seus filhos que lhes interessam"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "23_98",
+    "question": "O que significa o preço máximo (atualmente 3000 kr por mês) para a vaga no jardim de infância?",
+    "alternatives": [
+      "Que nenhum pai deve pagar mais do que este preço",
+      "Que cabe ao jardim de infância decidir sobre o preço máximo"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "24_108",
+    "question": "Os jovens terminam o ensino fundamental aos 16 anos. Que direito eles têm então em relação ao ensino médio?",
+    "alternatives": [
+      "Eles têm direito a 3 anos de ensino médio",
+      "Eles podem escolher se querem continuar no ensino médio ou não",
+      "Eles têm direito ao ensino médio até completarem 24 anos"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "24_109",
+    "question": "Mesmo que as universidades e faculdades sejam gratuitas, é necessário dinheiro para outras despesas durante os estudos. Por isso, é comum que os estudantes peguem empréstimos do Lånekassen. Além disso, qual é também o objetivo do Lånekassen?",
+    "alternatives": [
+      "Apoiar e encorajar as mulheres a continuarem seus estudos",
+      "Garantir que todos que queiram estudar tenham essa oportunidade, independentemente da situação financeira da família",
+      "O objetivo do Fundo Estatal de Empréstimos para Educação é ganhar um pouco de dinheiro com os juros que os estudantes pagarão no futuro"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "24_110",
+    "question": "Quem tem um nível de educação mais alto?",
+    "alternatives": [
+      "Eles têm o mesmo nível de educação",
+      "Homens",
+      "Mulheres"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "24_111",
+    "question": "Qual porcentagem de noruegueses estuda em universidades ou faculdades?",
+    "alternatives": [
+      "30%",
+      "40%",
+      "60%"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "24_112",
+    "question": "Qual porcentagem dos estudantes de hoje na Noruega são homens?",
+    "alternatives": [
+      "30%",
+      "40%",
+      "60%"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "24_113",
+    "question": "Os adultos na Noruega têm o direito de fazer o ensino médio?",
+    "alternatives": [
+      "Não",
+      "Apenas em casos especiais",
+      "Sim"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "24_114",
+    "question": "Se você aprendeu uma profissão no exterior e não tem documentos para comprovar, o que você pode fazer?",
+    "alternatives": [
+      "Você pode eventualmente solicitar um teste profissional",
+      "Você tem que refazer tudo na Noruega",
+      "Você não pode trabalhar como profissional nesse setor"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "24_115",
+    "question": "As principais receitas do estado e dos municípios vêm de?",
+    "alternatives": [
+      "Impostos e taxas",
+      "Telecomunicações",
+      "Indústria de petróleo e gás"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "24_116",
+    "question": "O que significa o termo nação petrolífera?",
+    "alternatives": [
+      "Uma nação petrolífera é um país onde o petróleo e a indústria petrolífera não são muito desenvolvidos",
+      "Uma nação petrolífera é um país onde o petróleo e a indústria petrolífera são uma indústria importante",
+      "Uma nação petrolífera é um país onde o petróleo e a indústria petrolífera ganham pouco dinheiro com o petróleo como recurso"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "24_117",
+    "question": "Qual porcentagem da população na Noruega é incapaz para o trabalho/aposentada por invalidez?",
+    "alternatives": [
+      "2%",
+      "10%",
+      "5%"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "25_118",
+    "question": "Trabalhadores que têm filhos têm direito a um ano de licença:",
+    "alternatives": [
+      "Com 80% do salário integral",
+      "Com 66% do salário integral",
+      "Com salário integral"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "25_120",
+    "question": "Qual é o objetivo dos sindicatos?",
+    "alternatives": [
+      "Trabalhar pelos interesses dos trabalhadores",
+      "Criar um bom ambiente de trabalho",
+      "Proteger os interesses dos empregadores"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "25_121",
+    "question": "O que significa garantir saúde, meio ambiente e segurança (HMS) no local de trabalho?",
+    "alternatives": [
+      "Significa criar uma boa colaboração no local de trabalho",
+      "Significa gerar lucro para a empresa",
+      "É melhor cuidar da saúde, do ambiente de trabalho e da segurança dos trabalhadores no trabalho"
+    ],
+    "correct": 2,
+    "section": "1.2"
+  },
+  {
+    "id": "25_122",
+    "question": "Qual é o objetivo dos diferentes cursos do mercado de trabalho no NAV?",
+    "alternatives": [
+      "Qualificar os participantes-desempregados para entrar no mercado de trabalho",
+      "Manter os participantes-desempregados atualizados e informados sobre seus direitos e deveres na Noruega",
+      "Facilitar para os empregadores encontrarem potenciais funcionários"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "25_123",
+    "question": "Todos os refugiados recém-chegados na Noruega recebem a oferta de um programa de introdução gratuito. O que o programa de introdução contém?",
+    "alternatives": [
+      "O programa de introdução deve contribuir para que os refugiados se sintam seguros na Noruega",
+      "O programa de introdução contém treinamento em norueguês e conhecimentos sociais, juntamente com prática de língua ou prática de trabalho em diferentes empresas durante o programa. O objetivo do programa de introdução é que o participante se qualifique para entrar no mercado de trabalho ou para continuar a educação",
+      "O programa de introdução contém diferentes informações sobre trabalho informal e prática de trabalho remunerada"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "25_124",
+    "question": "Pessoas que estão desempregadas há muito tempo e que dependem de assistência social financeira podem receber a oferta de participar de um programa de qualificação através do NAV. Qual é o objetivo do programa de qualificação?",
+    "alternatives": [
+      "O objetivo é que os participantes-desempregados recebam treinamento e capacitação profissional para que possam voltar ao trabalho mais facilmente",
+      "O objetivo é que os participantes-desempregados conheçam seus direitos e deveres quando estão de licença médica",
+      "O objetivo é que os participantes-desempregados se recuperem"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "25_125",
+    "question": "As empresas podem receber ajuda financeira do NAV para iniciar cursos para funcionários que precisam de mais treinamento em leitura, escrita, cálculo, expressão oral e escrita em norueguês. Esta afirmação está correta?",
+    "alternatives": [
+      "Sim, está correta",
+      "Não, não está correta"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "25_126",
+    "question": "Os trabalhadores na Noruega têm o direito de se ausentar do trabalho com salário integral por 24 dias durante o ano se eles mesmos ou seus filhos estiverem doentes, sem visita ao médico, na chamada autodeclaração. Esta afirmação está correta?",
+    "alternatives": [
+      "Sim, está correta",
+      "Não, não está correta"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "26_8",
+    "question": "Qual afirmação está correta?",
+    "alternatives": [
+      "O trabalho não pode nos trazer nenhum benefício",
+      "O trabalho pode nos dar independência e um dia a dia significativo",
+      "O trabalho só pode nos dar dor de cabeça"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "26_9",
+    "question": "Hoje, encontramos a maioria dos empregos em?",
+    "alternatives": [
+      "Indústria de petróleo e gás",
+      "Telecomunicações",
+      "Comércio e serviços"
+    ],
+    "correct": 2,
+    "section": "1.2"
+  },
+  {
+    "id": "26_10",
+    "question": "Durante a primeira metade do século XX, foi:",
+    "alternatives": [
+      "A agricultura a indústria mais importante",
+      "criado muitos novos empregos industriais",
+      "Encontrado petróleo"
+    ],
+    "correct": 1,
+    "section": "3.2"
+  },
+  {
+    "id": "26_11",
+    "question": "Como se chama a instância estatal que aprova as leis?",
+    "alternatives": [
+      "O Governo",
+      "O Parlamento (Stortinget)",
+      "O Tribunal"
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "26_12",
+    "question": "Como se chama a parte mais importante da lei que regula as relações de trabalho?",
+    "alternatives": [
+      "A Lei do Ambiente de Trabalho e a Lei das Férias",
+      "Contrato de trabalho e oferta de emprego",
+      "A Lei Ambiental"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "26_13",
+    "question": "Quem deve seguir a Lei do Ambiente de Trabalho?",
+    "alternatives": [
+      "Tanto o empregador quanto o empregado",
+      "O empregado",
+      "O empregador"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "26_124",
+    "question": "A ausência do trabalho faz parte de?",
+    "alternatives": [
+      "Não regulamentado por lei",
+      "Acordo verbal entre empregador e empregado",
+      "A Lei do Ambiente de Trabalho"
+    ],
+    "correct": 2,
+    "section": "1.2"
+  },
+  {
+    "id": "26_125",
+    "question": "Uma semana de trabalho normal é?",
+    "alternatives": [
+      "40 horas",
+      "37,5 horas",
+      "48 horas"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "26_126",
+    "question": "Os trabalhadores na Noruega têm direito a um mínimo de?",
+    "alternatives": [
+      "Cinco semanas de férias",
+      "Seis semanas de férias",
+      "Quatro semanas de férias"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "26_127",
+    "question": "Os trabalhadores na Noruega têm o direito de se ausentar do trabalho com salário integral por 24 dias durante o ano se eles mesmos ou seus filhos estiverem doentes, sem visita ao médico, na chamada autodeclaração. Esta afirmação está correta?",
+    "alternatives": [
+      "Sim, está correta",
+      "Apenas em casos especiais",
+      "Não, não está correta"
+    ],
+    "correct": 2,
+    "section": "1.2"
+  },
+  {
+    "id": "27_128",
+    "question": "Por quanto tempo um trabalhador pode se ausentar do trabalho com salário integral se estiver doente e entregar um atestado médico ao empregador?",
+    "alternatives": [
+      "Um ano",
+      "Um mês",
+      "Uma semana"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "27_129",
+    "question": "Trabalhadores que têm filhos têm direito a um ano de licença:",
+    "alternatives": [
+      "Com 66% do salário integral",
+      "Com 80% do salário integral",
+      "Com salário integral"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "27_130",
+    "question": "A organização de interesses dos trabalhadores na Noruega chama-se?",
+    "alternatives": [
+      "Sindicatos",
+      "LO",
+      "NHO"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "27_131",
+    "question": "Qual é o objetivo dos sindicatos?",
+    "alternatives": [
+      "Trabalhar pelos interesses dos trabalhadores",
+      "Criar um bom ambiente de trabalho",
+      "Proteger os interesses dos empregadores"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "27_132",
+    "question": "O que significa garantir saúde, meio ambiente e segurança (HMS) no local de trabalho?",
+    "alternatives": [
+      "Significa criar uma boa colaboração no local de trabalho",
+      "Significa gerar lucro para a empresa",
+      "É melhor cuidar da saúde, do ambiente de trabalho e da segurança dos trabalhadores no trabalho"
+    ],
+    "correct": 2,
+    "section": "1.2"
+  },
+  {
+    "id": "27_133",
+    "question": "Qual é o objetivo dos diferentes cursos do mercado de trabalho no NAV?",
+    "alternatives": [
+      "Qualificar os participantes-desempregados para entrar no mercado de trabalho",
+      "Manter os participantes-desempregados atualizados e informados sobre seus direitos e deveres na Noruega",
+      "Facilitar para os empregadores encontrarem potenciais funcionários"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "27_134",
+    "question": "Todos os refugiados recém-chegados na Noruega recebem a oferta de um programa de introdução gratuito. O que o programa de introdução contém?",
+    "alternatives": [
+      "O programa de introdução deve contribuir para que os refugiados se sintam seguros na Noruega",
+      "O programa de introdução contém treinamento em norueguês e conhecimentos sociais, juntamente com prática de língua ou prática de trabalho em diferentes empresas durante o programa. O objetivo do programa de introdução é que o participante se qualifique para entrar no mercado de trabalho ou para continuar a educação",
+      "O programa de introdução contém diferentes informações sobre trabalho informal e prática de trabalho não remunerada"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "27_135",
+    "question": "Pessoas que estão desempregadas há muito tempo e que dependem de assistência social financeira podem receber a oferta de participar de um programa de qualificação através do NAV. Qual é o objetivo do programa de qualificação?",
+    "alternatives": [
+      "O objetivo é que os participantes-desempregados recebam treinamento e capacitação profissional para que possam voltar ao trabalho mais facilmente",
+      "O objetivo é que os participantes-desempregados conheçam seus direitos e deveres quando estão de licença médica",
+      "O objetivo é que os participantes-desempregados se recuperem"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "27_136",
+    "question": "As empresas podem receber ajuda financeira do NAV para iniciar cursos para funcionários que precisam de mais treinamento em leitura, escrita, cálculo, expressão oral e escrita em norueguês. Esta afirmação está correta?",
+    "alternatives": [
+      "Sim",
+      "Não"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "28_137",
+    "question": "Qual porcentagem da população ativa trabalha no setor privado na Noruega?",
+    "alternatives": [
+      "70%",
+      "50%",
+      "30%"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "28_138",
+    "question": "O que é mais importante fazer no processo de busca de emprego?",
+    "alternatives": [
+      "É importante ter referências",
+      "É importante usar contatos e redes, e mostrar que você está interessado no trabalho",
+      "É importante ter um bom currículo e carta de apresentação"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "28_139",
+    "question": "Todos os empregos são anunciados?",
+    "alternatives": [
+      "Sim, absolutamente, é uma obrigação",
+      "Não, nem todos os empregos são anunciados, mas muitos são",
+      "Apenas uma pequena parte dos empregos é anunciada"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "28_140",
+    "question": "Na Noruega de hoje, é comum entregar candidaturas de emprego?",
+    "alternatives": [
+      "Eletronicamente pela internet",
+      "Via correio",
+      "Diretamente em mãos"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "28_141",
+    "question": "Na Noruega, o salário bruto anual médio para empregados em tempo integral é de cerca de?",
+    "alternatives": [
+      "250.000 NOK por ano",
+      "500.000 NOK por ano",
+      "750.000 NOK por ano"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "28_142",
+    "question": "Em média, um trabalhador paga?",
+    "alternatives": [
+      "cerca de 45% do seu salário bruto em impostos",
+      "cerca de 35% do seu salário bruto em impostos",
+      "cerca de 25% do seu salário bruto em impostos"
+    ],
+    "correct": 2,
+    "section": "2.5"
+  },
+  {
+    "id": "28_143",
+    "question": "O salário líquido é o salário que você recebe pago?",
+    "alternatives": [
+      "Antes dos impostos",
+      "Depois dos impostos",
+      "Junto com os impostos"
+    ],
+    "correct": 1,
+    "section": "2.5"
+  },
+  {
+    "id": "28_144",
+    "question": "O que é mais financiado por impostos e taxas que tanto trabalhadores quanto empregadores pagam ao estado?",
+    "alternatives": [
+      "Campanhas políticas",
+      "Nossos benefícios de bem-estar",
+      "Ajuda a outros países que mais precisam de dinheiro"
+    ],
+    "correct": 1,
+    "section": "2.5"
+  },
+  {
+    "id": "28_145",
+    "question": "Trabalho informal é:",
+    "alternatives": [
+      "Trabalho ilegal e imoral e é considerado crime econômico",
+      "É muito moral",
+      "Relação de trabalho legal"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "28_146",
+    "question": "O que realmente significa trabalhar informalmente?",
+    "alternatives": [
+      "Significa ganhar um extra",
+      "É um tipo de hobby para muitos noruegueses",
+      "Significa trabalhar sem contrato de trabalho e sem pagar impostos"
+    ],
+    "correct": 2,
+    "section": "1.2"
+  },
+  {
+    "id": "29_165",
+    "question": "O princípio da separação de poderes divide o poder entre três autoridades independentes: o poder legislativo, o poder executivo e o poder judiciário. Qual parte das autoridades julga em casos concretos quando a lei é violada?",
+    "alternatives": [
+      "O Governo",
+      "O Parlamento",
+      "O Judiciário"
+    ],
+    "correct": 2,
+    "section": "3.3"
+  },
+  {
+    "id": "29_166",
+    "question": "A Noruega é uma monarquia. O rei norueguês tem grande poder político?",
+    "alternatives": [
+      "O rei da Noruega não tem poder político",
+      "Não, na verdade não. O rei norueguês tem pouco poder político",
+      "Sim, absolutamente. O rei norueguês tem grande poder político"
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "29_167",
+    "question": "As eleições parlamentares são:",
+    "alternatives": [
+      "a cada dois anos",
+      "a cada quatro anos",
+      "a cada cinco anos"
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "29_168",
+    "question": "Quem tem poder formal na Noruega?",
+    "alternatives": [
+      "Políticos do parlamento",
+      "Mídia",
+      "Organizações de interesse"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "29_169",
+    "question": "O que chamamos de lobby?",
+    "alternatives": [
+      "Chamamos de lobby quando os cidadãos formam ou se juntam a diferentes organizações de interesse e lutam por diferentes causas nos municípios.",
+      "Quando pessoas ou organizações tentam influenciar políticos e suas decisões de maneiras informais, isso é chamado de lobby.",
+      "Os políticos do parlamento aprovam leis, emendas e orçamentos e, dessa forma, têm poder formal para influenciar qual política é seguida nacional e localmente."
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "29_170",
+    "question": "A mídia tem grande poder na Noruega de hoje e em todo o mundo, em geral?",
+    "alternatives": [
+      "Sim, rádio, TV, internet, jornais e assim por diante têm grande poder de influência e afetam tanto os telespectadores, leitores, ouvintes comuns quanto os políticos.",
+      "Não, rádio, TV, internet, jornais e assim por diante não têm poder de influência e não afetam nem os telespectadores, leitores, ouvintes comuns nem os políticos.",
+      "Rádio, TV, internet, jornais e assim por diante têm muito pouco poder de influência e afetam em pequena medida os telespectadores, leitores, ouvintes e políticos."
+    ],
+    "correct": 0,
+    "section": "1.3"
+  },
+  {
+    "id": "29_171",
+    "question": "A Noruega é uma monarquia. Qual é o nome do rei na Noruega de hoje?",
+    "alternatives": [
+      "Harald V",
+      "Haakon 7",
+      "Olaf 5"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "29_172",
+    "question": "Organizações internacionais, das quais a Noruega é membro, influenciam a política norueguesa?",
+    "alternatives": [
+      "Sim, claro",
+      "Não, absolutamente não",
+      "Muito pouco. Nenhuma influência significativa"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "30_173",
+    "question": "De quais organizações internacionais a Noruega é membro?",
+    "alternatives": [
+      "Nações Unidas-ONU, aliança de defesa-OTAN (Organização do Tratado do Atlântico Norte), União Europeia - UE e Acordo de Schengen",
+      "Nações Unidas-ONU, aliança de defesa-OTAN (Organização do Tratado do Atlântico Norte), EEE (Espaço Econômico Europeu)",
+      "Nações Unidas-ONU, aliança de defesa-OTAN (Organização do Tratado do Atlântico Norte), EEE (Espaço Econômico Europeu) e Acordo de Schengen"
+    ],
+    "correct": 2,
+    "section": "3.3"
+  },
+  {
+    "id": "30_174",
+    "question": "O que faz com que um estado possa ser chamado de estado de bem-estar?",
+    "alternatives": [
+      "A distribuição de recursos públicos e privados para que todos os cidadãos tenham acesso a bens básicos como moradia, alimentação, assistência médica e educação faz com que um estado possa ser chamado de estado de bem-estar",
+      "A distribuição de recursos privados para que todos os cidadãos tenham acesso a bens básicos como moradia, alimentação, assistência médica e educação faz com que um estado possa ser chamado de estado de bem-estar",
+      "A distribuição de recursos públicos para que todos os cidadãos tenham acesso a bens básicos como moradia, alimentação, assistência médica e educação faz com que um estado possa ser chamado de estado de bem-estar"
+    ],
+    "correct": 2,
+    "section": "2.0"
+  },
+  {
+    "id": "30_175",
+    "question": "De que forma o bem-estar é financiado na Noruega, a chamada sociedade de bem-estar norueguesa?",
+    "alternatives": [
+      "A sociedade de bem-estar é financiada por impostos e taxas que os cidadãos pagam, bem como com dinheiro proveniente da indústria de petróleo e gás",
+      "A sociedade de bem-estar é financiada com dinheiro da empresa de telecomunicações Telenor",
+      "A sociedade de bem-estar é financiada pela agricultura, silvicultura e indústria pesqueira"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "30_176",
+    "question": "Qual é um pré-requisito importante para que o estado de bem-estar funcione bem?",
+    "alternatives": [
+      "É muito importante na sociedade de bem-estar que os cidadãos abusem dos benefícios sociais e de bem-estar. Eles devem confiar em si mesmos",
+      "O que é muito importante na sociedade de bem-estar é que o estado use os cidadãos como um recurso. O estado deve pressionar os cidadãos de alguma forma",
+      "O que é muito importante na sociedade de bem-estar é a confiança entre o estado e os cidadãos. Eles devem confiar um no outro"
+    ],
+    "correct": 2,
+    "section": "2.0"
+  },
+  {
+    "id": "30_177",
+    "question": "Ficar em um hospital na Noruega é:",
+    "alternatives": [
+      "Parcialmente gratuito e significa que você tem que pagar uma taxa de co-participação",
+      "Totalmente gratuito",
+      "Totalmente pago por pacientes e usuários"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "30_178",
+    "question": "NAV é a abreviação de?",
+    "alternatives": [
+      "Diretoria Norueguesa de Trabalho e Bem-Estar",
+      "Autoridade Norueguesa de Água e Esgoto",
+      "Orientação de Funcionários Noruegueses"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "30_179",
+    "question": "Qual é um dos principais objetivos do NAV?",
+    "alternatives": [
+      "Pressionar e nos empurrar para o trabalho",
+      "Fornecer apoio e ajuda se precisarmos de ajuda financeira em períodos de doença e em outros períodos difíceis da vida ou ajudar os cidadãos se precisarem se qualificar para o trabalho",
+      "Ajudar-nos a abusar dos benefícios de bem-estar"
+    ],
+    "correct": 1,
+    "section": "2.0"
+  },
+  {
+    "id": "30_180",
+    "question": "O que o modelo de bem-estar que temos na Noruega exige?",
+    "alternatives": [
+      "Exige independência, abuso do sistema, trabalho informal e assim por diante",
+      "Exige solidariedade e vontade de pagar impostos e taxas que financiam nossos benefícios de bem-estar",
+      "Não exige compaixão ou responsabilidade pela comunidade"
+    ],
+    "correct": 1,
+    "section": "2.0"
+  },
+  {
+    "id": "31_190",
+    "question": "Cidadãos nórdicos não têm a obrigação de frequentar cursos de norueguês. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "31_191",
+    "question": "Todos devem parar o curso de norueguês após 600 horas. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "31_192",
+    "question": "Um cidadão de um país do EEE deve solicitar autorização de residência na Noruega? Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "31_193",
+    "question": "Todos que têm família na Noruega recebem automaticamente autorização de residência? Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "31_194",
+    "question": "Todos os estrangeiros na Noruega têm a mesma base de residência? Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "31_195",
+    "question": "É possível obter autorização de residência na Noruega com base em fortes considerações humanitárias? Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "31_196",
+    "question": "É possível solicitar asilo na Noruega? Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "2.1"
+  },
+  {
+    "id": "31_197",
+    "question": "Todos os refugiados chegam à Noruega através do sistema da ONU? Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "32_109",
+    "question": "Quem deve receber a notificação de nascimento quando uma criança nasce?",
+    "alternatives": [
+      "O Registro Civil",
+      "Os pais",
+      "A parteira"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "32_110",
+    "question": "Quem geralmente tem a responsabilidade principal por uma criança e sua educação?",
+    "alternatives": [
+      "O jardim de infância",
+      "Os pais",
+      "A escola"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "32_111",
+    "question": "Qual é a idade da maioridade na Noruega?",
+    "alternatives": [
+      "18 anos",
+      "15 anos",
+      "12 anos"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "32_112",
+    "question": "O que a lei da criança diz sobre o uso de violência na educação?",
+    "alternatives": [
+      "É permitido",
+      "É proibido",
+      "Nada"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "32_113",
+    "question": "Todas as pessoas com mais de 18 anos, que não sejam casadas e que tenham residência legal na Noruega, podem casar-se aqui. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "32_114",
+    "question": "Mulheres e homens têm o mesmo direito de escolher livremente o seu cônjuge. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "32_115",
+    "question": "Quem força alguém a se casar não pode ser condenado à prisão. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "32_116",
+    "question": "Mulheres e homens têm o mesmo direito de pedir a separação e o divórcio. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "32_117",
+    "question": "Os cônjuges têm a responsabilidade conjunta de sustentar e cuidar da família. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "33_127",
+    "question": "Você deve pagar uma taxa de co-participação mais alta no médico especialista se não tiver um encaminhamento do seu médico. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "33_128",
+    "question": "O tratamento no pronto-socorro é gratuito. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos",
+      "Esta afirmação está errada. Você deve pagar uma taxa de co-participação no pronto-socorro",
+      "Esta afirmação está correta"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "33_129",
+    "question": "As consultas de pré-natal são gratuitas. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "2.4"
+  },
+  {
+    "id": "33_130",
+    "question": "O jardim de infância é obrigatório para todas as crianças. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "33_131",
+    "question": "Menos da metade de todas as crianças frequentam o jardim de infância. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "33_132",
+    "question": "Quase 9 em cada 10 crianças entre 1 e 5 anos frequentam o jardim de infância. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "33_133",
+    "question": "Os pais pagam tudo o que custa ter uma criança no jardim de infância. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada. Os pais só precisam pagar a taxa de co-participação",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "33_134",
+    "question": "É o município que paga grande parte das despesas dos jardins de infância. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "33_135",
+    "question": "O Parlamento decide um valor máximo para o que os pais devem pagar por uma vaga no jardim de infância. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "34_236",
+    "question": "Quando foi introduzida a escolaridade obrigatória para todas as crianças na Noruega?",
+    "alternatives": [
+      "Século XX",
+      "Século XVIII",
+      "Século XVI"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "34_237",
+    "question": "Quantos anos de educação são obrigatórios hoje?",
+    "alternatives": [
+      "13",
+      "10",
+      "7"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "34_238",
+    "question": "Quais eram as principais indústrias na Noruega nos anos 1800/1850?",
+    "alternatives": [
+      "Agricultura, silvicultura e pesca",
+      "Comércio e indústria",
+      "Indústria e serviços"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "34_239",
+    "question": "Qual era a indústria mais importante na Noruega por volta do século XX?",
+    "alternatives": [
+      "Indústria",
+      "Comércio",
+      "Petróleo e gás"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "34_240",
+    "question": "Todos os trabalhadores na Noruega têm direito a um contrato de trabalho. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "34_241",
+    "question": "A semana de trabalho normal é de 25 horas. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada. Uma semana de trabalho normal é de 37,5 horas",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "34_242",
+    "question": "Os trabalhadores na Noruega têm direito a um mínimo de sete semanas de férias por ano. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada. Os trabalhadores na Noruega têm direito a um mínimo de cinco semanas de férias por ano",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "34_243",
+    "question": "Os trabalhadores na Noruega têm o direito de se ausentar do trabalho com salário integral em caso de doença própria ou de filho. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "34_244",
+    "question": "Os trabalhadores que têm filhos têm direito a licença remunerada. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "1.2"
+  },
+  {
+    "id": "35_245",
+    "question": "Os trabalhadores não têm direito a salário durante o treinamento. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada. O treinamento é pago na Noruega",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "35_246",
+    "question": "As empresas não pagam impostos ao município. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada. As empresas pagam impostos tanto para o município quanto para o estado",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "35_247",
+    "question": "Os pagamentos de segurança social são isentos de impostos. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "35_248",
+    "question": "A maior parte da sociedade de bem-estar na Noruega é financiada pelas receitas de petróleo e gás. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada. A sociedade de bem-estar norueguesa é financiada principalmente por impostos e taxas",
+      "Esta afirmação está correta. A sociedade de bem-estar norueguesa é financiada principalmente por petróleo e gás",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "35_249",
+    "question": "As receitas fiscais são importantes para financiar a sociedade de bem-estar. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "2.5"
+  },
+  {
+    "id": "35_250",
+    "question": "É o estado e não os municípios que têm a responsabilidade pela gestão da maioria dos benefícios sociais. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada. São os municípios que têm a responsabilidade pela maior parte dos benefícios sociais",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "35_251",
+    "question": "O estado transfere dinheiro para os municípios. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 1,
+    "section": "2.0"
+  },
+  {
+    "id": "35_252",
+    "question": "A maior parte do dinheiro do município vai para a administração. Esta afirmação está certa, errada ou pode ser tanto certa quanto errada?",
+    "alternatives": [
+      "Esta afirmação está errada",
+      "Esta afirmação está correta",
+      "Esta afirmação varia. Pode estar correta, mas também pode estar errada em alguns casos"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "36_264",
+    "question": "Aproximadamente que % da população vive sozinha?",
+    "alternatives": [
+      "40%",
+      "10%",
+      "20%"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "36_265",
+    "question": "A Noruega é uma democracia. O que isso implica?",
+    "alternatives": [
+      "O povo decide quem deve governar o país",
+      "Os ricos decidem quem deve governar o país",
+      "Os tribunais decidem quem deve governar o país"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "36_266",
+    "question": "Quem paga se você estiver internado em um hospital público?",
+    "alternatives": [
+      "O Estado",
+      "O empregador",
+      "O paciente"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "36_267",
+    "question": "Onde se pode solicitar bolsas de estudo e empréstimos para educação?",
+    "alternatives": [
+      "No Lånekassen (Fundo Estatal de Empréstimos para Educação)",
+      "Na universidade ou faculdade",
+      "No NAV"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "36_268",
+    "question": "Quem recebe tratamento dentário gratuito?",
+    "alternatives": [
+      "Todos menores de 18 anos",
+      "Todos maiores de 18 anos",
+      "Todos com cartão de isenção"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "36_269",
+    "question": "Quando o petróleo foi encontrado na Noruega pela primeira vez?",
+    "alternatives": [
+      "No final da década de 1960",
+      "No final da década de 1930",
+      "No final da década de 1980"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "36_270",
+    "question": "Aproximadamente quanto da área da Noruega é terra cultivada?",
+    "alternatives": [
+      "3%",
+      "18%",
+      "48%"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "36_271",
+    "question": "O que é o programa de atividades extracurriculares (skolefritidsordning/aktivitetsskole)?",
+    "alternatives": [
+      "Uma oferta para as famílias de cuidado infantil antes e depois do horário escolar",
+      "Uma disciplina no ensino médio",
+      "Uma oferta pedagógica para todos os alunos da 8ª à 10ª série"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "36_272",
+    "question": "Quem tem o direito de se divorciar?",
+    "alternatives": [
+      "Tanto mulheres quanto homens",
+      "Apenas homens",
+      "Apenas mulheres"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "36_273",
+    "question": "Quanto custa frequentar a escola primária pública?",
+    "alternatives": [
+      "É gratuito para todos",
+      "O preço é baseado na renda dos pais",
+      "O preço varia de município para município"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "37_274",
+    "question": "Quem tem direito a um médico de família?",
+    "alternatives": [
+      "Todos os residentes na Noruega",
+      "Apenas aqueles com renda fixa",
+      "Apenas cidadãos noruegueses"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "37_275",
+    "question": "Quem recebe vacinas gratuitas no programa de vacinação?",
+    "alternatives": [
+      "Todas as crianças e jovens residentes na Noruega",
+      "Apenas crianças e jovens que são cidadãos noruegueses",
+      "Apenas cidadãos noruegueses"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "37_276",
+    "question": "O que significa liberdade religiosa?",
+    "alternatives": [
+      "Que se pode acreditar no que se quiser",
+      "Que a religião é proibida na Noruega",
+      "Que o estado decide no que se deve acreditar"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "37_277",
+    "question": "Quanto se paga no dentista se tiver entre 18 e 20 anos?",
+    "alternatives": [
+      "25% do preço total",
+      "Nada",
+      "50% do preço total"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "37_278",
+    "question": "Em que ano o povo Sámi obteve seu próprio parlamento (Sameting)?",
+    "alternatives": [
+      "1989",
+      "1939",
+      "1967"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "37_279",
+    "question": "Quanto as mulheres grávidas devem pagar pelas consultas de pré-natal?",
+    "alternatives": [
+      "Nada",
+      "Preço total",
+      "Uma taxa de co-participação"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "37_280",
+    "question": "De quais organizações internacionais a Noruega é membro?",
+    "alternatives": [
+      "OTAN, ONU, EEE, Schengen",
+      "OTAN, UE",
+      "NAFTA"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "37_281",
+    "question": "Kari quer estudar na universidade. O que está correto?",
+    "alternatives": [
+      "Ela precisa ter qualificação geral para ingresso em estudos superiores",
+      "Ela precisa ter 19 anos",
+      "Ela precisa ter uma boa situação financeira"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "37_282",
+    "question": "Mary está na 8ª série. Ela esteve doente por muito tempo e tem dificuldades em acompanhar as aulas em várias matérias. O que acontece com a Mary quando o próximo ano letivo começar?",
+    "alternatives": [
+      "Ela continua na 9ª série",
+      "Ela tem que repetir a 8ª série",
+      "Ela pode parar com as matérias com as quais tem dificuldade"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "37_283",
+    "question": "Ambas as partes de um casamento precisam concordar para se divorciarem?",
+    "alternatives": [
+      "Não",
+      "Sim"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "38_284",
+    "question": "Hasan tem 16 anos. Ele vai ao dentista uma vez por ano. Quanto ele paga pelo tratamento dentário regular?",
+    "alternatives": [
+      "Nada",
+      "O custo total",
+      "Metade do custo"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "38_285",
+    "question": "Quem destes tem direito a aulas gratuitas de norueguês?",
+    "alternatives": [
+      "Refugiados",
+      "Au pairs",
+      "Imigrantes trabalhadores"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "38_286",
+    "question": "O que aconteceu em 1940?",
+    "alternatives": [
+      "A Noruega foi ocupada pela Alemanha",
+      "A Noruega tornou-se um país independente",
+      "A Noruega teve seu primeiro presidente"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "38_287",
+    "question": "Por que as mulheres devem fazer o pré-natal?",
+    "alternatives": [
+      "Para garantir a saúde da mãe e do bebê",
+      "Para solicitar o abono de família",
+      "Para ter a licença-maternidade aprovada"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "38_288",
+    "question": "Quem pode participar do Programa de Introdução?",
+    "alternatives": [
+      "Refugiados recém-chegados com mais de 18 anos",
+      "A maioria dos imigrantes trabalhadores",
+      "Todos os solicitantes de asilo com menos de 16 anos"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "38_289",
+    "question": "Quais são as principais fontes de receita do estado e dos municípios?",
+    "alternatives": [
+      "Impostos e taxas de pessoas físicas e empresas",
+      "Transferências de organizações internacionais",
+      "Vendas de bens e serviços para outros países"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "38_290",
+    "question": "Com que frequência o governo se reúne com o rei?",
+    "alternatives": [
+      "Uma vez por semana",
+      "Uma vez por mês",
+      "Uma vez por ano"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "38_291",
+    "question": "Quem paga pelos pacientes internados nos hospitais noruegueses?",
+    "alternatives": [
+      "O Estado",
+      "O paciente",
+      "A companhia de seguros"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "38_292",
+    "question": "Qual é o objetivo da experiência de trabalho para imigrantes?",
+    "alternatives": [
+      "Familiarizar o participante com a vida profissional norueguesa",
+      "Conseguir uma autorização de trabalho para o participante",
+      "Ter a formação do participante aprovada"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "38_293",
+    "question": "Mari quer se filiar a um partido político. Os pais dela discordam. Que idade Mari precisa ter para decidir isso por si mesma?",
+    "alternatives": [
+      "15 anos",
+      "12 anos",
+      "18 anos"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "39_294",
+    "question": "O que você precisa para ter um trabalho remunerado?",
+    "alternatives": [
+      "Cartão de imposto",
+      "Carteira de motorista",
+      "Cartão de seguro"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "39_295",
+    "question": "O assentamento na Noruega mudou na segunda metade do século XIX. O que aconteceu?",
+    "alternatives": [
+      "Muitas pessoas se mudaram do campo para as cidades",
+      "Muitas pessoas se mudaram das cidades para a costa",
+      "Muitas pessoas se mudaram da costa para o campo"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "39_296",
+    "question": "Quem financia a educação universitária e superior na Noruega?",
+    "alternatives": [
+      "O Estado",
+      "A família",
+      "Grandes empresas"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "39_297",
+    "question": "Quais condados estão no Norte da Noruega?",
+    "alternatives": [
+      "Finnmark, Troms, Nordland",
+      "Oppland, Hedmark, Akershus",
+      "Hordaland, Rogaland, Vest-Agder"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "39_298",
+    "question": "Por quanto tempo os pais têm o dever de sustentar seus filhos?",
+    "alternatives": [
+      "Até que os filhos completem 18 anos",
+      "Até que os filhos terminem o ensino fundamental",
+      "Até que os filhos consigam seu próprio emprego"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "39_299",
+    "question": "Qual porcentagem da população ativa na Noruega trabalha no setor público?",
+    "alternatives": [
+      "Aprox. 30%",
+      "Aprox. 50%",
+      "Aprox. 70%"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "39_300",
+    "question": "Tom conseguiu um emprego em uma loja. Ele deve ter um contrato de trabalho. Quando, no máximo, ele deve receber o contrato?",
+    "alternatives": [
+      "Quando ele começa no emprego",
+      "Após um período de experiência de três semanas",
+      "Quando o empregador decidir"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "39_301",
+    "question": "Quanto os pais na Noruega pagam pelo programa de vacinação infantil?",
+    "alternatives": [
+      "Nada",
+      "Aprox. 100 kr por vacina",
+      "Aprox. 200 kr por vacina"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "39_302",
+    "question": "Quando as crianças normalmente começam a primeira série na escola?",
+    "alternatives": [
+      "No ano em que completam 6 anos",
+      "No ano em que completam 7 anos",
+      "No ano em que completam 8 anos"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "39_303",
+    "question": "Kari e Jens são divorciados. Eles têm dois filhos, de cinco e sete anos. Quais direitos seus filhos têm de acordo com a lei?",
+    "alternatives": [
+      "Os filhos têm direito a ter contato com ambos os pais",
+      "Os filhos têm direito a morar juntos",
+      "Os filhos têm direito a escolher com qual dos pais querem morar"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "40_304",
+    "question": "Houve grandes mudanças no mercado de trabalho nos últimos 30 anos. O que está correto?",
+    "alternatives": [
+      "Menos pessoas trabalham na indústria e produção",
+      "Mais pessoas trabalham na pesca e agricultura",
+      "Apenas mulheres trabalham no comércio e serviços"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "40_305",
+    "question": "Sobre o que pais e escola devem colaborar?",
+    "alternatives": [
+      "O desenvolvimento acadêmico e social das crianças",
+      "As atividades de lazer das crianças",
+      "A mesada das crianças"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "40_306",
+    "question": "Por quais destes serviços o NAV é responsável?",
+    "alternatives": [
+      "Abono de família",
+      "Ofertas de lazer",
+      "Ensino fundamental"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "40_307",
+    "question": "São celebrados um pouco mais de 20.000 casamentos na Noruega a cada ano. Quantos casais se divorciam anualmente?",
+    "alternatives": [
+      "Aprox. 10.000",
+      "Aprox. 5.000",
+      "Aprox. 15.000"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "40_308",
+    "question": "Qual é a idade média de quem se casa pela primeira vez na Noruega?",
+    "alternatives": [
+      "Aprox. 30 anos",
+      "Aprox. 20 anos",
+      "Aprox. 40 anos"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "40_309",
+    "question": "Quem tem a responsabilidade principal pelos regimes de bem-estar na Noruega?",
+    "alternatives": [
+      "Estado e município",
+      "Grandes empresas privadas",
+      "Organizações voluntárias"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "40_310",
+    "question": "Quais são as três maiores cidades da Noruega?",
+    "alternatives": [
+      "Oslo, Bergen, Trondheim",
+      "Stavanger, Oslo, Tromsø",
+      "Bergen, Drammen, Trondheim"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "40_311",
+    "question": "Para quem os pais na Noruega recebem abono de família?",
+    "alternatives": [
+      "Todas as crianças menores de 18 anos, residentes na Noruega",
+      "Todas as crianças menores de 13 anos residentes na Noruega",
+      "Todas as crianças menores de 15 anos residentes na Noruega"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "40_312",
+    "question": "Quem deve pagar se um refugiado precisar de um intérprete?",
+    "alternatives": [
+      "O setor público deve pagar",
+      "O refugiado deve pagar por si mesmo",
+      "A Cruz Vermelha paga a maior parte"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "40_313",
+    "question": "Quando é a Páscoa?",
+    "alternatives": [
+      "Em março/abril",
+      "Em dezembro",
+      "Em maio"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "41_314",
+    "question": "O que é gratuito para adultos na Noruega?",
+    "alternatives": [
+      "Internação em hospital público",
+      "Exame no dentista",
+      "Consulta com o médico de família"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "41_315",
+    "question": "Qual a idade que as crianças devem ter para ter o direito de decidir sobre sua própria educação?",
+    "alternatives": [
+      "15 anos",
+      "7 anos",
+      "12 anos"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "41_316",
+    "question": "Quem é o público-alvo do programa de introdução?",
+    "alternatives": [
+      "Todos os refugiados entre 18 e 55 anos",
+      "Todos os solicitantes de asilo entre 18 e 55 anos",
+      "Todos os imigrantes entre 18 e 55 anos"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "41_317",
+    "question": "Quem lidera o governo?",
+    "alternatives": [
+      "O primeiro-ministro",
+      "O prefeito",
+      "O rei"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "41_318",
+    "question": "O que uma autorização de residência permanente implica?",
+    "alternatives": [
+      "Pode-se viver e trabalhar na Noruega por quanto tempo quiser",
+      "Pode-se viver e trabalhar na Noruega por 5 anos",
+      "Pode-se viver e trabalhar na Noruega por até 10 anos"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "41_319",
+    "question": "Qual é um dos principais objetivos do NAV?",
+    "alternatives": [
+      "Que mais cidadãos entrem no mercado de trabalho",
+      "Que mais mulheres fiquem em casa",
+      "Que mais crianças consigam uma vaga no jardim de infância"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "41_320",
+    "question": "É permitido ao professor usar punição física contra os alunos?",
+    "alternatives": [
+      "Não",
+      "Sim",
+      "Às vezes"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "41_321",
+    "question": "Que tipo de governo a Noruega tem?",
+    "alternatives": [
+      "Monarquia",
+      "República",
+      "Ditadura"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "41_322",
+    "question": "Quando se tem um emprego na Noruega, tem-se direito a um contrato de trabalho. O que deve constar no contrato?",
+    "alternatives": [
+      "Salário e horário de trabalho",
+      "Regras fiscais",
+      "Experiência de trabalho anterior"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "41_323",
+    "question": "Quem tem a responsabilidade principal de conseguir empregos para as pessoas na Noruega?",
+    "alternatives": [
+      "As próprias pessoas",
+      "O Estado",
+      "NAV"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "43_324",
+    "question": "Quando a Declaração Universal dos Direitos Humanos foi adotada?",
+    "alternatives": [
+      "1948",
+      "1908",
+      "2008"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "43_325",
+    "question": "O que está certo?",
+    "alternatives": [
+      "Na Noruega, não é muito comum as crianças frequentarem escolas particulares",
+      "Apenas noruegueses ricos mandam seus filhos para escolas particulares",
+      "Muitas crianças frequentam escolas particulares na Noruega"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "43_326",
+    "question": "No sistema de bem-estar norueguês, a população tem direitos econômicos. Quais são exemplos de tais direitos?",
+    "alternatives": [
+      "Subsídio de doença, subsídio de desemprego, subsídio de introdução e abono de família",
+      "Subsídio de doença, subsídio de desemprego, subsídio de introdução e bom salário",
+      "Subsídio de doença, subsídio de desemprego, subsídio de introdução e baixos impostos"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "43_327",
+    "question": "Com quais países a Noruega faz fronteira?",
+    "alternatives": [
+      "Suécia, Finlândia e Rússia",
+      "Dinamarca, Suécia e Finlândia",
+      "Islândia, Dinamarca e Suécia"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "43_328",
+    "question": "Onde se pode mudar de médico de família?",
+    "alternatives": [
+      "No site helsenorge.no (anteriormente MinFastlege)",
+      "No posto de saúde",
+      "No registro civil"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "43_329",
+    "question": "O que está certo?",
+    "alternatives": [
+      "Todas as crianças de 0 a 6 anos recebem oferta de exame de saúde gratuito",
+      "Nenhuma criança em idade escolar recebe oferta de exame de saúde gratuito",
+      "Todas as crianças na Noruega recebem oferta de exame de saúde gratuito como parte do programa de saúde infantil"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "43_330",
+    "question": "O que é o Fundo Estatal de Empréstimos para Educação?",
+    "alternatives": [
+      "Um banco estatal do qual os estudantes podem pegar dinheiro emprestado",
+      "Um escritório estatal que aluga moradias estudantis",
+      "Uma biblioteca estatal de material didático"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "43_331",
+    "question": "O que todos que trabalham na Noruega devem fazer?",
+    "alternatives": [
+      "Pagar impostos",
+      "Fazer horas extras",
+      "Participar de cursos"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "43_332",
+    "question": "Por que 1814 é um ano importante na história norueguesa?",
+    "alternatives": [
+      "A Noruega obteve sua própria constituição",
+      "Um príncipe dinamarquês tornou-se rei da Noruega",
+      "A união com a Suécia foi dissolvida"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "43_333",
+    "question": "Inge-Lise tem 16 anos e quer se tornar membro da igreja. Seus pais discordam. O que está certo?",
+    "alternatives": [
+      "Inge-Lise pode decidir por si mesma",
+      "Os pais decidem sobre sua filiação",
+      "O conselho da igreja deve decidir sobre isso"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "44_334",
+    "question": "Kjartan tem 45 anos. Ele vai ao dentista para tratamento. O que está certo?",
+    "alternatives": [
+      "Ele deve pagar o valor total",
+      "Ele paga metade do preço",
+      "Ele paga uma taxa de co-participação pelo tratamento dentário"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "44_335",
+    "question": "Marit tem 14 anos. Seus pais se divorciaram. Marit gostaria de morar com o pai, mas a mãe discorda. O que está certo?",
+    "alternatives": [
+      "Marit pode decidir por si mesma",
+      "O serviço de proteção à criança deve decidir",
+      "Os pais devem decidir"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "44_336",
+    "question": "Para qual profissão você não pode se formar no ensino médio?",
+    "alternatives": [
+      "Médico",
+      "Técnico em construção e engenharia civil",
+      "Técnico em eletroeletrônica e tecnologia de computadores"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "44_337",
+    "question": "O que é trabalho informal/dinheiro sujo?",
+    "alternatives": [
+      "Trabalho pelo qual não se paga impostos",
+      "Trabalho que é aprovado como um hobby",
+      "Trabalho que é regulado por uma relação de emprego"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "44_338",
+    "question": "Onde se solicita o abono de família?",
+    "alternatives": [
+      "Solicita-se o abono de família no NAV",
+      "Um provedor de família solicita o abono de família no UDI",
+      "Uma pessoa que precisa do abono de família solicita-o na Associação Nacional de Jardins de Infância"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "44_339",
+    "question": "Berit está de licença médica por 2 meses. Quanto ela recebe de salário?",
+    "alternatives": [
+      "Berit recebe salário integral durante todo o período",
+      "A partir do dia 1, Berit recebe 80% do salário",
+      "Nos primeiros 14 dias, ela recebe salário integral, depois 80% do salário"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "44_340",
+    "question": "Para que o estado usa o dinheiro dos impostos?",
+    "alternatives": [
+      "Benefícios sociais",
+      "Investimento",
+      "Ações"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "44_341",
+    "question": "O que faz um trabalhador ambiental?",
+    "alternatives": [
+      "Um trabalhador ambiental cria bem-estar para pessoas que precisam de acompanhamento e ajuda",
+      "Um trabalhador ambiental é a pessoa que trabalha com plantas e áreas verdes",
+      "Um trabalhador ambiental é a pessoa que cria um bom ambiente de trabalho"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "44_342",
+    "question": "Quantas cidades na Noruega têm mais de 500.000 habitantes?",
+    "alternatives": [
+      "Há apenas uma cidade na Noruega com mais de meio milhão de habitantes",
+      "Há duas cidades na Noruega com mais de meio milhão de habitantes",
+      "Há três cidades na Noruega com mais de meio milhão de habitantes"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "44_343",
+    "question": "Os benefícios sociais são universais, o que isso significa?",
+    "alternatives": [
+      "Isso significa que todos os cidadãos de um país têm direitos iguais aos benefícios sociais que o estado oferece (benefícios da seguridade social, jardins de infância, escolas, assistência médica, etc.)",
+      "Isso significa que todos os cidadãos de um país têm direitos diferentes aos benefícios sociais que o estado possui.",
+      "Isso significa que nem todos os cidadãos têm acesso aos benefícios sociais que o estado oferece"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "45_344",
+    "question": "Se você quiser ligar para uma ambulância, para que número deve ligar?",
+    "alternatives": [
+      "113",
+      "110",
+      "112"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "45_345",
+    "question": "Quem pode pedir asilo na Noruega?",
+    "alternatives": [
+      "As pessoas que podem pedir asilo na Noruega são aquelas que receberam uma oferta de trabalho de um empregador norueguês",
+      "As pessoas que podem pedir asilo na Noruega são aquelas que se encontram em uma fronteira norueguesa",
+      "As pessoas que podem pedir asilo na Noruega são aquelas que são perseguidas ou que sofreram atos desumanos em seu país de origem"
+    ],
+    "correct": 2,
+    "section": "2.1"
+  },
+  {
+    "id": "45_346",
+    "question": "Quem aprova as leis na Noruega?",
+    "alternatives": [
+      "O Parlamento (Stortinget) aprova as leis na Noruega",
+      "O Governo aprova as leis na Noruega",
+      "O Judiciário aprova as leis na Noruega"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "45_347",
+    "question": "Como é chamada a população indígena da Noruega?",
+    "alternatives": [
+      "O povo indígena da Noruega são os Sámi",
+      "Não há população indígena na Noruega",
+      "A população indígena da Noruega são os noruegueses"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "45_348",
+    "question": "O que é gratuito para adultos na Noruega?",
+    "alternatives": [
+      "Internação em hospitais públicos",
+      "Consulta ao dentista",
+      "Serviço de clínico geral"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "45_349",
+    "question": "Onde a maioria dos habitantes da Noruega vivia na década de 1850?",
+    "alternatives": [
+      "A maioria vivia no campo",
+      "A maioria vivia na costa",
+      "A maioria vivia em grandes cidades"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "45_350",
+    "question": "Quando é o Natal?",
+    "alternatives": [
+      "Em dezembro",
+      "Em janeiro",
+      "Em maio"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "45_352",
+    "question": "Quando uma pessoa pode se casar legalmente? Qual a idade mínima?",
+    "alternatives": [
+      "Quando ela/ele tem mais de 18 anos e escolhe se casar",
+      "Quando as famílias concordam com o casamento",
+      "Após os 16 anos, a pessoa decide por si mesma"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "45_353",
+    "question": "Como se pode evitar doenças relacionadas ao estilo de vida?",
+    "alternatives": [
+      "Comer de forma saudável e ser fisicamente ativo",
+      "Trabalhar muito e dormir irregularmente",
+      "Treinar muito e estar confuso"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "45_354",
+    "question": "O que está correto?",
+    "alternatives": [
+      "Ninguém na Noruega pode ser condenado à prisão sem antes ter havido um julgamento",
+      "Nem todas as crianças têm direito a ensino adaptado no nível em que estão",
+      "Os trabalhadores não têm direito a se ausentar do trabalho com salário integral em caso de doença do filho"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "46_355",
+    "question": "Quais são os deveres da população na sociedade de bem-estar norueguesa?",
+    "alternatives": [
+      "Pagar impostos e fornecer informações corretas sobre si mesmo",
+      "Pagar impostos e doar dinheiro para organizações de caridade",
+      "Pagar impostos e votar em todas as eleições políticas"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "46_356",
+    "question": "Tem-se direito a um intérprete ao ir para um exame no hospital?",
+    "alternatives": [
+      "Sim",
+      "Não",
+      "Apenas em casos especiais"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "46_357",
+    "question": "Quantas pessoas vivem na Noruega?",
+    "alternatives": [
+      "aprox. 5 milhões",
+      "aprox. 6 milhões",
+      "aprox. 4 milhões"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "46_358",
+    "question": "Quem é responsável por garantir o bem-estar dos cidadãos na Noruega?",
+    "alternatives": [
+      "O setor público",
+      "Os políticos",
+      "A indústria do petróleo"
+    ],
+    "correct": 0,
+    "section": "2.0"
+  },
+  {
+    "id": "46_359",
+    "question": "Quem é responsável por aprovar o orçamento do estado?",
+    "alternatives": [
+      "O Parlamento (Stortinget)",
+      "O Governo",
+      "O Judiciário"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "46_360",
+    "question": "Onde se candidata a uma vaga de estudo? Se você quer ir para a universidade, onde pode se candidatar?",
+    "alternatives": [
+      "No site samordnaopptak.no",
+      "Enviando a candidatura por correio para a faculdade",
+      "Entregando a candidatura diretamente na universidade"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "46_361",
+    "question": "O que a lei da Noruega diz sobre o aborto?",
+    "alternatives": [
+      "A própria mulher decide no início da gravidez",
+      "A mulher não tem o direito de decidir se quer interromper a gravidez",
+      "A mulher e o homem devem decidir juntos se ela quer interromper a gravidez"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  },
+  {
+    "id": "46_362",
+    "question": "A quem você deve se dirigir se quiser se casar?",
+    "alternatives": [
+      "Ao Registro Civil (Folkeregisteret)",
+      "Ao NAV",
+      "Ao UDI"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "46_363",
+    "question": "Tom encontra um anúncio de emprego. O que ele deve fazer se quiser o emprego?",
+    "alternatives": [
+      "Escrever uma carta de candidatura e um currículo",
+      "Escrever um e-mail para o empregador",
+      "Entrar em contato com a pessoa responsável pela contratação"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "46_364",
+    "question": "Quem recebe oferta de exame de saúde gratuito?",
+    "alternatives": [
+      "Todas as crianças de 0 a 18 anos",
+      "Todas as crianças de 0 a 16 anos",
+      "Todas as crianças de 0 a 20 anos"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "47_365",
+    "question": "O que a lei do ambiente de trabalho diz sobre férias?",
+    "alternatives": [
+      "Todos que trabalham têm direito a férias",
+      "O empregador decide se o empregado tem direito a férias ou não",
+      "O empregador e o empregado devem fazer um acordo interno sobre férias e tempo livre"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "47_366",
+    "question": "Qual é a tarefa do primeiro-ministro?",
+    "alternatives": [
+      "Liderar o governo",
+      "Liderar o Parlamento",
+      "Liderar o Judiciário"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "47_367",
+    "question": "O que a maioria dos noruegueses desejava no final do século XIX?",
+    "alternatives": [
+      "Que a Noruega se tornasse um país independente",
+      "Que a Noruega continuasse a união com a Dinamarca",
+      "Que a Noruega continuasse a união com a Suécia"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "47_368",
+    "question": "O que a lei sobre o direito e dever de 600 horas de ensino implica?",
+    "alternatives": [
+      "Recebe-se 550 horas de ensino de norueguês e 50 horas de estudos sociais",
+      "Recebe-se 350 horas de ensino da língua norueguesa e 350 horas de estudos sociais",
+      "Recebe-se 300 horas de ensino de norueguês e 300 horas de estudos sociais"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "47_369",
+    "question": "O que está correto de acordo com a lei de igualdade?",
+    "alternatives": [
+      "Mulheres e homens devem ter oportunidades iguais de educação e trabalho",
+      "Mulheres e homens devem ter oportunidades iguais de educação, mas oportunidades diferentes de trabalho",
+      "Mulheres e homens devem ter oportunidades diferentes de educação e trabalho"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  },
+  {
+    "id": "47_370",
+    "question": "Aqueles que se mudam têm a obrigação de notificar o novo endereço dentro de 8 dias. A quem você deve notificar quando se muda?",
+    "alternatives": [
+      "Ao Registro Civil (Folkeregisteret)",
+      "À polícia",
+      "Ao NAV"
+    ],
+    "correct": 0,
+    "section": "2.1"
+  },
+  {
+    "id": "47_371",
+    "question": "O que se entende pelo termo igualdade?",
+    "alternatives": [
+      "Igualdade significa que todos devem ter as mesmas oportunidades e direitos",
+      "Que todas as pessoas devem ter direitos e oportunidades diferentes na sociedade, dependendo do gênero",
+      "Que todas as pessoas devem ter direitos e oportunidades diferentes na sociedade, dependendo da origem"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  },
+  {
+    "id": "47_372",
+    "question": "Quem deve decidir sobre o aborto na gravidez em períodos anteriores à 13ª semana?",
+    "alternatives": [
+      "A própria mulher",
+      "A mulher e o homem devem concordar juntos",
+      "O médico de família"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "47_373",
+    "question": "Qual a porcentagem de mulheres que estudam mais que os homens na Noruega?",
+    "alternatives": [
+      "Mais de 60%",
+      "aprox. 20%",
+      "40%"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "47_374",
+    "question": "Qual é a idade média para se casar pela primeira vez na Noruega?",
+    "alternatives": [
+      "33 anos",
+      "44 anos",
+      "20 anos"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "48_375",
+    "question": "O que está correto sobre o ensino médio na Noruega?",
+    "alternatives": [
+      "Gratuito",
+      "Você mesmo tem que pagar tudo",
+      "Você paga uma taxa de participação"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "48_376",
+    "question": "Quem decide quem vai sentar no Parlamento (Stortinget)?",
+    "alternatives": [
+      "Votado nas eleições parlamentares",
+      "O Rei e os assessores próximos com quem ele trabalha",
+      "O próprio Parlamento escolhe"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "48_377",
+    "question": "O que está correto sobre o programa de vacinação infantil na Noruega?",
+    "alternatives": [
+      "Os pais que devem decidir",
+      "É obrigatório para todas as crianças",
+      "O programa de vacinação infantil é gratuito para famílias com poucos recursos"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "48_378",
+    "question": "O que está correto sobre a mutilação genital feminina na Noruega?",
+    "alternatives": [
+      "É punível por lei",
+      "A cultura dos pais prevalece",
+      "Segue-se a cultura que se tinha antes"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  },
+  {
+    "id": "48_379",
+    "question": "Quem precisa ter um cartão de imposto?",
+    "alternatives": [
+      "Todos que trabalham e recebem salário",
+      "Pessoas que ganham mais de 60.000 por ano",
+      "Pessoas que ganham mais de 100.000 por ano"
+    ],
+    "correct": 0,
+    "section": "2.5"
+  },
+  {
+    "id": "48_380",
+    "question": "O que está correto sobre o médico de família?",
+    "alternatives": [
+      "O médico de família é um médico ao qual se deve ir quando se está doente",
+      "O estado deve escolher um médico de família para seu povo",
+      "Vai-se ao médico de família quando se está doente sem ter que esperar na fila"
+    ],
+    "correct": 0,
+    "section": "2.4"
+  },
+  {
+    "id": "48_381",
+    "question": "Qual é a tarefa mais importante do serviço de proteção à criança?",
+    "alternatives": [
+      "Ajudar a família e a criança em casa",
+      "Controlar o jardim de infância",
+      "Aprovar adoções do exterior"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "48_382",
+    "question": "Com qual país a Noruega esteve em união?",
+    "alternatives": [
+      "Dinamarca e Suécia",
+      "Suécia e Islândia",
+      "Dinamarca e Alemanha"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "48_383",
+    "question": "Pelo que o NAV é responsável?",
+    "alternatives": [
+      "Ajudar as pessoas a trabalhar e em atividades",
+      "Ajudar as pessoas a concluir o ensino médio",
+      "Ajudar as pessoas a solicitar o seguro-desemprego"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "48_384",
+    "question": "Os representantes do Parlamento são eleitos de?",
+    "alternatives": [
+      "Partidos políticos",
+      "O Governo",
+      "O Supremo Tribunal"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "49_385",
+    "question": "Qual é a montanha mais alta da Noruega?",
+    "alternatives": [
+      "Galdhøpiggen",
+      "Glittertinden",
+      "Snøhetta"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "49_386",
+    "question": "Quais são as três indústrias mais importantes da Noruega?",
+    "alternatives": [
+      "Alimentos, produtos de petróleo/químicos e máquinas/equipamentos",
+      "Papel, produtos de petróleo/químicos e produtos de madeira",
+      "Têxteis/vestuário, produtos de petróleo/químicos e editoras/gráficas"
+    ],
+    "correct": 0,
+    "section": "1.2"
+  },
+  {
+    "id": "49_387",
+    "question": "Se a lei norueguesa entra em conflito com sua fé, a liberdade de religião implica que você tem o direito de deixar sua fé prevalecer sobre a lei?",
+    "alternatives": [
+      "Não, a lei se aplica a todos",
+      "Sim, todos os cidadãos têm o direito de praticar sua religião",
+      "Não, com exceção de questões familiares e dentro das quatro paredes de casa"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  },
+  {
+    "id": "49_388",
+    "question": "Como funciona o princípio da separação de poderes na Noruega?",
+    "alternatives": [
+      "O princípio garante que o exercício do poder é dividido em três autoridades independentes",
+      "O princípio garante que o exercício do poder é dividido em três autoridades dependentes",
+      "O princípio garante que o exercício do poder é dividido em duas autoridades dependentes"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "49_389",
+    "question": "Como são eleitos os representantes para o Parlamento (Stortinget)?",
+    "alternatives": [
+      "Cada condado é um círculo eleitoral com um número determinado de assentos no Parlamento. O número de votos em cada condado determina quantos representantes cada partido obtém de cada condado",
+      "As assembleias dos condados elegem quem representará cada condado no Parlamento",
+      "Os partidos apresentam listas nacionais, com o líder em primeiro lugar. Os partidos obtêm o número de assentos de acordo com o número de votos que recebem nacionalmente"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "49_390",
+    "question": "O poder é dividido entre o parlamento, o governo e os tribunais. Qual poder pertence a cada uma dessas três instituições?",
+    "alternatives": [
+      "O poder legislativo, executivo e judiciário",
+      "O poder do povo, o poder dos funcionários públicos e o poder do juiz",
+      "O poder sobre os municípios, o poder sobre o estado e o poder sobre a polícia"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "49_391",
+    "question": "Os representantes para o Parlamento são eleitos de?",
+    "alternatives": [
+      "Partidos políticos",
+      "O Governo",
+      "O Supremo Tribunal"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "49_392",
+    "question": "Qual é o papel do rei na constituição?",
+    "alternatives": [
+      "O papel do rei é principalmente representativo e cerimonial",
+      "O rei decide quem fará parte do governo",
+      "Ele decide sobre a política externa"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "49_393",
+    "question": "A liberdade de expressão e a liberdade de religião são protegidas pela Constituição. Isso significa que um cidadão norueguês tem o direito de criticar a fé de outro cidadão norueguês?",
+    "alternatives": [
+      "Sim, a liberdade de expressão significa que você pode criticar tanto as religiões quanto os líderes religiosos",
+      "Não, a liberdade de religião prevalece sobre a liberdade de expressão",
+      "Não, você só tem permissão para criticar e discutir sua própria religião"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  },
+  {
+    "id": "50_40",
+    "question": "O que é o Fundo Estatal de Empréstimos para Educação?",
+    "alternatives": [
+      "Um escritório estatal que aluga moradias estudantis",
+      "Uma biblioteca estatal de material didático",
+      "Um banco estatal do qual os estudantes podem pegar dinheiro emprestado"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "50_41",
+    "question": "O que está certo?",
+    "alternatives": [
+      "Na Noruega, não é muito comum as crianças frequentarem escolas particulares",
+      "Apenas noruegueses ricos mandam seus filhos para escolas particulares",
+      "Muitas crianças frequentam escolas particulares na Noruega"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "50_42",
+    "question": "Quem tem direito ao ensino médio?",
+    "alternatives": [
+      "Todos os jovens com notas boas o suficiente",
+      "Todos os jovens que desejam estudar",
+      "Todos os jovens que concluíram o ensino fundamental norueguês"
+    ],
+    "correct": 2,
+    "section": "1.1"
+  },
+  {
+    "id": "50_44",
+    "question": "Quando foi introduzida a escolaridade obrigatória para todos na Noruega?",
+    "alternatives": [
+      "1842",
+      "1739",
+      "1814",
+      "1907"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "50_45",
+    "question": "Quando foi introduzido o ensino fundamental de 10 anos na Noruega?",
+    "alternatives": [
+      "1969",
+      "1972",
+      "1991",
+      "1997"
+    ],
+    "correct": 3,
+    "section": "1.1"
+  },
+  {
+    "id": "50_46",
+    "question": "Um professor tem permissão para usar punição física nos alunos?",
+    "alternatives": [
+      "Sim",
+      "Não",
+      "às vezes"
+    ],
+    "correct": 1,
+    "section": "1.1"
+  },
+  {
+    "id": "50_47",
+    "question": "Quem é responsável por educar as crianças?",
+    "alternatives": [
+      "As próprias crianças",
+      "Os pais",
+      "O Estado"
+    ],
+    "correct": 1,
+    "section": "2.2"
+  },
+  {
+    "id": "51_394",
+    "question": "Se você sabe norueguês, quais duas outras línguas escandinavas são tão próximas do norueguês que você conseguiria ler e entender a maior parte delas?",
+    "alternatives": [
+      "Dinamarquês e Sueco",
+      "Finlandês e Sueco",
+      "Islandês e Dinamarquês"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "51_395",
+    "question": "Quais são as três línguas escritas oficiais na Noruega?",
+    "alternatives": [
+      "Norueguês (bokmål e nynorsk como formas de escrita equivalentes) e sámi",
+      "Bokmål, nynorsk e inglês",
+      "Bokmål, nynorsk e uma opcional"
+    ],
+    "correct": 0,
+    "section": "3.1"
+  },
+  {
+    "id": "51_396",
+    "question": "Com que frequência há eleições na Noruega?",
+    "alternatives": [
+      "A cada quatro anos há eleições parlamentares e a cada quatro anos há eleições locais. Há dois anos entre cada eleição",
+      "Varia. O Parlamento ou o governo decide quando haverá eleições",
+      "A cada quatro anos"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "51_397",
+    "question": "Uma mulher e um homem têm o mesmo direito de pedir a separação e, consequentemente, o divórcio?",
+    "alternatives": [
+      "Sim, a lei não faz distinção entre mulheres e homens quando se trata de divórcio",
+      "Não, o homem deve aceitar o divórcio primeiro",
+      "Sim, se a mulher puder provar que o homem não cumpriu as obrigações do casamento, os direitos são iguais"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  },
+  {
+    "id": "51_398",
+    "question": "O que diz a lei da educação?",
+    "alternatives": [
+      "Todas as crianças têm o direito e o dever de 10 anos de escola",
+      "Todas as crianças têm o direito e o dever tanto do ensino fundamental (educação básica) quanto do ensino médio",
+      "Nenhuma criança tem o dever de se educar"
+    ],
+    "correct": 0,
+    "section": "1.1"
+  },
+  {
+    "id": "51_399",
+    "question": "Qual campo de petróleo está em produção há mais tempo na Noruega?",
+    "alternatives": [
+      "Campo de Ekofisk",
+      "Campo de Troll",
+      "Campo de Statfjord"
+    ],
+    "correct": 0,
+    "section": "3.2"
+  },
+  {
+    "id": "51_400",
+    "question": "Kari e Jens são divorciados. Quem tem a responsabilidade principal por seus filhos?",
+    "alternatives": [
+      "Tanto a mãe quanto o pai",
+      "A mãe",
+      "O pai"
+    ],
+    "correct": 0,
+    "section": "2.2"
+  },
+  {
+    "id": "51_401",
+    "question": "Qual religião está inscrita na Constituição norueguesa?",
+    "alternatives": [
+      "A religião evangélico-luterana",
+      "Nenhuma. A Noruega é um estado secular",
+      "A religião católica romana, que era a maior na Noruega em 1814"
+    ],
+    "correct": 1,
+    "section": "3.3"
+  },
+  {
+    "id": "51_402",
+    "question": "A Noruega é uma democracia. O que isso implica?",
+    "alternatives": [
+      "O povo decide quem deve governar o país",
+      "Os ricos decidem quem deve governar o país",
+      "Os tribunais decidem quem deve governar o país"
+    ],
+    "correct": 0,
+    "section": "3.3"
+  },
+  {
+    "id": "51_403",
+    "question": "Duas mulheres ou dois homens têm permissão para se casar?",
+    "alternatives": [
+      "Sim, a lei do casamento não distingue entre casamento entre pessoas do mesmo sexo e casamento entre homem e mulher",
+      "Não, o casamento entre pessoas do mesmo sexo não é permitido na Igreja da Noruega e, portanto, é proibido na Noruega",
+      "Não, o casamento é reservado para homem e mulher. Casais homossexuais e lésbicos podem firmar parceria"
+    ],
+    "correct": 0,
+    "section": "2.6"
+  }
+]
