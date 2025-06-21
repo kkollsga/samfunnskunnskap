@@ -8,9 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom styles for animations and effects */
-        @keyframes sparkle {
-            0% { transform: scale(0) rotate(0deg); opacity: 1; }
-            100% { transform: scale(1.5) rotate(180deg); opacity: 0; }
+        @keyframes borderGlow {
+            0% { box-shadow: 0 0 5px rgba(34, 197, 94, 0.5), 0 0 10px rgba(34, 197, 94, 0.3), 0 0 15px rgba(34, 197, 94, 0.1); }
+            50% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.8), 0 0 30px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.3); }
+            100% { box-shadow: 0 0 5px rgba(34, 197, 94, 0.5), 0 0 10px rgba(34, 197, 94, 0.3), 0 0 15px rgba(34, 197, 94, 0.1); }
         }
         
         @keyframes shake {
@@ -34,8 +35,8 @@
             50% { opacity: 0.5; }
         }
         
-        .sparkle {
-            animation: sparkle 0.6s ease-out forwards;
+        .border-glow {
+            animation: borderGlow 1s ease-in-out;
         }
         
         .shake {
@@ -72,7 +73,7 @@
         }
         
         .translatable {
-            cursor: pointer;
+            cursor: help;
             position: relative;
         }
         
@@ -139,6 +140,40 @@
         .nav-button:not(:disabled):hover {
             transform: scale(1.1);
         }
+        
+        /* Alternative button styles */
+        .alternative-btn {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .alternative-btn:not(:disabled):hover {
+            border-color: rgb(59 130 246);
+        }
+        
+        .alternative-btn:disabled {
+            cursor: default;
+        }
+        
+        .alternative-btn.correct {
+            background-color: rgb(220 252 231);
+            border-color: rgb(34 197 94);
+        }
+        
+        .dark .alternative-btn.correct {
+            background-color: rgb(20 83 45);
+            border-color: rgb(34 197 94);
+        }
+        
+        .alternative-btn.incorrect {
+            background-color: rgb(254 226 226);
+            border-color: rgb(239 68 68);
+        }
+        
+        .dark .alternative-btn.incorrect {
+            background-color: rgb(127 29 29);
+            border-color: rgb(239 68 68);
+        }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen">
@@ -160,7 +195,7 @@
         </header>
 
         <!-- Main content area -->
-        <main id="mainContent" class="flex-1 p-4">
+        <main id="mainContent" class="flex-1 p-4 flex flex-col">
             <!-- Content will be dynamically inserted here -->
         </main>
     </div>
@@ -189,11 +224,58 @@
                 usedQuestionIds: new Set() // Track used questions in current quiz
             },
             
-            // Section theme colors
+            // Section theme colors with subtopic variations
             sectionColors: {
-                '1': { bg: 'bg-blue-100', dark: 'dark:bg-blue-900', text: 'text-blue-800', darkText: 'dark:text-blue-200', main: '#3b82f6' },
-                '2': { bg: 'bg-green-100', dark: 'dark:bg-green-900', text: 'text-green-800', darkText: 'dark:text-green-200', main: '#10b981' },
-                '3': { bg: 'bg-purple-100', dark: 'dark:bg-purple-900', text: 'text-purple-800', darkText: 'dark:text-purple-200', main: '#8b5cf6' }
+                '1': { 
+                    bg: 'bg-blue-100', 
+                    dark: 'dark:bg-blue-900', 
+                    text: 'text-blue-800', 
+                    darkText: 'dark:text-blue-200', 
+                    main: '#3b82f6',
+                    subtopics: {
+                        '1.1': { bg: 'bg-blue-50', dark: 'dark:bg-blue-800', text: 'text-blue-700', darkText: 'dark:text-blue-300', main: '#60a5fa' },
+                        '1.2': { bg: 'bg-sky-100', dark: 'dark:bg-sky-900', text: 'text-sky-800', darkText: 'dark:text-sky-200', main: '#0ea5e9' },
+                        '1.3': { bg: 'bg-indigo-100', dark: 'dark:bg-indigo-900', text: 'text-indigo-800', darkText: 'dark:text-indigo-200', main: '#6366f1' }
+                    }
+                },
+                '2': { 
+                    bg: 'bg-green-100', 
+                    dark: 'dark:bg-green-900', 
+                    text: 'text-green-800', 
+                    darkText: 'dark:text-green-200', 
+                    main: '#10b981',
+                    subtopics: {
+                        '2.1': { bg: 'bg-emerald-100', dark: 'dark:bg-emerald-900', text: 'text-emerald-800', darkText: 'dark:text-emerald-200', main: '#34d399' },
+                        '2.2': { bg: 'bg-teal-100', dark: 'dark:bg-teal-900', text: 'text-teal-800', darkText: 'dark:text-teal-200', main: '#14b8a6' },
+                        '2.3': { bg: 'bg-lime-100', dark: 'dark:bg-lime-900', text: 'text-lime-800', darkText: 'dark:text-lime-200', main: '#84cc16' }
+                    }
+                },
+                '3': { 
+                    bg: 'bg-purple-100', 
+                    dark: 'dark:bg-purple-900', 
+                    text: 'text-purple-800', 
+                    darkText: 'dark:text-purple-200', 
+                    main: '#8b5cf6',
+                    subtopics: {
+                        '3.1': { bg: 'bg-violet-100', dark: 'dark:bg-violet-900', text: 'text-violet-800', darkText: 'dark:text-violet-200', main: '#7c3aed' },
+                        '3.2': { bg: 'bg-pink-100', dark: 'dark:bg-pink-900', text: 'text-pink-800', darkText: 'dark:text-pink-200', main: '#ec4899' },
+                        '3.3': { bg: 'bg-fuchsia-100', dark: 'dark:bg-fuchsia-900', text: 'text-fuchsia-800', darkText: 'dark:text-fuchsia-200', main: '#d946ef' }
+                    }
+                }
+            },
+            
+            // Get color for a section/subsection
+            getSectionColor(sectionId) {
+                const mainSectionId = sectionId.split('.')[0];
+                const mainColors = this.sectionColors[mainSectionId];
+                
+                if (!mainColors) return this.sectionColors['1']; // Fallback
+                
+                if (sectionId.includes('.') && mainColors.subtopics && mainColors.subtopics[sectionId]) {
+                    return mainColors.subtopics[sectionId];
+                }
+                
+                return mainColors;
             },
             
             // Show notification
@@ -404,12 +486,8 @@
             },
             
             // Parse text into words with positions
-            parseTextIntoWords(element) {
-                const text = element.textContent;
+            parseTextIntoWords(text) {
                 const words = [];
-                let currentIndex = 0;
-                
-                // Split by whitespace but keep track of positions
                 const matches = text.matchAll(/\S+/g);
                 for (const match of matches) {
                     words.push({
@@ -418,125 +496,57 @@
                         end: match.index + match[0].length
                     });
                 }
-                
                 return words;
             },
             
-            // Get words at position
-            getWordsAtPosition(element, x, y) {
-                const rect = element.getBoundingClientRect();
-                const relativeX = x - rect.left;
-                const relativeY = y - rect.top;
+            // Get word at click position
+            getWordAtPosition(element, clientX, clientY) {
+                const range = document.caretRangeFromPoint(clientX, clientY);
+                if (!range) return null;
                 
-                // Create a temporary span to measure text
-                const tempSpan = document.createElement('span');
-                tempSpan.style.cssText = window.getComputedStyle(element).cssText;
-                tempSpan.style.position = 'absolute';
-                tempSpan.style.visibility = 'hidden';
-                tempSpan.style.whiteSpace = 'pre-wrap';
-                tempSpan.style.width = rect.width + 'px';
-                document.body.appendChild(tempSpan);
+                const textNode = range.startContainer;
+                if (textNode.nodeType !== Node.TEXT_NODE) return null;
                 
-                const words = this.parseTextIntoWords(element);
-                let hoveredWords = [];
+                const text = textNode.textContent;
+                const offset = range.startOffset;
                 
-                // Find which word is at the position
-                let accumulatedText = '';
-                for (let i = 0; i < words.length; i++) {
-                    const word = words[i];
-                    tempSpan.textContent = accumulatedText + element.textContent.substring(accumulatedText.length, word.end);
-                    
-                    const height = tempSpan.offsetHeight;
-                    const lines = tempSpan.innerHTML.split('<br>').length;
-                    
-                    if (tempSpan.offsetHeight > relativeY) {
-                        // We're on the right line, now check X position
-                        const beforeWord = accumulatedText + element.textContent.substring(accumulatedText.length, word.start);
-                        tempSpan.textContent = beforeWord;
-                        const startX = tempSpan.offsetWidth % rect.width;
-                        
-                        tempSpan.textContent = beforeWord + word.text;
-                        const endX = tempSpan.offsetWidth % rect.width;
-                        
-                        if (relativeX >= startX && relativeX <= endX) {
-                            // Found the word, now get surrounding words
-                            const startIdx = Math.max(0, i - 1);
-                            const endIdx = Math.min(words.length - 1, i + 1);
-                            
-                            for (let j = startIdx; j <= endIdx; j++) {
-                                hoveredWords.push(words[j]);
-                            }
-                            break;
-                        }
-                    }
-                    
-                    accumulatedText = element.textContent.substring(0, word.end);
-                }
+                // Find word boundaries
+                let start = offset;
+                let end = offset;
                 
-                document.body.removeChild(tempSpan);
-                return hoveredWords;
+                while (start > 0 && /\S/.test(text[start - 1])) start--;
+                while (end < text.length && /\S/.test(text[end])) end++;
+                
+                if (start === end) return null;
+                
+                return {
+                    word: text.substring(start, end),
+                    start: start,
+                    end: end,
+                    textNode: textNode
+                };
             },
             
             // Setup translation tooltip
             setupTranslation() {
                 let pressTimer;
                 let isTranslating = false;
-                let currentElement = null;
-                let highlightedSpan = null;
                 const tooltip = document.getElementById('translationTooltip');
                 
-                const clearHighlight = () => {
-                    if (highlightedSpan) {
-                        const parent = highlightedSpan.parentNode;
-                        parent.innerHTML = parent.getAttribute('data-original-text') || parent.textContent;
-                        highlightedSpan = null;
-                    }
-                };
-                
                 const showTranslation = (element, x, y) => {
-                    if (!element.classList.contains('translatable')) return;
+                    if (!element || !element.classList.contains('translatable')) return;
                     
-                    currentElement = element;
+                    const wordInfo = this.getWordAtPosition(element, x, y);
+                    if (!wordInfo) return;
                     
-                    // Store original text
-                    if (!element.hasAttribute('data-original-text')) {
-                        element.setAttribute('data-original-text', element.innerHTML);
+                    // Track translated word
+                    const word = wordInfo.word.toLowerCase();
+                    if (!this.data.translationTracker.translatedWords.has(word)) {
+                        this.data.translationTracker.translatedWords.add(word);
                     }
-                    
-                    // Get words at position
-                    const words = this.getWordsAtPosition(element, x, y);
-                    if (words.length === 0) return;
-                    
-                    // Clear previous highlight
-                    clearHighlight();
-                    
-                    // Create highlighted version
-                    const originalText = element.getAttribute('data-original-text');
-                    let highlightedText = originalText;
-                    
-                    // Replace words with highlighted versions (in reverse order to maintain positions)
-                    for (let i = words.length - 1; i >= 0; i--) {
-                        const word = words[i];
-                        highlightedText = 
-                            highlightedText.substring(0, word.start) +
-                            `<span class="word-highlight">${word.text}</span>` +
-                            highlightedText.substring(word.end);
-                    }
-                    
-                    element.innerHTML = highlightedText;
-                    highlightedSpan = element.querySelector('.word-highlight');
-                    
-                    // Track translated words
-                    const wordTexts = words.map(w => w.text.toLowerCase());
-                    wordTexts.forEach(word => {
-                        if (!this.data.translationTracker.translatedWords.has(word)) {
-                            this.data.translationTracker.translatedWords.add(word);
-                        }
-                    });
                     
                     // Get translation
-                    const textToTranslate = words.map(w => w.text).join(' ');
-                    const translation = this.translateWords(textToTranslate, element);
+                    const translation = this.translateWords(wordInfo.word, element);
                     
                     tooltip.textContent = translation;
                     tooltip.style.left = x + 'px';
@@ -551,58 +561,46 @@
                     }
                 };
                 
-                const updateTranslation = (x, y) => {
-                    if (!isTranslating || !currentElement) return;
-                    
-                    showTranslation(currentElement, x, y);
-                };
-                
                 const hideTranslation = () => {
-                    clearHighlight();
                     tooltip.classList.add('hidden');
                     isTranslating = false;
-                    currentElement = null;
                     clearTimeout(pressTimer);
                 };
                 
-                // Touch events
+                // Touch events for mobile
                 document.addEventListener('touchstart', (e) => {
                     const target = e.target.closest('.translatable');
-                    if (target) {
+                    if (target && !target.closest('.alternative-btn')) {
                         e.preventDefault();
                         pressTimer = setTimeout(() => {
                             const touch = e.touches[0];
                             showTranslation(target, touch.clientX, touch.clientY);
-                        }, 300);
-                    }
-                });
-                
-                document.addEventListener('touchmove', (e) => {
-                    if (isTranslating && e.touches.length > 0) {
-                        const touch = e.touches[0];
-                        updateTranslation(touch.clientX, touch.clientY);
+                        }, 500);
                     }
                 });
                 
                 document.addEventListener('touchend', hideTranslation);
+                document.addEventListener('touchcancel', hideTranslation);
                 
                 // Mouse events for desktop
-                document.addEventListener('mousedown', (e) => {
-                    const target = e.target.closest('.translatable');
-                    if (target) {
-                        pressTimer = setTimeout(() => {
-                            showTranslation(target, e.clientX, e.clientY);
-                        }, 300);
-                    }
-                });
-                
+                let mouseTimer;
                 document.addEventListener('mousemove', (e) => {
-                    if (isTranslating) {
-                        updateTranslation(e.clientX, e.clientY);
+                    const target = e.target.closest('.translatable');
+                    if (target && !target.closest('.alternative-btn')) {
+                        clearTimeout(mouseTimer);
+                        mouseTimer = setTimeout(() => {
+                            showTranslation(target, e.clientX, e.clientY);
+                        }, 500);
+                    } else {
+                        clearTimeout(mouseTimer);
+                        hideTranslation();
                     }
                 });
                 
-                document.addEventListener('mouseup', hideTranslation);
+                document.addEventListener('mouseleave', () => {
+                    clearTimeout(mouseTimer);
+                    hideTranslation();
+                });
             },
             
             // Translate specific words
@@ -610,73 +608,73 @@
                 const lang = this.data.currentLanguage;
                 const translationKey = element.getAttribute('data-translation-key');
                 
-                // If we have a full translation for this element, parse it
+                // If we have a full translation for this element, try to map the word
                 if (translationKey && this.data.currentQuestionTranslations[translationKey]) {
                     const fullTranslation = this.data.currentQuestionTranslations[translationKey];
-                    const norwegianText = element.getAttribute('data-original-text') || element.textContent;
+                    const norwegianText = element.textContent;
                     
-                    // Try to find corresponding words in translation
+                    // Simple word mapping - in real app would use more sophisticated approach
                     const norwegianWords = norwegianText.toLowerCase().split(/\s+/);
                     const translatedWords = fullTranslation.split(/\s+/);
                     
-                    const searchWords = text.toLowerCase().split(/\s+/);
-                    const translatedParts = [];
+                    const searchWord = text.toLowerCase();
+                    const wordIndex = norwegianWords.findIndex(w => w.includes(searchWord) || searchWord.includes(w));
                     
-                    searchWords.forEach(searchWord => {
-                        const wordIndex = norwegianWords.findIndex(w => w.includes(searchWord) || searchWord.includes(w));
-                        if (wordIndex !== -1 && wordIndex < translatedWords.length) {
-                            translatedParts.push(translatedWords[wordIndex]);
-                        }
-                    });
-                    
-                    if (translatedParts.length > 0) {
-                        return translatedParts.join(' ');
+                    if (wordIndex !== -1 && wordIndex < translatedWords.length) {
+                        return translatedWords[wordIndex];
                     }
                 }
                 
-                // Fallback to word-by-word translation
+                // Fallback to dictionary translation
                 const translations = {
                     pb: {
                         "alle": "todos",
                         "innvandrere": "imigrantes",
                         "norge": "noruega",
+                        "har": "têm",
                         "plikt": "obrigação",
+                        "til": "de",
+                        "å": "a",
+                        "ta": "fazer",
                         "norskopplæring": "curso de norueguês",
                         "rett": "certo",
                         "galt": "errado",
                         "barn": "crianças",
                         "gratis": "gratuita",
                         "utdanning": "educação",
-                        "demokrati": "democracia"
+                        "demokrati": "democracia",
+                        "er": "é",
+                        "et": "uma"
                     },
                     en: {
                         "alle": "all",
                         "innvandrere": "immigrants",
                         "norge": "norway",
+                        "har": "have",
                         "plikt": "obligation",
+                        "til": "to",
+                        "å": "to",
+                        "ta": "take",
                         "norskopplæring": "norwegian classes",
                         "rett": "right",
                         "galt": "wrong",
                         "barn": "children",
                         "gratis": "free",
                         "utdanning": "education",
-                        "demokrati": "democracy"
+                        "demokrati": "democracy",
+                        "er": "is",
+                        "et": "a"
                     }
                 };
                 
-                const words = text.toLowerCase().split(/\s+/);
-                const translatedWords = words.map(word => 
-                    translations[lang]?.[word] || word
-                );
-                
-                return translatedWords.join(' ');
+                const word = text.toLowerCase().replace(/[.,!?]/g, '');
+                return translations[lang]?.[word] || text;
             },
             
             // Update translation percentage
             updateTranslationPercent() {
                 const percentEl = document.getElementById('translationPercent');
                 if (percentEl && this.data.translationTracker.totalWords > 0) {
-                    // Count unique translated words vs total unique words
                     const percent = Math.min(100, Math.round((this.data.translationTracker.translatedWords.size / this.data.translationTracker.totalWords) * 100));
                     percentEl.textContent = percent;
                 }
@@ -872,8 +870,8 @@
             showTopicModal(topicId, isSubtopic = false) {
                 const topic = this.data.descriptions.no.find(d => d.id === topicId);
                 const subtopics = this.data.descriptions.no.filter(d => d.id.startsWith(topicId + '.'));
+                const colors = this.getSectionColor(topicId);
                 const mainSectionId = topicId.split('.')[0];
-                const colors = this.sectionColors[mainSectionId];
                 
                 // Get parent topic if this is a subtopic
                 const parentTopic = isSubtopic ? this.data.descriptions.no.find(d => d.id === mainSectionId) : null;
@@ -1040,10 +1038,9 @@
                 const quiz = this.data.currentQuiz;
                 const displayIndex = viewIndex !== null ? viewIndex : quiz.currentIndex;
                 const question = quiz.questions[displayIndex];
-                const sectionId = question.section.split('.')[0];
                 const sectionName = this.getSectionName(question.section);
                 const subsectionName = question.section.includes('.') ? this.getSubsectionName(question.section) : '';
-                const colors = this.sectionColors[sectionId];
+                const colors = this.getSectionColor(question.section);
                 
                 // Load translations for this question
                 this.loadQuestionTranslations(question);
@@ -1063,11 +1060,12 @@
                 const isReviewing = viewIndex !== null;
                 
                 const mainContent = document.getElementById('mainContent');
+                mainContent.className = 'flex-1 p-4 flex flex-col';
                 mainContent.innerHTML = `
-                    <div class="h-full flex flex-col">
-                        <div class="pt-4 pb-6">
-                            <div class="flex ${subsectionName ? 'justify-between' : 'justify-center'} items-center gap-2 mb-6">
-                                <button onclick="app.showTopicModal('${sectionId}')" 
+                    <div class="flex-1 flex flex-col">
+                        <div class="pb-6">
+                            <div class="flex ${subsectionName ? 'justify-between' : 'justify-center'} items-center gap-2 mb-10">
+                                <button onclick="app.showTopicModal('${question.section.split('.')[0]}')" 
                                         class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
                                     ${sectionName}
                                 </button>
@@ -1080,47 +1078,44 @@
                             </div>
                         </div>
                         
-                        <div class="flex-1 flex flex-col justify-center">
-                            <div class="space-y-8">
-                                <h2 class="text-xl font-medium text-center translatable px-4" id="questionText" data-translation-key="question">
+                        <div class="flex-1 flex flex-col justify-between">
+                            <div class="mb-8">
+                                <h2 class="text-xl font-medium text-center translatable px-4 mb-8" id="questionText" data-translation-key="question">
                                     ${question.question}
                                 </h2>
-                                
-                                <div class="space-y-3 px-4" id="alternatives">
-                                    ${question.alternatives.map((alt, index) => {
-                                        let classes = 'alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg transition-colors translatable';
-                                        
-                                        if (isAnswered) {
-                                            classes += ' pointer-events-none';
-                                            if (index === question.correct) {
-                                                classes += ' bg-green-100 dark:bg-green-900 border-green-500';
-                                            } else if (answer && index === answer.answerIndex && !answer.correct) {
-                                                classes += ' bg-red-100 dark:bg-red-900 border-red-500';
-                                            }
-                                        } else if (!isReviewing) {
-                                            classes += ' hover:border-blue-500 dark:hover:border-blue-400';
-                                        }
-                                        
-                                        return `
-                                            <button onclick="${!isAnswered && !isReviewing ? `app.answerQuestion(${index})` : ''}" 
-                                                    class="${classes}"
-                                                    data-translation-key="alt_${index}"
-                                                    ${isAnswered || isReviewing ? 'disabled' : ''}>
-                                                ${alt}
-                                            </button>
-                                        `;
-                                    }).join('')}
-                                </div>
-                                
-                                ${!isReviewing ? `
-                                    <div class="text-center text-sm text-gray-500 dark:text-gray-400">
-                                        <span id="translationPercent">0</span>% oversatt
-                                    </div>
-                                ` : ''}
                             </div>
+                            
+                            <div class="space-y-3 px-4 mb-6" id="alternatives">
+                                ${question.alternatives.map((alt, index) => {
+                                    let classes = 'alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg transition-colors';
+                                    
+                                    if (isAnswered) {
+                                        if (index === question.correct) {
+                                            classes += ' correct border-glow';
+                                        } else if (answer && index === answer.answerIndex && !answer.correct) {
+                                            classes += ' incorrect shake';
+                                        }
+                                    }
+                                    
+                                    return `
+                                        <button onclick="${!isAnswered && !isReviewing ? `app.answerQuestion(${index})` : ''}" 
+                                                class="${classes}"
+                                                data-translation-key="alt_${index}"
+                                                ${isAnswered || isReviewing ? 'disabled' : ''}>
+                                            ${alt}
+                                        </button>
+                                    `;
+                                }).join('')}
+                            </div>
+                            
+                            ${!isReviewing ? `
+                                <div class="text-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                    <span id="translationPercent">0</span>% oversatt
+                                </div>
+                            ` : ''}
                         </div>
                         
-                        <div class="mt-4 p-4 space-y-3">
+                        <div class="mt-auto space-y-3">
                             ${!isReviewing ? `
                                 <div class="flex justify-between items-center">
                                     <div class="flex gap-2">
@@ -1150,7 +1145,7 @@
                                      style="width: ${((displayIndex + 1) / quiz.questions.length) * 100}%"></div>
                             </div>
                             
-                            <button onclick="app.showMainPage()" 
+                            <button onclick="${isReviewing ? 'app.showQuizResults()' : 'app.showMainPage()'}" 
                                     class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
                                 ${isReviewing ? 'Tilbake til resultater' : 'Avbryt quiz'}
                             </button>
@@ -1158,17 +1153,16 @@
                     </div>
                 `;
                 
-                // Auto-advance after answer if not reviewing
+                // Fixed: Auto-advance after answer if not reviewing
                 if (isAnswered && !isReviewing && displayIndex === quiz.currentIndex) {
-                    const delay = answer.correct ? 1500 : 3000; // Longer delay for wrong answers
                     setTimeout(() => {
-                        quiz.currentIndex++;
-                        if (quiz.currentIndex < quiz.questions.length) {
+                        if (quiz.currentIndex < quiz.questions.length - 1) {
+                            quiz.currentIndex++;
                             this.showQuizQuestion();
                         } else {
                             this.showQuizResults();
                         }
-                    }, delay);
+                    }, 1500); // Fixed delay for all answers
                 }
             },
             
@@ -1211,39 +1205,20 @@
                 const buttons = document.querySelectorAll('.alternative-btn');
                 buttons.forEach((btn, index) => {
                     btn.disabled = true;
-                    btn.classList.remove('hover:border-blue-500', 'dark:hover:border-blue-400');
                     if (index === question.correct) {
-                        btn.classList.add('bg-green-100', 'dark:bg-green-900', 'border-green-500');
+                        btn.classList.add('correct');
+                        if (isCorrect && index === answerIndex) {
+                            btn.classList.add('border-glow');
+                        }
                     } else if (index === answerIndex && !isCorrect) {
-                        btn.classList.add('bg-red-100', 'dark:bg-red-900', 'border-red-500', 'shake');
+                        btn.classList.add('incorrect', 'shake');
                     }
                 });
-                
-                // Show sparkles for perfect score
-                if (isCorrect && translationPercent === 0) {
-                    this.showSparkles();
-                }
                 
                 // Update navigation buttons
                 const prevBtn = document.querySelector('.nav-button');
                 if (prevBtn && quiz.currentIndex > 0) {
                     prevBtn.disabled = false;
-                }
-            },
-            
-            // Show sparkle animation
-            showSparkles() {
-                const container = document.getElementById('alternatives');
-                const rect = container.getBoundingClientRect();
-                
-                for (let i = 0; i < 8; i++) {
-                    const sparkle = document.createElement('div');
-                    sparkle.className = 'absolute w-2 h-2 bg-yellow-400 rounded-full sparkle';
-                    sparkle.style.left = `${rect.left + Math.random() * rect.width}px`;
-                    sparkle.style.top = `${rect.top + Math.random() * rect.height}px`;
-                    document.body.appendChild(sparkle);
-                    
-                    setTimeout(() => sparkle.remove(), 600);
                 }
             },
             
@@ -1286,8 +1261,9 @@
                 document.getElementById('header').style.display = 'flex';
                 
                 const mainContent = document.getElementById('mainContent');
+                mainContent.className = 'flex-1 p-4 flex flex-col';
                 mainContent.innerHTML = `
-                    <div class="h-full flex flex-col justify-center">
+                    <div class="flex-1 flex flex-col justify-center">
                         <div class="text-center space-y-6">
                             <h2 class="text-2xl font-bold">Quiz fullført!</h2>
                             
@@ -1358,6 +1334,8 @@
             
             // Review quiz answers
             reviewQuiz() {
+                // Hide header during review
+                document.getElementById('header').style.display = 'none';
                 this.data.currentQuiz.viewingIndex = 0;
                 this.showQuizQuestion(0);
             },
