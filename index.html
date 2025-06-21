@@ -580,15 +580,27 @@ class TranslationManager {
                 const translation = this.getTranslationWithContext(element, charInfo.index);
                 if (!translation) return;
                 
-                // Track characters in range as translated
+                // Track characters in range as translated using fractional positioning
                 const text = element.textContent;
-                const startIdx = Math.max(0, charInfo.index - this.contextRadius);
-                const endIdx = Math.min(text.length, charInfo.index + this.contextRadius);
+                const norwegianLength = text.length;
+                
+                // Calculate fractional position
+                const fractionalPosition = charInfo.index / Math.max(1, norwegianLength - 1);
+                
+                // Calculate the fractional range that should be marked as translated
+                const fracStart = Math.max(0, fractionalPosition - (this.contextRadius / norwegianLength));
+                const fracEnd = Math.min(1, fractionalPosition + (this.contextRadius / norwegianLength));
+                
+                // Convert back to character indices
+                const startIdx = Math.floor(fracStart * norwegianLength);
+                const endIdx = Math.ceil(fracEnd * norwegianLength);
                 
                 for (let i = startIdx; i < endIdx; i++) {
-                    const char = text[i].toLowerCase();
-                    if (char.match(/[a-zæøå]/i)) { // Only count letters
-                        this.translatedChars.add(`${element.getAttribute('data-translation-key')}_${i}`);
+                    if (i >= 0 && i < text.length) {
+                        const char = text[i].toLowerCase();
+                        if (char.match(/[a-zæøå]/i)) { // Only count letters
+                            this.translatedChars.add(`${element.getAttribute('data-translation-key')}_${i}`);
+                        }
                     }
                 }
                 
@@ -988,22 +1000,56 @@ class TranslationManager {
         
         if (!translatedText) return null;
         
-        // Calculate character range to show
-        const startIdx = Math.max(0, charIndex - this.contextRadius);
-        const endIdx = Math.min(norwegianText.length, charIndex + this.contextRadius + 1);
+        // Calculate fractional position (0.0 to 1.0) of the character in Norwegian text
+        const fractionalPosition = charIndex / Math.max(1, norwegianText.length - 1);
         
-        // For simple mapping, assume similar position in translated text
-        const ratio = charIndex / norwegianText.length;
-        const translatedCharIndex = Math.floor(ratio * translatedText.length);
+        // Map to position in translated text
+        const translatedCenterIndex = Math.round(fractionalPosition * (translatedText.length - 1));
         
-        const transStartIdx = Math.max(0, translatedCharIndex - this.contextRadius);
-        const transEndIdx = Math.min(translatedText.length, translatedCharIndex + this.contextRadius + 1);
+        // Calculate context window in translated text
+        let transStartIdx = translatedCenterIndex - this.contextRadius;
+        let transEndIdx = translatedCenterIndex + this.contextRadius + 1;
+        
+        // Handle edge cases - ensure we always show a full context window
+        if (transStartIdx < 0) {
+            // Near the beginning - shift window to show more characters
+            transEndIdx = Math.min(translatedText.length, transEndIdx - transStartIdx);
+            transStartIdx = 0;
+        } else if (transEndIdx > translatedText.length) {
+            // Near the end - shift window to show more characters
+            transStartIdx = Math.max(0, transStartIdx - (transEndIdx - translatedText.length));
+            transEndIdx = translatedText.length;
+        }
+        
+        // Ensure we show at least 2 * contextRadius characters if possible
+        const desiredLength = 2 * this.contextRadius + 1;
+        const currentLength = transEndIdx - transStartIdx;
+        
+        if (currentLength < desiredLength && translatedText.length >= desiredLength) {
+            const expansion = desiredLength - currentLength;
+            const expandLeft = Math.floor(expansion / 2);
+            const expandRight = expansion - expandLeft;
+            
+            transStartIdx = Math.max(0, transStartIdx - expandLeft);
+            transEndIdx = Math.min(translatedText.length, transEndIdx + expandRight);
+            
+            // Final adjustment if we hit boundaries
+            if (transStartIdx === 0 && transEndIdx < desiredLength) {
+                transEndIdx = Math.min(translatedText.length, desiredLength);
+            } else if (transEndIdx === translatedText.length && transEndIdx - transStartIdx < desiredLength) {
+                transStartIdx = Math.max(0, translatedText.length - desiredLength);
+            }
+        }
         
         let translatedContext = translatedText.substring(transStartIdx, transEndIdx);
         
-        // Add ellipsis if needed
-        if (transStartIdx > 0) translatedContext = '...' + translatedContext;
-        if (transEndIdx < translatedText.length) translatedContext = translatedContext + '...';
+        // Add ellipsis only if we're actually truncating
+        if (transStartIdx > 0) {
+            translatedContext = '...' + translatedContext;
+        }
+        if (transEndIdx < translatedText.length) {
+            translatedContext = translatedContext + '...';
+        }
         
         return translatedContext;
     }
