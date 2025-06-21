@@ -1,7 +1,7 @@
 [
     {
       "id": "1",
-      "title": "Familie og helse",
+      "title": "Utdanning, kompetanse og arbeidsliv",
       "description": "Dette temaet gir en innføring i grunnleggende strukturer og verdier som preger det norske samfunnet, med fokus på individets rolle og ansvar. Innholdet dekker sentrale arenaer for deltakelse og personlig utvikling, som utdanning, arbeid og digital kompetanse. Målet er å gi nyankomne en forståelse av de systemene og forventningene som danner grunnlaget for et aktivt og integrert liv i Norge. Temaet belyser hvordan staten legger til rette for deltakelse, men også hvilket ansvar den enkelte har for å benytte seg av disse mulighetene.",
       "learning_goals": [
         "Forstå sammenhengen mellom utdanning, arbeid og samfunnsdeltakelse i Norge.",
@@ -86,7 +86,7 @@
     },
     {
       "id": "2",
-      "title": "Demokrati og velferdsstat",
+      "title": "Familie, helse og hverdagsliv",
       "description": "Dette temaet utforsker hvordan det norske samfunnet er organisert, med et særskilt fokus på samspillet mellom individ, familie og stat. Det belyser normer og verdier som styrer dagliglivet, fra familierelasjoner til personlig økonomi og helse. En sentral del er forståelsen av velferdsstatens rolle som et sikkerhetsnett, men også som en beskytter av individets grunnleggende rettigheter til et fritt og selvstendig liv. Temaet tar for seg hvordan man som ny i Norge kan navigere i dette systemet og forstå balansen mellom rettigheter og plikter.",
       "learning_goals": [
         "Forstå de sentrale prinsippene for den norske velferdsstaten.",
@@ -218,7 +218,7 @@
     },
     {
       "id": "3",
-      "title": "Historie, geografi og levesett",
+      "title": "Norge før og nå",
       "description": "Dette temaet tar for seg de grunnleggende pilarene i norsk nasjonal identitet: en felles historie, et demokratisk styresett og et dypt forhold til naturen. Kapitlene viser hvordan disse elementene er vevd sammen og til sammen former det moderne Norge. Fra geografiske og politiske fakta, via historiske linjer og demokratiske prinsipper, til det komplekse forholdet mellom naturressurser og bærekraft, gir temaet en helhetlig forståelse av hva som definerer nasjonen i dag.",
       "learning_goals": [
         "Gjøre rede for sentrale fakta om Norges geografi, styreform og befolkning.",
