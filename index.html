@@ -207,7 +207,7 @@
     <div id="notificationContainer" class="fixed top-4 right-4 z-50"></div>
 
 <script>
-console.log("Version: 1.0");
+console.log("Version: 1.01");
 // App state
 const app = {
     data: {
@@ -1050,17 +1050,16 @@ const app = {
         const allText = question.question + ' ' + question.alternatives.join(' ');
         this.data.translationTracker.totalWords = this.countUniqueWords(allText);
         
-        // If viewing history, preserve translated words
-        if (viewIndex === null) {
+        // If viewing current question (not history), reset translated words
+        if (viewIndex === null || viewIndex === quiz.currentIndex) {
             this.data.translationTracker.translatedWords = new Set();
         }
         
         // Check if this question has been answered
         const answer = quiz.answers[displayIndex];
         const isAnswered = answer !== undefined;
-        // We're only reviewing if the quiz is complete (all questions answered)
-        const isReviewing = quiz.answers.length === quiz.questions.length;
-        const isNavigatingBack = viewIndex !== null && !isReviewing;
+        const isQuizComplete = quiz.answers.length === quiz.questions.length;
+        const isViewingHistory = viewIndex !== null && viewIndex < quiz.currentIndex;
         
         const mainContent = document.getElementById('mainContent');
         mainContent.className = 'flex-1 p-4 flex flex-col';
@@ -1100,11 +1099,14 @@ const app = {
                                 }
                             }
                             
+                            // Only allow clicking if this is the current unanswered question
+                            const isClickable = !isAnswered && displayIndex === quiz.currentIndex;
+                            
                             return `
-                                <button onclick="${!isAnswered && !isReviewing && !isNavigatingBack ? `app.answerQuestion(${index})` : ''}" 
+                                <button onclick="${isClickable ? `app.answerQuestion(${index})` : ''}" 
                                         class="${classes}"
                                         data-translation-key="alt_${index}"
-                                        ${isAnswered || isReviewing || isNavigatingBack ? 'disabled' : ''}>
+                                        ${!isClickable ? 'disabled' : ''}>
                                     ${alt}
                                 </button>
                             `;
@@ -1144,12 +1146,12 @@ const app = {
                             style="width: ${((displayIndex + 1) / quiz.questions.length) * 100}%"></div>
                     </div>
                     
-                    ${isReviewing ? `
+                    ${isQuizComplete ? `
                         <button onclick="app.showQuizResults()" 
                                 class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
                             Tilbake til resultater
                         </button>
-                    ` : isNavigatingBack ? `
+                    ` : isViewingHistory ? `
                         <button onclick="app.showQuizQuestion()" 
                                 class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
                             Tilbake til aktiv spørsmål
@@ -1165,10 +1167,12 @@ const app = {
         `;
     },
 
-    // Updated navigateQuiz function to handle the navigation better
+    // Updated navigateQuiz function
     navigateQuiz(direction) {
         const quiz = this.data.currentQuiz;
-        const currentDisplay = quiz.viewingIndex !== null ? quiz.viewingIndex : quiz.currentIndex;
+        const currentDisplay = quiz.viewingIndex !== undefined && quiz.viewingIndex !== null 
+            ? quiz.viewingIndex 
+            : quiz.currentIndex;
         const newIndex = currentDisplay + direction;
         
         if (newIndex >= 0 && newIndex <= quiz.currentIndex) {
@@ -1176,8 +1180,8 @@ const app = {
             this.showQuizQuestion(newIndex);
         }
     },
-    
-    // Answer question
+
+    // Updated answerQuestion to properly reset viewingIndex
     answerQuestion(answerIndex) {
         const quiz = this.data.currentQuiz;
         const question = quiz.questions[quiz.currentIndex];
@@ -1198,8 +1202,8 @@ const app = {
             timestamp: Date.now()
         });
         
-        // Update viewing index
-        quiz.viewingIndex = quiz.currentIndex;
+        // Reset viewing index to current
+        quiz.viewingIndex = null;
         
         // Show result animation
         const buttons = document.querySelectorAll('.alternative-btn');
@@ -1215,23 +1219,26 @@ const app = {
             }
         });
         
-        // Update navigation buttons
-        const prevBtn = document.querySelector('.nav-button');
-        if (prevBtn && quiz.currentIndex > 0) {
-            prevBtn.disabled = false;
-        }
-        
         // Auto-advance to next question
         setTimeout(() => {
             if (quiz.currentIndex < quiz.questions.length - 1) {
                 quiz.currentIndex++;
-                quiz.viewingIndex = quiz.currentIndex;
+                quiz.viewingIndex = null; // Reset viewing index
                 this.showQuizQuestion();
             } else {
                 // Quiz is complete
                 this.showQuizResults();
             }
         }, 1500);
+    },
+
+    // Also update reviewQuiz to ensure proper state
+    reviewQuiz() {
+        // Hide header during review
+        document.getElementById('header').style.display = 'none';
+        // Set viewing index to 0 to start review from beginning
+        this.data.currentQuiz.viewingIndex = 0;
+        this.showQuizQuestion(0);
     },
 
     // Show quiz question
@@ -1353,16 +1360,6 @@ const app = {
                 </div>
             </div>
         `;
-    },
-
-    
-    // Review quiz answers
-    reviewQuiz() {
-        // Hide header during review
-        document.getElementById('header').style.display = 'none';
-        // Make sure we're in review mode
-        this.data.currentQuiz.viewingIndex = 0;
-        this.showQuizQuestion(0); // Pass 0 to indicate we're reviewing
     },
     
     // Render star rating
