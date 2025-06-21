@@ -84,29 +84,29 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            }
+        }
 
-            .dark .translation-tooltip {
+        .dark .translation-tooltip {
             background: #374151;
             color: #f3f4f6;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
-            }
+        }
 
-            /* Active translation state */
-            .translating {
+        /* Active translation state */
+        .translating {
             background-color: rgba(59, 130, 246, 0.1) !important;
             transition: background-color 0.2s ease;
-            }
+        }
 
-            .dark .translating {
+        .dark .translating {
             background-color: rgba(59, 130, 246, 0.2) !important;
-            }
+        }
 
-            /* Improve button states during translation */
-            .alternative-btn.translating {
+        /* Improve button states during translation */
+        .alternative-btn.translating {
             border-color: rgb(59 130 246) !important;
-            }
+        }
         
         .translatable {
             cursor: help;
@@ -648,8 +648,7 @@ class QuizManager {
 }
 
 // Translation Manager
-// Translation Manager - Fixed for answer options
-// Translation Manager - Improved positioning and styling
+// Translation Manager - Improved with dynamic word tracking
 class TranslationManager {
     constructor(stateManager, dataManager) {
         this.state = stateManager;
@@ -662,70 +661,86 @@ class TranslationManager {
         this.isTranslating = false;
         this.pressTimer = null;
         this.currentElement = null;
-        this.lastTranslatedElement = null;
+        this.currentWordIndex = null;
     }
     
     setupEventListeners() {
         const tooltip = document.getElementById('translationTooltip');
         
-        const showTranslation = (element, x, y) => {
+        const updateTranslation = (element, x, y) => {
             if (!element || !element.classList.contains('translatable')) return;
-            
-            // Don't re-show if it's the same element
-            if (element === this.lastTranslatedElement && this.isTranslating) return;
             
             const wordInfo = this.getWordAtPosition(element, x, y);
             if (!wordInfo) return;
             
-            const translation = this.getTranslationWithContext(element, wordInfo.index);
-            if (!translation) return;
-            
-            // Track this word as translated
-            const wordKey = wordInfo.text.toLowerCase().replace(/[.,!?]/g, '');
-            if (wordKey.length > 1 && !this.translatedWords.has(wordKey)) {
-                this.translatedWords.add(wordKey);
-                this.updateTranslationPercentage();
+            // Check if we're on a different word or element
+            if (element !== this.currentElement || wordInfo.index !== this.currentWordIndex) {
+                const translation = this.getTranslationWithContext(element, wordInfo.index);
+                if (!translation) return;
+                
+                // Track this word as translated
+                const wordKey = wordInfo.text.toLowerCase().replace(/[.,!?]/g, '');
+                if (wordKey.length > 1 && !this.translatedWords.has(wordKey)) {
+                    this.translatedWords.add(wordKey);
+                    this.updateTranslationPercentage();
+                }
+                
+                // Update tooltip content
+                tooltip.textContent = translation;
+                
+                // Position tooltip above the element
+                const rect = element.getBoundingClientRect();
+                const tooltipHeight = 40; // Approximate height
+                
+                // Calculate position
+                let top = rect.top - tooltipHeight - 10;
+                let left = rect.left + rect.width / 2;
+                
+                // Ensure tooltip stays within viewport
+                if (top < 10) {
+                    top = rect.bottom + 10; // Show below if no room above
+                }
+                
+                // Get tooltip width after content is set
+                tooltip.classList.remove('hidden');
+                const tooltipRect = tooltip.getBoundingClientRect();
+                
+                // Center horizontally and keep within viewport
+                left = Math.max(10, Math.min(left - tooltipRect.width / 2, window.innerWidth - tooltipRect.width - 10));
+                
+                tooltip.style.left = left + 'px';
+                tooltip.style.top = top + 'px';
+                
+                // Update state
+                this.currentElement = element;
+                this.currentWordIndex = wordInfo.index;
+                
+                // Update active state
+                document.querySelectorAll('.translating').forEach(el => {
+                    if (el !== element) el.classList.remove('translating');
+                });
+                element.classList.add('translating');
             }
-            
-            // Update tooltip content
-            tooltip.textContent = translation;
-            
-            // Position tooltip above the element
-            const rect = element.getBoundingClientRect();
-            const tooltipHeight = 40; // Approximate height
-            
-            // Calculate position
-            let top = rect.top - tooltipHeight - 10;
-            let left = rect.left + rect.width / 2;
-            
-            // Ensure tooltip stays within viewport
-            if (top < 10) {
-                top = rect.bottom + 10; // Show below if no room above
-            }
-            
-            // Get tooltip width after content is set
-            tooltip.classList.remove('hidden');
-            const tooltipRect = tooltip.getBoundingClientRect();
-            
-            // Center horizontally and keep within viewport
-            left = Math.max(10, Math.min(left - tooltipRect.width / 2, window.innerWidth - tooltipRect.width - 10));
-            
-            tooltip.style.left = left + 'px';
-            tooltip.style.top = top + 'px';
+        };
+        
+        const startTranslation = (element, x, y) => {
+            if (!element || !element.classList.contains('translatable')) return;
             
             this.isTranslating = true;
-            this.currentElement = element;
-            this.lastTranslatedElement = element;
             
-            // Add active state to element
-            element.classList.add('translating');
+            // Add haptic feedback if available
+            if ('vibrate' in navigator) {
+                navigator.vibrate(10);
+            }
+            
+            updateTranslation(element, x, y);
         };
         
         const hideTranslation = () => {
             tooltip.classList.add('hidden');
             this.isTranslating = false;
             this.currentElement = null;
-            this.lastTranslatedElement = null;
+            this.currentWordIndex = null;
             
             // Remove active state from all elements
             document.querySelectorAll('.translating').forEach(el => {
@@ -745,7 +760,7 @@ class TranslationManager {
                 e.stopPropagation();
                 e.stopImmediatePropagation();
             }
-        }, true); // Use capture phase
+        }, true);
         
         // Touch events for mobile
         let touchStartElement = null;
@@ -754,54 +769,43 @@ class TranslationManager {
             const target = e.target.closest('.translatable');
             if (target) {
                 touchStartElement = target;
+                const touch = e.touches[0];
                 
                 this.pressTimer = setTimeout(() => {
                     e.preventDefault();
-                    const touch = e.touches[0];
-                    
-                    // Add haptic feedback if available
-                    if ('vibrate' in navigator) {
-                        navigator.vibrate(10);
-                    }
-                    
-                    showTranslation(target, touch.clientX, touch.clientY);
+                    startTranslation(target, touch.clientX, touch.clientY);
                 }, 500);
             }
         });
         
         document.addEventListener('touchmove', (e) => {
-            // Clear timer if user moves finger before long press
-            if (this.pressTimer && !this.isTranslating) {
-                const touch = e.touches[0];
-                const moveThreshold = 10;
-                
-                if (touchStartElement) {
-                    const rect = touchStartElement.getBoundingClientRect();
-                    const movedOut = touch.clientX < rect.left - moveThreshold ||
-                                   touch.clientX > rect.right + moveThreshold ||
-                                   touch.clientY < rect.top - moveThreshold ||
-                                   touch.clientY > rect.bottom + moveThreshold;
-                    
-                    if (movedOut) {
-                        clearTimeout(this.pressTimer);
-                        this.pressTimer = null;
-                    }
-                }
-            }
-            
-            // If translating, allow dragging to other elements
             if (this.isTranslating) {
                 e.preventDefault();
                 const touch = e.touches[0];
                 const element = document.elementFromPoint(touch.clientX, touch.clientY);
                 const translatable = element?.closest('.translatable');
                 
-                if (translatable && translatable !== this.currentElement) {
-                    // Remove active state from previous element
+                if (translatable) {
+                    updateTranslation(translatable, touch.clientX, touch.clientY);
+                } else {
+                    // Hide tooltip if not over translatable element
+                    tooltip.classList.add('hidden');
                     if (this.currentElement) {
                         this.currentElement.classList.remove('translating');
                     }
-                    showTranslation(translatable, touch.clientX, touch.clientY);
+                }
+            } else if (this.pressTimer && touchStartElement) {
+                // Cancel timer if moved before activation
+                const touch = e.touches[0];
+                const rect = touchStartElement.getBoundingClientRect();
+                const movedOut = touch.clientX < rect.left - 10 ||
+                               touch.clientX > rect.right + 10 ||
+                               touch.clientY < rect.top - 10 ||
+                               touch.clientY > rect.bottom + 10;
+                
+                if (movedOut) {
+                    clearTimeout(this.pressTimer);
+                    this.pressTimer = null;
                 }
             }
         });
@@ -823,47 +827,45 @@ class TranslationManager {
         // Mouse events for desktop testing
         let mouseTimer;
         let mouseDownTarget = null;
-        let mouseStartX, mouseStartY;
         
         document.addEventListener('mousedown', (e) => {
             const target = e.target.closest('.translatable');
             if (target) {
                 mouseDownTarget = target;
-                mouseStartX = e.clientX;
-                mouseStartY = e.clientY;
                 
                 mouseTimer = setTimeout(() => {
                     e.preventDefault();
-                    showTranslation(target, e.clientX, e.clientY);
+                    startTranslation(target, e.clientX, e.clientY);
                 }, 500);
             }
         });
         
         document.addEventListener('mousemove', (e) => {
-            // Clear timer if mouse moves too much before timer fires
-            if (mouseTimer && !this.isTranslating && mouseDownTarget) {
-                const moveThreshold = 5;
-                const movedTooMuch = Math.abs(e.clientX - mouseStartX) > moveThreshold ||
-                                   Math.abs(e.clientY - mouseStartY) > moveThreshold;
-                
-                if (movedTooMuch) {
-                    clearTimeout(mouseTimer);
-                    mouseTimer = null;
-                    mouseDownTarget = null;
-                }
-            }
-            
-            // If translating, allow dragging to other elements
             if (this.isTranslating) {
                 e.preventDefault();
                 const element = e.target.closest('.translatable');
                 
-                if (element && element !== this.currentElement) {
-                    // Remove active state from previous element
+                if (element) {
+                    updateTranslation(element, e.clientX, e.clientY);
+                } else {
+                    // Hide tooltip if not over translatable element
+                    tooltip.classList.add('hidden');
                     if (this.currentElement) {
                         this.currentElement.classList.remove('translating');
                     }
-                    showTranslation(element, e.clientX, e.clientY);
+                }
+            } else if (mouseTimer && mouseDownTarget) {
+                // Cancel timer if moved too much
+                const rect = mouseDownTarget.getBoundingClientRect();
+                const movedOut = e.clientX < rect.left - 5 ||
+                               e.clientX > rect.right + 5 ||
+                               e.clientY < rect.top - 5 ||
+                               e.clientY > rect.bottom + 5;
+                
+                if (movedOut) {
+                    clearTimeout(mouseTimer);
+                    mouseTimer = null;
+                    mouseDownTarget = null;
                 }
             }
         });
@@ -879,7 +881,6 @@ class TranslationManager {
             hideTranslation();
         });
         
-        // Prevent context menu during translation
         document.addEventListener('contextmenu', (e) => {
             if (this.isTranslating) {
                 e.preventDefault();
@@ -942,30 +943,72 @@ class TranslationManager {
         return words;
     }
     
-    // Get word info at specific position
+    // Get word info at specific position - improved version
     getWordAtPosition(element, x, y) {
         const words = this.currentQuestionWords.get(element);
         if (!words || words.length === 0) return null;
         
-        // For short text (like answers), just return the first word
-        if (words.length <= 3) {
-            return words[0];
+        // Try to use the caret range API first for better accuracy
+        if (document.caretRangeFromPoint) {
+            const range = document.caretRangeFromPoint(x, y);
+            if (range && range.startContainer.nodeType === Node.TEXT_NODE) {
+                const textNode = range.startContainer;
+                const offset = range.startOffset;
+                const fullText = element.textContent;
+                
+                // Find which word contains this offset
+                let accumulatedLength = 0;
+                for (const word of words) {
+                    if (offset >= word.start && offset <= word.end) {
+                        return word;
+                    }
+                }
+                
+                // Find closest word if no exact match
+                let closestWord = words[0];
+                let closestDistance = Math.abs(offset - words[0].start);
+                
+                for (const word of words) {
+                    const distToStart = Math.abs(offset - word.start);
+                    const distToEnd = Math.abs(offset - word.end);
+                    const minDist = Math.min(distToStart, distToEnd);
+                    
+                    if (minDist < closestDistance) {
+                        closestDistance = minDist;
+                        closestWord = word;
+                    }
+                }
+                
+                return closestWord;
+            }
         }
         
-        // For longer text, try to find the specific word
+        // Fallback: estimate based on position
         const rect = element.getBoundingClientRect();
         const relativeX = x - rect.left;
+        const relativeY = y - rect.top;
         
-        // Estimate word position based on relative position
-        const textWidth = rect.width;
-        const position = relativeX / textWidth;
-        const estimatedIndex = Math.floor(position * words.length);
+        // For single-line text (like buttons), use horizontal position
+        if (rect.height < 60) { // Assume single line
+            const position = Math.max(0, Math.min(1, relativeX / rect.width));
+            const estimatedIndex = Math.floor(position * words.length);
+            return words[Math.max(0, Math.min(estimatedIndex, words.length - 1))];
+        }
         
-        // Return the estimated word, bounded by array length
-        return words[Math.max(0, Math.min(estimatedIndex, words.length - 1))];
+        // For multi-line text, try to estimate line and position
+        // This is approximate and works best with consistent line heights
+        const lineHeight = parseInt(window.getComputedStyle(element).lineHeight) || 24;
+        const estimatedLine = Math.floor(relativeY / lineHeight);
+        const wordsPerLine = Math.ceil(words.length / Math.ceil(rect.height / lineHeight));
+        const lineStartIndex = estimatedLine * wordsPerLine;
+        const positionInLine = Math.max(0, Math.min(1, relativeX / rect.width));
+        const wordIndexInLine = Math.floor(positionInLine * Math.min(wordsPerLine, words.length - lineStartIndex));
+        const finalIndex = lineStartIndex + wordIndexInLine;
+        
+        return words[Math.max(0, Math.min(finalIndex, words.length - 1))];
     }
     
-    // Get translation with context
+    // Get translation with context - without brackets
     getTranslationWithContext(element, wordIndex) {
         const key = element.getAttribute('data-translation-key');
         const translatedText = this.translatedTexts[key];
@@ -996,12 +1039,7 @@ class TranslationManager {
         
         let contextWords = [];
         for (let i = contextStart; i <= contextEnd; i++) {
-            if (i === wordIndex) {
-                // Highlight the target word
-                contextWords.push(`[${translatedWords[i].text}]`);
-            } else {
-                contextWords.push(translatedWords[i].text);
-            }
+            contextWords.push(translatedWords[i].text);
         }
         
         // Add ellipsis if needed
@@ -1026,7 +1064,7 @@ class TranslationManager {
         return Math.min(100, Math.round((this.translatedWords.size / this.totalWords) * 100));
     }
     
-    // Check if currently translating (for external use)
+    // Check if currently translating
     isInTranslationMode() {
         return this.isTranslating;
     }
@@ -1040,7 +1078,7 @@ class TranslationManager {
         this.translatedWords.clear();
         this.isTranslating = false;
         this.currentElement = null;
-        this.lastTranslatedElement = null;
+        this.currentWordIndex = null;
         if (this.pressTimer) {
             clearTimeout(this.pressTimer);
             this.pressTimer = null;
