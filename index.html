@@ -1110,47 +1110,55 @@
                                 }).join('')}
                             </div>
                             
-                            ${!isReviewing ? `
-                                <div class="text-center text-sm text-gray-500 dark:text-gray-400 mb-4">
-                                    <span id="translationPercent">0</span>% oversatt
-                                </div>
-                            ` : ''}
+                            <div class="text-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                <span id="translationPercent">0</span>% oversatt
+                            </div>
                         </div>
                         
                         <div class="mt-auto space-y-3">
-                            ${!isReviewing ? `
-                                <div class="flex justify-between items-center">
-                                    <div class="flex gap-2">
-                                        <button onclick="app.navigateQuiz(-1)" 
-                                                class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                                                ${displayIndex === 0 ? 'disabled' : ''}>
-                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                                            </svg>
-                                        </button>
-                                        <button onclick="app.navigateQuiz(1)" 
-                                                class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                                                ${displayIndex >= quiz.currentIndex ? 'disabled' : ''}>
-                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <span class="text-sm text-gray-500 dark:text-gray-400">
-                                        ${displayIndex + 1} / ${quiz.questions.length}
-                                    </span>
+                            <div class="flex justify-between items-center">
+                                <div class="flex gap-2">
+                                    <button onclick="app.navigateQuiz(-1)" 
+                                            class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                                            ${displayIndex === 0 ? 'disabled' : ''}>
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                        </svg>
+                                    </button>
+                                    <button onclick="app.navigateQuiz(1)" 
+                                            class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                                            ${displayIndex >= quiz.currentIndex ? 'disabled' : ''}>
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        </svg>
+                                    </button>
                                 </div>
-                            ` : ''}
+                                <span class="text-sm text-gray-500 dark:text-gray-400">
+                                    ${displayIndex + 1} / ${quiz.questions.length}
+                                </span>
+                            </div>
                             
                             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                                 <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" 
                                     style="width: ${((displayIndex + 1) / quiz.questions.length) * 100}%"></div>
                             </div>
                             
-                            <button onclick="app.${isReviewing ? 'showQuizResults' : (isNavigatingBack ? 'showQuizQuestion' : 'showMainPage')}()" 
-                                    class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                                ${isReviewing ? 'Tilbake til resultater' : (isNavigatingBack ? 'Tilbake til aktiv spørsmål' : 'Avbryt quiz')}
-                            </button>
+                            ${isReviewing ? `
+                                <button onclick="app.showQuizResults()" 
+                                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+                                    Tilbake til resultater
+                                </button>
+                            ` : isNavigatingBack ? `
+                                <button onclick="app.showQuizQuestion()" 
+                                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+                                    Tilbake til aktiv spørsmål
+                                </button>
+                            ` : `
+                                <button onclick="app.showMainPage()" 
+                                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+                                    Avbryt quiz
+                                </button>
+                            `}
                         </div>
                     </div>
                 `;
