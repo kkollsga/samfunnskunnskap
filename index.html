@@ -206,1197 +206,1198 @@
     <!-- Notification container -->
     <div id="notificationContainer" class="fixed top-4 right-4 z-50"></div>
 
-    <script>
-        // App state
-        const app = {
-            data: {
-                descriptions: {},
-                questions: {},
-                currentLanguage: 'pb',
-                userProgress: JSON.parse(localStorage.getItem('userProgress')) || [],
-                currentQuiz: null,
-                translationTracker: {
-                    totalWords: 0,
-                    translatedWords: new Set(),
-                    wordMap: {} // Maps word positions to word text
-                },
-                currentQuestionTranslations: {},
-                usedQuestionIds: new Set() // Track used questions in current quiz
-            },
+<script>
+console.log("Version: 1.0");
+// App state
+const app = {
+    data: {
+        descriptions: {},
+        questions: {},
+        currentLanguage: 'pb',
+        userProgress: JSON.parse(localStorage.getItem('userProgress')) || [],
+        currentQuiz: null,
+        translationTracker: {
+            totalWords: 0,
+            translatedWords: new Set(),
+            wordMap: {} // Maps word positions to word text
+        },
+        currentQuestionTranslations: {},
+        usedQuestionIds: new Set() // Track used questions in current quiz
+    },
+    
+    // Section theme colors with subtopic variations
+    sectionColors: {
+        '1': { 
+            bg: 'bg-blue-100', 
+            dark: 'dark:bg-blue-900', 
+            text: 'text-blue-800', 
+            darkText: 'dark:text-blue-200', 
+            main: '#3b82f6',
+            subtopics: {
+                '1.1': { bg: 'bg-blue-50', dark: 'dark:bg-blue-800', text: 'text-blue-700', darkText: 'dark:text-blue-300', main: '#60a5fa' },
+                '1.2': { bg: 'bg-sky-100', dark: 'dark:bg-sky-900', text: 'text-sky-800', darkText: 'dark:text-sky-200', main: '#0ea5e9' },
+                '1.3': { bg: 'bg-indigo-100', dark: 'dark:bg-indigo-900', text: 'text-indigo-800', darkText: 'dark:text-indigo-200', main: '#6366f1' }
+            }
+        },
+        '2': { 
+            bg: 'bg-green-100', 
+            dark: 'dark:bg-green-900', 
+            text: 'text-green-800', 
+            darkText: 'dark:text-green-200', 
+            main: '#10b981',
+            subtopics: {
+                '2.1': { bg: 'bg-emerald-100', dark: 'dark:bg-emerald-900', text: 'text-emerald-800', darkText: 'dark:text-emerald-200', main: '#34d399' },
+                '2.2': { bg: 'bg-teal-100', dark: 'dark:bg-teal-900', text: 'text-teal-800', darkText: 'dark:text-teal-200', main: '#14b8a6' },
+                '2.3': { bg: 'bg-lime-100', dark: 'dark:bg-lime-900', text: 'text-lime-800', darkText: 'dark:text-lime-200', main: '#84cc16' }
+            }
+        },
+        '3': { 
+            bg: 'bg-purple-100', 
+            dark: 'dark:bg-purple-900', 
+            text: 'text-purple-800', 
+            darkText: 'dark:text-purple-200', 
+            main: '#8b5cf6',
+            subtopics: {
+                '3.1': { bg: 'bg-violet-100', dark: 'dark:bg-violet-900', text: 'text-violet-800', darkText: 'dark:text-violet-200', main: '#7c3aed' },
+                '3.2': { bg: 'bg-pink-100', dark: 'dark:bg-pink-900', text: 'text-pink-800', darkText: 'dark:text-pink-200', main: '#ec4899' },
+                '3.3': { bg: 'bg-fuchsia-100', dark: 'dark:bg-fuchsia-900', text: 'text-fuchsia-800', darkText: 'dark:text-fuchsia-200', main: '#d946ef' }
+            }
+        }
+    },
+    
+    // Get color for a section/subsection
+    getSectionColor(sectionId) {
+        const mainSectionId = sectionId.split('.')[0];
+        const mainColors = this.sectionColors[mainSectionId];
+        
+        if (!mainColors) return this.sectionColors['1']; // Fallback
+        
+        if (sectionId.includes('.') && mainColors.subtopics && mainColors.subtopics[sectionId]) {
+            return mainColors.subtopics[sectionId];
+        }
+        
+        return mainColors;
+    },
+    
+    // Show notification
+    showNotification(message, type = 'success') {
+        const container = document.getElementById('notificationContainer');
+        const notification = document.createElement('div');
+        const bgColor = type === 'success' ? 'bg-green-500' : 'bg-red-500';
+        
+        notification.className = `notification bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 mb-2 flex items-center gap-3`;
+        notification.innerHTML = `
+            <div class="w-2 h-2 ${bgColor} rounded-full"></div>
+            <span class="text-sm">${message}</span>
+        `;
+        
+        container.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideIn 0.3s ease-out reverse';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    },
+    
+    // Initialize app
+    async init() {
+        await this.loadData();
+        this.setupEventListeners();
+        this.showMainPage();
+        
+        // Apply saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        }
+    },
+    
+    // Load JSON data with GitHub Pages compatible method
+    async loadData() {
+        try {
+            const loadFile = async (filename) => {
+                const response = await fetch(`./${filename}`);
+                if (!response.ok) throw new Error(`Failed to load ${filename}`);
+                return await response.json();
+            };
             
-            // Section theme colors with subtopic variations
-            sectionColors: {
-                '1': { 
-                    bg: 'bg-blue-100', 
-                    dark: 'dark:bg-blue-900', 
-                    text: 'text-blue-800', 
-                    darkText: 'dark:text-blue-200', 
-                    main: '#3b82f6',
-                    subtopics: {
-                        '1.1': { bg: 'bg-blue-50', dark: 'dark:bg-blue-800', text: 'text-blue-700', darkText: 'dark:text-blue-300', main: '#60a5fa' },
-                        '1.2': { bg: 'bg-sky-100', dark: 'dark:bg-sky-900', text: 'text-sky-800', darkText: 'dark:text-sky-200', main: '#0ea5e9' },
-                        '1.3': { bg: 'bg-indigo-100', dark: 'dark:bg-indigo-900', text: 'text-indigo-800', darkText: 'dark:text-indigo-200', main: '#6366f1' }
-                    }
-                },
-                '2': { 
-                    bg: 'bg-green-100', 
-                    dark: 'dark:bg-green-900', 
-                    text: 'text-green-800', 
-                    darkText: 'dark:text-green-200', 
-                    main: '#10b981',
-                    subtopics: {
-                        '2.1': { bg: 'bg-emerald-100', dark: 'dark:bg-emerald-900', text: 'text-emerald-800', darkText: 'dark:text-emerald-200', main: '#34d399' },
-                        '2.2': { bg: 'bg-teal-100', dark: 'dark:bg-teal-900', text: 'text-teal-800', darkText: 'dark:text-teal-200', main: '#14b8a6' },
-                        '2.3': { bg: 'bg-lime-100', dark: 'dark:bg-lime-900', text: 'text-lime-800', darkText: 'dark:text-lime-200', main: '#84cc16' }
-                    }
-                },
-                '3': { 
-                    bg: 'bg-purple-100', 
-                    dark: 'dark:bg-purple-900', 
-                    text: 'text-purple-800', 
-                    darkText: 'dark:text-purple-200', 
-                    main: '#8b5cf6',
-                    subtopics: {
-                        '3.1': { bg: 'bg-violet-100', dark: 'dark:bg-violet-900', text: 'text-violet-800', darkText: 'dark:text-violet-200', main: '#7c3aed' },
-                        '3.2': { bg: 'bg-pink-100', dark: 'dark:bg-pink-900', text: 'text-pink-800', darkText: 'dark:text-pink-200', main: '#ec4899' },
-                        '3.3': { bg: 'bg-fuchsia-100', dark: 'dark:bg-fuchsia-900', text: 'text-fuchsia-800', darkText: 'dark:text-fuchsia-200', main: '#d946ef' }
-                    }
-                }
-            },
+            // Load all data files
+            const [descNo, descPb, descEn, questNo, questPb, questEn] = await Promise.all([
+                loadFile('description.json'),
+                loadFile('description_pb.json'),
+                loadFile('description_en.json'),
+                loadFile('questions.json'),
+                loadFile('questions_pb.json'),
+                loadFile('questions_en.json')
+            ]);
             
-            // Get color for a section/subsection
-            getSectionColor(sectionId) {
-                const mainSectionId = sectionId.split('.')[0];
-                const mainColors = this.sectionColors[mainSectionId];
-                
-                if (!mainColors) return this.sectionColors['1']; // Fallback
-                
-                if (sectionId.includes('.') && mainColors.subtopics && mainColors.subtopics[sectionId]) {
-                    return mainColors.subtopics[sectionId];
-                }
-                
-                return mainColors;
-            },
+            this.data.descriptions.no = descNo;
+            this.data.descriptions.pb = descPb;
+            this.data.descriptions.en = descEn;
+            this.data.questions.no = questNo;
+            this.data.questions.pb = questPb;
+            this.data.questions.en = questEn;
             
-            // Show notification
-            showNotification(message, type = 'success') {
-                const container = document.getElementById('notificationContainer');
-                const notification = document.createElement('div');
-                const bgColor = type === 'success' ? 'bg-green-500' : 'bg-red-500';
-                
-                notification.className = `notification bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 mb-2 flex items-center gap-3`;
-                notification.innerHTML = `
-                    <div class="w-2 h-2 ${bgColor} rounded-full"></div>
-                    <span class="text-sm">${message}</span>
-                `;
-                
-                container.appendChild(notification);
-                
-                setTimeout(() => {
-                    notification.style.animation = 'slideIn 0.3s ease-out reverse';
-                    setTimeout(() => notification.remove(), 300);
-                }, 3000);
+            this.showNotification('Data loaded successfully!', 'success');
+        } catch (error) {
+            console.error('Error loading data:', error);
+            this.showNotification('Failed to load data', 'error');
+            // Fallback to sample data for demo
+            this.useSampleData();
+        }
+    },
+    
+    // Use sample data if files not found
+    useSampleData() {
+        // Sample Norwegian data
+        this.data.descriptions.no = [
+            {
+                id: "1",
+                title: "Familie og helse",
+                description: "Dette temaet gir en innføring i grunnleggende strukturer...",
+                learning_goals: ["Forstå sammenhengen mellom utdanning..."],
+                key_concepts: ["Samfunnsdeltakelse", "Integrering"]
             },
+            {
+                id: "1.1",
+                title: "Familiestrukturer",
+                description: "Utforsker ulike familieformer i Norge...",
+                url: "https://example.com"
+            },
+            {
+                id: "2",
+                title: "Demokrati og velferdsstat",
+                description: "Demokrati og velferdsstat utforsker...",
+                learning_goals: ["Forstå demokratiske prinsipper..."],
+                key_concepts: ["Demokrati", "Velferdsstat"]
+            },
+            {
+                id: "3",
+                title: "Historie, geografi og levesett",
+                description: "Historie, geografi og levesett dekker...",
+                learning_goals: ["Kjenne til Norges historie..."],
+                key_concepts: ["Historie", "Geografi"]
+            }
+        ];
+        
+        // Sample questions
+        this.data.questions.no = [
+            {
+                id: "1_1",
+                question: "Alle innvandrere i Norge har plikt til å ta norskopplæring.",
+                alternatives: ["Rett", "Galt"],
+                correct: 1,
+                section: "1"
+            },
+            {
+                id: "1_2",
+                question: "Barn har rett til gratis utdanning i Norge.",
+                alternatives: ["Rett", "Galt"],
+                correct: 0,
+                section: "1.1"
+            },
+            {
+                id: "2_1",
+                question: "Norge er et demokrati.",
+                alternatives: ["Rett", "Galt"],
+                correct: 0,
+                section: "2"
+            }
+        ];
+        
+        // Sample Portuguese translations
+        this.data.questions.pb = [
+            {
+                id: "1_1",
+                question: "Todos os imigrantes na Noruega têm obrigação de fazer curso de norueguês.",
+                alternatives: ["Certo", "Errado"],
+                correct: 1,
+                section: "1"
+            },
+            {
+                id: "1_2",
+                question: "Crianças têm direito à educação gratuita na Noruega.",
+                alternatives: ["Certo", "Errado"],
+                correct: 0,
+                section: "1.1"
+            },
+            {
+                id: "2_1",
+                question: "A Noruega é uma democracia.",
+                alternatives: ["Certo", "Errado"],
+                correct: 0,
+                section: "2"
+            }
+        ];
+        
+        // Sample English translations
+        this.data.questions.en = [
+            {
+                id: "1_1",
+                question: "All immigrants in Norway are required to take Norwegian language classes.",
+                alternatives: ["Right", "Wrong"],
+                correct: 1,
+                section: "1"
+            },
+            {
+                id: "1_2",
+                question: "Children have the right to free education in Norway.",
+                alternatives: ["Right", "Wrong"],
+                correct: 0,
+                section: "1.1"
+            },
+            {
+                id: "2_1",
+                question: "Norway is a democracy.",
+                alternatives: ["Right", "Wrong"],
+                correct: 0,
+                section: "2"
+            }
+        ];
+        
+        // Clone descriptions for other languages
+        this.data.descriptions.pb = this.data.descriptions.no.map(d => ({
+            ...d,
+            title: d.title + " (PT)",
+            description: d.description + " (Traduzido)"
+        }));
+        
+        this.data.descriptions.en = this.data.descriptions.no.map(d => ({
+            ...d,
+            title: d.title + " (EN)",
+            description: d.description + " (Translated)"
+        }));
+    },
+    
+    // Setup event listeners
+    setupEventListeners() {
+        // Language selector
+        document.getElementById('languageSelector').addEventListener('change', (e) => {
+            this.data.currentLanguage = e.target.value;
+            this.updateUI();
+        });
+        
+        // Dark mode toggle
+        document.getElementById('darkModeToggle').addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        });
+        
+        // Setup translation functionality
+        this.setupTranslation();
+    },
+    
+    // Parse text into words with positions
+    parseTextIntoWords(text) {
+        const words = [];
+        const matches = text.matchAll(/\S+/g);
+        for (const match of matches) {
+            words.push({
+                text: match[0],
+                start: match.index,
+                end: match.index + match[0].length
+            });
+        }
+        return words;
+    },
+    
+    // Get word at click position
+    getWordAtPosition(element, clientX, clientY) {
+        const range = document.caretRangeFromPoint(clientX, clientY);
+        if (!range) return null;
+        
+        const textNode = range.startContainer;
+        if (textNode.nodeType !== Node.TEXT_NODE) return null;
+        
+        const text = textNode.textContent;
+        const offset = range.startOffset;
+        
+        // Find word boundaries
+        let start = offset;
+        let end = offset;
+        
+        while (start > 0 && /\S/.test(text[start - 1])) start--;
+        while (end < text.length && /\S/.test(text[end])) end++;
+        
+        if (start === end) return null;
+        
+        return {
+            word: text.substring(start, end),
+            start: start,
+            end: end,
+            textNode: textNode
+        };
+    },
+    
+    // Setup translation tooltip
+    setupTranslation() {
+        let pressTimer;
+        let isTranslating = false;
+        const tooltip = document.getElementById('translationTooltip');
+        
+        const showTranslation = (element, x, y) => {
+            if (!element || !element.classList.contains('translatable')) return;
             
-            // Initialize app
-            async init() {
-                await this.loadData();
-                this.setupEventListeners();
-                this.showMainPage();
-                
-                // Apply saved dark mode preference
-                if (localStorage.getItem('darkMode') === 'true') {
-                    document.documentElement.classList.add('dark');
-                }
-            },
+            const wordInfo = this.getWordAtPosition(element, x, y);
+            if (!wordInfo) return;
             
-            // Load JSON data with GitHub Pages compatible method
-            async loadData() {
-                try {
-                    const loadFile = async (filename) => {
-                        const response = await fetch(`./${filename}`);
-                        if (!response.ok) throw new Error(`Failed to load ${filename}`);
-                        return await response.json();
-                    };
-                    
-                    // Load all data files
-                    const [descNo, descPb, descEn, questNo, questPb, questEn] = await Promise.all([
-                        loadFile('description.json'),
-                        loadFile('description_pb.json'),
-                        loadFile('description_en.json'),
-                        loadFile('questions.json'),
-                        loadFile('questions_pb.json'),
-                        loadFile('questions_en.json')
-                    ]);
-                    
-                    this.data.descriptions.no = descNo;
-                    this.data.descriptions.pb = descPb;
-                    this.data.descriptions.en = descEn;
-                    this.data.questions.no = questNo;
-                    this.data.questions.pb = questPb;
-                    this.data.questions.en = questEn;
-                    
-                    this.showNotification('Data loaded successfully!', 'success');
-                } catch (error) {
-                    console.error('Error loading data:', error);
-                    this.showNotification('Failed to load data', 'error');
-                    // Fallback to sample data for demo
-                    this.useSampleData();
-                }
-            },
+            // Track translated word
+            const word = wordInfo.word.toLowerCase();
+            if (!this.data.translationTracker.translatedWords.has(word)) {
+                this.data.translationTracker.translatedWords.add(word);
+            }
             
-            // Use sample data if files not found
-            useSampleData() {
-                // Sample Norwegian data
-                this.data.descriptions.no = [
-                    {
-                        id: "1",
-                        title: "Familie og helse",
-                        description: "Dette temaet gir en innføring i grunnleggende strukturer...",
-                        learning_goals: ["Forstå sammenhengen mellom utdanning..."],
-                        key_concepts: ["Samfunnsdeltakelse", "Integrering"]
-                    },
-                    {
-                        id: "1.1",
-                        title: "Familiestrukturer",
-                        description: "Utforsker ulike familieformer i Norge...",
-                        url: "https://example.com"
-                    },
-                    {
-                        id: "2",
-                        title: "Demokrati og velferdsstat",
-                        description: "Demokrati og velferdsstat utforsker...",
-                        learning_goals: ["Forstå demokratiske prinsipper..."],
-                        key_concepts: ["Demokrati", "Velferdsstat"]
-                    },
-                    {
-                        id: "3",
-                        title: "Historie, geografi og levesett",
-                        description: "Historie, geografi og levesett dekker...",
-                        learning_goals: ["Kjenne til Norges historie..."],
-                        key_concepts: ["Historie", "Geografi"]
-                    }
-                ];
-                
-                // Sample questions
-                this.data.questions.no = [
-                    {
-                        id: "1_1",
-                        question: "Alle innvandrere i Norge har plikt til å ta norskopplæring.",
-                        alternatives: ["Rett", "Galt"],
-                        correct: 1,
-                        section: "1"
-                    },
-                    {
-                        id: "1_2",
-                        question: "Barn har rett til gratis utdanning i Norge.",
-                        alternatives: ["Rett", "Galt"],
-                        correct: 0,
-                        section: "1.1"
-                    },
-                    {
-                        id: "2_1",
-                        question: "Norge er et demokrati.",
-                        alternatives: ["Rett", "Galt"],
-                        correct: 0,
-                        section: "2"
-                    }
-                ];
-                
-                // Sample Portuguese translations
-                this.data.questions.pb = [
-                    {
-                        id: "1_1",
-                        question: "Todos os imigrantes na Noruega têm obrigação de fazer curso de norueguês.",
-                        alternatives: ["Certo", "Errado"],
-                        correct: 1,
-                        section: "1"
-                    },
-                    {
-                        id: "1_2",
-                        question: "Crianças têm direito à educação gratuita na Noruega.",
-                        alternatives: ["Certo", "Errado"],
-                        correct: 0,
-                        section: "1.1"
-                    },
-                    {
-                        id: "2_1",
-                        question: "A Noruega é uma democracia.",
-                        alternatives: ["Certo", "Errado"],
-                        correct: 0,
-                        section: "2"
-                    }
-                ];
-                
-                // Sample English translations
-                this.data.questions.en = [
-                    {
-                        id: "1_1",
-                        question: "All immigrants in Norway are required to take Norwegian language classes.",
-                        alternatives: ["Right", "Wrong"],
-                        correct: 1,
-                        section: "1"
-                    },
-                    {
-                        id: "1_2",
-                        question: "Children have the right to free education in Norway.",
-                        alternatives: ["Right", "Wrong"],
-                        correct: 0,
-                        section: "1.1"
-                    },
-                    {
-                        id: "2_1",
-                        question: "Norway is a democracy.",
-                        alternatives: ["Right", "Wrong"],
-                        correct: 0,
-                        section: "2"
-                    }
-                ];
-                
-                // Clone descriptions for other languages
-                this.data.descriptions.pb = this.data.descriptions.no.map(d => ({
-                    ...d,
-                    title: d.title + " (PT)",
-                    description: d.description + " (Traduzido)"
-                }));
-                
-                this.data.descriptions.en = this.data.descriptions.no.map(d => ({
-                    ...d,
-                    title: d.title + " (EN)",
-                    description: d.description + " (Translated)"
-                }));
-            },
+            // Get translation
+            const translation = this.translateWords(wordInfo.word, element);
             
-            // Setup event listeners
-            setupEventListeners() {
-                // Language selector
-                document.getElementById('languageSelector').addEventListener('change', (e) => {
-                    this.data.currentLanguage = e.target.value;
-                    this.updateUI();
-                });
-                
-                // Dark mode toggle
-                document.getElementById('darkModeToggle').addEventListener('click', () => {
-                    document.documentElement.classList.toggle('dark');
-                    localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
-                });
-                
-                // Setup translation functionality
-                this.setupTranslation();
-            },
+            tooltip.textContent = translation;
+            tooltip.style.left = x + 'px';
+            tooltip.style.top = y + 'px';
+            tooltip.classList.remove('hidden');
             
-            // Parse text into words with positions
-            parseTextIntoWords(text) {
-                const words = [];
-                const matches = text.matchAll(/\S+/g);
-                for (const match of matches) {
-                    words.push({
-                        text: match[0],
-                        start: match.index,
-                        end: match.index + match[0].length
-                    });
-                }
-                return words;
-            },
+            isTranslating = true;
             
-            // Get word at click position
-            getWordAtPosition(element, clientX, clientY) {
-                const range = document.caretRangeFromPoint(clientX, clientY);
-                if (!range) return null;
-                
-                const textNode = range.startContainer;
-                if (textNode.nodeType !== Node.TEXT_NODE) return null;
-                
-                const text = textNode.textContent;
-                const offset = range.startOffset;
-                
-                // Find word boundaries
-                let start = offset;
-                let end = offset;
-                
-                while (start > 0 && /\S/.test(text[start - 1])) start--;
-                while (end < text.length && /\S/.test(text[end])) end++;
-                
-                if (start === end) return null;
-                
-                return {
-                    word: text.substring(start, end),
-                    start: start,
-                    end: end,
-                    textNode: textNode
-                };
-            },
-            
-            // Setup translation tooltip
-            setupTranslation() {
-                let pressTimer;
-                let isTranslating = false;
-                const tooltip = document.getElementById('translationTooltip');
-                
-                const showTranslation = (element, x, y) => {
-                    if (!element || !element.classList.contains('translatable')) return;
-                    
-                    const wordInfo = this.getWordAtPosition(element, x, y);
-                    if (!wordInfo) return;
-                    
-                    // Track translated word
-                    const word = wordInfo.word.toLowerCase();
-                    if (!this.data.translationTracker.translatedWords.has(word)) {
-                        this.data.translationTracker.translatedWords.add(word);
-                    }
-                    
-                    // Get translation
-                    const translation = this.translateWords(wordInfo.word, element);
-                    
-                    tooltip.textContent = translation;
-                    tooltip.style.left = x + 'px';
-                    tooltip.style.top = y + 'px';
-                    tooltip.classList.remove('hidden');
-                    
-                    isTranslating = true;
-                    
-                    // Update translation percentage if in quiz
-                    if (this.data.currentQuiz) {
-                        this.updateTranslationPercent();
-                    }
-                };
-                
-                const hideTranslation = () => {
-                    tooltip.classList.add('hidden');
-                    isTranslating = false;
-                    clearTimeout(pressTimer);
-                };
-                
-                // Touch events for mobile
-                document.addEventListener('touchstart', (e) => {
-                    const target = e.target.closest('.translatable');
-                    if (target && !target.closest('.alternative-btn')) {
-                        e.preventDefault();
-                        pressTimer = setTimeout(() => {
-                            const touch = e.touches[0];
-                            showTranslation(target, touch.clientX, touch.clientY);
-                        }, 500);
-                    }
-                });
-                
-                document.addEventListener('touchend', hideTranslation);
-                document.addEventListener('touchcancel', hideTranslation);
-                
-                // Mouse events for desktop
-                let mouseTimer;
-                document.addEventListener('mousemove', (e) => {
-                    const target = e.target.closest('.translatable');
-                    if (target && !target.closest('.alternative-btn')) {
-                        clearTimeout(mouseTimer);
-                        mouseTimer = setTimeout(() => {
-                            showTranslation(target, e.clientX, e.clientY);
-                        }, 500);
-                    } else {
-                        clearTimeout(mouseTimer);
-                        hideTranslation();
-                    }
-                });
-                
-                document.addEventListener('mouseleave', () => {
-                    clearTimeout(mouseTimer);
-                    hideTranslation();
-                });
-            },
-            
-            // Translate specific words
-            translateWords(text, element) {
-                const lang = this.data.currentLanguage;
-                const translationKey = element.getAttribute('data-translation-key');
-                
-                // If we have a full translation for this element, try to map the word
-                if (translationKey && this.data.currentQuestionTranslations[translationKey]) {
-                    const fullTranslation = this.data.currentQuestionTranslations[translationKey];
-                    const norwegianText = element.textContent;
-                    
-                    // Simple word mapping - in real app would use more sophisticated approach
-                    const norwegianWords = norwegianText.toLowerCase().split(/\s+/);
-                    const translatedWords = fullTranslation.split(/\s+/);
-                    
-                    const searchWord = text.toLowerCase();
-                    const wordIndex = norwegianWords.findIndex(w => w.includes(searchWord) || searchWord.includes(w));
-                    
-                    if (wordIndex !== -1 && wordIndex < translatedWords.length) {
-                        return translatedWords[wordIndex];
-                    }
-                }
-                
-                // Fallback to dictionary translation
-                const translations = {
-                    pb: {
-                        "alle": "todos",
-                        "innvandrere": "imigrantes",
-                        "norge": "noruega",
-                        "har": "têm",
-                        "plikt": "obrigação",
-                        "til": "de",
-                        "å": "a",
-                        "ta": "fazer",
-                        "norskopplæring": "curso de norueguês",
-                        "rett": "certo",
-                        "galt": "errado",
-                        "barn": "crianças",
-                        "gratis": "gratuita",
-                        "utdanning": "educação",
-                        "demokrati": "democracia",
-                        "er": "é",
-                        "et": "uma"
-                    },
-                    en: {
-                        "alle": "all",
-                        "innvandrere": "immigrants",
-                        "norge": "norway",
-                        "har": "have",
-                        "plikt": "obligation",
-                        "til": "to",
-                        "å": "to",
-                        "ta": "take",
-                        "norskopplæring": "norwegian classes",
-                        "rett": "right",
-                        "galt": "wrong",
-                        "barn": "children",
-                        "gratis": "free",
-                        "utdanning": "education",
-                        "demokrati": "democracy",
-                        "er": "is",
-                        "et": "a"
-                    }
-                };
-                
-                const word = text.toLowerCase().replace(/[.,!?]/g, '');
-                return translations[lang]?.[word] || text;
-            },
-            
-            // Update translation percentage
-            updateTranslationPercent() {
-                const percentEl = document.getElementById('translationPercent');
-                if (percentEl && this.data.translationTracker.totalWords > 0) {
-                    const percent = Math.min(100, Math.round((this.data.translationTracker.translatedWords.size / this.data.translationTracker.totalWords) * 100));
-                    percentEl.textContent = percent;
-                }
-            },
-            
-            // Get section name
-            getSectionName(sectionId) {
-                const mainSectionId = sectionId.split('.')[0];
-                return this.data.descriptions.no.find(d => d.id === mainSectionId)?.title || `Tema ${mainSectionId}`;
-            },
-            
-            // Get subsection name
-            getSubsectionName(sectionId) {
-                return this.data.descriptions.no.find(d => d.id === sectionId)?.title || '';
-            },
-            
-            // Calculate section statistics
-            getSectionStats(sectionId) {
-                // Include all subsections in the calculation
-                const sectionAnswers = this.data.userProgress.filter(p => 
-                    p.section === sectionId || p.section.startsWith(sectionId + '.')
-                );
-                
-                if (sectionAnswers.length === 0) {
-                    return { correct: 50, translation: 0, count: 0 };
-                }
-                
-                const correct = (sectionAnswers.filter(a => a.correct).length / sectionAnswers.length) * 100;
-                const translation = sectionAnswers.reduce((sum, a) => sum + (a.translationPercent || 0), 0) / sectionAnswers.length;
-                
-                return { 
-                    correct: Math.round(correct), 
-                    translation: Math.round(translation),
-                    count: sectionAnswers.length
-                };
-            },
-            
-            // Calculate section weight for question selection
-            calculateSectionWeight(sectionId) {
-                const stats = this.getSectionStats(sectionId);
-                
-                // Base weight (higher for sections with fewer answers)
-                const countWeight = Math.max(0, 100 - stats.count * 5);
-                
-                // Performance weight (higher for sections with lower correct percentage)
-                const performanceWeight = 100 - stats.correct;
-                
-                // Combined weight (prioritize both few answers and poor performance)
-                const weight = (countWeight * 0.6) + (performanceWeight * 0.4);
-                
-                return Math.max(1, weight); // Ensure minimum weight of 1
-            },
-            
-            // Select questions using weighted random selection
-            selectQuestionsForQuiz(topicId = null) {
-                // Reset used questions for new quiz
-                this.data.usedQuestionIds.clear();
-                
-                let availableQuestions = this.data.questions.no;
-                
-                // Filter by topic if specified
-                if (topicId) {
-                    availableQuestions = availableQuestions.filter(q => 
-                        q.section === topicId || q.section.startsWith(topicId + '.')
-                    );
-                }
-                
-                // Group questions by section
-                const questionsBySection = {};
-                availableQuestions.forEach(q => {
-                    if (!questionsBySection[q.section]) {
-                        questionsBySection[q.section] = [];
-                    }
-                    questionsBySection[q.section].push(q);
-                });
-                
-                // Calculate weights for each section
-                const sectionWeights = {};
-                let totalWeight = 0;
-                
-                Object.keys(questionsBySection).forEach(sectionId => {
-                    const weight = this.calculateSectionWeight(sectionId);
-                    sectionWeights[sectionId] = weight;
-                    totalWeight += weight;
-                });
-                
-                // Select questions
-                const selectedQuestions = [];
-                const targetCount = Math.min(20, availableQuestions.length);
-                
-                while (selectedQuestions.length < targetCount && Object.keys(questionsBySection).length > 0) {
-                    // Weighted random selection of section
-                    let randomValue = Math.random() * totalWeight;
-                    let selectedSection = null;
-                    
-                    for (const [sectionId, weight] of Object.entries(sectionWeights)) {
-                        randomValue -= weight;
-                        if (randomValue <= 0) {
-                            selectedSection = sectionId;
-                            break;
-                        }
-                    }
-                    
-                    // Fallback if no section selected (shouldn't happen)
-                    if (!selectedSection) {
-                        selectedSection = Object.keys(questionsBySection)[0];
-                    }
-                    
-                    // Select random question from the section
-                    const sectionQuestions = questionsBySection[selectedSection];
-                    if (sectionQuestions && sectionQuestions.length > 0) {
-                        // Filter out already used questions
-                        const unusedQuestions = sectionQuestions.filter(q => !this.data.usedQuestionIds.has(q.id));
-                        
-                        if (unusedQuestions.length > 0) {
-                            const randomIndex = Math.floor(Math.random() * unusedQuestions.length);
-                            const question = unusedQuestions[randomIndex];
-                            selectedQuestions.push(question);
-                            this.data.usedQuestionIds.add(question.id);
-                            
-                            // Remove question from available pool
-                            const originalIndex = sectionQuestions.findIndex(q => q.id === question.id);
-                            sectionQuestions.splice(originalIndex, 1);
-                            
-                            // Remove section if no more questions
-                            if (sectionQuestions.length === 0) {
-                                delete questionsBySection[selectedSection];
-                                totalWeight -= sectionWeights[selectedSection];
-                                delete sectionWeights[selectedSection];
-                            }
-                        } else {
-                            // All questions in this section are used, remove it
-                            delete questionsBySection[selectedSection];
-                            totalWeight -= sectionWeights[selectedSection];
-                            delete sectionWeights[selectedSection];
-                        }
-                    }
-                }
-                
-                return selectedQuestions;
-            },
-            
-            // Show main page
-            showMainPage() {
-                // Show header
-                document.getElementById('header').style.display = 'flex';
-                
-                const mainContent = document.getElementById('mainContent');
-                const sections = this.data.descriptions.no.filter(d => !d.id.includes('.'));
-                
-                mainContent.innerHTML = `
-                    <div class="space-y-3">
-                        ${sections.map(section => {
-                            const stats = this.getSectionStats(section.id);
-                            const color = this.sectionColors[section.id].main;
-                            
-                            return `
-                                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer hover:shadow-lg transition-shadow"
-                                     onclick="app.showTopicModal('${section.id}')">
-                                    <h2 class="text-lg font-semibold mb-2" style="color: ${color}">
-                                        ${section.title}
-                                    </h2>
-                                    <div class="grid grid-cols-2 gap-2 text-sm">
-                                        <div class="flex items-center gap-1">
-                                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                            </svg>
-                                            <span>${stats.correct}% riktig</span>
-                                        </div>
-                                        <div class="flex items-center gap-1">
-                                            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-                                            </svg>
-                                            <span>${stats.translation}% oversatt</span>
-                                        </div>
-                                    </div>
-                                    <div class="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                                        ${stats.count} av 300 siste spørsmål
-                                    </div>
-                                </div>
-                            `;
-                        }).join('')}
-                        
-                        <button onclick="app.startQuiz()" 
-                                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg shadow-md transition-colors">
-                            Start quiz (alle temaer)
-                        </button>
-                    </div>
-                `;
-            },
-            
-            // Show topic modal
-            showTopicModal(topicId, isSubtopic = false) {
-                const topic = this.data.descriptions.no.find(d => d.id === topicId);
-                const subtopics = this.data.descriptions.no.filter(d => d.id.startsWith(topicId + '.'));
-                const colors = this.getSectionColor(topicId);
-                const mainSectionId = topicId.split('.')[0];
-                
-                // Get parent topic if this is a subtopic
-                const parentTopic = isSubtopic ? this.data.descriptions.no.find(d => d.id === mainSectionId) : null;
-                
-                const modal = document.createElement('div');
-                modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 modal-backdrop';
-                modal.innerHTML = `
-                    <div class="fixed inset-0 bg-white dark:bg-gray-900 modal-content overflow-y-auto">
-                        <div class="max-w-md mx-auto">
-                            <div class="sticky top-0 bg-white dark:bg-gray-900 p-4 border-b dark:border-gray-700">
-                                <div class="flex justify-between items-center mb-2">
-                                    <h2 class="text-xl font-bold" style="color: ${colors.main}">${topic.title}</h2>
-                                    <button onclick="this.closest('.modal-backdrop').remove()" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                                ${isSubtopic && parentTopic ? `
-                                    <button onclick="app.showTopicModal('${mainSectionId}')" 
-                                            class="text-sm ${colors.text} ${colors.darkText} hover:underline flex items-center gap-1">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                                        </svg>
-                                        ${parentTopic.title}
-                                    </button>
-                                ` : ''}
-                            </div>
-                            
-                            <div class="p-4 space-y-4">
-                                <div>
-                                    <p class="text-gray-700 dark:text-gray-300 translatable">${topic.description}</p>
-                                </div>
-                                
-                                ${topic.learning_goals ? `
-                                    <div>
-                                        <h3 class="font-semibold mb-2">Læringsmål:</h3>
-                                        <ul class="list-disc list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300">
-                                            ${topic.learning_goals.map(goal => `
-                                                <li class="translatable">${goal}</li>
-                                            `).join('')}
-                                        </ul>
-                                    </div>
-                                ` : ''}
-                                
-                                ${topic.key_concepts ? `
-                                    <div>
-                                        <h3 class="font-semibold mb-2">Nøkkelbegreper:</h3>
-                                        <div class="flex flex-wrap gap-2">
-                                            ${topic.key_concepts.map(concept => `
-                                                <span class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} translatable">
-                                                    ${concept}
-                                                </span>
-                                            `).join('')}
-                                        </div>
-                                    </div>
-                                ` : ''}
-                                
-                                ${topic.url ? `
-                                    <a href="${topic.url}" target="_blank" class="text-blue-600 hover:underline text-sm inline-block">
-                                        Les mer →
-                                    </a>
-                                ` : ''}
-                                
-                                ${subtopics.length > 0 && !isSubtopic ? `
-                                    <div>
-                                        <h3 class="font-semibold mb-2">Undertemaer:</h3>
-                                        <div class="space-y-2">
-                                            ${subtopics.map((sub) => `
-                                                <button onclick="app.showTopicModal('${sub.id}', true)" 
-                                                        class="w-full p-3 text-left bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
-                                                    <span class="font-medium">${sub.title}</span>
-                                                </button>
-                                            `).join('')}
-                                        </div>
-                                    </div>
-                                ` : ''}
-                                
-                                <button onclick="app.startQuiz('${topicId}')" 
-                                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg shadow-md transition-colors">
-                                    Start quiz for ${topic.title}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                // Remove any existing modals before adding new one
-                document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
-                document.body.appendChild(modal);
-            },
-            
-            // Start quiz with smart question selection
-            startQuiz(topicId = null) {
-                // Hide header during quiz
-                document.getElementById('header').style.display = 'none';
-                
-                // Close any open modals
-                document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
-                
-                // Use smart question selection
-                const quizQuestions = this.selectQuestionsForQuiz(topicId);
-                
-                if (quizQuestions.length === 0) {
-                    this.showNotification('No questions available for this topic', 'error');
-                    document.getElementById('header').style.display = 'flex';
-                    return;
-                }
-                
-                // Store section stats before quiz
-                const sectionsInQuiz = [...new Set(quizQuestions.map(q => q.section.split('.')[0]))];
-                const beforeStats = {};
-                sectionsInQuiz.forEach(sectionId => {
-                    beforeStats[sectionId] = this.getSectionStats(sectionId).correct;
-                });
-                
-                // Initialize quiz state
-                this.data.currentQuiz = {
-                    questions: quizQuestions,
-                    currentIndex: 0,
-                    answers: [],
-                    startTime: Date.now(),
-                    topicId: topicId,
-                    beforeStats: beforeStats,
-                    viewingIndex: 0 // For navigation
-                };
-                
-                // Reset translation tracker
-                this.data.translationTracker = {
-                    totalWords: 0,
-                    translatedWords: new Set()
-                };
-                
-                this.showQuizQuestion();
-            },
-            
-            // Load translations for current question
-            loadQuestionTranslations(questionNo) {
-                const lang = this.data.currentLanguage;
-                const translatedQuestion = this.data.questions[lang]?.find(q => q.id === questionNo.id);
-                
-                if (translatedQuestion) {
-                    this.data.currentQuestionTranslations = {
-                        question: translatedQuestion.question,
-                        ...translatedQuestion.alternatives.reduce((acc, alt, idx) => {
-                            acc[`alt_${idx}`] = alt;
-                            return acc;
-                        }, {})
-                    };
-                } else {
-                    // Fallback to empty translations
-                    this.data.currentQuestionTranslations = {};
-                }
-            },
-            
-            // Count unique words in text
-            countUniqueWords(text) {
-                const words = text.toLowerCase().match(/\b\w+\b/g) || [];
-                return new Set(words).size;
-            },
-            
-            // Show quiz question
-            showQuizQuestion(viewIndex = null) {
-                const quiz = this.data.currentQuiz;
-                const displayIndex = viewIndex !== null ? viewIndex : quiz.currentIndex;
-                const question = quiz.questions[displayIndex];
-                const sectionName = this.getSectionName(question.section);
-                const subsectionName = question.section.includes('.') ? this.getSubsectionName(question.section) : '';
-                const colors = this.getSectionColor(question.section);
-                
-                // Load translations for this question
-                this.loadQuestionTranslations(question);
-                
-                // Count total unique words for translation tracking
-                const allText = question.question + ' ' + question.alternatives.join(' ');
-                this.data.translationTracker.totalWords = this.countUniqueWords(allText);
-                
-                // If viewing history, preserve translated words
-                if (viewIndex === null) {
-                    this.data.translationTracker.translatedWords = new Set();
-                }
-                
-                // Check if this question has been answered
-                const answer = quiz.answers[displayIndex];
-                const isAnswered = answer !== undefined;
-                // We're only reviewing if the quiz is complete (all questions answered)
-                const isReviewing = quiz.answers.length === quiz.questions.length;
-                const isNavigatingBack = viewIndex !== null && !isReviewing;
-                
-                const mainContent = document.getElementById('mainContent');
-                mainContent.className = 'flex-1 p-4 flex flex-col';
-                mainContent.innerHTML = `
-                    <div class="flex-1 flex flex-col">
-                        <div class="pb-6">
-                            <div class="flex ${subsectionName ? 'justify-between' : 'justify-center'} items-center gap-2 mb-10">
-                                <button onclick="app.showTopicModal('${question.section.split('.')[0]}')" 
-                                        class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
-                                    ${sectionName}
-                                </button>
-                                ${subsectionName ? `
-                                    <button onclick="app.showTopicModal('${question.section}', true)" 
-                                            class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
-                                        ${subsectionName}
-                                    </button>
-                                ` : ''}
-                            </div>
-                        </div>
-                        
-                        <div class="flex-1 flex flex-col justify-between">
-                            <div class="mb-8">
-                                <h2 class="text-xl font-medium text-center translatable px-4 mb-8" id="questionText" data-translation-key="question">
-                                    ${question.question}
-                                </h2>
-                            </div>
-                            
-                            <div class="space-y-3 px-4 mb-6" id="alternatives">
-                                ${question.alternatives.map((alt, index) => {
-                                    let classes = 'alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg transition-colors';
-                                    
-                                    if (isAnswered) {
-                                        if (index === question.correct) {
-                                            classes += ' correct border-glow';
-                                        } else if (answer && index === answer.answerIndex && !answer.correct) {
-                                            classes += ' incorrect shake';
-                                        }
-                                    }
-                                    
-                                    return `
-                                        <button onclick="${!isAnswered && !isReviewing && !isNavigatingBack ? `app.answerQuestion(${index})` : ''}" 
-                                                class="${classes}"
-                                                data-translation-key="alt_${index}"
-                                                ${isAnswered || isReviewing || isNavigatingBack ? 'disabled' : ''}>
-                                            ${alt}
-                                        </button>
-                                    `;
-                                }).join('')}
-                            </div>
-                            
-                            <div class="text-center text-sm text-gray-500 dark:text-gray-400 mb-4">
-                                <span id="translationPercent">0</span>% oversatt
-                            </div>
-                        </div>
-                        
-                        <div class="mt-auto space-y-3">
-                            <div class="flex justify-between items-center">
-                                <div class="flex gap-2">
-                                    <button onclick="app.navigateQuiz(-1)" 
-                                            class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                                            ${displayIndex === 0 ? 'disabled' : ''}>
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <button onclick="app.navigateQuiz(1)" 
-                                            class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                                            ${displayIndex >= quiz.currentIndex ? 'disabled' : ''}>
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">
-                                    ${displayIndex + 1} / ${quiz.questions.length}
-                                </span>
-                            </div>
-                            
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" 
-                                    style="width: ${((displayIndex + 1) / quiz.questions.length) * 100}%"></div>
-                            </div>
-                            
-                            ${isReviewing ? `
-                                <button onclick="app.showQuizResults()" 
-                                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                                    Tilbake til resultater
-                                </button>
-                            ` : isNavigatingBack ? `
-                                <button onclick="app.showQuizQuestion()" 
-                                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                                    Tilbake til aktiv spørsmål
-                                </button>
-                            ` : `
-                                <button onclick="app.showMainPage()" 
-                                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                                    Avbryt quiz
-                                </button>
-                            `}
-                        </div>
-                    </div>
-                `;
-            },
-
-            // Updated navigateQuiz function to handle the navigation better
-            navigateQuiz(direction) {
-                const quiz = this.data.currentQuiz;
-                const currentDisplay = quiz.viewingIndex !== null ? quiz.viewingIndex : quiz.currentIndex;
-                const newIndex = currentDisplay + direction;
-                
-                if (newIndex >= 0 && newIndex <= quiz.currentIndex) {
-                    quiz.viewingIndex = newIndex;
-                    this.showQuizQuestion(newIndex);
-                }
-            },
-            
-            // Answer question
-            answerQuestion(answerIndex) {
-                const quiz = this.data.currentQuiz;
-                const question = quiz.questions[quiz.currentIndex];
-                const isCorrect = answerIndex === question.correct;
-                
-                // Calculate translation percentage for this question
-                const translationPercent = this.data.translationTracker.totalWords > 0
-                    ? Math.min(100, Math.round((this.data.translationTracker.translatedWords.size / this.data.translationTracker.totalWords) * 100))
-                    : 0;
-                
-                // Store answer
-                quiz.answers.push({
-                    questionId: question.id,
-                    section: question.section,
-                    correct: isCorrect,
-                    answerIndex: answerIndex,
-                    translationPercent: translationPercent,
-                    timestamp: Date.now()
-                });
-                
-                // Update viewing index
-                quiz.viewingIndex = quiz.currentIndex;
-                
-                // Show result animation
-                const buttons = document.querySelectorAll('.alternative-btn');
-                buttons.forEach((btn, index) => {
-                    btn.disabled = true;
-                    if (index === question.correct) {
-                        btn.classList.add('correct');
-                        if (isCorrect && index === answerIndex) {
-                            btn.classList.add('border-glow');
-                        }
-                    } else if (index === answerIndex && !isCorrect) {
-                        btn.classList.add('incorrect', 'shake');
-                    }
-                });
-                
-                // Update navigation buttons
-                const prevBtn = document.querySelector('.nav-button');
-                if (prevBtn && quiz.currentIndex > 0) {
-                    prevBtn.disabled = false;
-                }
-                
-                // Auto-advance to next question
-                setTimeout(() => {
-                    if (quiz.currentIndex < quiz.questions.length - 1) {
-                        quiz.currentIndex++;
-                        quiz.viewingIndex = quiz.currentIndex;
-                        this.showQuizQuestion();
-                    } else {
-                        // Quiz is complete
-                        this.showQuizResults();
-                    }
-                }, 1500);
-            },
-
-            // Show quiz question
-            showQuizQuestion(viewIndex = null) {
-                const quiz = this.data.currentQuiz;
-                const displayIndex = viewIndex !== null ? viewIndex : quiz.currentIndex;
-                const question = quiz.questions[displayIndex];
-                const sectionName = this.getSectionName(question.section);
-                const subsectionName = question.section.includes('.') ? this.getSubsectionName(question.section) : '';
-                const colors = this.getSectionColor(question.section);
-                
-                // Load translations for this question
-                this.loadQuestionTranslations(question);
-                
-                // Count total unique words for translation tracking
-                const allText = question.question + ' ' + question.alternatives.join(' ');
-                this.data.translationTracker.totalWords = this.countUniqueWords(allText);
-                
-                // If viewing history, preserve translated words
-                if (viewIndex === null) {
-                    this.data.translationTracker.translatedWords = new Set();
-                }
-                
-                // Check if this question has been answered
-                const answer = quiz.answers[displayIndex];
-                const isAnswered = answer !== undefined;
-                const isReviewing = viewIndex !== null;
-                
-                const mainContent = document.getElementById('mainContent');
-                mainContent.className = 'flex-1 p-4 flex flex-col';
-                mainContent.innerHTML = `
-                    <div class="flex-1 flex flex-col">
-                        <div class="pb-6">
-                            <div class="flex ${subsectionName ? 'justify-between' : 'justify-center'} items-center gap-2 mb-10">
-                                <button onclick="app.showTopicModal('${question.section.split('.')[0]}')" 
-                                        class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
-                                    ${sectionName}
-                                </button>
-                                ${subsectionName ? `
-                                    <button onclick="app.showTopicModal('${question.section}', true)" 
-                                            class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
-                                        ${subsectionName}
-                                    </button>
-                                ` : ''}
-                            </div>
-                        </div>
-                        
-                        <div class="flex-1 flex flex-col justify-between">
-                            <div class="mb-8">
-                                <h2 class="text-xl font-medium text-center translatable px-4 mb-8" id="questionText" data-translation-key="question">
-                                    ${question.question}
-                                </h2>
-                            </div>
-                            
-                            <div class="space-y-3 px-4 mb-6" id="alternatives">
-                                ${question.alternatives.map((alt, index) => {
-                                    let classes = 'alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg transition-colors';
-                                    
-                                    if (isAnswered) {
-                                        if (index === question.correct) {
-                                            classes += ' correct border-glow';
-                                        } else if (answer && index === answer.answerIndex && !answer.correct) {
-                                            classes += ' incorrect shake';
-                                        }
-                                    }
-                                    
-                                    return `
-                                        <button onclick="${!isAnswered && !isReviewing ? `app.answerQuestion(${index})` : ''}" 
-                                                class="${classes}"
-                                                data-translation-key="alt_${index}"
-                                                ${isAnswered || isReviewing ? 'disabled' : ''}>
-                                            ${alt}
-                                        </button>
-                                    `;
-                                }).join('')}
-                            </div>
-                            
-                            ${!isReviewing ? `
-                                <div class="text-center text-sm text-gray-500 dark:text-gray-400 mb-4">
-                                    <span id="translationPercent">0</span>% oversatt
-                                </div>
-                            ` : ''}
-                        </div>
-                        
-                        <div class="mt-auto space-y-3">
-                            ${!isReviewing ? `
-                                <div class="flex justify-between items-center">
-                                    <div class="flex gap-2">
-                                        <button onclick="app.navigateQuiz(-1)" 
-                                                class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                                                ${quiz.currentIndex === 0 ? 'disabled' : ''}>
-                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                                            </svg>
-                                        </button>
-                                        <button onclick="app.navigateQuiz(1)" 
-                                                class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                                                ${quiz.currentIndex === 0 ? 'disabled' : ''}>
-                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <span class="text-sm text-gray-500 dark:text-gray-400">
-                                        ${quiz.currentIndex + 1} / ${quiz.questions.length}
-                                    </span>
-                                </div>
-                            ` : ''}
-                            
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" 
-                                    style="width: ${((displayIndex + 1) / quiz.questions.length) * 100}%"></div>
-                            </div>
-                            
-                            <button onclick="app.${isReviewing ? 'showQuizResults' : 'showMainPage'}()" 
-                                    class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                                ${isReviewing ? 'Tilbake til resultater' : 'Avbryt quiz'}
-                            </button>
-                        </div>
-                    </div>
-                `;
-            },
-
-            
-            // Review quiz answers
-            reviewQuiz() {
-                // Hide header during review
-                document.getElementById('header').style.display = 'none';
-                // Make sure we're in review mode
-                this.data.currentQuiz.viewingIndex = 0;
-                this.showQuizQuestion(0); // Pass 0 to indicate we're reviewing
-            },
-            
-            // Render star rating
-            renderStars(percentage) {
-                const stars = 5;
-                const filledStars = Math.floor((percentage / 100) * stars);
-                const hasHalfStar = ((percentage / 100) * stars) % 1 >= 0.5;
-                
-                let html = '';
-                for (let i = 0; i < stars; i++) {
-                    if (i < filledStars) {
-                        html += '<span class="star filled text-2xl">★</span>';
-                    } else if (i === filledStars && hasHalfStar) {
-                        html += '<span class="star half-filled text-2xl">★</span>';
-                    } else {
-                        html += '<span class="star text-2xl">★</span>';
-                    }
-                }
-                
-                return html;
-            },
-            
-            // Update UI based on language change
-            updateUI() {
-                const currentView = document.querySelector('#mainContent').innerHTML;
-                if (currentView.includes('Start quiz')) {
-                    this.showMainPage();
-                }
+            // Update translation percentage if in quiz
+            if (this.data.currentQuiz) {
+                this.updateTranslationPercent();
             }
         };
         
-        // Initialize app when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            app.init();
+        const hideTranslation = () => {
+            tooltip.classList.add('hidden');
+            isTranslating = false;
+            clearTimeout(pressTimer);
+        };
+        
+        // Touch events for mobile
+        document.addEventListener('touchstart', (e) => {
+            const target = e.target.closest('.translatable');
+            if (target && !target.closest('.alternative-btn')) {
+                e.preventDefault();
+                pressTimer = setTimeout(() => {
+                    const touch = e.touches[0];
+                    showTranslation(target, touch.clientX, touch.clientY);
+                }, 500);
+            }
         });
-    </script>
+        
+        document.addEventListener('touchend', hideTranslation);
+        document.addEventListener('touchcancel', hideTranslation);
+        
+        // Mouse events for desktop
+        let mouseTimer;
+        document.addEventListener('mousemove', (e) => {
+            const target = e.target.closest('.translatable');
+            if (target && !target.closest('.alternative-btn')) {
+                clearTimeout(mouseTimer);
+                mouseTimer = setTimeout(() => {
+                    showTranslation(target, e.clientX, e.clientY);
+                }, 500);
+            } else {
+                clearTimeout(mouseTimer);
+                hideTranslation();
+            }
+        });
+        
+        document.addEventListener('mouseleave', () => {
+            clearTimeout(mouseTimer);
+            hideTranslation();
+        });
+    },
+    
+    // Translate specific words
+    translateWords(text, element) {
+        const lang = this.data.currentLanguage;
+        const translationKey = element.getAttribute('data-translation-key');
+        
+        // If we have a full translation for this element, try to map the word
+        if (translationKey && this.data.currentQuestionTranslations[translationKey]) {
+            const fullTranslation = this.data.currentQuestionTranslations[translationKey];
+            const norwegianText = element.textContent;
+            
+            // Simple word mapping - in real app would use more sophisticated approach
+            const norwegianWords = norwegianText.toLowerCase().split(/\s+/);
+            const translatedWords = fullTranslation.split(/\s+/);
+            
+            const searchWord = text.toLowerCase();
+            const wordIndex = norwegianWords.findIndex(w => w.includes(searchWord) || searchWord.includes(w));
+            
+            if (wordIndex !== -1 && wordIndex < translatedWords.length) {
+                return translatedWords[wordIndex];
+            }
+        }
+        
+        // Fallback to dictionary translation
+        const translations = {
+            pb: {
+                "alle": "todos",
+                "innvandrere": "imigrantes",
+                "norge": "noruega",
+                "har": "têm",
+                "plikt": "obrigação",
+                "til": "de",
+                "å": "a",
+                "ta": "fazer",
+                "norskopplæring": "curso de norueguês",
+                "rett": "certo",
+                "galt": "errado",
+                "barn": "crianças",
+                "gratis": "gratuita",
+                "utdanning": "educação",
+                "demokrati": "democracia",
+                "er": "é",
+                "et": "uma"
+            },
+            en: {
+                "alle": "all",
+                "innvandrere": "immigrants",
+                "norge": "norway",
+                "har": "have",
+                "plikt": "obligation",
+                "til": "to",
+                "å": "to",
+                "ta": "take",
+                "norskopplæring": "norwegian classes",
+                "rett": "right",
+                "galt": "wrong",
+                "barn": "children",
+                "gratis": "free",
+                "utdanning": "education",
+                "demokrati": "democracy",
+                "er": "is",
+                "et": "a"
+            }
+        };
+        
+        const word = text.toLowerCase().replace(/[.,!?]/g, '');
+        return translations[lang]?.[word] || text;
+    },
+    
+    // Update translation percentage
+    updateTranslationPercent() {
+        const percentEl = document.getElementById('translationPercent');
+        if (percentEl && this.data.translationTracker.totalWords > 0) {
+            const percent = Math.min(100, Math.round((this.data.translationTracker.translatedWords.size / this.data.translationTracker.totalWords) * 100));
+            percentEl.textContent = percent;
+        }
+    },
+    
+    // Get section name
+    getSectionName(sectionId) {
+        const mainSectionId = sectionId.split('.')[0];
+        return this.data.descriptions.no.find(d => d.id === mainSectionId)?.title || `Tema ${mainSectionId}`;
+    },
+    
+    // Get subsection name
+    getSubsectionName(sectionId) {
+        return this.data.descriptions.no.find(d => d.id === sectionId)?.title || '';
+    },
+    
+    // Calculate section statistics
+    getSectionStats(sectionId) {
+        // Include all subsections in the calculation
+        const sectionAnswers = this.data.userProgress.filter(p => 
+            p.section === sectionId || p.section.startsWith(sectionId + '.')
+        );
+        
+        if (sectionAnswers.length === 0) {
+            return { correct: 50, translation: 0, count: 0 };
+        }
+        
+        const correct = (sectionAnswers.filter(a => a.correct).length / sectionAnswers.length) * 100;
+        const translation = sectionAnswers.reduce((sum, a) => sum + (a.translationPercent || 0), 0) / sectionAnswers.length;
+        
+        return { 
+            correct: Math.round(correct), 
+            translation: Math.round(translation),
+            count: sectionAnswers.length
+        };
+    },
+    
+    // Calculate section weight for question selection
+    calculateSectionWeight(sectionId) {
+        const stats = this.getSectionStats(sectionId);
+        
+        // Base weight (higher for sections with fewer answers)
+        const countWeight = Math.max(0, 100 - stats.count * 5);
+        
+        // Performance weight (higher for sections with lower correct percentage)
+        const performanceWeight = 100 - stats.correct;
+        
+        // Combined weight (prioritize both few answers and poor performance)
+        const weight = (countWeight * 0.6) + (performanceWeight * 0.4);
+        
+        return Math.max(1, weight); // Ensure minimum weight of 1
+    },
+    
+    // Select questions using weighted random selection
+    selectQuestionsForQuiz(topicId = null) {
+        // Reset used questions for new quiz
+        this.data.usedQuestionIds.clear();
+        
+        let availableQuestions = this.data.questions.no;
+        
+        // Filter by topic if specified
+        if (topicId) {
+            availableQuestions = availableQuestions.filter(q => 
+                q.section === topicId || q.section.startsWith(topicId + '.')
+            );
+        }
+        
+        // Group questions by section
+        const questionsBySection = {};
+        availableQuestions.forEach(q => {
+            if (!questionsBySection[q.section]) {
+                questionsBySection[q.section] = [];
+            }
+            questionsBySection[q.section].push(q);
+        });
+        
+        // Calculate weights for each section
+        const sectionWeights = {};
+        let totalWeight = 0;
+        
+        Object.keys(questionsBySection).forEach(sectionId => {
+            const weight = this.calculateSectionWeight(sectionId);
+            sectionWeights[sectionId] = weight;
+            totalWeight += weight;
+        });
+        
+        // Select questions
+        const selectedQuestions = [];
+        const targetCount = Math.min(20, availableQuestions.length);
+        
+        while (selectedQuestions.length < targetCount && Object.keys(questionsBySection).length > 0) {
+            // Weighted random selection of section
+            let randomValue = Math.random() * totalWeight;
+            let selectedSection = null;
+            
+            for (const [sectionId, weight] of Object.entries(sectionWeights)) {
+                randomValue -= weight;
+                if (randomValue <= 0) {
+                    selectedSection = sectionId;
+                    break;
+                }
+            }
+            
+            // Fallback if no section selected (shouldn't happen)
+            if (!selectedSection) {
+                selectedSection = Object.keys(questionsBySection)[0];
+            }
+            
+            // Select random question from the section
+            const sectionQuestions = questionsBySection[selectedSection];
+            if (sectionQuestions && sectionQuestions.length > 0) {
+                // Filter out already used questions
+                const unusedQuestions = sectionQuestions.filter(q => !this.data.usedQuestionIds.has(q.id));
+                
+                if (unusedQuestions.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * unusedQuestions.length);
+                    const question = unusedQuestions[randomIndex];
+                    selectedQuestions.push(question);
+                    this.data.usedQuestionIds.add(question.id);
+                    
+                    // Remove question from available pool
+                    const originalIndex = sectionQuestions.findIndex(q => q.id === question.id);
+                    sectionQuestions.splice(originalIndex, 1);
+                    
+                    // Remove section if no more questions
+                    if (sectionQuestions.length === 0) {
+                        delete questionsBySection[selectedSection];
+                        totalWeight -= sectionWeights[selectedSection];
+                        delete sectionWeights[selectedSection];
+                    }
+                } else {
+                    // All questions in this section are used, remove it
+                    delete questionsBySection[selectedSection];
+                    totalWeight -= sectionWeights[selectedSection];
+                    delete sectionWeights[selectedSection];
+                }
+            }
+        }
+        
+        return selectedQuestions;
+    },
+    
+    // Show main page
+    showMainPage() {
+        // Show header
+        document.getElementById('header').style.display = 'flex';
+        
+        const mainContent = document.getElementById('mainContent');
+        const sections = this.data.descriptions.no.filter(d => !d.id.includes('.'));
+        
+        mainContent.innerHTML = `
+            <div class="space-y-3">
+                ${sections.map(section => {
+                    const stats = this.getSectionStats(section.id);
+                    const color = this.sectionColors[section.id].main;
+                    
+                    return `
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer hover:shadow-lg transition-shadow"
+                                onclick="app.showTopicModal('${section.id}')">
+                            <h2 class="text-lg font-semibold mb-2" style="color: ${color}">
+                                ${section.title}
+                            </h2>
+                            <div class="grid grid-cols-2 gap-2 text-sm">
+                                <div class="flex items-center gap-1">
+                                    <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span>${stats.correct}% riktig</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                                    </svg>
+                                    <span>${stats.translation}% oversatt</span>
+                                </div>
+                            </div>
+                            <div class="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                                ${stats.count} av 300 siste spørsmål
+                            </div>
+                        </div>
+                    `;
+                }).join('')}
+                
+                <button onclick="app.startQuiz()" 
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg shadow-md transition-colors">
+                    Start quiz (alle temaer)
+                </button>
+            </div>
+        `;
+    },
+    
+    // Show topic modal
+    showTopicModal(topicId, isSubtopic = false) {
+        const topic = this.data.descriptions.no.find(d => d.id === topicId);
+        const subtopics = this.data.descriptions.no.filter(d => d.id.startsWith(topicId + '.'));
+        const colors = this.getSectionColor(topicId);
+        const mainSectionId = topicId.split('.')[0];
+        
+        // Get parent topic if this is a subtopic
+        const parentTopic = isSubtopic ? this.data.descriptions.no.find(d => d.id === mainSectionId) : null;
+        
+        const modal = document.createElement('div');
+        modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 modal-backdrop';
+        modal.innerHTML = `
+            <div class="fixed inset-0 bg-white dark:bg-gray-900 modal-content overflow-y-auto">
+                <div class="max-w-md mx-auto">
+                    <div class="sticky top-0 bg-white dark:bg-gray-900 p-4 border-b dark:border-gray-700">
+                        <div class="flex justify-between items-center mb-2">
+                            <h2 class="text-xl font-bold" style="color: ${colors.main}">${topic.title}</h2>
+                            <button onclick="this.closest('.modal-backdrop').remove()" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        ${isSubtopic && parentTopic ? `
+                            <button onclick="app.showTopicModal('${mainSectionId}')" 
+                                    class="text-sm ${colors.text} ${colors.darkText} hover:underline flex items-center gap-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                                ${parentTopic.title}
+                            </button>
+                        ` : ''}
+                    </div>
+                    
+                    <div class="p-4 space-y-4">
+                        <div>
+                            <p class="text-gray-700 dark:text-gray-300 translatable">${topic.description}</p>
+                        </div>
+                        
+                        ${topic.learning_goals ? `
+                            <div>
+                                <h3 class="font-semibold mb-2">Læringsmål:</h3>
+                                <ul class="list-disc list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                                    ${topic.learning_goals.map(goal => `
+                                        <li class="translatable">${goal}</li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+                        
+                        ${topic.key_concepts ? `
+                            <div>
+                                <h3 class="font-semibold mb-2">Nøkkelbegreper:</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    ${topic.key_concepts.map(concept => `
+                                        <span class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} translatable">
+                                            ${concept}
+                                        </span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        ` : ''}
+                        
+                        ${topic.url ? `
+                            <a href="${topic.url}" target="_blank" class="text-blue-600 hover:underline text-sm inline-block">
+                                Les mer →
+                            </a>
+                        ` : ''}
+                        
+                        ${subtopics.length > 0 && !isSubtopic ? `
+                            <div>
+                                <h3 class="font-semibold mb-2">Undertemaer:</h3>
+                                <div class="space-y-2">
+                                    ${subtopics.map((sub) => `
+                                        <button onclick="app.showTopicModal('${sub.id}', true)" 
+                                                class="w-full p-3 text-left bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
+                                            <span class="font-medium">${sub.title}</span>
+                                        </button>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        ` : ''}
+                        
+                        <button onclick="app.startQuiz('${topicId}')" 
+                                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg shadow-md transition-colors">
+                            Start quiz for ${topic.title}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Remove any existing modals before adding new one
+        document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+        document.body.appendChild(modal);
+    },
+    
+    // Start quiz with smart question selection
+    startQuiz(topicId = null) {
+        // Hide header during quiz
+        document.getElementById('header').style.display = 'none';
+        
+        // Close any open modals
+        document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+        
+        // Use smart question selection
+        const quizQuestions = this.selectQuestionsForQuiz(topicId);
+        
+        if (quizQuestions.length === 0) {
+            this.showNotification('No questions available for this topic', 'error');
+            document.getElementById('header').style.display = 'flex';
+            return;
+        }
+        
+        // Store section stats before quiz
+        const sectionsInQuiz = [...new Set(quizQuestions.map(q => q.section.split('.')[0]))];
+        const beforeStats = {};
+        sectionsInQuiz.forEach(sectionId => {
+            beforeStats[sectionId] = this.getSectionStats(sectionId).correct;
+        });
+        
+        // Initialize quiz state
+        this.data.currentQuiz = {
+            questions: quizQuestions,
+            currentIndex: 0,
+            answers: [],
+            startTime: Date.now(),
+            topicId: topicId,
+            beforeStats: beforeStats,
+            viewingIndex: 0 // For navigation
+        };
+        
+        // Reset translation tracker
+        this.data.translationTracker = {
+            totalWords: 0,
+            translatedWords: new Set()
+        };
+        
+        this.showQuizQuestion();
+    },
+    
+    // Load translations for current question
+    loadQuestionTranslations(questionNo) {
+        const lang = this.data.currentLanguage;
+        const translatedQuestion = this.data.questions[lang]?.find(q => q.id === questionNo.id);
+        
+        if (translatedQuestion) {
+            this.data.currentQuestionTranslations = {
+                question: translatedQuestion.question,
+                ...translatedQuestion.alternatives.reduce((acc, alt, idx) => {
+                    acc[`alt_${idx}`] = alt;
+                    return acc;
+                }, {})
+            };
+        } else {
+            // Fallback to empty translations
+            this.data.currentQuestionTranslations = {};
+        }
+    },
+    
+    // Count unique words in text
+    countUniqueWords(text) {
+        const words = text.toLowerCase().match(/\b\w+\b/g) || [];
+        return new Set(words).size;
+    },
+    
+    // Show quiz question
+    showQuizQuestion(viewIndex = null) {
+        const quiz = this.data.currentQuiz;
+        const displayIndex = viewIndex !== null ? viewIndex : quiz.currentIndex;
+        const question = quiz.questions[displayIndex];
+        const sectionName = this.getSectionName(question.section);
+        const subsectionName = question.section.includes('.') ? this.getSubsectionName(question.section) : '';
+        const colors = this.getSectionColor(question.section);
+        
+        // Load translations for this question
+        this.loadQuestionTranslations(question);
+        
+        // Count total unique words for translation tracking
+        const allText = question.question + ' ' + question.alternatives.join(' ');
+        this.data.translationTracker.totalWords = this.countUniqueWords(allText);
+        
+        // If viewing history, preserve translated words
+        if (viewIndex === null) {
+            this.data.translationTracker.translatedWords = new Set();
+        }
+        
+        // Check if this question has been answered
+        const answer = quiz.answers[displayIndex];
+        const isAnswered = answer !== undefined;
+        // We're only reviewing if the quiz is complete (all questions answered)
+        const isReviewing = quiz.answers.length === quiz.questions.length;
+        const isNavigatingBack = viewIndex !== null && !isReviewing;
+        
+        const mainContent = document.getElementById('mainContent');
+        mainContent.className = 'flex-1 p-4 flex flex-col';
+        mainContent.innerHTML = `
+            <div class="flex-1 flex flex-col">
+                <div class="pb-6">
+                    <div class="flex ${subsectionName ? 'justify-between' : 'justify-center'} items-center gap-2 mb-10">
+                        <button onclick="app.showTopicModal('${question.section.split('.')[0]}')" 
+                                class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
+                            ${sectionName}
+                        </button>
+                        ${subsectionName ? `
+                            <button onclick="app.showTopicModal('${question.section}', true)" 
+                                    class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
+                                ${subsectionName}
+                            </button>
+                        ` : ''}
+                    </div>
+                </div>
+                
+                <div class="flex-1 flex flex-col justify-between">
+                    <div class="mb-8">
+                        <h2 class="text-xl font-medium text-center translatable px-4 mb-8" id="questionText" data-translation-key="question">
+                            ${question.question}
+                        </h2>
+                    </div>
+                    
+                    <div class="space-y-3 px-4 mb-6" id="alternatives">
+                        ${question.alternatives.map((alt, index) => {
+                            let classes = 'alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg transition-colors';
+                            
+                            if (isAnswered) {
+                                if (index === question.correct) {
+                                    classes += ' correct border-glow';
+                                } else if (answer && index === answer.answerIndex && !answer.correct) {
+                                    classes += ' incorrect shake';
+                                }
+                            }
+                            
+                            return `
+                                <button onclick="${!isAnswered && !isReviewing && !isNavigatingBack ? `app.answerQuestion(${index})` : ''}" 
+                                        class="${classes}"
+                                        data-translation-key="alt_${index}"
+                                        ${isAnswered || isReviewing || isNavigatingBack ? 'disabled' : ''}>
+                                    ${alt}
+                                </button>
+                            `;
+                        }).join('')}
+                    </div>
+                    
+                    <div class="text-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        <span id="translationPercent">0</span>% oversatt
+                    </div>
+                </div>
+                
+                <div class="mt-auto space-y-3">
+                    <div class="flex justify-between items-center">
+                        <div class="flex gap-2">
+                            <button onclick="app.navigateQuiz(-1)" 
+                                    class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                                    ${displayIndex === 0 ? 'disabled' : ''}>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
+                            <button onclick="app.navigateQuiz(1)" 
+                                    class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                                    ${displayIndex >= quiz.currentIndex ? 'disabled' : ''}>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">
+                            ${displayIndex + 1} / ${quiz.questions.length}
+                        </span>
+                    </div>
+                    
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" 
+                            style="width: ${((displayIndex + 1) / quiz.questions.length) * 100}%"></div>
+                    </div>
+                    
+                    ${isReviewing ? `
+                        <button onclick="app.showQuizResults()" 
+                                class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+                            Tilbake til resultater
+                        </button>
+                    ` : isNavigatingBack ? `
+                        <button onclick="app.showQuizQuestion()" 
+                                class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+                            Tilbake til aktiv spørsmål
+                        </button>
+                    ` : `
+                        <button onclick="app.showMainPage()" 
+                                class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+                            Avbryt quiz
+                        </button>
+                    `}
+                </div>
+            </div>
+        `;
+    },
+
+    // Updated navigateQuiz function to handle the navigation better
+    navigateQuiz(direction) {
+        const quiz = this.data.currentQuiz;
+        const currentDisplay = quiz.viewingIndex !== null ? quiz.viewingIndex : quiz.currentIndex;
+        const newIndex = currentDisplay + direction;
+        
+        if (newIndex >= 0 && newIndex <= quiz.currentIndex) {
+            quiz.viewingIndex = newIndex;
+            this.showQuizQuestion(newIndex);
+        }
+    },
+    
+    // Answer question
+    answerQuestion(answerIndex) {
+        const quiz = this.data.currentQuiz;
+        const question = quiz.questions[quiz.currentIndex];
+        const isCorrect = answerIndex === question.correct;
+        
+        // Calculate translation percentage for this question
+        const translationPercent = this.data.translationTracker.totalWords > 0
+            ? Math.min(100, Math.round((this.data.translationTracker.translatedWords.size / this.data.translationTracker.totalWords) * 100))
+            : 0;
+        
+        // Store answer
+        quiz.answers.push({
+            questionId: question.id,
+            section: question.section,
+            correct: isCorrect,
+            answerIndex: answerIndex,
+            translationPercent: translationPercent,
+            timestamp: Date.now()
+        });
+        
+        // Update viewing index
+        quiz.viewingIndex = quiz.currentIndex;
+        
+        // Show result animation
+        const buttons = document.querySelectorAll('.alternative-btn');
+        buttons.forEach((btn, index) => {
+            btn.disabled = true;
+            if (index === question.correct) {
+                btn.classList.add('correct');
+                if (isCorrect && index === answerIndex) {
+                    btn.classList.add('border-glow');
+                }
+            } else if (index === answerIndex && !isCorrect) {
+                btn.classList.add('incorrect', 'shake');
+            }
+        });
+        
+        // Update navigation buttons
+        const prevBtn = document.querySelector('.nav-button');
+        if (prevBtn && quiz.currentIndex > 0) {
+            prevBtn.disabled = false;
+        }
+        
+        // Auto-advance to next question
+        setTimeout(() => {
+            if (quiz.currentIndex < quiz.questions.length - 1) {
+                quiz.currentIndex++;
+                quiz.viewingIndex = quiz.currentIndex;
+                this.showQuizQuestion();
+            } else {
+                // Quiz is complete
+                this.showQuizResults();
+            }
+        }, 1500);
+    },
+
+    // Show quiz question
+    showQuizQuestion(viewIndex = null) {
+        const quiz = this.data.currentQuiz;
+        const displayIndex = viewIndex !== null ? viewIndex : quiz.currentIndex;
+        const question = quiz.questions[displayIndex];
+        const sectionName = this.getSectionName(question.section);
+        const subsectionName = question.section.includes('.') ? this.getSubsectionName(question.section) : '';
+        const colors = this.getSectionColor(question.section);
+        
+        // Load translations for this question
+        this.loadQuestionTranslations(question);
+        
+        // Count total unique words for translation tracking
+        const allText = question.question + ' ' + question.alternatives.join(' ');
+        this.data.translationTracker.totalWords = this.countUniqueWords(allText);
+        
+        // If viewing history, preserve translated words
+        if (viewIndex === null) {
+            this.data.translationTracker.translatedWords = new Set();
+        }
+        
+        // Check if this question has been answered
+        const answer = quiz.answers[displayIndex];
+        const isAnswered = answer !== undefined;
+        const isReviewing = viewIndex !== null;
+        
+        const mainContent = document.getElementById('mainContent');
+        mainContent.className = 'flex-1 p-4 flex flex-col';
+        mainContent.innerHTML = `
+            <div class="flex-1 flex flex-col">
+                <div class="pb-6">
+                    <div class="flex ${subsectionName ? 'justify-between' : 'justify-center'} items-center gap-2 mb-10">
+                        <button onclick="app.showTopicModal('${question.section.split('.')[0]}')" 
+                                class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
+                            ${sectionName}
+                        </button>
+                        ${subsectionName ? `
+                            <button onclick="app.showTopicModal('${question.section}', true)" 
+                                    class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
+                                ${subsectionName}
+                            </button>
+                        ` : ''}
+                    </div>
+                </div>
+                
+                <div class="flex-1 flex flex-col justify-between">
+                    <div class="mb-8">
+                        <h2 class="text-xl font-medium text-center translatable px-4 mb-8" id="questionText" data-translation-key="question">
+                            ${question.question}
+                        </h2>
+                    </div>
+                    
+                    <div class="space-y-3 px-4 mb-6" id="alternatives">
+                        ${question.alternatives.map((alt, index) => {
+                            let classes = 'alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg transition-colors';
+                            
+                            if (isAnswered) {
+                                if (index === question.correct) {
+                                    classes += ' correct border-glow';
+                                } else if (answer && index === answer.answerIndex && !answer.correct) {
+                                    classes += ' incorrect shake';
+                                }
+                            }
+                            
+                            return `
+                                <button onclick="${!isAnswered && !isReviewing ? `app.answerQuestion(${index})` : ''}" 
+                                        class="${classes}"
+                                        data-translation-key="alt_${index}"
+                                        ${isAnswered || isReviewing ? 'disabled' : ''}>
+                                    ${alt}
+                                </button>
+                            `;
+                        }).join('')}
+                    </div>
+                    
+                    ${!isReviewing ? `
+                        <div class="text-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                            <span id="translationPercent">0</span>% oversatt
+                        </div>
+                    ` : ''}
+                </div>
+                
+                <div class="mt-auto space-y-3">
+                    ${!isReviewing ? `
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <button onclick="app.navigateQuiz(-1)" 
+                                        class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                                        ${quiz.currentIndex === 0 ? 'disabled' : ''}>
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                    </svg>
+                                </button>
+                                <button onclick="app.navigateQuiz(1)" 
+                                        class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                                        ${quiz.currentIndex === 0 ? 'disabled' : ''}>
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">
+                                ${quiz.currentIndex + 1} / ${quiz.questions.length}
+                            </span>
+                        </div>
+                    ` : ''}
+                    
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" 
+                            style="width: ${((displayIndex + 1) / quiz.questions.length) * 100}%"></div>
+                    </div>
+                    
+                    <button onclick="app.${isReviewing ? 'showQuizResults' : 'showMainPage'}()" 
+                            class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+                        ${isReviewing ? 'Tilbake til resultater' : 'Avbryt quiz'}
+                    </button>
+                </div>
+            </div>
+        `;
+    },
+
+    
+    // Review quiz answers
+    reviewQuiz() {
+        // Hide header during review
+        document.getElementById('header').style.display = 'none';
+        // Make sure we're in review mode
+        this.data.currentQuiz.viewingIndex = 0;
+        this.showQuizQuestion(0); // Pass 0 to indicate we're reviewing
+    },
+    
+    // Render star rating
+    renderStars(percentage) {
+        const stars = 5;
+        const filledStars = Math.floor((percentage / 100) * stars);
+        const hasHalfStar = ((percentage / 100) * stars) % 1 >= 0.5;
+        
+        let html = '';
+        for (let i = 0; i < stars; i++) {
+            if (i < filledStars) {
+                html += '<span class="star filled text-2xl">★</span>';
+            } else if (i === filledStars && hasHalfStar) {
+                html += '<span class="star half-filled text-2xl">★</span>';
+            } else {
+                html += '<span class="star text-2xl">★</span>';
+            }
+        }
+        
+        return html;
+    },
+    
+    // Update UI based on language change
+    updateUI() {
+        const currentView = document.querySelector('#mainContent').innerHTML;
+        if (currentView.includes('Start quiz')) {
+            this.showMainPage();
+        }
+    }
+};
+
+// Initialize app when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    app.init();
+});
+</script>
 </body>
 </html>
