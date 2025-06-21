@@ -27,7 +27,7 @@
             height: 100%;
         }
         
-        /* Animations */
+        /* Animations - Cannot be replaced with Tailwind */
         @keyframes borderGlow {
             0% { box-shadow: 0 0 5px rgba(34, 197, 94, 0.5), 0 0 10px rgba(34, 197, 94, 0.3), 0 0 15px rgba(34, 197, 94, 0.1); }
             50% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.8), 0 0 30px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.3); }
@@ -78,49 +78,17 @@
             animation: slideIn 0.3s ease-out forwards;
         }
         
-        /* Translation system */
+        /* Translation tooltip - some properties must stay in CSS */
         .translation-tooltip {
-            position: fixed;
-            background: white;
-            color: #1f2937;
-            padding: 10px 18px;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 400;
-            z-index: 1000;
-            pointer-events: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(0, 0, 0, 0.05);
             animation: fadeIn 0.2s ease-out;
-            max-width: 350px;
-            line-height: 1.5;
         }
         
-        .dark .translation-tooltip {
-            background: #374151;
-            color: #f3f4f6;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Text marker in original text */
+        /* Text marker animation */
         .translation-text-marker {
-            color: #3b82f6;
-            font-weight: bold;
             animation: blink 1s ease-in-out infinite;
-            margin: 0 1px;
         }
         
-        .dark .translation-text-marker {
-            color: #60a5fa;
-        }
-        
-        .translatable {
-            cursor: help;
-            position: relative;
-        }
-        
-        /* Active translation state */
+        /* Active translation state background */
         .translating {
             background-color: rgba(59, 130, 246, 0.08) !important;
             transition: background-color 0.2s ease;
@@ -130,17 +98,6 @@
             background-color: rgba(59, 130, 246, 0.15) !important;
         }
         
-        /* Star rating */
-        .star {
-            display: inline-block;
-            color: #d1d5db;
-            transition: color 0.3s ease;
-        }
-        
-        .star.filled {
-            color: #fbbf24;
-        }
-        
         /* Prevent text selection on mobile */
         body {
             -webkit-touch-callout: none;
@@ -148,55 +105,16 @@
             user-select: none;
         }
         
-        /* Modal */
+        /* Modal animations */
         .modal-backdrop {
             animation: fadeIn 0.2s ease-out;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
         }
         
         .modal-content {
             animation: slideUp 0.3s ease-out;
-            min-height: 100%;
         }
         
-        /* Navigation buttons */
-        .nav-button {
-            transition: all 0.2s ease;
-        }
-        
-        .nav-button:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-        
-        .nav-button:not(:disabled):hover {
-            transform: scale(1.1);
-        }
-        
-        .nav-button:not(:disabled):active {
-            transform: scale(0.95);
-        }
-        
-        /* Alternative button styles - Fixed for iOS visibility */
-        .alternative-btn {
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
-        .alternative-btn:not(:disabled):hover {
-            border-color: rgb(59 130 246);
-        }
-        
-        .alternative-btn:disabled {
-            cursor: default;
-        }
-        
+        /* Alternative button states - colors that can't be done with Tailwind */
         .alternative-btn.correct {
             background-color: rgba(34, 197, 94, 0.15);
             border-color: rgb(34 197 94);
@@ -223,32 +141,6 @@
         
         .alternative-btn.translating {
             border-color: rgba(59, 130, 246, 0.5) !important;
-        }
-        
-        /* Quiz layout */
-        .quiz-container {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        .quiz-content {
-            flex: 1;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            padding-bottom: 1rem;
-        }
-        
-        .quiz-footer {
-            flex-shrink: 0;
-            background: inherit;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            padding-top: 1rem;
-        }
-        
-        .dark .quiz-footer {
-            border-top-color: rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
@@ -277,7 +169,7 @@
     </div>
 
     <!-- Translation tooltip -->
-    <div id="translationTooltip" class="translation-tooltip hidden"></div>
+    <div id="translationTooltip" class="translation-tooltip fixed bg-white text-gray-900 px-[18px] py-[10px] rounded-xl text-sm font-normal z-[1000] pointer-events-none shadow-lg border border-black/5 dark:bg-gray-700 dark:text-gray-100 dark:border-white/10 dark:shadow-2xl max-w-[350px] leading-relaxed hidden"></div>
 
     <!-- Notification container -->
     <div id="notificationContainer" class="fixed top-4 right-4 z-50"></div>
@@ -675,7 +567,7 @@ class TranslationManager {
         
         // Create text marker element
         this.textMarker = document.createElement('span');
-        this.textMarker.className = 'translation-text-marker';
+        this.textMarker.className = 'translation-text-marker text-blue-600 dark:text-blue-400 font-bold mx-[1px]';
         this.textMarker.innerHTML = '|';
         
         const updateTranslation = (element, x, y) => {
@@ -1151,9 +1043,9 @@ class UIManager {
         let html = '';
         for (let i = 0; i < stars; i++) {
             if (i < filledStars) {
-                html += '<span class="star filled text-2xl">★</span>';
+                html += '<span class="inline-block text-yellow-400 text-2xl transition-colors duration-300">★</span>';
             } else {
-                html += '<span class="star text-2xl">★</span>';
+                html += '<span class="inline-block text-gray-300 text-2xl transition-colors duration-300">★</span>';
             }
         }
         
@@ -1304,8 +1196,8 @@ class App {
         const colors = this.ui.getSectionColor(question.section);
         
         content.innerHTML = `
-            <div class="quiz-container">
-                <div class="quiz-content p-4">
+            <div class="flex flex-col h-full overflow-hidden">
+                <div class="flex-1 overflow-y-auto -webkit-overflow-scrolling-touch pb-4 p-4">
                     <div class="pb-6">
                         <div class="flex justify-center items-center gap-2 mb-10">
                             <button onclick="app.showTopicModal('${question.section.split('.')[0]}')" 
@@ -1316,14 +1208,14 @@ class App {
                     </div>
                     
                     <div class="mb-8">
-                        <h2 class="text-xl font-medium text-center translatable px-4" data-translation-key="question">
+                        <h2 class="text-xl font-medium text-center cursor-help relative translatable px-4" data-translation-key="question">
                             ${question.question}
                         </h2>
                     </div>
                     
                     <div class="space-y-3 px-4" id="alternatives">
                         ${question.alternatives.map((alt, index) => {
-                            let classes = 'alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg transition-colors';
+                            let classes = 'alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg transition-all duration-200 cursor-pointer hover:border-blue-500 disabled:cursor-default';
                             
                             if (hasAnswered) {
                                 const answer = quiz.answers[currentIndex];
@@ -1339,7 +1231,7 @@ class App {
                             
                             return `
                                 <button onclick="${canClick ? `app.answerQuestion(${index})` : ''}" 
-                                        class="${classes} translatable"
+                                        class="${classes} cursor-help relative translatable"
                                         data-translation-key="alt_${index}"
                                         ${!canClick ? 'disabled' : ''}>
                                     ${alt}
@@ -1349,7 +1241,7 @@ class App {
                     </div>
                 </div>
                 
-                <div class="quiz-footer p-4 bg-gray-50 dark:bg-gray-800">
+                <div class="flex-shrink-0 bg-inherit border-t border-black/10 dark:border-white/10 pt-4 p-4 bg-gray-50 dark:bg-gray-800">
                     <!-- Translation percentage -->
                     <div class="text-center text-sm text-gray-500 dark:text-gray-400 mb-3">
                         <span id="translationPercent">0</span>% oversatt
@@ -1359,14 +1251,14 @@ class App {
                     <div class="flex justify-between items-center mb-3">
                         <div class="flex gap-2">
                             <button onclick="app.navigateQuiz(-1)" 
-                                    class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                                    class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed hover:enabled:scale-110 active:enabled:scale-95"
                                     ${!progress.canGoBack ? 'disabled' : ''}>
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                                 </svg>
                             </button>
                             <button onclick="app.navigateQuiz(1)" 
-                                    class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                                    class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed hover:enabled:scale-110 active:enabled:scale-95"
                                     ${!progress.canGoForward ? 'disabled' : ''}>
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -1447,9 +1339,9 @@ class App {
         const colors = this.ui.getSectionColor(topicId);
         
         const modal = document.createElement('div');
-        modal.className = 'modal-backdrop bg-black bg-opacity-50 z-50';
+        modal.className = 'modal-backdrop fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 z-50 overflow-y-auto -webkit-overflow-scrolling-touch';
         modal.innerHTML = `
-            <div class="modal-content bg-white dark:bg-gray-900">
+            <div class="modal-content bg-white dark:bg-gray-900 min-h-full">
                 <div class="max-w-md mx-auto">
                     <div class="sticky top-0 bg-white dark:bg-gray-900 p-4 border-b dark:border-gray-700">
                         <div class="flex justify-between items-center">
@@ -1463,14 +1355,14 @@ class App {
                     </div>
                     
                     <div class="p-4 space-y-4">
-                        <p class="text-gray-700 dark:text-gray-300 translatable">${topic.description}</p>
+                        <p class="text-gray-700 dark:text-gray-300 cursor-help relative translatable">${topic.description}</p>
                         
                         ${topic.learning_goals ? `
                             <div>
                                 <h3 class="font-semibold mb-2">Læringsmål:</h3>
                                 <ul class="list-disc list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300">
                                     ${topic.learning_goals.map(goal => `
-                                        <li class="translatable">${goal}</li>
+                                        <li class="cursor-help relative translatable">${goal}</li>
                                     `).join('')}
                                 </ul>
                             </div>
