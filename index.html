@@ -29,6 +29,11 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
         .sparkle {
             animation: sparkle 0.6s ease-out forwards;
         }
@@ -47,16 +52,17 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             color: #1f2937;
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 14px;
+            font-size: 13px;
             z-index: 1000;
             pointer-events: none;
             transform: translate(-50%, -100%);
             margin-top: -10px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px -1px rgba(0, 0, 0, 0.15), 0 2px 6px -1px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             animation: fadeIn 0.2s ease-out;
+            max-width: 250px;
         }
         
         .dark .translation-tooltip {
@@ -67,18 +73,20 @@
         
         .translatable {
             cursor: pointer;
-            transition: background-color 0.2s ease;
+            position: relative;
         }
         
-        .translatable.active {
-            background-color: rgba(59, 130, 246, 0.1);
-            border-radius: 4px;
-            padding: 2px 4px;
-            margin: -2px -4px;
-        }
-        
-        .dark .translatable.active {
+        .word-highlight {
             background-color: rgba(59, 130, 246, 0.2);
+            border-radius: 4px;
+            padding: 1px 3px;
+            margin: -1px -3px;
+            transition: background-color 0.15s ease;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        .dark .word-highlight {
+            background-color: rgba(59, 130, 246, 0.3);
         }
         
         .star {
@@ -117,12 +125,26 @@
             from { transform: translateY(100%); }
             to { transform: translateY(0); }
         }
+        
+        /* Navigation buttons */
+        .nav-button {
+            transition: all 0.2s ease;
+        }
+        
+        .nav-button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        
+        .nav-button:not(:disabled):hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen">
     <div id="app" class="max-w-md mx-auto min-h-screen flex flex-col">
         <!-- Header with language selector -->
-        <header class="bg-white dark:bg-gray-800 shadow-sm p-3 flex justify-between items-center">
+        <header id="header" class="bg-white dark:bg-gray-800 shadow-sm p-3 flex justify-between items-center">
             <h1 class="text-lg font-bold">Læringshjelper</h1>
             <div class="flex items-center gap-2">
                 <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -160,9 +182,11 @@
                 currentQuiz: null,
                 translationTracker: {
                     totalWords: 0,
-                    translatedWords: 0
+                    translatedWords: new Set(),
+                    wordMap: {} // Maps word positions to word text
                 },
-                currentQuestionTranslations: {} // Store translations for current question
+                currentQuestionTranslations: {},
+                usedQuestionIds: new Set() // Track used questions in current quiz
             },
             
             // Section theme colors
@@ -282,6 +306,13 @@
                         section: "1"
                     },
                     {
+                        id: "1_2",
+                        question: "Barn har rett til gratis utdanning i Norge.",
+                        alternatives: ["Rett", "Galt"],
+                        correct: 0,
+                        section: "1.1"
+                    },
+                    {
                         id: "2_1",
                         question: "Norge er et demokrati.",
                         alternatives: ["Rett", "Galt"],
@@ -300,6 +331,13 @@
                         section: "1"
                     },
                     {
+                        id: "1_2",
+                        question: "Crianças têm direito à educação gratuita na Noruega.",
+                        alternatives: ["Certo", "Errado"],
+                        correct: 0,
+                        section: "1.1"
+                    },
+                    {
                         id: "2_1",
                         question: "A Noruega é uma democracia.",
                         alternatives: ["Certo", "Errado"],
@@ -316,6 +354,13 @@
                         alternatives: ["Right", "Wrong"],
                         correct: 1,
                         section: "1"
+                    },
+                    {
+                        id: "1_2",
+                        question: "Children have the right to free education in Norway.",
+                        alternatives: ["Right", "Wrong"],
+                        correct: 0,
+                        section: "1.1"
                     },
                     {
                         id: "2_1",
@@ -358,26 +403,140 @@
                 this.setupTranslation();
             },
             
+            // Parse text into words with positions
+            parseTextIntoWords(element) {
+                const text = element.textContent;
+                const words = [];
+                let currentIndex = 0;
+                
+                // Split by whitespace but keep track of positions
+                const matches = text.matchAll(/\S+/g);
+                for (const match of matches) {
+                    words.push({
+                        text: match[0],
+                        start: match.index,
+                        end: match.index + match[0].length
+                    });
+                }
+                
+                return words;
+            },
+            
+            // Get words at position
+            getWordsAtPosition(element, x, y) {
+                const rect = element.getBoundingClientRect();
+                const relativeX = x - rect.left;
+                const relativeY = y - rect.top;
+                
+                // Create a temporary span to measure text
+                const tempSpan = document.createElement('span');
+                tempSpan.style.cssText = window.getComputedStyle(element).cssText;
+                tempSpan.style.position = 'absolute';
+                tempSpan.style.visibility = 'hidden';
+                tempSpan.style.whiteSpace = 'pre-wrap';
+                tempSpan.style.width = rect.width + 'px';
+                document.body.appendChild(tempSpan);
+                
+                const words = this.parseTextIntoWords(element);
+                let hoveredWords = [];
+                
+                // Find which word is at the position
+                let accumulatedText = '';
+                for (let i = 0; i < words.length; i++) {
+                    const word = words[i];
+                    tempSpan.textContent = accumulatedText + element.textContent.substring(accumulatedText.length, word.end);
+                    
+                    const height = tempSpan.offsetHeight;
+                    const lines = tempSpan.innerHTML.split('<br>').length;
+                    
+                    if (tempSpan.offsetHeight > relativeY) {
+                        // We're on the right line, now check X position
+                        const beforeWord = accumulatedText + element.textContent.substring(accumulatedText.length, word.start);
+                        tempSpan.textContent = beforeWord;
+                        const startX = tempSpan.offsetWidth % rect.width;
+                        
+                        tempSpan.textContent = beforeWord + word.text;
+                        const endX = tempSpan.offsetWidth % rect.width;
+                        
+                        if (relativeX >= startX && relativeX <= endX) {
+                            // Found the word, now get surrounding words
+                            const startIdx = Math.max(0, i - 1);
+                            const endIdx = Math.min(words.length - 1, i + 1);
+                            
+                            for (let j = startIdx; j <= endIdx; j++) {
+                                hoveredWords.push(words[j]);
+                            }
+                            break;
+                        }
+                    }
+                    
+                    accumulatedText = element.textContent.substring(0, word.end);
+                }
+                
+                document.body.removeChild(tempSpan);
+                return hoveredWords;
+            },
+            
             // Setup translation tooltip
             setupTranslation() {
                 let pressTimer;
                 let isTranslating = false;
+                let currentElement = null;
+                let highlightedSpan = null;
                 const tooltip = document.getElementById('translationTooltip');
                 
+                const clearHighlight = () => {
+                    if (highlightedSpan) {
+                        const parent = highlightedSpan.parentNode;
+                        parent.innerHTML = parent.getAttribute('data-original-text') || parent.textContent;
+                        highlightedSpan = null;
+                    }
+                };
+                
                 const showTranslation = (element, x, y) => {
-                    const text = element.textContent.trim();
-                    if (!text) return;
+                    if (!element.classList.contains('translatable')) return;
                     
-                    // Add active state to element
-                    element.classList.add('active');
+                    currentElement = element;
                     
-                    // Count translated words
-                    const words = text.split(/\s+/).length;
-                    this.data.translationTracker.translatedWords += words;
+                    // Store original text
+                    if (!element.hasAttribute('data-original-text')) {
+                        element.setAttribute('data-original-text', element.innerHTML);
+                    }
                     
-                    // Get translation from stored translations
-                    const translationKey = element.getAttribute('data-translation-key');
-                    const translation = this.data.currentQuestionTranslations[translationKey] || this.translate(text);
+                    // Get words at position
+                    const words = this.getWordsAtPosition(element, x, y);
+                    if (words.length === 0) return;
+                    
+                    // Clear previous highlight
+                    clearHighlight();
+                    
+                    // Create highlighted version
+                    const originalText = element.getAttribute('data-original-text');
+                    let highlightedText = originalText;
+                    
+                    // Replace words with highlighted versions (in reverse order to maintain positions)
+                    for (let i = words.length - 1; i >= 0; i--) {
+                        const word = words[i];
+                        highlightedText = 
+                            highlightedText.substring(0, word.start) +
+                            `<span class="word-highlight">${word.text}</span>` +
+                            highlightedText.substring(word.end);
+                    }
+                    
+                    element.innerHTML = highlightedText;
+                    highlightedSpan = element.querySelector('.word-highlight');
+                    
+                    // Track translated words
+                    const wordTexts = words.map(w => w.text.toLowerCase());
+                    wordTexts.forEach(word => {
+                        if (!this.data.translationTracker.translatedWords.has(word)) {
+                            this.data.translationTracker.translatedWords.add(word);
+                        }
+                    });
+                    
+                    // Get translation
+                    const textToTranslate = words.map(w => w.text).join(' ');
+                    const translation = this.translateWords(textToTranslate, element);
                     
                     tooltip.textContent = translation;
                     tooltip.style.left = x + 'px';
@@ -392,21 +551,24 @@
                     }
                 };
                 
-                const hideTranslation = () => {
-                    // Remove active state from all elements
-                    document.querySelectorAll('.translatable.active').forEach(el => {
-                        el.classList.remove('active');
-                    });
+                const updateTranslation = (x, y) => {
+                    if (!isTranslating || !currentElement) return;
                     
+                    showTranslation(currentElement, x, y);
+                };
+                
+                const hideTranslation = () => {
+                    clearHighlight();
                     tooltip.classList.add('hidden');
                     isTranslating = false;
+                    currentElement = null;
                     clearTimeout(pressTimer);
                 };
                 
                 // Touch events
                 document.addEventListener('touchstart', (e) => {
-                    const target = e.target;
-                    if (target.classList.contains('translatable')) {
+                    const target = e.target.closest('.translatable');
+                    if (target) {
                         e.preventDefault();
                         pressTimer = setTimeout(() => {
                             const touch = e.touches[0];
@@ -415,57 +577,109 @@
                     }
                 });
                 
+                document.addEventListener('touchmove', (e) => {
+                    if (isTranslating && e.touches.length > 0) {
+                        const touch = e.touches[0];
+                        updateTranslation(touch.clientX, touch.clientY);
+                    }
+                });
+                
                 document.addEventListener('touchend', hideTranslation);
-                document.addEventListener('touchmove', hideTranslation);
                 
                 // Mouse events for desktop
                 document.addEventListener('mousedown', (e) => {
-                    const target = e.target;
-                    if (target.classList.contains('translatable')) {
+                    const target = e.target.closest('.translatable');
+                    if (target) {
                         pressTimer = setTimeout(() => {
                             showTranslation(target, e.clientX, e.clientY);
                         }, 300);
                     }
                 });
                 
-                document.addEventListener('mouseup', hideTranslation);
                 document.addEventListener('mousemove', (e) => {
                     if (isTranslating) {
-                        hideTranslation();
+                        updateTranslation(e.clientX, e.clientY);
                     }
                 });
+                
+                document.addEventListener('mouseup', hideTranslation);
+            },
+            
+            // Translate specific words
+            translateWords(text, element) {
+                const lang = this.data.currentLanguage;
+                const translationKey = element.getAttribute('data-translation-key');
+                
+                // If we have a full translation for this element, parse it
+                if (translationKey && this.data.currentQuestionTranslations[translationKey]) {
+                    const fullTranslation = this.data.currentQuestionTranslations[translationKey];
+                    const norwegianText = element.getAttribute('data-original-text') || element.textContent;
+                    
+                    // Try to find corresponding words in translation
+                    const norwegianWords = norwegianText.toLowerCase().split(/\s+/);
+                    const translatedWords = fullTranslation.split(/\s+/);
+                    
+                    const searchWords = text.toLowerCase().split(/\s+/);
+                    const translatedParts = [];
+                    
+                    searchWords.forEach(searchWord => {
+                        const wordIndex = norwegianWords.findIndex(w => w.includes(searchWord) || searchWord.includes(w));
+                        if (wordIndex !== -1 && wordIndex < translatedWords.length) {
+                            translatedParts.push(translatedWords[wordIndex]);
+                        }
+                    });
+                    
+                    if (translatedParts.length > 0) {
+                        return translatedParts.join(' ');
+                    }
+                }
+                
+                // Fallback to word-by-word translation
+                const translations = {
+                    pb: {
+                        "alle": "todos",
+                        "innvandrere": "imigrantes",
+                        "norge": "noruega",
+                        "plikt": "obrigação",
+                        "norskopplæring": "curso de norueguês",
+                        "rett": "certo",
+                        "galt": "errado",
+                        "barn": "crianças",
+                        "gratis": "gratuita",
+                        "utdanning": "educação",
+                        "demokrati": "democracia"
+                    },
+                    en: {
+                        "alle": "all",
+                        "innvandrere": "immigrants",
+                        "norge": "norway",
+                        "plikt": "obligation",
+                        "norskopplæring": "norwegian classes",
+                        "rett": "right",
+                        "galt": "wrong",
+                        "barn": "children",
+                        "gratis": "free",
+                        "utdanning": "education",
+                        "demokrati": "democracy"
+                    }
+                };
+                
+                const words = text.toLowerCase().split(/\s+/);
+                const translatedWords = words.map(word => 
+                    translations[lang]?.[word] || word
+                );
+                
+                return translatedWords.join(' ');
             },
             
             // Update translation percentage
             updateTranslationPercent() {
                 const percentEl = document.getElementById('translationPercent');
                 if (percentEl && this.data.translationTracker.totalWords > 0) {
-                    const percent = Math.round((this.data.translationTracker.translatedWords / this.data.translationTracker.totalWords) * 100);
+                    // Count unique translated words vs total unique words
+                    const percent = Math.min(100, Math.round((this.data.translationTracker.translatedWords.size / this.data.translationTracker.totalWords) * 100));
                     percentEl.textContent = percent;
                 }
-            },
-            
-            // Mock translation function (fallback)
-            translate(text) {
-                const lang = this.data.currentLanguage;
-                const translations = {
-                    pb: {
-                        "Rett": "Certo",
-                        "Galt": "Errado",
-                        "Familie og helse": "Família e saúde",
-                        "Demokrati og velferdsstat": "Democracia e estado de bem-estar",
-                        "Historie, geografi og levesett": "História, geografia e modo de vida"
-                    },
-                    en: {
-                        "Rett": "Right",
-                        "Galt": "Wrong",
-                        "Familie og helse": "Family and health",
-                        "Demokrati og velferdsstat": "Democracy and welfare state",
-                        "Historie, geografi og levesett": "History, geography and lifestyle"
-                    }
-                };
-                
-                return translations[lang]?.[text] || `[${lang.toUpperCase()}] ${text}`;
             },
             
             // Get section name
@@ -474,13 +688,14 @@
                 return this.data.descriptions.no.find(d => d.id === mainSectionId)?.title || `Tema ${mainSectionId}`;
             },
             
-            // Get all sections and subsections
-            getAllSections() {
-                return this.data.descriptions.no.map(desc => desc.id);
+            // Get subsection name
+            getSubsectionName(sectionId) {
+                return this.data.descriptions.no.find(d => d.id === sectionId)?.title || '';
             },
             
             // Calculate section statistics
             getSectionStats(sectionId) {
+                // Include all subsections in the calculation
                 const sectionAnswers = this.data.userProgress.filter(p => 
                     p.section === sectionId || p.section.startsWith(sectionId + '.')
                 );
@@ -517,6 +732,9 @@
             
             // Select questions using weighted random selection
             selectQuestionsForQuiz(topicId = null) {
+                // Reset used questions for new quiz
+                this.data.usedQuestionIds.clear();
+                
                 let availableQuestions = this.data.questions.no;
                 
                 // Filter by topic if specified
@@ -570,12 +788,27 @@
                     // Select random question from the section
                     const sectionQuestions = questionsBySection[selectedSection];
                     if (sectionQuestions && sectionQuestions.length > 0) {
-                        const randomIndex = Math.floor(Math.random() * sectionQuestions.length);
-                        const question = sectionQuestions.splice(randomIndex, 1)[0];
-                        selectedQuestions.push(question);
+                        // Filter out already used questions
+                        const unusedQuestions = sectionQuestions.filter(q => !this.data.usedQuestionIds.has(q.id));
                         
-                        // Remove section if no more questions
-                        if (sectionQuestions.length === 0) {
+                        if (unusedQuestions.length > 0) {
+                            const randomIndex = Math.floor(Math.random() * unusedQuestions.length);
+                            const question = unusedQuestions[randomIndex];
+                            selectedQuestions.push(question);
+                            this.data.usedQuestionIds.add(question.id);
+                            
+                            // Remove question from available pool
+                            const originalIndex = sectionQuestions.findIndex(q => q.id === question.id);
+                            sectionQuestions.splice(originalIndex, 1);
+                            
+                            // Remove section if no more questions
+                            if (sectionQuestions.length === 0) {
+                                delete questionsBySection[selectedSection];
+                                totalWeight -= sectionWeights[selectedSection];
+                                delete sectionWeights[selectedSection];
+                            }
+                        } else {
+                            // All questions in this section are used, remove it
                             delete questionsBySection[selectedSection];
                             totalWeight -= sectionWeights[selectedSection];
                             delete sectionWeights[selectedSection];
@@ -588,6 +821,9 @@
             
             // Show main page
             showMainPage() {
+                // Show header
+                document.getElementById('header').style.display = 'flex';
+                
                 const mainContent = document.getElementById('mainContent');
                 const sections = this.data.descriptions.no.filter(d => !d.id.includes('.'));
                 
@@ -633,23 +869,38 @@
             },
             
             // Show topic modal
-            showTopicModal(topicId) {
+            showTopicModal(topicId, isSubtopic = false) {
                 const topic = this.data.descriptions.no.find(d => d.id === topicId);
                 const subtopics = this.data.descriptions.no.filter(d => d.id.startsWith(topicId + '.'));
-                const colors = this.sectionColors[topicId.split('.')[0]];
+                const mainSectionId = topicId.split('.')[0];
+                const colors = this.sectionColors[mainSectionId];
+                
+                // Get parent topic if this is a subtopic
+                const parentTopic = isSubtopic ? this.data.descriptions.no.find(d => d.id === mainSectionId) : null;
                 
                 const modal = document.createElement('div');
                 modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 modal-backdrop';
                 modal.innerHTML = `
                     <div class="fixed inset-0 bg-white dark:bg-gray-900 modal-content overflow-y-auto">
                         <div class="max-w-md mx-auto">
-                            <div class="sticky top-0 bg-white dark:bg-gray-900 p-4 border-b dark:border-gray-700 flex justify-between items-center">
-                                <h2 class="text-xl font-bold" style="color: ${colors.main}">${topic.title}</h2>
-                                <button onclick="this.closest('.modal-backdrop').remove()" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                    </svg>
-                                </button>
+                            <div class="sticky top-0 bg-white dark:bg-gray-900 p-4 border-b dark:border-gray-700">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h2 class="text-xl font-bold" style="color: ${colors.main}">${topic.title}</h2>
+                                    <button onclick="this.closest('.modal-backdrop').remove()" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                ${isSubtopic && parentTopic ? `
+                                    <button onclick="app.showTopicModal('${mainSectionId}')" 
+                                            class="text-sm ${colors.text} ${colors.darkText} hover:underline flex items-center gap-1">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                        </svg>
+                                        ${parentTopic.title}
+                                    </button>
+                                ` : ''}
                             </div>
                             
                             <div class="p-4 space-y-4">
@@ -681,32 +932,21 @@
                                     </div>
                                 ` : ''}
                                 
-                                ${subtopics.length > 0 ? `
+                                ${topic.url ? `
+                                    <a href="${topic.url}" target="_blank" class="text-blue-600 hover:underline text-sm inline-block">
+                                        Les mer →
+                                    </a>
+                                ` : ''}
+                                
+                                ${subtopics.length > 0 && !isSubtopic ? `
                                     <div>
                                         <h3 class="font-semibold mb-2">Undertemaer:</h3>
                                         <div class="space-y-2">
-                                            ${subtopics.map((sub, index) => `
-                                                <div class="border dark:border-gray-700 rounded-lg">
-                                                    <button onclick="app.toggleSubtopic(this)" 
-                                                            class="w-full p-3 text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg flex justify-between items-center">
-                                                        <span class="font-medium">${sub.title}</span>
-                                                        <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                                        </svg>
-                                                    </button>
-                                                    <div class="hidden p-3 pt-0 space-y-3">
-                                                        <p class="text-sm text-gray-700 dark:text-gray-300 translatable">${sub.description}</p>
-                                                        ${sub.url ? `
-                                                            <a href="${sub.url}" target="_blank" class="text-blue-600 hover:underline text-sm">
-                                                                Les mer →
-                                                            </a>
-                                                        ` : ''}
-                                                        <button onclick="app.startQuiz('${sub.id}')" 
-                                                                class="w-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 py-2 px-3 rounded-lg text-sm transition-colors">
-                                                            Start quiz for dette undertemaet
-                                                        </button>
-                                                    </div>
-                                                </div>
+                                            ${subtopics.map((sub) => `
+                                                <button onclick="app.showTopicModal('${sub.id}', true)" 
+                                                        class="w-full p-3 text-left bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
+                                                    <span class="font-medium">${sub.title}</span>
+                                                </button>
                                             `).join('')}
                                         </div>
                                     </div>
@@ -721,25 +961,16 @@
                     </div>
                 `;
                 
+                // Remove any existing modals before adding new one
+                document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
                 document.body.appendChild(modal);
-            },
-            
-            // Toggle subtopic expansion
-            toggleSubtopic(button) {
-                const content = button.nextElementSibling;
-                const arrow = button.querySelector('svg');
-                
-                if (content.classList.contains('hidden')) {
-                    content.classList.remove('hidden');
-                    arrow.style.transform = 'rotate(180deg)';
-                } else {
-                    content.classList.add('hidden');
-                    arrow.style.transform = 'rotate(0deg)';
-                }
             },
             
             // Start quiz with smart question selection
             startQuiz(topicId = null) {
+                // Hide header during quiz
+                document.getElementById('header').style.display = 'none';
+                
                 // Close any open modals
                 document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
                 
@@ -748,8 +979,16 @@
                 
                 if (quizQuestions.length === 0) {
                     this.showNotification('No questions available for this topic', 'error');
+                    document.getElementById('header').style.display = 'flex';
                     return;
                 }
+                
+                // Store section stats before quiz
+                const sectionsInQuiz = [...new Set(quizQuestions.map(q => q.section.split('.')[0]))];
+                const beforeStats = {};
+                sectionsInQuiz.forEach(sectionId => {
+                    beforeStats[sectionId] = this.getSectionStats(sectionId).correct;
+                });
                 
                 // Initialize quiz state
                 this.data.currentQuiz = {
@@ -757,13 +996,15 @@
                     currentIndex: 0,
                     answers: [],
                     startTime: Date.now(),
-                    topicId: topicId
+                    topicId: topicId,
+                    beforeStats: beforeStats,
+                    viewingIndex: 0 // For navigation
                 };
                 
                 // Reset translation tracker
                 this.data.translationTracker = {
                     totalWords: 0,
-                    translatedWords: 0
+                    translatedWords: new Set()
                 };
                 
                 this.showQuizQuestion();
@@ -788,71 +1029,158 @@
                 }
             },
             
+            // Count unique words in text
+            countUniqueWords(text) {
+                const words = text.toLowerCase().match(/\b\w+\b/g) || [];
+                return new Set(words).size;
+            },
+            
             // Show quiz question
-            showQuizQuestion() {
+            showQuizQuestion(viewIndex = null) {
                 const quiz = this.data.currentQuiz;
-                const question = quiz.questions[quiz.currentIndex];
+                const displayIndex = viewIndex !== null ? viewIndex : quiz.currentIndex;
+                const question = quiz.questions[displayIndex];
                 const sectionId = question.section.split('.')[0];
                 const sectionName = this.getSectionName(question.section);
+                const subsectionName = question.section.includes('.') ? this.getSubsectionName(question.section) : '';
                 const colors = this.sectionColors[sectionId];
                 
                 // Load translations for this question
                 this.loadQuestionTranslations(question);
                 
-                // Count total words for translation tracking
-                const questionWords = question.question.split(/\s+/).length;
-                const alternativeWords = question.alternatives.reduce((sum, alt) => sum + alt.split(/\s+/).length, 0);
-                this.data.translationTracker.totalWords = questionWords + alternativeWords;
-                this.data.translationTracker.translatedWords = 0;
+                // Count total unique words for translation tracking
+                const allText = question.question + ' ' + question.alternatives.join(' ');
+                this.data.translationTracker.totalWords = this.countUniqueWords(allText);
+                
+                // If viewing history, preserve translated words
+                if (viewIndex === null) {
+                    this.data.translationTracker.translatedWords = new Set();
+                }
+                
+                // Check if this question has been answered
+                const answer = quiz.answers[displayIndex];
+                const isAnswered = answer !== undefined;
+                const isReviewing = viewIndex !== null;
                 
                 const mainContent = document.getElementById('mainContent');
                 mainContent.innerHTML = `
                     <div class="h-full flex flex-col">
-                        <div class="mb-4">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText}">
+                        <div class="pt-4 pb-6">
+                            <div class="flex ${subsectionName ? 'justify-between' : 'justify-center'} items-center gap-2 mb-6">
+                                <button onclick="app.showTopicModal('${sectionId}')" 
+                                        class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
                                     ${sectionName}
-                                </span>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">
-                                    ${quiz.currentIndex + 1} / ${quiz.questions.length}
-                                </span>
-                            </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" 
-                                     style="width: ${((quiz.currentIndex + 1) / quiz.questions.length) * 100}%"></div>
+                                </button>
+                                ${subsectionName ? `
+                                    <button onclick="app.showTopicModal('${question.section}', true)" 
+                                            class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
+                                        ${subsectionName}
+                                    </button>
+                                ` : ''}
                             </div>
                         </div>
                         
                         <div class="flex-1 flex flex-col justify-center">
-                            <div class="space-y-6">
-                                <h2 class="text-xl font-medium text-center translatable" id="questionText" data-translation-key="question">
+                            <div class="space-y-8">
+                                <h2 class="text-xl font-medium text-center translatable px-4" id="questionText" data-translation-key="question">
                                     ${question.question}
                                 </h2>
                                 
-                                <div class="space-y-3" id="alternatives">
-                                    ${question.alternatives.map((alt, index) => `
-                                        <button onclick="app.answerQuestion(${index})" 
-                                                class="alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-500 dark:hover:border-blue-400 transition-colors translatable"
-                                                data-translation-key="alt_${index}">
-                                            ${alt}
-                                        </button>
-                                    `).join('')}
+                                <div class="space-y-3 px-4" id="alternatives">
+                                    ${question.alternatives.map((alt, index) => {
+                                        let classes = 'alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg transition-colors translatable';
+                                        
+                                        if (isAnswered) {
+                                            classes += ' pointer-events-none';
+                                            if (index === question.correct) {
+                                                classes += ' bg-green-100 dark:bg-green-900 border-green-500';
+                                            } else if (answer && index === answer.answerIndex && !answer.correct) {
+                                                classes += ' bg-red-100 dark:bg-red-900 border-red-500';
+                                            }
+                                        } else if (!isReviewing) {
+                                            classes += ' hover:border-blue-500 dark:hover:border-blue-400';
+                                        }
+                                        
+                                        return `
+                                            <button onclick="${!isAnswered && !isReviewing ? `app.answerQuestion(${index})` : ''}" 
+                                                    class="${classes}"
+                                                    data-translation-key="alt_${index}"
+                                                    ${isAnswered || isReviewing ? 'disabled' : ''}>
+                                                ${alt}
+                                            </button>
+                                        `;
+                                    }).join('')}
                                 </div>
                                 
-                                <div class="text-center text-sm text-gray-500 dark:text-gray-400">
-                                    <span id="translationPercent">0</span>% oversatt
-                                </div>
+                                ${!isReviewing ? `
+                                    <div class="text-center text-sm text-gray-500 dark:text-gray-400">
+                                        <span id="translationPercent">0</span>% oversatt
+                                    </div>
+                                ` : ''}
                             </div>
                         </div>
                         
-                        <div class="mt-4">
+                        <div class="mt-4 p-4 space-y-3">
+                            ${!isReviewing ? `
+                                <div class="flex justify-between items-center">
+                                    <div class="flex gap-2">
+                                        <button onclick="app.navigateQuiz(-1)" 
+                                                class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                                                ${quiz.currentIndex === 0 ? 'disabled' : ''}>
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                            </svg>
+                                        </button>
+                                        <button onclick="app.navigateQuiz(1)" 
+                                                class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                                                ${quiz.currentIndex === 0 ? 'disabled' : ''}>
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <span class="text-sm text-gray-500 dark:text-gray-400">
+                                        ${quiz.currentIndex + 1} / ${quiz.questions.length}
+                                    </span>
+                                </div>
+                            ` : ''}
+                            
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" 
+                                     style="width: ${((displayIndex + 1) / quiz.questions.length) * 100}%"></div>
+                            </div>
+                            
                             <button onclick="app.showMainPage()" 
                                     class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                                Avbryt quiz
+                                ${isReviewing ? 'Tilbake til resultater' : 'Avbryt quiz'}
                             </button>
                         </div>
                     </div>
                 `;
+                
+                // Auto-advance after answer if not reviewing
+                if (isAnswered && !isReviewing && displayIndex === quiz.currentIndex) {
+                    const delay = answer.correct ? 1500 : 3000; // Longer delay for wrong answers
+                    setTimeout(() => {
+                        quiz.currentIndex++;
+                        if (quiz.currentIndex < quiz.questions.length) {
+                            this.showQuizQuestion();
+                        } else {
+                            this.showQuizResults();
+                        }
+                    }, delay);
+                }
+            },
+            
+            // Navigate through quiz history
+            navigateQuiz(direction) {
+                const quiz = this.data.currentQuiz;
+                const newIndex = quiz.viewingIndex + direction;
+                
+                if (newIndex >= 0 && newIndex < quiz.currentIndex) {
+                    quiz.viewingIndex = newIndex;
+                    this.showQuizQuestion(newIndex);
+                }
             },
             
             // Answer question
@@ -863,7 +1191,7 @@
                 
                 // Calculate translation percentage for this question
                 const translationPercent = this.data.translationTracker.totalWords > 0
-                    ? Math.round((this.data.translationTracker.translatedWords / this.data.translationTracker.totalWords) * 100)
+                    ? Math.min(100, Math.round((this.data.translationTracker.translatedWords.size / this.data.translationTracker.totalWords) * 100))
                     : 0;
                 
                 // Store answer
@@ -871,14 +1199,19 @@
                     questionId: question.id,
                     section: question.section,
                     correct: isCorrect,
+                    answerIndex: answerIndex,
                     translationPercent: translationPercent,
                     timestamp: Date.now()
                 });
+                
+                // Update viewing index
+                quiz.viewingIndex = quiz.currentIndex;
                 
                 // Show result animation
                 const buttons = document.querySelectorAll('.alternative-btn');
                 buttons.forEach((btn, index) => {
                     btn.disabled = true;
+                    btn.classList.remove('hover:border-blue-500', 'dark:hover:border-blue-400');
                     if (index === question.correct) {
                         btn.classList.add('bg-green-100', 'dark:bg-green-900', 'border-green-500');
                     } else if (index === answerIndex && !isCorrect) {
@@ -891,17 +1224,11 @@
                     this.showSparkles();
                 }
                 
-                // Next question or show results
-                setTimeout(() => {
-                    quiz.currentIndex++;
-                    if (quiz.currentIndex < quiz.questions.length) {
-                        // Reset translation tracker for next question
-                        this.data.translationTracker.translatedWords = 0;
-                        this.showQuizQuestion();
-                    } else {
-                        this.showQuizResults();
-                    }
-                }, 1500);
+                // Update navigation buttons
+                const prevBtn = document.querySelector('.nav-button');
+                if (prevBtn && quiz.currentIndex > 0) {
+                    prevBtn.disabled = false;
+                }
             },
             
             // Show sparkle animation
@@ -933,25 +1260,30 @@
                 const correctPercent = (correct / quiz.questions.length) * 100;
                 const avgTranslation = quiz.answers.reduce((sum, a) => sum + a.translationPercent, 0) / quiz.answers.length;
                 
-                // Calculate section performance changes
-                const sections = ['1', '2', '3'];
-                const sectionChanges = sections.map(sectionId => {
-                    const oldStats = this.getSectionStats(sectionId);
+                // Calculate section performance changes (only for sections in quiz)
+                const sectionsInQuiz = [...new Set(quiz.questions.map(q => q.section.split('.')[0]))];
+                const sectionChanges = sectionsInQuiz.map(sectionId => {
+                    const beforeCorrect = quiz.beforeStats[sectionId];
                     
                     // Recalculate with new answers
                     const newProgress = [...quiz.answers.filter(a => a.section.startsWith(sectionId)), 
                                        ...this.data.userProgress.filter(p => p.section.startsWith(sectionId))].slice(0, 300);
                     
-                    if (newProgress.length === 0) return { id: sectionId, change: 0 };
-                    
-                    const newCorrect = (newProgress.filter(a => a.correct).length / newProgress.length) * 100;
+                    const newCorrect = newProgress.length > 0 
+                        ? (newProgress.filter(a => a.correct).length / newProgress.length) * 100
+                        : beforeCorrect;
                     
                     return {
                         id: sectionId,
                         name: this.data.descriptions.no.find(d => d.id === sectionId)?.title || '',
-                        change: Math.round(newCorrect - oldStats.correct)
+                        beforeCorrect: Math.round(beforeCorrect),
+                        afterCorrect: Math.round(newCorrect),
+                        change: Math.round(newCorrect - beforeCorrect)
                     };
-                });
+                }).filter(s => s.name); // Filter out any invalid sections
+                
+                // Show header again
+                document.getElementById('header').style.display = 'flex';
                 
                 const mainContent = document.getElementById('mainContent');
                 mainContent.innerHTML = `
@@ -986,13 +1318,19 @@
                                 <div class="space-y-2">
                                     ${sectionChanges.map(section => {
                                         const changeColor = section.change > 0 ? 'text-green-600' : section.change < 0 ? 'text-red-600' : 'text-gray-500';
+                                        const arrow = section.change > 0 ? '↑' : section.change < 0 ? '↓' : '→';
                                         
                                         return `
-                                            <div class="flex justify-between items-center">
-                                                <span class="text-sm">${section.name}</span>
-                                                <span class="${changeColor} font-semibold">
-                                                    ${section.change > 0 ? '+' : ''}${section.change}%
-                                                </span>
+                                            <div class="text-sm">
+                                                <div class="flex justify-between items-center mb-1">
+                                                    <span>${section.name}</span>
+                                                    <span class="${changeColor} font-semibold">
+                                                        ${arrow} ${section.change > 0 ? '+' : ''}${section.change}%
+                                                    </span>
+                                                </div>
+                                                <div class="text-xs text-gray-500 dark:text-gray-400">
+                                                    ${section.beforeCorrect}% → ${section.afterCorrect}%
+                                                </div>
                                             </div>
                                         `;
                                     }).join('')}
@@ -1000,6 +1338,10 @@
                             </div>
                             
                             <div class="space-y-3">
+                                <button onclick="app.reviewQuiz()" 
+                                        class="w-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-semibold py-2 px-3 rounded-lg transition-colors">
+                                    Se gjennom svarene
+                                </button>
                                 <button onclick="app.startQuiz(${quiz.topicId ? `'${quiz.topicId}'` : ''})" 
                                         class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg shadow-md transition-colors">
                                     Ny quiz
@@ -1012,6 +1354,12 @@
                         </div>
                     </div>
                 `;
+            },
+            
+            // Review quiz answers
+            reviewQuiz() {
+                this.data.currentQuiz.viewingIndex = 0;
+                this.showQuizQuestion(0);
             },
             
             // Render star rating
