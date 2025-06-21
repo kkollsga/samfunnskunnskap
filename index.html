@@ -1435,6 +1435,27 @@ class App {
         const mainColors = this.ui.getSectionColor(mainSectionId);
         const subtopicColors = subtopic ? this.ui.getSectionColor(question.section) : null;
         
+        // Create shuffled alternatives with their original indices
+        let shuffledAlternatives = question.alternatives.map((alt, index) => ({
+            text: alt,
+            originalIndex: index
+        }));
+        
+        // Only shuffle if this is a new question (not viewing history)
+        if (isViewingCurrent && !hasAnswered) {
+            // Use a seeded random based on question ID and current time to ensure consistency during the question
+            shuffledAlternatives = [...shuffledAlternatives].sort(() => Math.random() - 0.5);
+            
+            // Store the shuffle order for this question
+            if (!quiz.shuffleOrders) {
+                quiz.shuffleOrders = {};
+            }
+            quiz.shuffleOrders[currentIndex] = shuffledAlternatives;
+        } else if (quiz.shuffleOrders && quiz.shuffleOrders[currentIndex]) {
+            // Use the stored shuffle order when viewing history
+            shuffledAlternatives = quiz.shuffleOrders[currentIndex];
+        }
+        
         content.innerHTML = `
             <div class="flex flex-col h-full overflow-hidden">
                 <div class="flex-1 overflow-y-auto -webkit-overflow-scrolling-touch pb-4 p-4">
@@ -1461,14 +1482,14 @@ class App {
                     </div>
                     
                     <div class="space-y-3 px-4" id="alternatives">
-                        ${question.alternatives.map((alt, index) => {
+                        ${shuffledAlternatives.map((altObj, displayIndex) => {
                             let classes = 'alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg transition-all duration-200 cursor-pointer hover:border-blue-500 disabled:cursor-default';
                             
                             if (hasAnswered) {
                                 const answer = quiz.answers[currentIndex];
-                                if (index === question.correct) {
+                                if (altObj.originalIndex === question.correct) {
                                     classes += ' correct';
-                                } else if (answer && index === answer.answerIndex && !answer.correct) {
+                                } else if (answer && altObj.originalIndex === answer.answerIndex && !answer.correct) {
                                     classes += ' incorrect';
                                 }
                             }
@@ -1477,11 +1498,12 @@ class App {
                             const canClick = isViewingCurrent && !hasAnswered;
                             
                             return `
-                                <button onclick="${canClick ? `app.answerQuestion(${index})` : ''}" 
+                                <button onclick="${canClick ? `app.answerQuestion(${altObj.originalIndex})` : ''}" 
                                         class="${classes} cursor-help relative translatable"
-                                        data-translation-key="alt_${index}"
+                                        data-translation-key="alt_${altObj.originalIndex}"
+                                        data-display-index="${displayIndex}"
                                         ${!canClick ? 'disabled' : ''}>
-                                    ${alt}
+                                    ${altObj.text}
                                 </button>
                             `;
                         }).join('')}
@@ -1693,22 +1715,24 @@ class App {
         }
     }
     
-    answerQuestion(index) {
+    answerQuestion(originalIndex) {
         // Don't process clicks if in translation mode
         if (this.translation.isInTranslationMode()) {
             return;
         }
         
-        const result = this.quiz.answerQuestion(index);
+        const result = this.quiz.answerQuestion(originalIndex);
         if (!result) return;
         
-        // Update UI
+        // Update UI - find buttons by their original index
         const buttons = document.querySelectorAll('.alternative-btn');
-        buttons.forEach((btn, i) => {
+        buttons.forEach((btn) => {
             btn.disabled = true;
-            if (i === result.correctIndex) {
+            const btnOriginalIndex = parseInt(btn.getAttribute('onclick')?.match(/answerQuestion\((\d+)\)/)?.[1] || '-1');
+            
+            if (btnOriginalIndex === result.correctIndex) {
                 btn.classList.add('correct', 'border-glow');
-            } else if (i === index && !result.isCorrect) {
+            } else if (btnOriginalIndex === originalIndex && !result.isCorrect) {
                 btn.classList.add('incorrect', 'shake');
             }
         });
