@@ -1589,7 +1589,7 @@ class App {
         modal.innerHTML = `
             <div class="modal-content bg-white dark:bg-gray-900 min-h-full">
                 <div class="max-w-md mx-auto">
-                    <div class="sticky top-0 bg-white dark:bg-gray-900 p-4 border-b dark:border-gray-700">
+                    <div class="sticky top-0 bg-white dark:bg-gray-900 p-4 border-b dark:border-gray-700 z-10 shadow-sm">
                         <div class="flex justify-between items-center">
                             <h2 class="text-xl font-bold" style="color: ${colors.main}">${topic.title}</h2>
                             <button onclick="this.closest('.modal-backdrop').remove()" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
@@ -1600,7 +1600,7 @@ class App {
                         </div>
                     </div>
                     
-                    <div class="p-4 space-y-4">
+                    <div class="p-4 space-y-4 relative z-0">
                         ${parentTopic ? `
                             <div class="flex items-center gap-2 text-sm">
                                 <button onclick="app.showTopicModal('${parentTopic.id}')" 
