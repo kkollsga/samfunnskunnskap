@@ -207,7 +207,7 @@
     <div id="notificationContainer" class="fixed top-4 right-4 z-50"></div>
 
 <script>
-console.log("Version: 1.01");
+console.log("Version: 1.02");
 // App state
 const app = {
     data: {
@@ -1050,16 +1050,14 @@ const app = {
         const allText = question.question + ' ' + question.alternatives.join(' ');
         this.data.translationTracker.totalWords = this.countUniqueWords(allText);
         
-        // If viewing current question (not history), reset translated words
-        if (viewIndex === null || viewIndex === quiz.currentIndex) {
+        // Reset translated words only for current question
+        if (displayIndex === quiz.currentIndex) {
             this.data.translationTracker.translatedWords = new Set();
         }
         
         // Check if this question has been answered
         const answer = quiz.answers[displayIndex];
         const isAnswered = answer !== undefined;
-        const isQuizComplete = quiz.answers.length === quiz.questions.length;
-        const isViewingHistory = viewIndex !== null && viewIndex < quiz.currentIndex;
         
         const mainContent = document.getElementById('mainContent');
         mainContent.className = 'flex-1 p-4 flex flex-col';
@@ -1100,13 +1098,13 @@ const app = {
                             }
                             
                             // Only allow clicking if this is the current unanswered question
-                            const isClickable = !isAnswered && displayIndex === quiz.currentIndex;
+                            const canClick = !isAnswered && displayIndex === quiz.currentIndex;
                             
                             return `
-                                <button onclick="${isClickable ? `app.answerQuestion(${index})` : ''}" 
+                                <button onclick="${canClick ? `app.answerQuestion(${index})` : ''}" 
                                         class="${classes}"
                                         data-translation-key="alt_${index}"
-                                        ${!isClickable ? 'disabled' : ''}>
+                                        ${!canClick ? 'disabled' : ''}>
                                     ${alt}
                                 </button>
                             `;
@@ -1119,16 +1117,17 @@ const app = {
                 </div>
                 
                 <div class="mt-auto space-y-3">
+                    <!-- Navigation always visible -->
                     <div class="flex justify-between items-center">
                         <div class="flex gap-2">
-                            <button onclick="app.navigateQuiz(-1)" 
+                            <button onclick="app.navigateQuiz(${displayIndex - 1})" 
                                     class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
                                     ${displayIndex === 0 ? 'disabled' : ''}>
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                                 </svg>
                             </button>
-                            <button onclick="app.navigateQuiz(1)" 
+                            <button onclick="app.navigateQuiz(${displayIndex + 1})" 
                                     class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
                                     ${displayIndex >= quiz.currentIndex ? 'disabled' : ''}>
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1146,48 +1145,30 @@ const app = {
                             style="width: ${((displayIndex + 1) / quiz.questions.length) * 100}%"></div>
                     </div>
                     
-                    ${isQuizComplete ? `
-                        <button onclick="app.showQuizResults()" 
-                                class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                            Tilbake til resultater
-                        </button>
-                    ` : isViewingHistory ? `
-                        <button onclick="app.showQuizQuestion()" 
-                                class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                            Tilbake til aktiv spørsmål
-                        </button>
-                    ` : `
-                        <button onclick="app.showMainPage()" 
-                                class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                            Avbryt quiz
-                        </button>
-                    `}
+                    <button onclick="app.endQuiz()" 
+                            class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+                        ${quiz.answers.length === quiz.questions.length ? 'Se resultater' : 'Avbryt quiz'}
+                    </button>
                 </div>
             </div>
         `;
     },
 
     // Updated navigateQuiz function
-    navigateQuiz(direction) {
+    navigateQuiz(targetIndex) {
         const quiz = this.data.currentQuiz;
-        const currentDisplay = quiz.viewingIndex !== undefined && quiz.viewingIndex !== null 
-            ? quiz.viewingIndex 
-            : quiz.currentIndex;
-        const newIndex = currentDisplay + direction;
-        
-        if (newIndex >= 0 && newIndex <= quiz.currentIndex) {
-            quiz.viewingIndex = newIndex;
-            this.showQuizQuestion(newIndex);
+        if (targetIndex >= 0 && targetIndex <= quiz.currentIndex) {
+            this.showQuizQuestion(targetIndex);
         }
     },
 
-    // Updated answerQuestion to properly reset viewingIndex
+    // Simplified answer function
     answerQuestion(answerIndex) {
         const quiz = this.data.currentQuiz;
         const question = quiz.questions[quiz.currentIndex];
         const isCorrect = answerIndex === question.correct;
         
-        // Calculate translation percentage for this question
+        // Calculate translation percentage
         const translationPercent = this.data.translationTracker.totalWords > 0
             ? Math.min(100, Math.round((this.data.translationTracker.translatedWords.size / this.data.translationTracker.totalWords) * 100))
             : 0;
@@ -1201,9 +1182,6 @@ const app = {
             translationPercent: translationPercent,
             timestamp: Date.now()
         });
-        
-        // Reset viewing index to current
-        quiz.viewingIndex = null;
         
         // Show result animation
         const buttons = document.querySelectorAll('.alternative-btn');
@@ -1219,27 +1197,33 @@ const app = {
             }
         });
         
-        // Auto-advance to next question
+        // Auto-advance after delay
         setTimeout(() => {
             if (quiz.currentIndex < quiz.questions.length - 1) {
                 quiz.currentIndex++;
-                quiz.viewingIndex = null; // Reset viewing index
                 this.showQuizQuestion();
             } else {
-                // Quiz is complete
                 this.showQuizResults();
             }
         }, 1500);
     },
 
-    // Also update reviewQuiz to ensure proper state
-    reviewQuiz() {
-        // Hide header during review
-        document.getElementById('header').style.display = 'none';
-        // Set viewing index to 0 to start review from beginning
-        this.data.currentQuiz.viewingIndex = 0;
-        this.showQuizQuestion(0);
+    endQuiz() {
+        const quiz = this.data.currentQuiz;
+        if (quiz.answers.length === quiz.questions.length) {
+            this.showQuizResults();
+        } else {
+            if (confirm('Er du sikker på at du vil avslutte quizen?')) {
+                this.showMainPage();
+            }
+        }
     },
+
+    // Update reviewQuiz to be simpler
+    reviewQuiz() {
+        document.getElementById('header').style.display = 'none';
+        this.showQuizQuestion(0);
+    }
 
     // Show quiz question
     showQuizQuestion(viewIndex = null) {
