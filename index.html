@@ -558,6 +558,74 @@ class TranslationManager {
         this.currentCharIndex = null;
         this.contextRadius = 15; // Characters to show on each side
         this.charPositionsCache = new WeakMap(); // Cache character positions for performance
+        this.scrollDisableTimer = null; // Timer for delayed scroll disable
+        this.originalScrollStyles = {}; // Store original scroll styles
+    }
+    
+    // Disable scrolling with a delay
+    disableScrolling() {
+        // Clear any existing timer
+        if (this.scrollDisableTimer) {
+            clearTimeout(this.scrollDisableTimer);
+        }
+        
+        // Set a small delay before disabling scroll (150ms)
+        this.scrollDisableTimer = setTimeout(() => {
+            const mainContent = document.getElementById('mainContent');
+            const body = document.body;
+            const html = document.documentElement;
+            
+            // Store original styles
+            this.originalScrollStyles = {
+                mainContent: {
+                    overflow: mainContent.style.overflow,
+                    touchAction: mainContent.style.touchAction
+                },
+                body: {
+                    overflow: body.style.overflow,
+                    touchAction: body.style.touchAction
+                },
+                html: {
+                    overflow: html.style.overflow,
+                    touchAction: html.style.touchAction
+                }
+            };
+            
+            // Disable scrolling
+            mainContent.style.overflow = 'hidden';
+            mainContent.style.touchAction = 'none';
+            body.style.overflow = 'hidden';
+            body.style.touchAction = 'none';
+            html.style.overflow = 'hidden';
+            html.style.touchAction = 'none';
+        }, 150);
+    }
+    
+    // Re-enable scrolling
+    enableScrolling() {
+        // Clear any pending timer
+        if (this.scrollDisableTimer) {
+            clearTimeout(this.scrollDisableTimer);
+            this.scrollDisableTimer = null;
+        }
+        
+        // Restore original styles
+        const mainContent = document.getElementById('mainContent');
+        const body = document.body;
+        const html = document.documentElement;
+        
+        if (this.originalScrollStyles.mainContent) {
+            mainContent.style.overflow = this.originalScrollStyles.mainContent.overflow || '';
+            mainContent.style.touchAction = this.originalScrollStyles.mainContent.touchAction || '';
+        }
+        if (this.originalScrollStyles.body) {
+            body.style.overflow = this.originalScrollStyles.body.overflow || '';
+            body.style.touchAction = this.originalScrollStyles.body.touchAction || '';
+        }
+        if (this.originalScrollStyles.html) {
+            html.style.overflow = this.originalScrollStyles.html.overflow || '';
+            html.style.touchAction = this.originalScrollStyles.html.touchAction || '';
+        }
     }
     
     setupEventListeners() {
@@ -580,27 +648,15 @@ class TranslationManager {
                 const translation = this.getTranslationWithContext(element, charInfo.index);
                 if (!translation) return;
                 
-                // Track characters in range as translated using fractional positioning
+                // Track characters in range as translated
                 const text = element.textContent;
-                const norwegianLength = text.length;
-                
-                // Calculate fractional position
-                const fractionalPosition = charInfo.index / Math.max(1, norwegianLength - 1);
-                
-                // Calculate the fractional range that should be marked as translated
-                const fracStart = Math.max(0, fractionalPosition - (this.contextRadius / norwegianLength));
-                const fracEnd = Math.min(1, fractionalPosition + (this.contextRadius / norwegianLength));
-                
-                // Convert back to character indices
-                const startIdx = Math.floor(fracStart * norwegianLength);
-                const endIdx = Math.ceil(fracEnd * norwegianLength);
+                const startIdx = Math.max(0, charInfo.index - this.contextRadius);
+                const endIdx = Math.min(text.length, charInfo.index + this.contextRadius);
                 
                 for (let i = startIdx; i < endIdx; i++) {
-                    if (i >= 0 && i < text.length) {
-                        const char = text[i].toLowerCase();
-                        if (char.match(/[a-zæøå]/i)) { // Only count letters
-                            this.translatedChars.add(`${element.getAttribute('data-translation-key')}_${i}`);
-                        }
+                    const char = text[i].toLowerCase();
+                    if (char.match(/[a-zæøå]/i)) { // Only count letters
+                        this.translatedChars.add(`${element.getAttribute('data-translation-key')}_${i}`);
                     }
                 }
                 
@@ -649,6 +705,9 @@ class TranslationManager {
             
             this.isTranslating = true;
             
+            // Disable scrolling with delay
+            this.disableScrolling();
+            
             // Add haptic feedback if available
             if ('vibrate' in navigator) {
                 navigator.vibrate(10);
@@ -663,6 +722,9 @@ class TranslationManager {
             this.isTranslating = false;
             this.currentElement = null;
             this.currentCharIndex = null;
+            
+            // Re-enable scrolling
+            this.enableScrolling();
             
             // Remove active state from all elements
             document.querySelectorAll('.translating').forEach(el => {
