@@ -264,7 +264,7 @@
     <div id="notificationContainer" class="fixed top-4 right-4 z-50"></div>
 
 <script>
-console.log("Version: 1.06");
+console.log("Version: 1.07");
 
 // Central State Management
 class StateManager {
@@ -632,7 +632,7 @@ class QuizManager {
 }
 
 // Translation Manager
-// Translation Manager - Fixed version
+// Translation Manager - Fixed for answer options
 class TranslationManager {
     constructor(stateManager, dataManager) {
         this.state = stateManager;
@@ -658,7 +658,7 @@ class TranslationManager {
             const translation = this.getTranslationWithContext(element, wordInfo.index);
             if (!translation) return;
             
-            // Track this word as translated - FIX: use wordInfo.text instead of wordInfo.word
+            // Track this word as translated
             const wordKey = wordInfo.text.toLowerCase().replace(/[.,!?]/g, '');
             if (wordKey.length > 1 && !this.translatedWords.has(wordKey)) {
                 this.translatedWords.add(wordKey);
@@ -683,20 +683,41 @@ class TranslationManager {
             }
         };
         
+        // Prevent clicks when translating
+        document.addEventListener('click', (e) => {
+            if (this.isTranslating) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+            }
+        }, true); // Use capture phase
+        
         // Touch events for mobile
         document.addEventListener('touchstart', (e) => {
             const target = e.target.closest('.translatable');
-            if (target && !target.closest('.alternative-btn')) {
-                e.preventDefault();
+            if (target) {
+                // Store the touch start time
+                const touchStartTime = Date.now();
                 
                 this.pressTimer = setTimeout(() => {
+                    e.preventDefault();
                     const touch = e.touches[0];
                     showTranslation(target, touch.clientX, touch.clientY);
                 }, 500);
+                
+                // Store timer reference on element for cleanup
+                target._pressTimer = this.pressTimer;
+                target._touchStartTime = touchStartTime;
             }
         });
         
         document.addEventListener('touchmove', (e) => {
+            // Clear timer if user moves finger
+            if (this.pressTimer && !this.isTranslating) {
+                clearTimeout(this.pressTimer);
+                this.pressTimer = null;
+            }
+            
             if (this.isTranslating) {
                 e.preventDefault();
                 const touch = e.touches[0];
@@ -711,22 +732,46 @@ class TranslationManager {
             }
         });
         
-        document.addEventListener('touchend', hideTranslation);
+        document.addEventListener('touchend', (e) => {
+            if (this.isTranslating) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            hideTranslation();
+        });
+        
         document.addEventListener('touchcancel', hideTranslation);
         
         // Mouse events for desktop testing
         let mouseTimer;
+        let mouseDownTarget = null;
+        
         document.addEventListener('mousedown', (e) => {
             const target = e.target.closest('.translatable');
-            if (target && !target.closest('.alternative-btn')) {
+            if (target) {
+                mouseDownTarget = target;
                 mouseTimer = setTimeout(() => {
+                    e.preventDefault();
                     showTranslation(target, e.clientX, e.clientY);
                 }, 500);
             }
         });
         
         document.addEventListener('mousemove', (e) => {
+            // Clear timer if mouse moves too much before timer fires
+            if (mouseTimer && !this.isTranslating && mouseDownTarget) {
+                const rect = mouseDownTarget.getBoundingClientRect();
+                const inBounds = e.clientX >= rect.left && e.clientX <= rect.right &&
+                               e.clientY >= rect.top && e.clientY <= rect.bottom;
+                if (!inBounds) {
+                    clearTimeout(mouseTimer);
+                    mouseTimer = null;
+                    mouseDownTarget = null;
+                }
+            }
+            
             if (this.isTranslating) {
+                e.preventDefault();
                 const target = e.target.closest('.translatable');
                 if (target) {
                     showTranslation(target, e.clientX, e.clientY);
@@ -736,9 +781,22 @@ class TranslationManager {
             }
         });
         
-        document.addEventListener('mouseup', () => {
+        document.addEventListener('mouseup', (e) => {
+            if (this.isTranslating) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
             clearTimeout(mouseTimer);
+            mouseTimer = null;
+            mouseDownTarget = null;
             hideTranslation();
+        });
+        
+        // Prevent context menu during translation
+        document.addEventListener('contextmenu', (e) => {
+            if (this.isTranslating) {
+                e.preventDefault();
+            }
         });
     }
     
@@ -802,38 +860,37 @@ class TranslationManager {
         const words = this.currentQuestionWords.get(element);
         if (!words || words.length === 0) return null;
         
-        // Create a range from the point
-        const range = document.caretRangeFromPoint(x, y);
-        if (!range) return null;
+        // For buttons, we need to handle the click position differently
+        const rect = element.getBoundingClientRect();
+        const relativeX = x - rect.left;
         
-        const textNode = range.startContainer;
-        if (textNode.nodeType !== Node.TEXT_NODE) return null;
+        // Create a temporary span to measure text
+        const measurer = document.createElement('span');
+        measurer.style.cssText = window.getComputedStyle(element).cssText;
+        measurer.style.position = 'absolute';
+        measurer.style.visibility = 'hidden';
+        measurer.style.height = 'auto';
+        measurer.style.width = 'auto';
+        measurer.style.whiteSpace = 'nowrap';
+        document.body.appendChild(measurer);
         
-        const offset = range.startOffset;
+        // Find which word was clicked based on position
+        let currentX = 0;
+        let foundWord = null;
         
-        // Find which word contains this offset
         for (const word of words) {
-            if (offset >= word.start && offset <= word.end) {
-                return word;
+            measurer.textContent = element.textContent.substring(0, word.end);
+            const totalWidth = measurer.offsetWidth;
+            
+            if (relativeX <= totalWidth) {
+                foundWord = word;
+                break;
             }
         }
         
-        // If no exact match, find closest word
-        let closestWord = words[0];
-        let closestDistance = Math.abs(offset - closestWord.start);
+        document.body.removeChild(measurer);
         
-        for (const word of words) {
-            const distance = Math.min(
-                Math.abs(offset - word.start),
-                Math.abs(offset - word.end)
-            );
-            if (distance < closestDistance) {
-                closestDistance = distance;
-                closestWord = word;
-            }
-        }
-        
-        return closestWord;
+        return foundWord || words[words.length - 1]; // Default to last word if none found
     }
     
     // Get translation with context
@@ -846,8 +903,14 @@ class TranslationManager {
         // Parse translated text into words
         const translatedWords = this.parseWords(translatedText);
         
+        if (translatedWords.length === 0) return null;
+        
+        // Ensure wordIndex is valid
         if (wordIndex >= translatedWords.length) {
             wordIndex = translatedWords.length - 1;
+        }
+        if (wordIndex < 0) {
+            wordIndex = 0;
         }
         
         // Get context: target word + 2 words on each side
@@ -884,6 +947,11 @@ class TranslationManager {
     getCurrentPercentage() {
         if (this.totalWords === 0) return 0;
         return Math.min(100, Math.round((this.translatedWords.size / this.totalWords) * 100));
+    }
+    
+    // Check if currently translating (for external use)
+    isInTranslationMode() {
+        return this.isTranslating;
     }
     
     // Reset for new question
@@ -1297,6 +1365,11 @@ class App {
     }
     
     answerQuestion(index) {
+        // Don't process clicks if in translation mode
+        if (this.translation.isInTranslationMode()) {
+            return;
+        }
+        
         const result = this.quiz.answerQuestion(index);
         if (!result) return;
         
