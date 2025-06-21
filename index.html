@@ -264,7 +264,7 @@
     <div id="notificationContainer" class="fixed top-4 right-4 z-50"></div>
 
 <script>
-console.log("Version: 1.05");
+console.log("Version: 1.06");
 
 // Central State Management
 class StateManager {
@@ -632,7 +632,7 @@ class QuizManager {
 }
 
 // Translation Manager
-// Translation Manager - Complete rewrite
+// Translation Manager - Fixed version
 class TranslationManager {
     constructor(stateManager, dataManager) {
         this.state = stateManager;
@@ -658,9 +658,9 @@ class TranslationManager {
             const translation = this.getTranslationWithContext(element, wordInfo.index);
             if (!translation) return;
             
-            // Track this word as translated
-            const wordKey = wordInfo.word.toLowerCase();
-            if (!this.translatedWords.has(wordKey)) {
+            // Track this word as translated - FIX: use wordInfo.text instead of wordInfo.word
+            const wordKey = wordInfo.text.toLowerCase().replace(/[.,!?]/g, '');
+            if (wordKey.length > 1 && !this.translatedWords.has(wordKey)) {
                 this.translatedWords.add(wordKey);
                 this.updateTranslationPercentage();
             }
@@ -810,7 +810,6 @@ class TranslationManager {
         if (textNode.nodeType !== Node.TEXT_NODE) return null;
         
         const offset = range.startOffset;
-        const elementText = element.textContent;
         
         // Find which word contains this offset
         for (const word of words) {
