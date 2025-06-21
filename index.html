@@ -161,7 +161,8 @@
                 translationTracker: {
                     totalWords: 0,
                     translatedWords: 0
-                }
+                },
+                currentQuestionTranslations: {} // Store translations for current question
             },
             
             // Section theme colors
@@ -289,7 +290,43 @@
                     }
                 ];
                 
-                // Clone for other languages with translations
+                // Sample Portuguese translations
+                this.data.questions.pb = [
+                    {
+                        id: "1_1",
+                        question: "Todos os imigrantes na Noruega têm obrigação de fazer curso de norueguês.",
+                        alternatives: ["Certo", "Errado"],
+                        correct: 1,
+                        section: "1"
+                    },
+                    {
+                        id: "2_1",
+                        question: "A Noruega é uma democracia.",
+                        alternatives: ["Certo", "Errado"],
+                        correct: 0,
+                        section: "2"
+                    }
+                ];
+                
+                // Sample English translations
+                this.data.questions.en = [
+                    {
+                        id: "1_1",
+                        question: "All immigrants in Norway are required to take Norwegian language classes.",
+                        alternatives: ["Right", "Wrong"],
+                        correct: 1,
+                        section: "1"
+                    },
+                    {
+                        id: "2_1",
+                        question: "Norway is a democracy.",
+                        alternatives: ["Right", "Wrong"],
+                        correct: 0,
+                        section: "2"
+                    }
+                ];
+                
+                // Clone descriptions for other languages
                 this.data.descriptions.pb = this.data.descriptions.no.map(d => ({
                     ...d,
                     title: d.title + " (PT)",
@@ -300,18 +337,6 @@
                     ...d,
                     title: d.title + " (EN)",
                     description: d.description + " (Translated)"
-                }));
-                
-                this.data.questions.pb = this.data.questions.no.map(q => ({
-                    ...q,
-                    question: q.question + " (PT)",
-                    alternatives: q.alternatives.map(a => a + " (PT)")
-                }));
-                
-                this.data.questions.en = this.data.questions.no.map(q => ({
-                    ...q,
-                    question: q.question + " (EN)",
-                    alternatives: q.alternatives.map(a => a + " (EN)")
                 }));
             },
             
@@ -350,8 +375,9 @@
                     const words = text.split(/\s+/).length;
                     this.data.translationTracker.translatedWords += words;
                     
-                    // Get translation
-                    const translation = this.translate(text);
+                    // Get translation from stored translations
+                    const translationKey = element.getAttribute('data-translation-key');
+                    const translation = this.data.currentQuestionTranslations[translationKey] || this.translate(text);
                     
                     tooltip.textContent = translation;
                     tooltip.style.left = x + 'px';
@@ -419,7 +445,7 @@
                 }
             },
             
-            // Mock translation function
+            // Mock translation function (fallback)
             translate(text) {
                 const lang = this.data.currentLanguage;
                 const translations = {
@@ -448,6 +474,11 @@
                 return this.data.descriptions.no.find(d => d.id === mainSectionId)?.title || `Tema ${mainSectionId}`;
             },
             
+            // Get all sections and subsections
+            getAllSections() {
+                return this.data.descriptions.no.map(desc => desc.id);
+            },
+            
             // Calculate section statistics
             getSectionStats(sectionId) {
                 const sectionAnswers = this.data.userProgress.filter(p => 
@@ -466,6 +497,93 @@
                     translation: Math.round(translation),
                     count: sectionAnswers.length
                 };
+            },
+            
+            // Calculate section weight for question selection
+            calculateSectionWeight(sectionId) {
+                const stats = this.getSectionStats(sectionId);
+                
+                // Base weight (higher for sections with fewer answers)
+                const countWeight = Math.max(0, 100 - stats.count * 5);
+                
+                // Performance weight (higher for sections with lower correct percentage)
+                const performanceWeight = 100 - stats.correct;
+                
+                // Combined weight (prioritize both few answers and poor performance)
+                const weight = (countWeight * 0.6) + (performanceWeight * 0.4);
+                
+                return Math.max(1, weight); // Ensure minimum weight of 1
+            },
+            
+            // Select questions using weighted random selection
+            selectQuestionsForQuiz(topicId = null) {
+                let availableQuestions = this.data.questions.no;
+                
+                // Filter by topic if specified
+                if (topicId) {
+                    availableQuestions = availableQuestions.filter(q => 
+                        q.section === topicId || q.section.startsWith(topicId + '.')
+                    );
+                }
+                
+                // Group questions by section
+                const questionsBySection = {};
+                availableQuestions.forEach(q => {
+                    if (!questionsBySection[q.section]) {
+                        questionsBySection[q.section] = [];
+                    }
+                    questionsBySection[q.section].push(q);
+                });
+                
+                // Calculate weights for each section
+                const sectionWeights = {};
+                let totalWeight = 0;
+                
+                Object.keys(questionsBySection).forEach(sectionId => {
+                    const weight = this.calculateSectionWeight(sectionId);
+                    sectionWeights[sectionId] = weight;
+                    totalWeight += weight;
+                });
+                
+                // Select questions
+                const selectedQuestions = [];
+                const targetCount = Math.min(20, availableQuestions.length);
+                
+                while (selectedQuestions.length < targetCount && Object.keys(questionsBySection).length > 0) {
+                    // Weighted random selection of section
+                    let randomValue = Math.random() * totalWeight;
+                    let selectedSection = null;
+                    
+                    for (const [sectionId, weight] of Object.entries(sectionWeights)) {
+                        randomValue -= weight;
+                        if (randomValue <= 0) {
+                            selectedSection = sectionId;
+                            break;
+                        }
+                    }
+                    
+                    // Fallback if no section selected (shouldn't happen)
+                    if (!selectedSection) {
+                        selectedSection = Object.keys(questionsBySection)[0];
+                    }
+                    
+                    // Select random question from the section
+                    const sectionQuestions = questionsBySection[selectedSection];
+                    if (sectionQuestions && sectionQuestions.length > 0) {
+                        const randomIndex = Math.floor(Math.random() * sectionQuestions.length);
+                        const question = sectionQuestions.splice(randomIndex, 1)[0];
+                        selectedQuestions.push(question);
+                        
+                        // Remove section if no more questions
+                        if (sectionQuestions.length === 0) {
+                            delete questionsBySection[selectedSection];
+                            totalWeight -= sectionWeights[selectedSection];
+                            delete sectionWeights[selectedSection];
+                        }
+                    }
+                }
+                
+                return selectedQuestions;
             },
             
             // Show main page
@@ -620,22 +738,18 @@
                 }
             },
             
-            // Start quiz
+            // Start quiz with smart question selection
             startQuiz(topicId = null) {
                 // Close any open modals
                 document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
                 
-                // Filter questions based on topic
-                let questions = this.data.questions.no;
-                if (topicId) {
-                    questions = questions.filter(q => 
-                        q.section === topicId || q.section.startsWith(topicId + '.')
-                    );
-                }
+                // Use smart question selection
+                const quizQuestions = this.selectQuestionsForQuiz(topicId);
                 
-                // Shuffle and take 20 questions
-                const shuffled = [...questions].sort(() => Math.random() - 0.5);
-                const quizQuestions = shuffled.slice(0, 20);
+                if (quizQuestions.length === 0) {
+                    this.showNotification('No questions available for this topic', 'error');
+                    return;
+                }
                 
                 // Initialize quiz state
                 this.data.currentQuiz = {
@@ -655,6 +769,25 @@
                 this.showQuizQuestion();
             },
             
+            // Load translations for current question
+            loadQuestionTranslations(questionNo) {
+                const lang = this.data.currentLanguage;
+                const translatedQuestion = this.data.questions[lang]?.find(q => q.id === questionNo.id);
+                
+                if (translatedQuestion) {
+                    this.data.currentQuestionTranslations = {
+                        question: translatedQuestion.question,
+                        ...translatedQuestion.alternatives.reduce((acc, alt, idx) => {
+                            acc[`alt_${idx}`] = alt;
+                            return acc;
+                        }, {})
+                    };
+                } else {
+                    // Fallback to empty translations
+                    this.data.currentQuestionTranslations = {};
+                }
+            },
+            
             // Show quiz question
             showQuizQuestion() {
                 const quiz = this.data.currentQuiz;
@@ -662,6 +795,9 @@
                 const sectionId = question.section.split('.')[0];
                 const sectionName = this.getSectionName(question.section);
                 const colors = this.sectionColors[sectionId];
+                
+                // Load translations for this question
+                this.loadQuestionTranslations(question);
                 
                 // Count total words for translation tracking
                 const questionWords = question.question.split(/\s+/).length;
@@ -689,14 +825,15 @@
                         
                         <div class="flex-1 flex flex-col justify-center">
                             <div class="space-y-6">
-                                <h2 class="text-xl font-medium text-center translatable" id="questionText">
+                                <h2 class="text-xl font-medium text-center translatable" id="questionText" data-translation-key="question">
                                     ${question.question}
                                 </h2>
                                 
                                 <div class="space-y-3" id="alternatives">
                                     ${question.alternatives.map((alt, index) => `
                                         <button onclick="app.answerQuestion(${index})" 
-                                                class="alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-500 dark:hover:border-blue-400 transition-colors translatable">
+                                                class="alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-500 dark:hover:border-blue-400 transition-colors translatable"
+                                                data-translation-key="alt_${index}">
                                             ${alt}
                                         </button>
                                     `).join('')}
