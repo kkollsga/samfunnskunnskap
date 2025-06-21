@@ -1,11 +1,11 @@
 [
     {
       "id": "1",
-      "title": "Família e saúde",
-      "description": "Este tema oferece uma introdução às estruturas e valores fundamentais que caracterizam a sociedade norueguesa, com foco no papel e na responsabilidade do indivíduo. O conteúdo abrange áreas centrais para a participação e o desenvolvimento pessoal, como educação, trabalho e competência digital. O objetivo é proporcionar aos recém-chegados uma compreensão dos sistemas e das expectativas que formam a base para uma vida ativa e integrada na Noruega. O tema esclarece como o Estado facilita a participação, mas também a responsabilidade que cada indivíduo tem de aproveitar essas oportunidades.",
+      "title": "Educação, competência e vida profissional",
+      "description": "Este tema oferece uma introdução às estruturas e valores fundamentais que caracterizam a sociedade norueguesa, com foco no papel e na responsabilidade do indivíduo. O conteúdo abrange arenas centrais para participação e desenvolvimento pessoal, como educação, trabalho e competência digital. O objetivo é proporcionar aos recém-chegados uma compreensão dos sistemas e expectativas que formam a base para uma vida ativa e integrada na Noruega. O tema elucida como o Estado facilita a participação, mas também a responsabilidade que cada indivíduo tem de aproveitar essas oportunidades.",
       "learning_goals": [
         "Compreender a relação entre educação, trabalho e participação social na Noruega.",
-        "Explicar os princípios fundamentais do sistema educacional e do mercado de trabalho norueguês.",
+        "Descrever os princípios fundamentais do sistema educacional e da vida profissional norueguesa.",
         "Refletir sobre a importância do discernimento digital como uma competência essencial na sociedade atual."
       ],
       "key_concepts": [
@@ -20,20 +20,20 @@
       "id": "1.1",
       "title": "Escola e educação",
       "url": "https://samfunnskunnskap.no/nb/skole-og-utdanning.html",
-      "description": "O sistema educacional norueguês é apresentado como um pilar fundamental para a integração social e a realização do valor da igualdade. O sistema é construído sobre o princípio do direito gratuito e igual à educação para todos, desde o ensino fundamental até o superior. Um valor central é a igualdade, apoiada por programas estatais como o Lånekassen (Fundo de Empréstimos para Educação), que visa garantir que o acesso à educação seja independente da origem social e econômica. Dá-se ênfase a uma cooperação comprometida entre o lar e a escola, bem como ao princípio da aprendizagem ao longo da vida para enfrentar uma sociedade em mudança. A formação linguística é destacada como a chave decisiva para a plena participação na vida social e profissional.",
+      "description": "O sistema educacional norueguês é apresentado como um pilar fundamental para a integração social e a realização do valor da igualdade. O sistema é construído sobre o princípio do direito gratuito e igual à educação para todos, desde o ensino fundamental até o superior. Um valor central é a igualdade, apoiada por esquemas estatais como o Lånekassen (Fundo de Empréstimo para Educação), que visa garantir que o acesso à educação seja independente da origem social e econômica. Dá-se ênfase a uma cooperação vinculativa entre o lar e a escola, bem como ao princípio da aprendizagem ao longo da vida para enfrentar uma sociedade em mudança. A formação linguística é destacada como a chave decisiva para a plena participação na vida social e profissional.",
       "learning_goals": [
         "Descrever as principais características do percurso educacional norueguês, do ensino fundamental ao superior.",
-        "Explicar o propósito de programas como o Lånekassen e o direito à educação de adultos.",
-        "Explicar as expectativas em relação aos pais na cooperação entre o lar e a escola.",
+        "Explicar o propósito de esquemas como o Lånekassen e o direito à educação de adultos.",
+        "Descrever as expectativas em relação aos pais na cooperação entre o lar e a escola.",
         "Compreender a importância da formação em norueguês e do reconhecimento de competências estrangeiras (validação e avaliação de competências reais)."
       ],
       "key_concepts": [
         "Ensino fundamental",
         "Ensino médio",
         "Ensino superior",
-        "Direitos iguais",
+        "Igualdade de direitos",
         "Lånekassen",
-        "Cooperação lar-escola",
+        "Cooperação casa-escola",
         "Aprendizagem ao longo da vida",
         "Validação",
         "Avaliação de competências reais",
@@ -44,12 +44,12 @@
       "id": "1.2",
       "title": "Vida profissional",
       "url": "https://samfunnskunnskap.no/nb/arbeidsliv.html",
-      "description": "O mercado de trabalho norueguês é um sistema altamente organizado, baseado numa cooperação tripartida entre trabalhadores, empregadores e as autoridades. O sistema é regulado por leis como a Lei do Ambiente de Trabalho, que garante os direitos dos trabalhadores em relação a horário de trabalho, segurança e férias. Uma alta proporção de trabalhadores é filiada a um sindicato. A participação no mercado de trabalho está intimamente ligada ao financiamento do estado de bem-estar social através de um sistema de imposto progressivo, onde o princípio é contribuir de acordo com a capacidade e receber de acordo com a necessidade. O trabalho informal (svart arbeid) não é apenas considerado ilegal, mas uma violação do contrato social. Ao mesmo tempo, revela-se uma tensão entre o sistema formal e a realidade informal, onde uma grande parte dos empregos é obtida através de redes de contatos.",
+      "description": "A vida profissional norueguesa é um sistema altamente organizado, baseado numa cooperação tripartida entre trabalhadores, empregadores e as autoridades. O sistema é regulado por leis como a Lei do Ambiente de Trabalho, que garante os direitos dos trabalhadores relativos a horário de trabalho, segurança e férias. Uma elevada percentagem de trabalhadores é membro de um sindicato. A participação no mercado de trabalho está intimamente ligada ao financiamento do estado de bem-estar social através de um sistema fiscal progressivo, onde o princípio é contribuir de acordo com a capacidade e receber de acordo com a necessidade. O trabalho não declarado é considerado não só ilegal, mas uma violação do contrato social. Ao mesmo tempo, revela-se uma tensão entre o sistema formal e a realidade informal, onde uma grande parte dos empregos é obtida através de redes de contatos.",
       "learning_goals": [
         "Explicar o que significa a cooperação tripartida e qual o papel dos sindicatos.",
-        "Descrever as principais leis e regras do mercado de trabalho, como a Lei do Ambiente de Trabalho.",
+        "Descrever as principais leis e regras da vida profissional, como a Lei do Ambiente de Trabalho.",
         "Compreender a relação entre salário, impostos e o financiamento do estado de bem-estar social.",
-        "Descrever as consequências do trabalho informal, tanto jurídicas quanto morais.",
+        "Descrever as consequências do trabalho não declarado, tanto jurídicas como morais.",
         "Refletir sobre a distinção entre vias formais e informais para o trabalho na Noruega."
       ],
       "key_concepts": [
@@ -58,7 +58,7 @@
         "Lei do Ambiente de Trabalho",
         "Estado de bem-estar social",
         "Imposto progressivo",
-        "Trabalho informal",
+        "Trabalho não declarado",
         "Networking",
         "Estágio"
       ]
@@ -67,12 +67,12 @@
       "id": "1.3",
       "title": "Pensamento crítico e discernimento digital",
       "url": "https://samfunnskunnskap.no/nb/kritisk-tenkning-og-digital-dommekraft.html",
-      "description": "Numa sociedade moderna, a competência digital é um pré-requisito para a participação tanto na educação e na vida profissional como enquanto cidadão. Este tema aborda o desenvolvimento do pensamento crítico e do discernimento digital. Conceitos centrais são ética, privacidade e crítica de fontes. O conhecimento sobre estas áreas é essencial para navegar num cenário mediático complexo, proteger a própria integridade online e avaliar a informação de forma independente. A capacidade de distinguir entre informação fiável e não fiável, por exemplo, utilizando serviços de verificação de factos, é uma competência fundamental.",
+      "description": "Numa sociedade moderna, a competência digital é um pré-requisito para a participação tanto na educação e na vida profissional, como na qualidade de cidadão. Este tema aborda o desenvolvimento do pensamento crítico e do discernimento digital. Conceitos centrais são a ética, a privacidade e a crítica de fontes. O conhecimento destas áreas é essencial para navegar num cenário mediático complexo, proteger a própria integridade online e avaliar a informação de forma independente. A capacidade de distinguir entre informação fiável e não fiável, por exemplo, através do uso de serviços de verificação de factos, é uma competência fundamental.",
       "learning_goals": [
         "Definir os conceitos de ética, privacidade e pensamento crítico num contexto digital.",
-        "Aplicar princípios de crítica de fontes para avaliar informações na internet e nas redes sociais.",
+        "Aplicar princípios de crítica de fontes para avaliar informação na internet e nas redes sociais.",
         "Compreender a importância da privacidade e como proteger os próprios dados.",
-        "Identificar ferramentas e métodos para verificar informações."
+        "Identificar ferramentas e métodos para verificar a informação."
       ],
       "key_concepts": [
         "Ética",
@@ -86,12 +86,12 @@
     },
     {
       "id": "2",
-      "title": "Democracia e estado de bem-estar social",
-      "description": "Este tema explora como a sociedade norueguesa está organizada, com um foco especial na interação entre indivíduo, família e Estado. Aborda normas e valores que regem a vida quotidiana, desde as relações familiares à economia pessoal e saúde. Uma parte central é a compreensão do papel do estado de bem-estar social como uma rede de segurança, mas também como protetor dos direitos fundamentais do indivíduo a uma vida livre e independente. O tema aborda como alguém novo na Noruega pode navegar neste sistema e compreender o equilíbrio entre direitos e deveres.",
+      "title": "Família, saúde e vida quotidiana",
+      "description": "Este tema explora como a sociedade norueguesa está organizada, com um foco particular na interação entre o indivíduo, a família e o Estado. Elucida normas e valores que regem a vida quotidiana, desde as relações familiares à economia pessoal e saúde. Uma parte central é a compreensão do papel do estado de bem-estar social como uma rede de segurança, mas também como protetor dos direitos fundamentais do indivíduo a uma vida livre e independente. O tema aborda como alguém novo na Noruega pode navegar neste sistema e compreender o equilíbrio entre direitos e deveres.",
       "learning_goals": [
         "Compreender os princípios centrais do estado de bem-estar social norueguês.",
-        "Explicar como o Estado e o indivíduo interagem em áreas como saúde, família e economia.",
-        "Refletir sobre as normas sociais norueguesas relacionadas com a vida familiar e o lazer.",
+        "Descrever como o Estado e o indivíduo interagem em áreas como saúde, família e economia.",
+        "Refletir sobre as normas sociais norueguesas relacionadas com a vida familiar e o tempo livre.",
         "Conhecer os direitos legais que protegem a liberdade e a autonomia do indivíduo."
       ],
       "key_concepts": [
@@ -106,7 +106,7 @@
       "id": "2.1",
       "title": "Novo na Noruega",
       "url": "https://samfunnskunnskap.no/nb/ny-i-norge.html",
-      "description": "Este capítulo reconhece as diversas razões para a imigração e os desafios emocionais de se estabelecer num novo país. Fornece um contexto demográfico que mostra que os imigrantes e os seus descendentes constituem uma parte significativa e integrada da população (cerca de 18%). Ao traçar paralelos com a própria história da Noruega como um país pobre com grande emigração, o material procura normalizar a experiência da migração e criar um quadro de referência comum. O objetivo é enquadrar a situação do recém-chegado como parte de uma narrativa norueguesa maior e partilhada.",
+      "description": "Este capítulo reconhece as diversas causas da imigração e os desafios emocionais de se estabelecer num novo país. Fornece um contexto demográfico que mostra que os imigrantes e os seus descendentes constituem uma parte significativa e integrada da população (cerca de 18%). Ao traçar paralelos com a própria história da Noruega como um país pobre com grande emigração, o material procura normalizar a experiência da migração e criar um quadro de referência comum. O objetivo é enquadrar a situação do recém-chegado como parte de uma narrativa norueguesa maior e comum.",
       "learning_goals": [
         "Refletir sobre as diferentes causas da migração e o processo de se estabelecer num novo país.",
         "Conhecer a composição demográfica da Noruega no que diz respeito à imigração.",
@@ -124,9 +124,9 @@
       "id": "2.2",
       "title": "Vida familiar",
       "url": "https://samfunnskunnskap.no/nb/familieliv.html",
-      "description": "O conceito de família na Noruega é definido de forma inclusiva, abrangendo diversas formas de família, como a família nuclear, pais solteiros e casais do mesmo sexo com filhos. O capítulo reconhece que a migração pode causar tensões na dinâmica familiar, uma vez que os membros da família podem adaptar-se a ritmos diferentes. Sublinha-se que a comunicação aberta e o apoio mútuo são cruciais para lidar com estes desafios. O objetivo é proporcionar aos recém-chegados uma rápida introdução à aceitação jurídica e social de uma diversidade de estruturas familiares.",
+      "description": "O conceito de família na Noruega é definido de forma inclusiva, abrangendo diversas formas familiares, como a família nuclear, pais solteiros e casais do mesmo sexo com filhos. O capítulo reconhece que a migração pode impor tensões à dinâmica familiar, uma vez que os membros da família podem adaptar-se a ritmos diferentes. Sublinha-se que a comunicação aberta e o apoio mútuo são cruciais para gerir estes desafios. O objetivo é proporcionar aos recém-chegados uma rápida introdução à aceitação jurídica e social de uma diversidade de estruturas familiares.",
       "learning_goals": [
-        "Descrever e reconhecer a diversidade de formas de família aceites na Noruega.",
+        "Descrever e reconhecer a diversidade de formas familiares aceites na Noruega.",
         "Compreender como a migração pode afetar as relações familiares.",
         "Refletir sobre a importância da comunicação para preservar boas relações familiares durante e após um processo de migração."
       ],
@@ -142,7 +142,7 @@
       "id": "2.3",
       "title": "Tempo livre",
       "url": "https://samfunnskunnskap.no/nb/fritid.html",
-      "description": "O tempo livre é definido como uma categoria cultural distinta – o tempo que uma pessoa dispõe para si mesma fora das obrigações como trabalho, alimentação e sono. O capítulo reconhece que este conceito pode ser novo para alguns e explora zonas cinzentas, como a fronteira entre o trabalho e as tarefas domésticas. Levanta-se também a questão de uma distribuição justa do tempo livre entre os sexos. O objetivo é introduzir o tempo livre como uma parte importante da qualidade de vida na Noruega e incentivar a reflexão sobre o uso do próprio tempo.",
+      "description": "O tempo livre é definido como uma categoria cultural distinta – o tempo que uma pessoa dispõe para si própria fora de obrigações como trabalho, alimentação e sono. O capítulo reconhece que este conceito pode ser novo para alguns e explora zonas cinzentas, como, por exemplo, a fronteira entre o trabalho e as tarefas domésticas. Levanta-se também a questão de uma distribuição justa do tempo livre entre os sexos. O objetivo é introduzir o tempo livre como uma parte importante da qualidade de vida na Noruega e incentivar a reflexão sobre o uso do próprio tempo.",
       "learning_goals": [
         "Definir o conceito de 'tempo livre' num contexto norueguês.",
         "Refletir sobre como o tempo livre é distribuído e valorizado na própria vida.",
@@ -150,7 +150,7 @@
       ],
       "key_concepts": [
         "Tempo livre",
-        "Equilíbrio trabalho-lazer",
+        "Equilíbrio trabalho-vida pessoal",
         "Qualidade de vida",
         "Uso do tempo",
         "Recreação"
@@ -177,12 +177,12 @@
     },
     {
       "id": "2.5",
-      "title": "Economia pessoal",
+      "title": "Finanças pessoais",
       "url": "https://samfunnskunnskap.no/nb/personlig-okonomi.html",
-      "description": "Este capítulo aborda competências práticas como a elaboração de orçamentos, mas também tem uma perspetiva mais ampla e cultural. Incentiva a reflexão sobre as diferenças culturais nas atitudes em relação ao consumo, riqueza e pobreza. Ao comparar os hábitos económicos noruegueses com os do país de origem, incentiva-se uma compreensão mais profunda e matizada do comportamento económico. O objetivo é ir além da mera gestão financeira e avançar para a competência cultural no campo económico.",
+      "description": "Este capítulo aborda competências práticas como a elaboração de orçamentos, mas também tem uma perspetiva mais ampla e culturalmente orientada. Incentiva a reflexão sobre as diferenças culturais nas atitudes em relação ao consumo, riqueza e pobreza. Ao comparar os hábitos económicos noruegueses com os do país de origem, incentiva-se uma compreensão mais profunda e matizada do comportamento económico. O objetivo é ir além da pura gestão financeira e entrar no campo da competência cultural na área económica.",
       "learning_goals": [
         "Elaborar um orçamento pessoal simples.",
-        "Compreender e usar conceitos centrais relacionados com a economia pessoal.",
+        "Compreender e usar conceitos centrais relacionados com finanças pessoais.",
         "Refletir e comparar atitudes culturais em relação a dinheiro, consumo e poupança.",
         "Identificar recursos para aconselhamento financeiro."
       ],
@@ -199,12 +199,12 @@
       "id": "2.6",
       "title": "O direito a uma vida livre e independente",
       "url": "https://samfunnskunnskap.no/nb/retten-til-et-fritt-og-selvstendig-liv.html",
-      "description": "A liberdade pessoal e o direito de fazer as próprias escolhas de vida são um valor fundamental e protegido por lei na sociedade norueguesa. Este capítulo sublinha a seriedade deste direito ao confrontar diretamente as violações mais graves do mesmo, como a violência em relações próximas, o controlo social negativo, o casamento forçado e a mutilação genital feminina. Estas ações são definidas inequivocamente como ilegais e inaceitáveis. O Estado e a sua legislação posicionam-se como o garante último da liberdade individual, mesmo quando esta é ameaçada pela própria família ou ambiente próximo do indivíduo. Isto define uma relação protetora entre o Estado e o indivíduo que pode sobrepor-se à autoridade tradicional ou cultural.",
+      "description": "A liberdade pessoal e o direito de fazer as próprias escolhas de vida são um valor fundamental e legalmente protegido na sociedade norueguesa. Este capítulo sublinha a seriedade deste direito ao confrontar diretamente as violações mais graves do mesmo, como a violência em relações próximas, o controlo social negativo, o casamento forçado e a mutilação genital feminina. Estas ações são definidas inequivocamente como ilegais e inaceitáveis. O Estado e a sua legislação posicionam-se como o garante último da liberdade individual, mesmo quando esta é ameaçada pela própria família ou pelo ambiente próximo do indivíduo. Isto define uma relação protetora entre o Estado e o indivíduo que pode sobrepor-se à autoridade tradicional ou cultural.",
       "learning_goals": [
-        "Definir o direito a uma vida livre e independente como um valor fundamental norueguês.",
-        "Identificar ações que são ilegais e representam violações deste direito, como casamento forçado e violência.",
+        "Definir o direito a uma vida livre e independente como um valor norueguês fundamental.",
+        "Identificar ações que são ilegais e representam violações deste direito, como o casamento forçado e a violência.",
         "Distinguir entre influência social aceitável, pressão inaceitável e coação ilegal.",
-        "Compreender que o Estado e a lei norueguesa protegem os direitos do indivíduo, inclusive perante a família e o ambiente social."
+        "Compreender que o Estado e a lei norueguesa protegem os direitos do indivíduo, inclusive em relação à família e ao ambiente social."
       ],
       "key_concepts": [
         "Liberdade pessoal",
@@ -218,10 +218,10 @@
     },
     {
       "id": "3",
-      "title": "História, geografia e modo de vida",
-      "description": "Este tema aborda os pilares fundamentais da identidade nacional norueguesa: uma história comum, um sistema de governo democrático e uma profunda relação com a natureza. Os capítulos mostram como estes elementos estão interligados e, em conjunto, moldam a Noruega moderna. Desde factos geográficos e políticos, passando por linhas históricas e princípios democráticos, até à complexa relação entre recursos naturais e sustentabilidade, o tema proporciona uma compreensão holística do que define a nação hoje.",
+      "title": "A Noruega antes e agora",
+      "description": "Este tema aborda os pilares fundamentais da identidade nacional norueguesa: uma história comum, um sistema de governo democrático e uma profunda relação com a natureza. Os capítulos mostram como estes elementos estão interligados e, em conjunto, formam a Noruega moderna. Desde factos geográficos e políticos, passando por linhas históricas e princípios democráticos, até à complexa relação entre os recursos naturais e a sustentabilidade, o tema proporciona uma compreensão holística do que define a nação hoje.",
       "learning_goals": [
-        "Apresentar factos centrais sobre a geografia, forma de governo e população da Noruega.",
+        "Descrever factos centrais sobre a geografia, forma de governo e população da Noruega.",
         "Compreender como a história moldou a sociedade norueguesa atual e os seus valores.",
         "Descrever os princípios fundamentais da democracia norueguesa.",
         "Analisar a relação entre a riqueza da Noruega proveniente de recursos naturais e a necessidade de um desenvolvimento sustentável."
@@ -239,11 +239,11 @@
       "id": "3.1",
       "title": "Isto é a Noruega",
       "url": "https://samfunnskunnskap.no/nb/dette-er-norge.html",
-      "description": "Este capítulo introduz factos fundamentais sobre a Noruega, incluindo geografia, população (5,5 milhões), forma de governo (monarquia constitucional) e língua. Destaca os valores da igualdade de género e da igualdade como pedras angulares da sociedade, e traça a luta histórica pelos direitos das mulheres e a proteção atual contra a discriminação. Além disso, descreve o panorama religioso da Noruega como secular, marcado por uma herança cultural cristã e humanista, mas onde a liberdade religiosa – incluindo a liberdade de não ter religião – é um princípio central. A postura neutra do Estado é demonstrada através do apoio económico equitativo a todas as comunidades religiosas e de visão de mundo aprovadas.",
+      "description": "Este capítulo introduz factos básicos sobre a Noruega, incluindo geografia, população (5,5 milhões), forma de governo (monarquia constitucional) e língua. Destaca os valores da igualdade de género e da igualdade como pilares da sociedade, e traça a luta histórica pelos direitos das mulheres e a proteção atual contra a discriminação. Além disso, descreve o panorama religioso da Noruega como secular, marcado por uma herança cultural cristã e humanista, mas onde a liberdade de religião – incluindo a liberdade de não ter religião – é um princípio central. A postura neutra do Estado é demonstrada através do apoio económico equitativo a todas as comunidades religiosas e de visão de mundo aprovadas.",
       "learning_goals": [
         "Apresentar factos-chave sobre a geografia, população e forma de governo da Noruega.",
-        "Explicar a importância dos valores da igualdade de género e da igualdade na sociedade norueguesa.",
-        "Descrever o princípio da liberdade religiosa e o papel do Estado perante as comunidades religiosas e de visão de mundo.",
+        "Explicar o significado dos valores da igualdade de género e da igualdade na sociedade norueguesa.",
+        "Descrever o princípio da liberdade de religião e o papel do Estado em relação às comunidades religiosas e de visão de mundo.",
         "Compreender a proteção jurídica contra a discriminação."
       ],
       "key_concepts": [
@@ -251,7 +251,7 @@
         "Igualdade de género",
         "Igualdade",
         "Proteção contra a discriminação",
-        "Liberdade religiosa",
+        "Liberdade de religião",
         "Visão de mundo",
         "Humanismo",
         "Estado secular"
@@ -261,17 +261,17 @@
       "id": "3.2",
       "title": "História",
       "url": "https://samfunnskunnskap.no/nb/historie.html",
-      "description": "A história da Noruega é apresentada como uma narrativa de progresso que explica a ascensão da Noruega moderna. A apresentação é uma jornada linear desde os primeiros colonos e a Era Viking, passando por períodos de união e guerras mundiais, até ao atual estado de bem-estar social multicultural e democrático. A disciplina de história é usada aqui como uma ferramenta para legitimar e explicar os valores e instituições do presente. A narrativa sustenta uma compreensão de como os eventos históricos moldaram a nação que a Noruega é hoje.",
+      "description": "A história da Noruega é apresentada como uma narrativa de progresso que explica o surgimento da Noruega moderna. A apresentação é uma jornada linear desde os primeiros colonos e a Era Viking, passando por períodos de união e guerras mundiais, até ao estado de bem-estar social multicultural e democrático de hoje. A disciplina da história é usada aqui como uma ferramenta para legitimar e explicar os valores e instituições atuais. A narrativa sustenta uma compreensão de como os eventos históricos moldaram a nação que a Noruega é hoje.",
       "learning_goals": [
-        "Descrever as principais características do desenvolvimento histórico da Noruega, da Era Viking até hoje.",
+        "Descrever as principais características do desenvolvimento histórico da Noruega desde a Era Viking até hoje.",
         "Explicar como eventos históricos centrais, como as dissoluções de uniões e as guerras mundiais, afetaram a Noruega.",
-        "Compreender como a história é usada para explicar a ascensão do estado de bem-estar social moderno e os seus valores."
+        "Compreender como a história é usada para explicar o surgimento do moderno estado de bem-estar social e os seus valores."
       ],
       "key_concepts": [
         "Era Viking",
         "Período de união",
         "Segunda Guerra Mundial",
-        "Ascensão do estado de bem-estar social",
+        "Surgimento do estado de bem-estar social",
         "Sociedade multicultural",
         "Narrativa histórica"
       ]
@@ -280,9 +280,9 @@
       "id": "3.3",
       "title": "Direitos humanos e democracia",
       "url": "https://samfunnskunnskap.no/nb/menneskerettigheter-og-demokrati.html",
-      "description": "Este capítulo descreve a arquitetura política da Noruega. Começa com os direitos humanos universais, tal como estão consagrados na lei norueguesa, e o princípio democrático do equilíbrio entre direitos e deveres. O sistema de governo baseia-se no princípio da separação de poderes, onde o poder é dividido entre um poder legislativo (o Storting), um executivo (o Governo) e um judicial (os Tribunais). Além disso, explicam-se os três níveis de administração – estado, condado e município – e as suas áreas de responsabilidade. O direito de voto nas eleições é destacado como a principal ferramenta dos cidadãos para influenciar o governo do país.",
+      "description": "Este capítulo descreve a arquitetura política da Noruega. Começa com os direitos humanos universais, tal como estão consagrados na lei norueguesa, e o princípio democrático do equilíbrio entre direitos e deveres. O sistema de governo baseia-se no princípio da separação de poderes, onde o poder é dividido entre um poder legislativo (Stortinget - Parlamento), um executivo (Governo) e um judicial (Tribunais). Explica-se ainda os três níveis de administração – estado, condado e município – e as suas áreas de responsabilidade. O direito de votar em eleições é destacado como a principal ferramenta dos cidadãos para influenciar o governo do país.",
       "learning_goals": [
-        "Explicar o princípio da separação de poderes e os três poderes do Estado.",
+        "Descrever o princípio da separação de poderes e os três poderes do Estado.",
         "Descrever os três níveis de administração (estado, condado, município) e dar exemplos das suas áreas de responsabilidade.",
         "Explicar os requisitos para o direito de voto nas eleições municipais e parlamentares.",
         "Compreender o equilíbrio entre direitos e deveres numa democracia."
@@ -303,12 +303,12 @@
       "id": "3.4",
       "title": "Sustentabilidade",
       "url": "https://samfunnskunnskap.no/nb/baerekraft.html",
-      "description": "Este capítulo explora a complexa relação que a Noruega tem com o seu ambiente natural. A riqueza da Noruega está diretamente ligada aos recursos naturais, especialmente petróleo e gás, mas também peixe e florestas. O direito único de acesso público (allemannsretten), que dá livre acesso a áreas não cultivadas, é apresentado lado a lado com um dever rigoroso de cuidar da natureza. O tema ilumina a tensão central na Noruega de hoje: o estado de bem-estar social é em grande parte financiado por receitas de combustíveis fósseis, ao mesmo tempo que o país se comprometeu com um desenvolvimento sustentável e a 'transição verde' para combater as alterações climáticas. O capítulo foca-se na responsabilidade do indivíduo através da separação de resíduos, reutilização e escolhas amigas do ambiente, mas reconhece a contradição estrutural subjacente.",
+      "description": "Este capítulo explora a complexa relação que a Noruega tem com o seu ambiente natural. A riqueza da Noruega está diretamente ligada aos recursos naturais, especialmente petróleo e gás, mas também peixe e florestas. O direito único de acesso público (allemannsretten), que dá acesso livre a áreas não cultivadas, é apresentado lado a lado com um dever estrito de cuidar da natureza. O tema elucida a tensão central na Noruega de hoje: o estado de bem-estar social é em grande parte financiado por receitas de combustíveis fósseis, ao mesmo tempo que o país se comprometeu com um desenvolvimento sustentável e a 'transição verde' para combater as alterações climáticas. O capítulo foca-se na responsabilidade do indivíduo através da separação de lixo, reutilização e escolhas amigas do ambiente, mas reconhece a contradição estrutural subjacente.",
       "learning_goals": [
         "Explicar a ligação entre os recursos naturais da Noruega, especialmente o petróleo, e a prosperidade económica do país.",
         "Descrever o conteúdo do direito de acesso público (allemannsretten) e o dever associado de proteger a natureza.",
         "Compreender o conceito de desenvolvimento sustentável e a sua importância num contexto norueguês e global.",
-        "Identificar ações práticas que os indivíduos podem tomar para a proteção ambiental (por exemplo, separação de resíduos, reutilização).",
+        "Identificar ações práticas que os indivíduos podem tomar para a proteção ambiental (por exemplo, separação de lixo, reutilização).",
         "Refletir sobre a tensão entre o papel da Noruega como nação petrolífera e as ambições de uma transição verde."
       ],
       "key_concepts": [
@@ -320,7 +320,7 @@
         "Proteção da natureza e do ambiente",
         "Reutilização",
         "Reciclagem",
-        "Separação de resíduos"
+        "Separação de lixo"
       ]
     }
   ]
