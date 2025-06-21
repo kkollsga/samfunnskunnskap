@@ -207,7 +207,7 @@
     <div id="notificationContainer" class="fixed top-4 right-4 z-50"></div>
 
 <script>
-console.log("Version: 1.02");
+console.log("Version: 1.03");
 // App state
 const app = {
     data: {
@@ -1120,14 +1120,14 @@ const app = {
                     <!-- Navigation always visible -->
                     <div class="flex justify-between items-center">
                         <div class="flex gap-2">
-                            <button onclick="app.navigateQuiz(${displayIndex - 1})" 
+                            <button onclick="app.navigateQuiz(-1)" 
                                     class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
                                     ${displayIndex === 0 ? 'disabled' : ''}>
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                                 </svg>
                             </button>
-                            <button onclick="app.navigateQuiz(${displayIndex + 1})" 
+                            <button onclick="app.navigateQuiz(1)" 
                                     class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
                                     ${displayIndex >= quiz.currentIndex ? 'disabled' : ''}>
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1154,15 +1154,34 @@ const app = {
         `;
     },
 
-    // Updated navigateQuiz function
-    navigateQuiz(targetIndex) {
+    // Fixed navigation to work with direction
+    navigateQuiz(direction) {
         const quiz = this.data.currentQuiz;
+        // Find current display index by checking URL params or using currentIndex
+        let currentDisplay = quiz.currentIndex;
+        
+        // If we're viewing a previous question, we need to track where we are
+        const mainContent = document.getElementById('mainContent');
+        const currentButtons = mainContent.querySelectorAll('.nav-button');
+        if (currentButtons.length > 0) {
+            // Get current position from the progress indicator
+            const progressText = mainContent.querySelector('.text-sm.text-gray-500');
+            if (progressText) {
+                const match = progressText.textContent.match(/(\d+) \//);
+                if (match) {
+                    currentDisplay = parseInt(match[1]) - 1;
+                }
+            }
+        }
+        
+        const targetIndex = currentDisplay + direction;
+        
         if (targetIndex >= 0 && targetIndex <= quiz.currentIndex) {
             this.showQuizQuestion(targetIndex);
         }
     },
 
-    // Simplified answer function
+    // Keep the rest of the functions the same
     answerQuestion(answerIndex) {
         const quiz = this.data.currentQuiz;
         const question = quiz.questions[quiz.currentIndex];
@@ -1219,7 +1238,6 @@ const app = {
         }
     },
 
-    // Update reviewQuiz to be simpler
     reviewQuiz() {
         document.getElementById('header').style.display = 'none';
         this.showQuizQuestion(0);
