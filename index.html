@@ -1168,44 +1168,42 @@ class TranslationManager {
 }
 
 // UI Manager
-// UI Manager
 class UIManager {
     constructor(stateManager) {
         this.state = stateManager;
         this.themeColors = {
             '1': { 
-                bg: 'bg-blue-100', 
-                dark: 'dark:bg-blue-900', 
-                text: 'text-blue-800', 
-                darkText: 'dark:text-blue-200', 
+                base: 'blue',
                 main: '#3b82f6',
-                // Add lighter variations for subtopics
-                bgLight: 'bg-blue-50',
-                darkLight: 'dark:bg-blue-800',
-                textLight: 'text-blue-700',
-                darkTextLight: 'dark:text-blue-300'
+                shades: {
+                    '100': { bg: 'bg-blue-100', dark: 'dark:bg-blue-900', text: 'text-blue-700', darkText: 'dark:text-blue-200' },
+                    '200': { bg: 'bg-blue-200', dark: 'dark:bg-blue-800', text: 'text-blue-800', darkText: 'dark:text-blue-300' },
+                    '300': { bg: 'bg-blue-300', dark: 'dark:bg-blue-700', text: 'text-blue-900', darkText: 'dark:text-blue-400' },
+                    '400': { bg: 'bg-blue-400', dark: 'dark:bg-blue-600', text: 'text-blue-900', darkText: 'dark:text-blue-100' },
+                    '500': { bg: 'bg-blue-500', dark: 'dark:bg-blue-500', text: 'text-white', darkText: 'dark:text-white' }
+                }
             },
             '2': { 
-                bg: 'bg-green-100', 
-                dark: 'dark:bg-green-900', 
-                text: 'text-green-800', 
-                darkText: 'dark:text-green-200', 
+                base: 'green',
                 main: '#10b981',
-                bgLight: 'bg-green-50',
-                darkLight: 'dark:bg-green-800',
-                textLight: 'text-green-700',
-                darkTextLight: 'dark:text-green-300'
+                shades: {
+                    '100': { bg: 'bg-green-100', dark: 'dark:bg-green-900', text: 'text-green-700', darkText: 'dark:text-green-200' },
+                    '200': { bg: 'bg-green-200', dark: 'dark:bg-green-800', text: 'text-green-800', darkText: 'dark:text-green-300' },
+                    '300': { bg: 'bg-green-300', dark: 'dark:bg-green-700', text: 'text-green-900', darkText: 'dark:text-green-400' },
+                    '400': { bg: 'bg-green-400', dark: 'dark:bg-green-600', text: 'text-green-900', darkText: 'dark:text-green-100' },
+                    '500': { bg: 'bg-green-500', dark: 'dark:bg-green-500', text: 'text-white', darkText: 'dark:text-white' }
+                }
             },
             '3': { 
-                bg: 'bg-purple-100', 
-                dark: 'dark:bg-purple-900', 
-                text: 'text-purple-800', 
-                darkText: 'dark:text-purple-200', 
+                base: 'purple',
                 main: '#8b5cf6',
-                bgLight: 'bg-purple-50',
-                darkLight: 'dark:bg-purple-800',
-                textLight: 'text-purple-700',
-                darkTextLight: 'dark:text-purple-300'
+                shades: {
+                    '100': { bg: 'bg-purple-100', dark: 'dark:bg-purple-900', text: 'text-purple-700', darkText: 'dark:text-purple-200' },
+                    '200': { bg: 'bg-purple-200', dark: 'dark:bg-purple-800', text: 'text-purple-800', darkText: 'dark:text-purple-300' },
+                    '300': { bg: 'bg-purple-300', dark: 'dark:bg-purple-700', text: 'text-purple-900', darkText: 'dark:text-purple-400' },
+                    '400': { bg: 'bg-purple-400', dark: 'dark:bg-purple-600', text: 'text-purple-900', darkText: 'dark:text-purple-100' },
+                    '500': { bg: 'bg-purple-500', dark: 'dark:bg-purple-500', text: 'text-white', darkText: 'dark:text-white' }
+                }
             }
         };
     }
@@ -1237,22 +1235,41 @@ class UIManager {
         return document.getElementById('mainContent');
     }
     
-    getSectionColor(sectionId, isLight = false) {
+    getSectionColor(sectionId, subtopicIndex = null) {
         const mainSection = sectionId.split('.')[0];
-        const colors = this.themeColors[mainSection] || this.themeColors['1'];
+        const colorScheme = this.themeColors[mainSection] || this.themeColors['1'];
         
-        if (isLight || sectionId.includes('.')) {
-            // Return lighter variation for subtopics
+        // If it's a main topic, return the 300 shade (medium)
+        if (!sectionId.includes('.')) {
+            const shade = colorScheme.shades['300'];
             return {
-                bg: colors.bgLight,
-                dark: colors.darkLight,
-                text: colors.textLight,
-                darkText: colors.darkTextLight,
-                main: colors.main
+                ...shade,
+                main: colorScheme.main
             };
         }
         
-        return colors;
+        // For subtopics, determine shade based on index
+        let shadeKey = '100'; // Default to lightest
+        
+        if (subtopicIndex !== null) {
+            // Map index to shade: 0->100, 1->200, 2->300, etc.
+            const shadeMapping = ['100', '200', '300', '400', '500'];
+            shadeKey = shadeMapping[Math.min(subtopicIndex, shadeMapping.length - 1)];
+        } else {
+            // Try to extract index from section ID (e.g., "1.1" -> 0, "1.2" -> 1)
+            const parts = sectionId.split('.');
+            if (parts.length > 1) {
+                const subIndex = parseInt(parts[1]) - 1; // Convert to 0-based
+                const shadeMapping = ['100', '200', '300', '400', '500'];
+                shadeKey = shadeMapping[Math.min(subIndex, shadeMapping.length - 1)];
+            }
+        }
+        
+        const shade = colorScheme.shades[shadeKey];
+        return {
+            ...shade,
+            main: colorScheme.main
+        };
     }
     
     renderStars(percentage) {
@@ -1427,7 +1444,7 @@ class App {
                                     class="px-3 py-1 rounded-full text-sm ${mainColors.bg} ${mainColors.dark} ${mainColors.text} ${mainColors.darkText} hover:opacity-80 transition-opacity">
                                 ${mainSection?.title || 'Unknown'}
                             </button>
-                            ${subtopic ? `
+                            ${subtopic && subtopicColors ? `
                                 <span class="text-gray-400 dark:text-gray-500">›</span>
                                 <button onclick="app.showTopicModal('${subtopic.id}')" 
                                         class="px-3 py-1 rounded-full text-sm ${subtopicColors.bg} ${subtopicColors.dark} ${subtopicColors.text} ${subtopicColors.darkText} hover:opacity-80 transition-opacity">
@@ -1568,8 +1585,7 @@ class App {
         if (!topic) return;
         
         const mainTopicId = topicId.split('.')[0];
-        const colors = this.ui.getSectionColor(mainTopicId, false);
-        const subtopicColors = this.ui.getSectionColor(mainTopicId, true);
+        const colors = this.ui.getSectionColor(topicId);
         const isSubtopic = topicId.includes('.');
         const parentTopic = isSubtopic ? this.data.getParentTopic(topicId) : null;
         const subtopics = !isSubtopic ? this.data.getSubtopics(topicId) : [];
@@ -1618,9 +1634,8 @@ class App {
                                 <h3 class="font-semibold mb-2">Nøkkelbegreper:</h3>
                                 <div class="flex flex-wrap gap-2">
                                     ${topic.key_concepts.map(concept => {
-                                        const conceptColors = isSubtopic ? subtopicColors : colors;
                                         return `
-                                            <span class="px-3 py-1 text-xs font-medium rounded-full ${conceptColors.bg} ${conceptColors.dark} ${conceptColors.text} ${conceptColors.darkText} cursor-help relative translatable">
+                                            <span class="px-3 py-1 text-xs font-medium rounded-full ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} cursor-help relative translatable">
                                                 ${concept}
                                             </span>
                                         `;
@@ -1633,12 +1648,15 @@ class App {
                             <div>
                                 <h3 class="font-semibold mb-2">Undertemaer:</h3>
                                 <div class="space-y-2">
-                                    ${subtopics.map(sub => `
-                                        <button onclick="app.showTopicModal('${sub.id}')" 
-                                                class="w-full text-left p-3 ${subtopicColors.bg} ${subtopicColors.dark} ${subtopicColors.text} ${subtopicColors.darkText} rounded-lg hover:opacity-80 transition-colors">
-                                            <div class="font-medium text-sm">${sub.title}</div>
-                                        </button>
-                                    `).join('')}
+                                    ${subtopics.map((sub, index) => {
+                                        const subtopicColors = this.ui.getSectionColor(sub.id, index);
+                                        return `
+                                            <button onclick="app.showTopicModal('${sub.id}')" 
+                                                    class="w-full text-left p-3 ${subtopicColors.bg} ${subtopicColors.dark} ${subtopicColors.text} ${subtopicColors.darkText} rounded-lg hover:opacity-80 transition-colors">
+                                                <div class="font-medium text-sm">${sub.title}</div>
+                                            </button>
+                                        `;
+                                    }).join('')}
                                 </div>
                             </div>
                         ` : ''}
