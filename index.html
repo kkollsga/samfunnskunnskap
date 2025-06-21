@@ -69,28 +69,44 @@
         
         .translation-tooltip {
             position: fixed;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: white;
             color: #1f2937;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 13px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
             z-index: 1000;
             pointer-events: none;
-            transform: translate(-50%, -100%);
-            margin-top: -10px;
-            box-shadow: 0 4px 12px -1px rgba(0, 0, 0, 0.15), 0 2px 6px -1px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             animation: fadeIn 0.2s ease-out;
-            max-width: 250px;
-        }
-        
-        .dark .translation-tooltip {
-            background: rgba(31, 41, 55, 0.95);
+            max-width: 300px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            }
+
+            .dark .translation-tooltip {
+            background: #374151;
             color: #f3f4f6;
             border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Active translation state */
+            .translating {
+            background-color: rgba(59, 130, 246, 0.1) !important;
+            transition: background-color 0.2s ease;
+            }
+
+            .dark .translating {
+            background-color: rgba(59, 130, 246, 0.2) !important;
+            }
+
+            /* Improve button states during translation */
+            .alternative-btn.translating {
+            border-color: rgb(59 130 246) !important;
+            }
         
         .translatable {
             cursor: help;
@@ -633,6 +649,7 @@ class QuizManager {
 
 // Translation Manager
 // Translation Manager - Fixed for answer options
+// Translation Manager - Improved positioning and styling
 class TranslationManager {
     constructor(stateManager, dataManager) {
         this.state = stateManager;
@@ -644,6 +661,8 @@ class TranslationManager {
         this.translatedWords = new Set();
         this.isTranslating = false;
         this.pressTimer = null;
+        this.currentElement = null;
+        this.lastTranslatedElement = null;
     }
     
     setupEventListeners() {
@@ -651,6 +670,9 @@ class TranslationManager {
         
         const showTranslation = (element, x, y) => {
             if (!element || !element.classList.contains('translatable')) return;
+            
+            // Don't re-show if it's the same element
+            if (element === this.lastTranslatedElement && this.isTranslating) return;
             
             const wordInfo = this.getWordAtPosition(element, x, y);
             if (!wordInfo) return;
@@ -665,18 +687,51 @@ class TranslationManager {
                 this.updateTranslationPercentage();
             }
             
-            // Position and show tooltip
+            // Update tooltip content
             tooltip.textContent = translation;
-            tooltip.style.left = x + 'px';
-            tooltip.style.top = y + 'px';
+            
+            // Position tooltip above the element
+            const rect = element.getBoundingClientRect();
+            const tooltipHeight = 40; // Approximate height
+            
+            // Calculate position
+            let top = rect.top - tooltipHeight - 10;
+            let left = rect.left + rect.width / 2;
+            
+            // Ensure tooltip stays within viewport
+            if (top < 10) {
+                top = rect.bottom + 10; // Show below if no room above
+            }
+            
+            // Get tooltip width after content is set
             tooltip.classList.remove('hidden');
+            const tooltipRect = tooltip.getBoundingClientRect();
+            
+            // Center horizontally and keep within viewport
+            left = Math.max(10, Math.min(left - tooltipRect.width / 2, window.innerWidth - tooltipRect.width - 10));
+            
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
             
             this.isTranslating = true;
+            this.currentElement = element;
+            this.lastTranslatedElement = element;
+            
+            // Add active state to element
+            element.classList.add('translating');
         };
         
         const hideTranslation = () => {
             tooltip.classList.add('hidden');
             this.isTranslating = false;
+            this.currentElement = null;
+            this.lastTranslatedElement = null;
+            
+            // Remove active state from all elements
+            document.querySelectorAll('.translating').forEach(el => {
+                el.classList.remove('translating');
+            });
+            
             if (this.pressTimer) {
                 clearTimeout(this.pressTimer);
                 this.pressTimer = null;
@@ -693,41 +748,60 @@ class TranslationManager {
         }, true); // Use capture phase
         
         // Touch events for mobile
+        let touchStartElement = null;
+        
         document.addEventListener('touchstart', (e) => {
             const target = e.target.closest('.translatable');
             if (target) {
-                // Store the touch start time
-                const touchStartTime = Date.now();
+                touchStartElement = target;
                 
                 this.pressTimer = setTimeout(() => {
                     e.preventDefault();
                     const touch = e.touches[0];
+                    
+                    // Add haptic feedback if available
+                    if ('vibrate' in navigator) {
+                        navigator.vibrate(10);
+                    }
+                    
                     showTranslation(target, touch.clientX, touch.clientY);
                 }, 500);
-                
-                // Store timer reference on element for cleanup
-                target._pressTimer = this.pressTimer;
-                target._touchStartTime = touchStartTime;
             }
         });
         
         document.addEventListener('touchmove', (e) => {
-            // Clear timer if user moves finger
+            // Clear timer if user moves finger before long press
             if (this.pressTimer && !this.isTranslating) {
-                clearTimeout(this.pressTimer);
-                this.pressTimer = null;
+                const touch = e.touches[0];
+                const moveThreshold = 10;
+                
+                if (touchStartElement) {
+                    const rect = touchStartElement.getBoundingClientRect();
+                    const movedOut = touch.clientX < rect.left - moveThreshold ||
+                                   touch.clientX > rect.right + moveThreshold ||
+                                   touch.clientY < rect.top - moveThreshold ||
+                                   touch.clientY > rect.bottom + moveThreshold;
+                    
+                    if (movedOut) {
+                        clearTimeout(this.pressTimer);
+                        this.pressTimer = null;
+                    }
+                }
             }
             
+            // If translating, allow dragging to other elements
             if (this.isTranslating) {
                 e.preventDefault();
                 const touch = e.touches[0];
                 const element = document.elementFromPoint(touch.clientX, touch.clientY);
                 const translatable = element?.closest('.translatable');
                 
-                if (translatable) {
+                if (translatable && translatable !== this.currentElement) {
+                    // Remove active state from previous element
+                    if (this.currentElement) {
+                        this.currentElement.classList.remove('translating');
+                    }
                     showTranslation(translatable, touch.clientX, touch.clientY);
-                } else {
-                    hideTranslation();
                 }
             }
         });
@@ -737,19 +811,27 @@ class TranslationManager {
                 e.preventDefault();
                 e.stopPropagation();
             }
+            touchStartElement = null;
             hideTranslation();
         });
         
-        document.addEventListener('touchcancel', hideTranslation);
+        document.addEventListener('touchcancel', () => {
+            touchStartElement = null;
+            hideTranslation();
+        });
         
         // Mouse events for desktop testing
         let mouseTimer;
         let mouseDownTarget = null;
+        let mouseStartX, mouseStartY;
         
         document.addEventListener('mousedown', (e) => {
             const target = e.target.closest('.translatable');
             if (target) {
                 mouseDownTarget = target;
+                mouseStartX = e.clientX;
+                mouseStartY = e.clientY;
+                
                 mouseTimer = setTimeout(() => {
                     e.preventDefault();
                     showTranslation(target, e.clientX, e.clientY);
@@ -760,23 +842,28 @@ class TranslationManager {
         document.addEventListener('mousemove', (e) => {
             // Clear timer if mouse moves too much before timer fires
             if (mouseTimer && !this.isTranslating && mouseDownTarget) {
-                const rect = mouseDownTarget.getBoundingClientRect();
-                const inBounds = e.clientX >= rect.left && e.clientX <= rect.right &&
-                               e.clientY >= rect.top && e.clientY <= rect.bottom;
-                if (!inBounds) {
+                const moveThreshold = 5;
+                const movedTooMuch = Math.abs(e.clientX - mouseStartX) > moveThreshold ||
+                                   Math.abs(e.clientY - mouseStartY) > moveThreshold;
+                
+                if (movedTooMuch) {
                     clearTimeout(mouseTimer);
                     mouseTimer = null;
                     mouseDownTarget = null;
                 }
             }
             
+            // If translating, allow dragging to other elements
             if (this.isTranslating) {
                 e.preventDefault();
-                const target = e.target.closest('.translatable');
-                if (target) {
-                    showTranslation(target, e.clientX, e.clientY);
-                } else {
-                    hideTranslation();
+                const element = e.target.closest('.translatable');
+                
+                if (element && element !== this.currentElement) {
+                    // Remove active state from previous element
+                    if (this.currentElement) {
+                        this.currentElement.classList.remove('translating');
+                    }
+                    showTranslation(element, e.clientX, e.clientY);
                 }
             }
         });
@@ -860,37 +947,22 @@ class TranslationManager {
         const words = this.currentQuestionWords.get(element);
         if (!words || words.length === 0) return null;
         
-        // For buttons, we need to handle the click position differently
+        // For short text (like answers), just return the first word
+        if (words.length <= 3) {
+            return words[0];
+        }
+        
+        // For longer text, try to find the specific word
         const rect = element.getBoundingClientRect();
         const relativeX = x - rect.left;
         
-        // Create a temporary span to measure text
-        const measurer = document.createElement('span');
-        measurer.style.cssText = window.getComputedStyle(element).cssText;
-        measurer.style.position = 'absolute';
-        measurer.style.visibility = 'hidden';
-        measurer.style.height = 'auto';
-        measurer.style.width = 'auto';
-        measurer.style.whiteSpace = 'nowrap';
-        document.body.appendChild(measurer);
+        // Estimate word position based on relative position
+        const textWidth = rect.width;
+        const position = relativeX / textWidth;
+        const estimatedIndex = Math.floor(position * words.length);
         
-        // Find which word was clicked based on position
-        let currentX = 0;
-        let foundWord = null;
-        
-        for (const word of words) {
-            measurer.textContent = element.textContent.substring(0, word.end);
-            const totalWidth = measurer.offsetWidth;
-            
-            if (relativeX <= totalWidth) {
-                foundWord = word;
-                break;
-            }
-        }
-        
-        document.body.removeChild(measurer);
-        
-        return foundWord || words[words.length - 1]; // Default to last word if none found
+        // Return the estimated word, bounded by array length
+        return words[Math.max(0, Math.min(estimatedIndex, words.length - 1))];
     }
     
     // Get translation with context
@@ -904,6 +976,11 @@ class TranslationManager {
         const translatedWords = this.parseWords(translatedText);
         
         if (translatedWords.length === 0) return null;
+        
+        // For short text (answers), return the full translation
+        if (translatedWords.length <= 3) {
+            return translatedWords.map(w => w.text).join(' ');
+        }
         
         // Ensure wordIndex is valid
         if (wordIndex >= translatedWords.length) {
@@ -962,6 +1039,8 @@ class TranslationManager {
         this.uniqueWords.clear();
         this.translatedWords.clear();
         this.isTranslating = false;
+        this.currentElement = null;
+        this.lastTranslatedElement = null;
         if (this.pressTimer) {
             clearTimeout(this.pressTimer);
             this.pressTimer = null;
