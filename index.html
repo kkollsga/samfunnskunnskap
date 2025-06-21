@@ -1172,39 +1172,11 @@ class UIManager {
     constructor(stateManager) {
         this.state = stateManager;
         this.themeColors = {
-            '1': { 
-                base: 'blue',
-                main: '#3b82f6',
-                shades: {
-                    '100': { bg: 'bg-blue-100', dark: 'dark:bg-blue-900', text: 'text-blue-700', darkText: 'dark:text-blue-200' },
-                    '200': { bg: 'bg-blue-200', dark: 'dark:bg-blue-800', text: 'text-blue-800', darkText: 'dark:text-blue-300' },
-                    '300': { bg: 'bg-blue-300', dark: 'dark:bg-blue-700', text: 'text-blue-900', darkText: 'dark:text-blue-400' },
-                    '400': { bg: 'bg-blue-400', dark: 'dark:bg-blue-600', text: 'text-blue-900', darkText: 'dark:text-blue-100' },
-                    '500': { bg: 'bg-blue-500', dark: 'dark:bg-blue-500', text: 'text-white', darkText: 'dark:text-white' }
-                }
-            },
-            '2': { 
-                base: 'green',
-                main: '#10b981',
-                shades: {
-                    '100': { bg: 'bg-green-100', dark: 'dark:bg-green-900', text: 'text-green-700', darkText: 'dark:text-green-200' },
-                    '200': { bg: 'bg-green-200', dark: 'dark:bg-green-800', text: 'text-green-800', darkText: 'dark:text-green-300' },
-                    '300': { bg: 'bg-green-300', dark: 'dark:bg-green-700', text: 'text-green-900', darkText: 'dark:text-green-400' },
-                    '400': { bg: 'bg-green-400', dark: 'dark:bg-green-600', text: 'text-green-900', darkText: 'dark:text-green-100' },
-                    '500': { bg: 'bg-green-500', dark: 'dark:bg-green-500', text: 'text-white', darkText: 'dark:text-white' }
-                }
-            },
-            '3': { 
-                base: 'purple',
-                main: '#8b5cf6',
-                shades: {
-                    '100': { bg: 'bg-purple-100', dark: 'dark:bg-purple-900', text: 'text-purple-700', darkText: 'dark:text-purple-200' },
-                    '200': { bg: 'bg-purple-200', dark: 'dark:bg-purple-800', text: 'text-purple-800', darkText: 'dark:text-purple-300' },
-                    '300': { bg: 'bg-purple-300', dark: 'dark:bg-purple-700', text: 'text-purple-900', darkText: 'dark:text-purple-400' },
-                    '400': { bg: 'bg-purple-400', dark: 'dark:bg-purple-600', text: 'text-purple-900', darkText: 'dark:text-purple-100' },
-                    '500': { bg: 'bg-purple-500', dark: 'dark:bg-purple-500', text: 'text-white', darkText: 'dark:text-white' }
-                }
-            }
+            '1': { base: 'blue', main: '#3b82f6', shades: { '100': { bg: 'bg-blue-500', dark: 'dark:bg-blue-600', text: 'text-white', darkText: 'dark:text-white', hover: 'hover:bg-blue-600 dark:hover:bg-blue-700' }, '200': { bg: 'bg-blue-600', dark: 'dark:bg-blue-700', text: 'text-white', darkText: 'dark:text-white', hover: 'hover:bg-blue-700 dark:hover:bg-blue-800' }, '300': { bg: 'bg-blue-700', dark: 'dark:bg-blue-800', text: 'text-white', darkText: 'dark:text-blue-100', hover: 'hover:bg-blue-800 dark:hover:bg-blue-900' }, '400': { bg: 'bg-blue-800', dark: 'dark:bg-blue-900', text: 'text-blue-100', darkText: 'dark:text-blue-200', hover: 'hover:bg-blue-900 dark:hover:bg-blue-950' }, '500': { bg: 'bg-blue-900', dark: 'dark:bg-blue-950', text: 'text-blue-100', darkText: 'dark:text-blue-200', hover: 'hover:bg-blue-950 dark:hover:bg-black' } } },
+            '2': { base: 'green', main: '#10b981', shades: { '100': { bg: 'bg-emerald-500', dark: 'dark:bg-emerald-600', text: 'text-white', darkText: 'dark:text-white', hover: 'hover:bg-emerald-600 dark:hover:bg-emerald-700' }, '200': { bg: 'bg-emerald-600', dark: 'dark:bg-emerald-700', text: 'text-white', darkText: 'dark:text-white', hover: 'hover:bg-emerald-700 dark:hover:bg-emerald-800' }, '300': { bg: 'bg-emerald-700', dark: 'dark:bg-emerald-800', text: 'text-white', darkText: 'dark:text-emerald-100', hover: 'hover:bg-emerald-800 dark:hover:bg-emerald-900' }, '400': { bg: 'bg-emerald-800', dark: 'dark:bg-emerald-900', text: 'text-emerald-100', darkText: 'dark:text-emerald-200', hover: 'hover:bg-emerald-900 dark:hover:bg-emerald-950' }, '500': { bg: 'bg-emerald-900', dark: 'dark:bg-emerald-950', text: 'text-emerald-100', darkText: 'dark:text-emerald-200', hover: 'hover:bg-emerald-950 dark:hover:bg-black' } } },
+            '3': { base: 'purple', main: '#8b5cf6', shades: { '100': { bg: 'bg-violet-500', dark: 'dark:bg-violet-600', text: 'text-white', darkText: 'dark:text-white', hover: 'hover:bg-violet-600 dark:hover:bg-violet-700' }, '200': { bg: 'bg-violet-600', dark: 'dark:bg-violet-700', text: 'text-white', darkText: 'dark:text-white', hover: 'hover:bg-violet-700 dark:hover:bg-violet-800' }, '300': { bg: 'bg-violet-700', dark: 'dark:bg-violet-800', text: 'text-white', darkText: 'dark:text-violet-100', hover: 'hover:bg-violet-800 dark:hover:bg-violet-900' }, '400': { bg: 'bg-violet-800', dark: 'dark:bg-violet-900', text: 'text-violet-100', darkText: 'dark:text-violet-200', hover: 'hover:bg-violet-900 dark:hover:bg-violet-950' }, '500': { bg: 'bg-violet-900', dark: 'dark:bg-violet-950', text: 'text-violet-100', darkText: 'dark:text-violet-200', hover: 'hover:bg-violet-950 dark:hover:bg-black' } } },
+            '4': { base: 'orange', main: '#f97316', shades: { '100': { bg: 'bg-orange-500', dark: 'dark:bg-orange-600', text: 'text-white', darkText: 'dark:text-white', hover: 'hover:bg-orange-600 dark:hover:bg-orange-700' }, '200': { bg: 'bg-orange-600', dark: 'dark:bg-orange-700', text: 'text-white', darkText: 'dark:text-white', hover: 'hover:bg-orange-700 dark:hover:bg-orange-800' }, '300': { bg: 'bg-orange-700', dark: 'dark:bg-orange-800', text: 'text-white', darkText: 'dark:text-orange-100', hover: 'hover:bg-orange-800 dark:hover:bg-orange-900' }, '400': { bg: 'bg-orange-800', dark: 'dark:bg-orange-900', text: 'text-orange-100', darkText: 'dark:text-orange-200', hover: 'hover:bg-orange-900 dark:hover:bg-orange-950' }, '500': { bg: 'bg-orange-900', dark: 'dark:bg-orange-950', text: 'text-orange-100', darkText: 'dark:text-orange-200', hover: 'hover:bg-orange-950 dark:hover:bg-black' } } },
+            '5': { base: 'pink', main: '#ec4899', shades: { '100': { bg: 'bg-pink-500', dark: 'dark:bg-pink-600', text: 'text-white', darkText: 'dark:text-white', hover: 'hover:bg-pink-600 dark:hover:bg-pink-700' }, '200': { bg: 'bg-pink-600', dark: 'dark:bg-pink-700', text: 'text-white', darkText: 'dark:text-white', hover: 'hover:bg-pink-700 dark:hover:bg-pink-800' }, '300': { bg: 'bg-pink-700', dark: 'dark:bg-pink-800', text: 'text-white', darkText: 'dark:text-pink-100', hover: 'hover:bg-pink-800 dark:hover:bg-pink-900' }, '400': { bg: 'bg-pink-800', dark: 'dark:bg-pink-900', text: 'text-pink-100', darkText: 'dark:text-pink-200', hover: 'hover:bg-pink-900 dark:hover:bg-pink-950' }, '500': { bg: 'bg-pink-900', dark: 'dark:bg-pink-950', text: 'text-pink-100', darkText: 'dark:text-pink-200', hover: 'hover:bg-pink-950 dark:hover:bg-black' } } }
         };
     }
     
@@ -1239,9 +1211,9 @@ class UIManager {
         const mainSection = sectionId.split('.')[0];
         const colorScheme = this.themeColors[mainSection] || this.themeColors['1'];
         
-        // If it's a main topic, return the 300 shade (medium)
+        // If it's a main topic, return the 100 shade (lightest in new scheme)
         if (!sectionId.includes('.')) {
-            const shade = colorScheme.shades['300'];
+            const shade = colorScheme.shades['100'];
             return {
                 ...shade,
                 main: colorScheme.main
@@ -1249,18 +1221,18 @@ class UIManager {
         }
         
         // For subtopics, determine shade based on index
-        let shadeKey = '100'; // Default to lightest
+        let shadeKey = '200'; // Start from 200 for first subtopic
         
         if (subtopicIndex !== null) {
-            // Map index to shade: 0->100, 1->200, 2->300, etc.
-            const shadeMapping = ['100', '200', '300', '400', '500'];
+            // Map index to shade: 0->200, 1->300, 2->400, etc.
+            const shadeMapping = ['200', '300', '400', '500'];
             shadeKey = shadeMapping[Math.min(subtopicIndex, shadeMapping.length - 1)];
         } else {
             // Try to extract index from section ID (e.g., "1.1" -> 0, "1.2" -> 1)
             const parts = sectionId.split('.');
             if (parts.length > 1) {
                 const subIndex = parseInt(parts[1]) - 1; // Convert to 0-based
-                const shadeMapping = ['100', '200', '300', '400', '500'];
+                const shadeMapping = ['200', '300', '400', '500'];
                 shadeKey = shadeMapping[Math.min(subIndex, shadeMapping.length - 1)];
             }
         }
@@ -1657,7 +1629,7 @@ class App {
                                 <div class="flex flex-wrap gap-2">
                                     ${topic.key_concepts.map(concept => {
                                         return `
-                                            <span class="px-3 py-1 text-xs font-medium rounded-full ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} cursor-help relative translatable">
+                                            <span class="px-3 py-1 text-xs font-medium rounded-full ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} ${colors.hover || ''} cursor-help relative translatable transition-all duration-200">
                                                 ${concept}
                                             </span>
                                         `;
@@ -1674,7 +1646,7 @@ class App {
                                         const subtopicColors = this.ui.getSectionColor(sub.id, index);
                                         return `
                                             <button onclick="app.showTopicModal('${sub.id}')" 
-                                                    class="w-full text-left p-3 ${subtopicColors.bg} ${subtopicColors.dark} ${subtopicColors.text} ${subtopicColors.darkText} rounded-lg hover:opacity-80 transition-colors">
+                                                    class="w-full text-left p-3 ${subtopicColors.bg} ${subtopicColors.dark} ${subtopicColors.text} ${subtopicColors.darkText} ${subtopicColors.hover || ''} rounded-lg transition-all duration-200">
                                                 <div class="font-medium text-sm">${sub.title}</div>
                                             </button>
                                         `;
