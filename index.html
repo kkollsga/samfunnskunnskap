@@ -7,6 +7,26 @@
     <title>Norsk Læringshjelper</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Prevent scroll bounce on iOS */
+        html, body {
+            position: fixed;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #app {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        #mainContent {
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            height: 100%;
+        }
+        
         /* Custom styles for animations and effects */
         @keyframes borderGlow {
             0% { box-shadow: 0 0 5px rgba(34, 197, 94, 0.5), 0 0 10px rgba(34, 197, 94, 0.3), 0 0 15px rgba(34, 197, 94, 0.1); }
@@ -110,10 +130,18 @@
         /* Modal animation */
         .modal-backdrop {
             animation: fadeIn 0.2s ease-out;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
         
         .modal-content {
             animation: slideUp 0.3s ease-out;
+            min-height: 100%;
         }
         
         @keyframes slideUp {
@@ -135,7 +163,11 @@
             transform: scale(1.1);
         }
         
-        /* Alternative button styles */
+        .nav-button:not(:disabled):active {
+            transform: scale(0.95);
+        }
+        
+        /* Alternative button styles - Fixed for iOS visibility */
         .alternative-btn {
             cursor: pointer;
             transition: all 0.2s ease;
@@ -149,31 +181,62 @@
             cursor: default;
         }
         
+        /* Ensure text remains visible on iOS */
         .alternative-btn.correct {
-            background-color: rgb(220 252 231);
+            background-color: rgba(34, 197, 94, 0.15);
             border-color: rgb(34 197 94);
+            color: rgb(21 128 61);
         }
         
         .dark .alternative-btn.correct {
-            background-color: rgb(20 83 45);
+            background-color: rgba(34, 197, 94, 0.2);
             border-color: rgb(34 197 94);
+            color: rgb(134 239 172);
         }
         
         .alternative-btn.incorrect {
-            background-color: rgb(254 226 226);
+            background-color: rgba(239, 68, 68, 0.15);
             border-color: rgb(239 68 68);
+            color: rgb(185 28 28);
         }
         
         .dark .alternative-btn.incorrect {
-            background-color: rgb(127 29 29);
+            background-color: rgba(239, 68, 68, 0.2);
             border-color: rgb(239 68 68);
+            color: rgb(252 165 165);
+        }
+        
+        /* Ensure content fits without overflow */
+        .quiz-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .quiz-content {
+            flex: 1;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 1rem;
+        }
+        
+        .quiz-footer {
+            flex-shrink: 0;
+            background: inherit;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 1rem;
+        }
+        
+        .dark .quiz-footer {
+            border-top-color: rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen">
-    <div id="app" class="max-w-md mx-auto min-h-screen flex flex-col">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div id="app" class="max-w-md mx-auto flex flex-col">
         <!-- Header with language selector -->
-        <header id="header" class="bg-white dark:bg-gray-800 shadow-sm p-3 flex justify-between items-center">
+        <header id="header" class="bg-white dark:bg-gray-800 shadow-sm p-3 flex justify-between items-center flex-shrink-0">
             <h1 class="text-lg font-bold">Læringshjelper</h1>
             <div class="flex items-center gap-2">
                 <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -189,7 +252,7 @@
         </header>
 
         <!-- Main content area -->
-        <main id="mainContent" class="flex-1 p-4 flex flex-col">
+        <main id="mainContent" class="flex-1 p-4 flex flex-col overflow-y-auto">
             <!-- Content will be dynamically inserted here -->
         </main>
     </div>
@@ -201,7 +264,7 @@
     <div id="notificationContainer" class="fixed top-4 right-4 z-50"></div>
 
 <script>
-console.log("Version: 2.00");
+console.log("Version: 2.01");
 
 // Central State Management
 class StateManager {
@@ -212,6 +275,7 @@ class StateManager {
             darkMode: false,
             currentQuiz: null,
             currentView: 'main',
+            viewingIndex: null, // For navigation within quiz
             translatedWords: new Set()
         };
         
@@ -414,22 +478,25 @@ class QuizManager {
             return false;
         }
         
-        this.state.set('currentQuiz', {
-            questions: questions,
-            currentIndex: 0,
-            answers: [],
-            startTime: Date.now(),
-            topicId: topicId
+        this.state.update({
+            currentQuiz: {
+                questions: questions,
+                currentIndex: 0,
+                answers: [],
+                startTime: Date.now(),
+                topicId: topicId
+            },
+            currentView: 'quiz',
+            viewingIndex: null
         });
         
-        this.state.set('currentView', 'quiz');
         return true;
     }
     
     selectQuestions(topicId) {
         let questions = this.data.getQuestions(topicId, 'no');
         
-        // Simple random selection - removed complex weighting
+        // Simple random selection
         const shuffled = [...questions].sort(() => Math.random() - 0.5);
         return shuffled.slice(0, Math.min(20, shuffled.length));
     }
@@ -470,26 +537,55 @@ class QuizManager {
         
         if (quiz.currentIndex < quiz.questions.length - 1) {
             quiz.currentIndex++;
-            this.state.set('currentQuiz', quiz);
+            this.state.update({
+                currentQuiz: quiz,
+                viewingIndex: null
+            });
             return true;
         }
         return false;
     }
     
+    navigateToQuestion(index) {
+        const quiz = this.state.get('currentQuiz');
+        if (!quiz) return;
+        
+        // Can only navigate to answered questions or current question
+        if (index >= 0 && index <= quiz.currentIndex && index < quiz.questions.length) {
+            this.state.set('viewingIndex', index);
+        }
+    }
+    
     getCurrentQuestion() {
         const quiz = this.state.get('currentQuiz');
         if (!quiz) return null;
-        return quiz.questions[quiz.currentIndex];
+        
+        const viewingIndex = this.state.get('viewingIndex');
+        const index = viewingIndex !== null ? viewingIndex : quiz.currentIndex;
+        
+        return quiz.questions[index];
+    }
+    
+    getCurrentQuestionIndex() {
+        const quiz = this.state.get('currentQuiz');
+        if (!quiz) return 0;
+        
+        const viewingIndex = this.state.get('viewingIndex');
+        return viewingIndex !== null ? viewingIndex : quiz.currentIndex;
     }
     
     getQuizProgress() {
         const quiz = this.state.get('currentQuiz');
         if (!quiz) return { current: 0, total: 0, percentage: 0 };
         
+        const currentIndex = this.getCurrentQuestionIndex();
+        
         return {
-            current: quiz.currentIndex + 1,
+            current: currentIndex + 1,
             total: quiz.questions.length,
-            percentage: ((quiz.currentIndex + 1) / quiz.questions.length) * 100
+            percentage: ((currentIndex + 1) / quiz.questions.length) * 100,
+            canGoBack: currentIndex > 0,
+            canGoForward: currentIndex < quiz.currentIndex
         };
     }
     
@@ -760,7 +856,7 @@ class App {
     }
     
     onStateChange(key, value) {
-        if (key === 'currentView') {
+        if (key === 'currentView' || key === 'viewingIndex') {
             this.render();
         }
     }
@@ -830,9 +926,11 @@ class App {
         this.ui.showHeader(false);
         const content = this.ui.getContent();
         const question = this.quiz.getCurrentQuestion();
+        const currentIndex = this.quiz.getCurrentQuestionIndex();
         const progress = this.quiz.getQuizProgress();
         const quiz = this.state.get('currentQuiz');
-        const hasAnswered = quiz.answers.length > quiz.currentIndex;
+        const hasAnswered = currentIndex < quiz.answers.length;
+        const isViewing = this.state.get('viewingIndex') !== null;
         
         if (!question) {
             this.state.set('currentView', 'main');
@@ -843,40 +941,42 @@ class App {
         const colors = this.ui.getSectionColor(question.section);
         
         content.innerHTML = `
-            <div class="flex-1 flex flex-col">
-                <div class="pb-6">
-                    <div class="flex justify-center items-center gap-2 mb-10">
-                        <button onclick="app.showTopicModal('${question.section.split('.')[0]}')" 
-                                class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
-                            ${section?.title || 'Unknown'}
-                        </button>
+            <div class="quiz-container">
+                <div class="quiz-content p-4">
+                    <div class="pb-6">
+                        <div class="flex justify-center items-center gap-2 mb-10">
+                            <button onclick="app.showTopicModal('${question.section.split('.')[0]}')" 
+                                    class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
+                                ${section?.title || 'Unknown'}
+                            </button>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="flex-1 flex flex-col justify-between">
+                    
                     <div class="mb-8">
-                        <h2 class="text-xl font-medium text-center translatable px-4 mb-8">
+                        <h2 class="text-xl font-medium text-center translatable px-4">
                             ${question.question}
                         </h2>
                     </div>
                     
-                    <div class="space-y-3 px-4 mb-6" id="alternatives">
+                    <div class="space-y-3 px-4" id="alternatives">
                         ${question.alternatives.map((alt, index) => {
                             let classes = 'alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg transition-colors';
                             
                             if (hasAnswered) {
-                                const answer = quiz.answers[quiz.currentIndex];
+                                const answer = quiz.answers[currentIndex];
                                 if (index === question.correct) {
                                     classes += ' correct';
-                                } else if (index === answer.answerIndex && !answer.correct) {
+                                } else if (answer && index === answer.answerIndex && !answer.correct) {
                                     classes += ' incorrect';
                                 }
                             }
                             
+                            const canClick = !hasAnswered && !isViewing;
+                            
                             return `
-                                <button onclick="${!hasAnswered ? `app.answerQuestion(${index})` : ''}" 
+                                <button onclick="${canClick ? `app.answerQuestion(${index})` : ''}" 
                                         class="${classes}"
-                                        ${hasAnswered ? 'disabled' : ''}>
+                                        ${!canClick ? 'disabled' : ''}>
                                     ${alt}
                                 </button>
                             `;
@@ -884,21 +984,38 @@ class App {
                     </div>
                 </div>
                 
-                <div class="mt-auto space-y-3">
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" 
-                            style="width: ${progress.percentage}%"></div>
-                    </div>
-                    
-                    <div class="text-center">
+                <div class="quiz-footer p-4 bg-gray-50 dark:bg-gray-800">
+                    <!-- Navigation buttons -->
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex gap-2">
+                            <button onclick="app.navigateQuiz(-1)" 
+                                    class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                                    ${!progress.canGoBack ? 'disabled' : ''}>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
+                            <button onclick="app.navigateQuiz(1)" 
+                                    class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                                    ${!progress.canGoForward ? 'disabled' : ''}>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
                         <span class="text-sm text-gray-500 dark:text-gray-400">
                             ${progress.current} / ${progress.total}
                         </span>
                     </div>
                     
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-3">
+                        <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" 
+                            style="width: ${progress.percentage}%"></div>
+                    </div>
+                    
                     <button onclick="app.endQuiz()" 
-                            class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                        Avbryt quiz
+                            class="w-full text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+                        ${quiz.answers.length === quiz.questions.length ? 'Se resultater' : 'Avbryt quiz'}
                     </button>
                 </div>
             </div>
@@ -960,9 +1077,9 @@ class App {
         const colors = this.ui.getSectionColor(topicId);
         
         const modal = document.createElement('div');
-        modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 modal-backdrop';
+        modal.className = 'modal-backdrop bg-black bg-opacity-50 z-50';
         modal.innerHTML = `
-            <div class="fixed inset-0 bg-white dark:bg-gray-900 modal-content overflow-y-auto">
+            <div class="modal-content bg-white dark:bg-gray-900">
                 <div class="max-w-md mx-auto">
                     <div class="sticky top-0 bg-white dark:bg-gray-900 p-4 border-b dark:border-gray-700">
                         <div class="flex justify-between items-center">
@@ -1034,10 +1151,21 @@ class App {
         }, 1500);
     }
     
+    navigateQuiz(direction) {
+        const currentIndex = this.quiz.getCurrentQuestionIndex();
+        this.quiz.navigateToQuestion(currentIndex + direction);
+    }
+    
     endQuiz() {
-        if (confirm('Er du sikker på at du vil avslutte quizen?')) {
-            this.state.set('currentView', 'main');
-            this.state.set('currentQuiz', null);
+        const quiz = this.state.get('currentQuiz');
+        if (quiz && quiz.answers.length === quiz.questions.length) {
+            this.state.set('currentView', 'results');
+        } else if (confirm('Er du sikker på at du vil avslutte quizen?')) {
+            this.state.update({
+                currentView: 'main',
+                currentQuiz: null,
+                viewingIndex: null
+            });
         }
     }
 }
