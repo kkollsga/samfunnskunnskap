@@ -1220,113 +1220,136 @@
                 if (prevBtn && quiz.currentIndex > 0) {
                     prevBtn.disabled = false;
                 }
+                
+                // Auto-advance to next question
+                setTimeout(() => {
+                    if (quiz.currentIndex < quiz.questions.length - 1) {
+                        quiz.currentIndex++;
+                        quiz.viewingIndex = quiz.currentIndex;
+                        this.showQuizQuestion();
+                    } else {
+                        // Quiz is complete
+                        this.showQuizResults();
+                    }
+                }, 1500);
             },
-            
-            // Show quiz results
-            showQuizResults() {
+
+            // Show quiz question
+            showQuizQuestion(viewIndex = null) {
                 const quiz = this.data.currentQuiz;
+                const displayIndex = viewIndex !== null ? viewIndex : quiz.currentIndex;
+                const question = quiz.questions[displayIndex];
+                const sectionName = this.getSectionName(question.section);
+                const subsectionName = question.section.includes('.') ? this.getSubsectionName(question.section) : '';
+                const colors = this.getSectionColor(question.section);
                 
-                // Update user progress
-                this.data.userProgress = [...quiz.answers, ...this.data.userProgress].slice(0, 300);
-                localStorage.setItem('userProgress', JSON.stringify(this.data.userProgress));
+                // Load translations for this question
+                this.loadQuestionTranslations(question);
                 
-                // Calculate results
-                const correct = quiz.answers.filter(a => a.correct).length;
-                const correctPercent = (correct / quiz.questions.length) * 100;
-                const avgTranslation = quiz.answers.reduce((sum, a) => sum + a.translationPercent, 0) / quiz.answers.length;
+                // Count total unique words for translation tracking
+                const allText = question.question + ' ' + question.alternatives.join(' ');
+                this.data.translationTracker.totalWords = this.countUniqueWords(allText);
                 
-                // Calculate section performance changes (only for sections in quiz)
-                const sectionsInQuiz = [...new Set(quiz.questions.map(q => q.section.split('.')[0]))];
-                const sectionChanges = sectionsInQuiz.map(sectionId => {
-                    const beforeCorrect = quiz.beforeStats[sectionId];
-                    
-                    // Recalculate with new answers
-                    const newProgress = [...quiz.answers.filter(a => a.section.startsWith(sectionId)), 
-                                       ...this.data.userProgress.filter(p => p.section.startsWith(sectionId))].slice(0, 300);
-                    
-                    const newCorrect = newProgress.length > 0 
-                        ? (newProgress.filter(a => a.correct).length / newProgress.length) * 100
-                        : beforeCorrect;
-                    
-                    return {
-                        id: sectionId,
-                        name: this.data.descriptions.no.find(d => d.id === sectionId)?.title || '',
-                        beforeCorrect: Math.round(beforeCorrect),
-                        afterCorrect: Math.round(newCorrect),
-                        change: Math.round(newCorrect - beforeCorrect)
-                    };
-                }).filter(s => s.name); // Filter out any invalid sections
+                // If viewing history, preserve translated words
+                if (viewIndex === null) {
+                    this.data.translationTracker.translatedWords = new Set();
+                }
                 
-                // Show header again
-                document.getElementById('header').style.display = 'flex';
+                // Check if this question has been answered
+                const answer = quiz.answers[displayIndex];
+                const isAnswered = answer !== undefined;
+                const isReviewing = viewIndex !== null;
                 
                 const mainContent = document.getElementById('mainContent');
                 mainContent.className = 'flex-1 p-4 flex flex-col';
                 mainContent.innerHTML = `
-                    <div class="flex-1 flex flex-col justify-center">
-                        <div class="text-center space-y-6">
-                            <h2 class="text-2xl font-bold">Quiz fullført!</h2>
-                            
-                            <div class="space-y-4">
-                                <div>
-                                    <div class="text-lg mb-2">Nøyaktighet</div>
-                                    <div class="flex justify-center">
-                                        ${this.renderStars(correctPercent)}
-                                    </div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                                        ${correct} av ${quiz.questions.length} riktige (${Math.round(correctPercent)}%)
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <div class="text-lg mb-2">Flyt</div>
-                                    <div class="flex justify-center text-sm">
-                                        ${this.renderStars(100 - avgTranslation)}
-                                    </div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                                        ${Math.round(avgTranslation)}% oversatt
-                                    </div>
-                                </div>
+                    <div class="flex-1 flex flex-col">
+                        <div class="pb-6">
+                            <div class="flex ${subsectionName ? 'justify-between' : 'justify-center'} items-center gap-2 mb-10">
+                                <button onclick="app.showTopicModal('${question.section.split('.')[0]}')" 
+                                        class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
+                                    ${sectionName}
+                                </button>
+                                ${subsectionName ? `
+                                    <button onclick="app.showTopicModal('${question.section}', true)" 
+                                            class="px-3 py-1 rounded-full text-sm ${colors.bg} ${colors.dark} ${colors.text} ${colors.darkText} hover:opacity-80 transition-opacity">
+                                        ${subsectionName}
+                                    </button>
+                                ` : ''}
+                            </div>
+                        </div>
+                        
+                        <div class="flex-1 flex flex-col justify-between">
+                            <div class="mb-8">
+                                <h2 class="text-xl font-medium text-center translatable px-4 mb-8" id="questionText" data-translation-key="question">
+                                    ${question.question}
+                                </h2>
                             </div>
                             
-                            <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-4">
-                                <h3 class="font-semibold mb-3">Endring per tema</h3>
-                                <div class="space-y-2">
-                                    ${sectionChanges.map(section => {
-                                        const changeColor = section.change > 0 ? 'text-green-600' : section.change < 0 ? 'text-red-600' : 'text-gray-500';
-                                        const arrow = section.change > 0 ? '↑' : section.change < 0 ? '↓' : '→';
-                                        
-                                        return `
-                                            <div class="text-sm">
-                                                <div class="flex justify-between items-center mb-1">
-                                                    <span>${section.name}</span>
-                                                    <span class="${changeColor} font-semibold">
-                                                        ${arrow} ${section.change > 0 ? '+' : ''}${section.change}%
-                                                    </span>
-                                                </div>
-                                                <div class="text-xs text-gray-500 dark:text-gray-400">
-                                                    ${section.beforeCorrect}% → ${section.afterCorrect}%
-                                                </div>
-                                            </div>
-                                        `;
-                                    }).join('')}
-                                </div>
+                            <div class="space-y-3 px-4 mb-6" id="alternatives">
+                                ${question.alternatives.map((alt, index) => {
+                                    let classes = 'alternative-btn w-full p-4 text-left bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg transition-colors';
+                                    
+                                    if (isAnswered) {
+                                        if (index === question.correct) {
+                                            classes += ' correct border-glow';
+                                        } else if (answer && index === answer.answerIndex && !answer.correct) {
+                                            classes += ' incorrect shake';
+                                        }
+                                    }
+                                    
+                                    return `
+                                        <button onclick="${!isAnswered && !isReviewing ? `app.answerQuestion(${index})` : ''}" 
+                                                class="${classes}"
+                                                data-translation-key="alt_${index}"
+                                                ${isAnswered || isReviewing ? 'disabled' : ''}>
+                                            ${alt}
+                                        </button>
+                                    `;
+                                }).join('')}
                             </div>
                             
-                            <div class="space-y-3">
-                                <button onclick="app.reviewQuiz()" 
-                                        class="w-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-semibold py-2 px-3 rounded-lg transition-colors">
-                                    Se gjennom svarene
-                                </button>
-                                <button onclick="app.startQuiz(${quiz.topicId ? `'${quiz.topicId}'` : ''})" 
-                                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg shadow-md transition-colors">
-                                    Ny quiz
-                                </button>
-                                <button onclick="app.showMainPage()" 
-                                        class="w-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-semibold py-3 px-4 rounded-lg transition-colors">
-                                    Tilbake til hovedsiden
-                                </button>
+                            ${!isReviewing ? `
+                                <div class="text-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                    <span id="translationPercent">0</span>% oversatt
+                                </div>
+                            ` : ''}
+                        </div>
+                        
+                        <div class="mt-auto space-y-3">
+                            ${!isReviewing ? `
+                                <div class="flex justify-between items-center">
+                                    <div class="flex gap-2">
+                                        <button onclick="app.navigateQuiz(-1)" 
+                                                class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                                                ${quiz.currentIndex === 0 ? 'disabled' : ''}>
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                            </svg>
+                                        </button>
+                                        <button onclick="app.navigateQuiz(1)" 
+                                                class="nav-button p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                                                ${quiz.currentIndex === 0 ? 'disabled' : ''}>
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <span class="text-sm text-gray-500 dark:text-gray-400">
+                                        ${quiz.currentIndex + 1} / ${quiz.questions.length}
+                                    </span>
+                                </div>
+                            ` : ''}
+                            
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" 
+                                    style="width: ${((displayIndex + 1) / quiz.questions.length) * 100}%"></div>
                             </div>
+                            
+                            <button onclick="${isReviewing ? 'app.showQuizResults()' : 'app.showMainPage()'}" 
+                                    class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+                                ${isReviewing ? 'Tilbake til resultater' : 'Avbryt quiz'}
+                            </button>
                         </div>
                     </div>
                 `;
