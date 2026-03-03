@@ -494,7 +494,10 @@ class QuizManager {
         return 'recovering';
     }
 
-    getMasteryBoost(allQuestions, history) {
+    getMasteryBoost() {
+        // Boost is a global difficulty level based on ALL questions
+        const allQuestions = this.data.getQuestions(null, 'no');
+        const history = this.state.get('questionHistory') || {};
         if (allQuestions.length === 0) return 0;
         const total = allQuestions.length;
         let boost = 0;
@@ -605,7 +608,7 @@ class QuizManager {
         const now = Date.now();
 
         // Classify all questions into buckets (with mastery boost at high completion)
-        const boost = this.getMasteryBoost(allQuestions, history);
+        const boost = this.getMasteryBoost();
         const buckets = { unseen: [], activeFail: [], recovering: [], mastered: [] };
         for (const q of allQuestions) {
             const state = this.classifyQuestion(q.id, history, boost);
@@ -687,7 +690,7 @@ class QuizManager {
         const history = this.state.get('questionHistory') || {};
         const now = Date.now();
 
-        const boost = this.getMasteryBoost(allQuestions, history);
+        const boost = this.getMasteryBoost();
         const counts = { unseen: 0, activeFail: 0, recovering: 0, mastered: 0 };
         let totalAttempts = 0, totalCorrect = 0;
 
