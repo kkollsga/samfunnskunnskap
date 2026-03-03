@@ -1534,12 +1534,12 @@ class App {
 
     toggleSection(sectionId) {
         if (this.expandedSections.has(sectionId)) {
-            this.startQuiz(sectionId);
+            this.expandedSections.delete(sectionId);
         } else {
             this.expandedSections.clear();
             this.expandedSections.add(sectionId);
-            this.render();
         }
+        this.render();
     }
 
     collapseSection(sectionId, event) {
@@ -1672,14 +1672,15 @@ class App {
                                         <svg class="w-4 h-4 text-gray-400 transition-transform ${isExpanded ? 'rotate-90' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                         </svg>
-                                        <h2 class="text-base font-semibold" style="color: ${color.main}">${section.title}</h2>
+                                        <h2 class="text-base font-semibold ${isExpanded ? 'hover:underline' : ''}" style="color: ${color.main}"
+                                            ${isExpanded ? `onclick="event.stopPropagation(); app.startQuiz('${section.id}')"` : ''}>${section.title}</h2>
                                     </div>
                                     <span class="text-xs text-gray-400">${topicStats.accuracy}% &middot; ${topicStats.seen}/${topicStats.total}</span>
                                 </div>
                                 <div class="w-full h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden flex ml-6">
                                     ${this.renderProgressBar(topicStats.counts, topicStats.total)}
                                 </div>
-                                ${isExpanded ? `<div class="ml-6 mt-1.5 text-xs text-gray-400">Trykk igjen for quiz</div>` : ''}
+                                ${isExpanded ? `<div class="ml-6 mt-1.5 text-xs text-gray-400">Trykk på tittelen for quiz</div>` : ''}
                             </div>
                             ${isExpanded && subtopics.length > 0 ? `
                             <div class="border-t dark:border-gray-700">
