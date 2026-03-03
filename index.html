@@ -1536,6 +1536,7 @@ class App {
         if (this.expandedSections.has(sectionId)) {
             this.startQuiz(sectionId);
         } else {
+            this.expandedSections.clear();
             this.expandedSections.add(sectionId);
             this.render();
         }
