@@ -142,6 +142,10 @@
         .alternative-btn.translating {
             border-color: rgba(59, 130, 246, 0.5) !important;
         }
+
+        .alternative-btn:focus {
+            outline: none;
+        }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
@@ -205,17 +209,19 @@ class StateManager {
                 ...parsed,
                 translatedWords: new Set(parsed.translatedWords || [])
             };
+            // Ensure new state fields exist for old localStorage data
+            if (!this.state.questionHistory) {
+                this.state.questionHistory = {};
+            }
+            if (!this.state.sectionStats) {
+                this.state.sectionStats = {};
+            }
             // Migrate old questionHistory entries missing lastCorrect/streak
-            const history = this.state.questionHistory || {};
-            for (const h of Object.values(history)) {
+            for (const h of Object.values(this.state.questionHistory)) {
                 if (h.lastCorrect === undefined) {
                     h.lastCorrect = h.failures < h.attempts;
                     h.streak = h.lastCorrect ? 1 : 0;
                 }
-            }
-            // Ensure sectionStats exists
-            if (!this.state.sectionStats) {
-                this.state.sectionStats = {};
             }
         }
     }
@@ -1581,123 +1587,99 @@ class App {
         }
     }
     
+    renderProgressBar(counts, total) {
+        const t = total || 1;
+        const segments = [
+            { count: counts.mastered, cls: 'bg-green-500' },
+            { count: counts.recovering, cls: 'bg-yellow-400' },
+            { count: counts.activeFail, cls: 'bg-red-400' },
+            { count: counts.unseen, cls: 'bg-gray-300 dark:bg-gray-600' }
+        ];
+        return segments
+            .filter(s => s.count > 0)
+            .map(s => `<div class="${s.cls} h-full" style="width:${(s.count / t) * 100}%"></div>`)
+            .join('');
+    }
+
     renderMain() {
         this.ui.showHeader(true);
         const content = this.ui.getContent();
         const sections = this.data.descriptions.no.filter(d => !d.id.includes('.'));
         const overall = this.quiz.getOverallStats();
 
-        const stageLabels = { early: 'Tidlig', mid: 'Middels', advanced: 'Avansert' };
-        const stageColors = { early: 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300', mid: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300', advanced: 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300' };
-
-        // Question state bar widths
-        const barTotal = overall.total || 1;
-        const masteredPct = (overall.counts.mastered / barTotal) * 100;
-        const recoveringPct = (overall.counts.recovering / barTotal) * 100;
-        const activeFailPct = (overall.counts.activeFail / barTotal) * 100;
-        const unseenPct = (overall.counts.unseen / barTotal) * 100;
+        const stageLabels = { early: 'Tidlig fase', mid: 'Middels fase', advanced: 'Avansert fase' };
+        const stageColors = { early: 'text-blue-600 dark:text-blue-400', mid: 'text-yellow-600 dark:text-yellow-400', advanced: 'text-green-600 dark:text-green-400' };
 
         content.innerHTML = `
-            <div class="space-y-3">
-                <!-- Stats Dashboard -->
+            <div class="space-y-4">
+                <!-- Compact overview -->
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400">Læringsstatus</span>
-                        <span class="text-xs font-semibold px-2 py-0.5 rounded-full ${stageColors[overall.stage]}">${stageLabels[overall.stage]}</span>
-                    </div>
-
-                    <!-- Progress bar -->
-                    <div class="mb-1 flex justify-between text-xs text-gray-500 dark:text-gray-400">
-                        <span>${overall.completionPct}% fullført</span>
-                        <span>${overall.seen} / ${overall.total} spørsmål sett</span>
-                    </div>
-                    <div class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full mb-3 overflow-hidden flex">
-                        ${masteredPct > 0 ? `<div class="bg-green-500 h-full" style="width:${masteredPct}%" title="Mestret"></div>` : ''}
-                        ${recoveringPct > 0 ? `<div class="bg-yellow-400 h-full" style="width:${recoveringPct}%" title="Under læring"></div>` : ''}
-                        ${activeFailPct > 0 ? `<div class="bg-red-400 h-full" style="width:${activeFailPct}%" title="Trenger øving"></div>` : ''}
-                        ${unseenPct > 0 ? `<div class="bg-gray-300 dark:bg-gray-600 h-full" style="width:${unseenPct}%" title="Ikke sett"></div>` : ''}
-                    </div>
-
-                    <!-- Legend -->
-                    <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-gray-500 dark:text-gray-400 mb-3">
-                        <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-green-500 inline-block"></span>Mestret ${overall.counts.mastered}</span>
-                        <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-yellow-400 inline-block"></span>Under læring ${overall.counts.recovering}</span>
-                        <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-red-400 inline-block"></span>Trenger øving ${overall.counts.activeFail}</span>
-                        <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600 inline-block"></span>Ikke sett ${overall.counts.unseen}</span>
-                    </div>
-
-                    <!-- Stats grid -->
-                    <div class="grid grid-cols-2 gap-3">
-                        <div class="text-center p-2 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                            <div class="text-xl font-bold ${overall.accuracy >= 70 ? 'text-green-600' : overall.accuracy >= 50 ? 'text-yellow-600' : 'text-red-500'}">${overall.accuracy}%</div>
-                            <div class="text-xs text-gray-500 dark:text-gray-400">Nøyaktighet</div>
+                    <div class="flex items-baseline justify-between mb-2">
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-2xl font-bold ${stageColors[overall.stage]}">${overall.completionPct}%</span>
+                            <span class="text-sm text-gray-400">${overall.seen} av ${overall.total}</span>
                         </div>
-                        <div class="text-center p-2 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                            <div class="text-xl font-bold text-blue-600">${overall.totalAttempts}</div>
-                            <div class="text-xs text-gray-500 dark:text-gray-400">Svar totalt</div>
-                        </div>
+                        <span class="text-xs text-gray-400">${overall.accuracy}% nøyaktighet</span>
                     </div>
-
-                    ${overall.weakest ? `
-                    <div class="mt-3 pt-3 border-t dark:border-gray-700 grid grid-cols-2 gap-3 text-xs">
-                        <div>
-                            <span class="text-gray-400">Svakest tema</span>
-                            <div class="font-medium text-red-500 truncate">${overall.weakest.title} (${overall.weakest.accuracy}%)</div>
-                        </div>
-                        ${overall.strongest ? `
-                        <div>
-                            <span class="text-gray-400">Sterkest tema</span>
-                            <div class="font-medium text-green-600 truncate">${overall.strongest.title} (${overall.strongest.accuracy}%)</div>
-                        </div>
-                        ` : ''}
+                    <div class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden flex">
+                        ${this.renderProgressBar(overall.counts, overall.total)}
                     </div>
-                    ` : ''}
+                    <div class="flex gap-3 mt-2 text-xs text-gray-400">
+                        <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500 inline-block"></span>${overall.counts.mastered}</span>
+                        <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-yellow-400 inline-block"></span>${overall.counts.recovering}</span>
+                        <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-red-400 inline-block"></span>${overall.counts.activeFail}</span>
+                        <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600 inline-block"></span>${overall.counts.unseen}</span>
+                        <span class="ml-auto">${stageLabels[overall.stage]}</span>
+                    </div>
                 </div>
 
-                <!-- Topic Cards -->
+                <!-- Start quiz button -->
+                <button onclick="app.startQuiz()"
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg shadow-md transition-colors">
+                    Start quiz
+                </button>
+
+                <!-- Topic sections with subtopics -->
                 ${sections.map(section => {
-                    const stats = this.state.getSectionStats(section.id);
                     const color = this.ui.getSectionColor(section.id);
                     const topicStats = this.quiz.getOverallStats(section.id);
-                    const topicBarTotal = topicStats.total || 1;
+                    const subtopics = this.data.getSubtopics(section.id);
 
                     return `
-                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer hover:shadow-lg transition-shadow"
-                                onclick="app.showTopicModal('${section.id}')">
-                            <div class="flex items-center justify-between mb-2">
-                                <h2 class="text-lg font-semibold" style="color: ${color.main}">
-                                    ${section.title}
-                                </h2>
-                                <span class="text-xs text-gray-400">${topicStats.seen}/${topicStats.total}</span>
-                            </div>
-                            <div class="w-full h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full mb-2 overflow-hidden flex">
-                                ${topicStats.counts.mastered > 0 ? `<div class="bg-green-500 h-full" style="width:${(topicStats.counts.mastered / topicBarTotal) * 100}%"></div>` : ''}
-                                ${topicStats.counts.recovering > 0 ? `<div class="bg-yellow-400 h-full" style="width:${(topicStats.counts.recovering / topicBarTotal) * 100}%"></div>` : ''}
-                                ${topicStats.counts.activeFail > 0 ? `<div class="bg-red-400 h-full" style="width:${(topicStats.counts.activeFail / topicBarTotal) * 100}%"></div>` : ''}
-                                ${topicStats.counts.unseen > 0 ? `<div class="bg-gray-300 dark:bg-gray-600 h-full" style="width:${(topicStats.counts.unseen / topicBarTotal) * 100}%"></div>` : ''}
-                            </div>
-                            <div class="grid grid-cols-2 gap-2 text-sm">
-                                <div class="flex items-center gap-1">
-                                    <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                    <span>${topicStats.accuracy}% riktig</span>
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                            <div class="p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors"
+                                    onclick="app.startQuiz('${section.id}')">
+                                <div class="flex items-center justify-between mb-1.5">
+                                    <h2 class="text-base font-semibold" style="color: ${color.main}">${section.title}</h2>
+                                    <span class="text-xs text-gray-400">${topicStats.accuracy}% &middot; ${topicStats.seen}/${topicStats.total}</span>
                                 </div>
-                                <div class="flex items-center gap-1">
-                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-                                    </svg>
-                                    <span>${stats.translation}% oversatt</span>
+                                <div class="w-full h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden flex">
+                                    ${this.renderProgressBar(topicStats.counts, topicStats.total)}
                                 </div>
                             </div>
+                            ${subtopics.length > 0 ? `
+                            <div class="border-t dark:border-gray-700">
+                                ${subtopics.map(sub => {
+                                    const subStats = this.quiz.getOverallStats(sub.id);
+                                    const subColor = this.ui.getSectionColor(sub.id);
+                                    return `
+                                    <div class="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors cursor-pointer border-b last:border-b-0 dark:border-gray-700"
+                                            onclick="app.showTopicModal('${sub.id}')">
+                                        <div class="flex-1 min-w-0">
+                                            <div class="text-sm truncate">${sub.title}</div>
+                                            <div class="w-full h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden flex mt-1">
+                                                ${this.renderProgressBar(subStats.counts, subStats.total)}
+                                            </div>
+                                        </div>
+                                        <span class="text-xs text-gray-400 whitespace-nowrap">${subStats.seen}/${subStats.total}</span>
+                                    </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                            ` : ''}
                         </div>
                     `;
                 }).join('')}
-
-                <button onclick="app.startQuiz()"
-                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg shadow-md transition-colors">
-                    Start quiz (alle temaer)
-                </button>
             </div>
         `;
     }
