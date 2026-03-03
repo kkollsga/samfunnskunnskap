@@ -484,14 +484,34 @@ class QuizManager {
         return true;
     }
     
-    classifyQuestion(questionId, history) {
+    classifyQuestion(questionId, history, masteryBoost = 0) {
         const h = history[questionId];
         if (!h || h.attempts === 0) return 'unseen';
         if (!h.lastCorrect) return 'active-fail';
-        // Green requires 3 correct + 2 extra per failure
-        const requiredStreak = 3 + (h.failures * 2);
+        // Green requires 3 correct + 2 extra per failure + boost at high mastery
+        const requiredStreak = 3 + (h.failures * 2) + masteryBoost;
         if ((h.streak || 0) >= requiredStreak) return 'mastered';
         return 'recovering';
+    }
+
+    getMasteryBoost(allQuestions, history) {
+        if (allQuestions.length === 0) return 0;
+        // First pass: count mastered at base threshold (no boost)
+        let mastered = 0;
+        for (const q of allQuestions) {
+            const h = history[q.id];
+            if (h && h.lastCorrect) {
+                const base = 3 + (h.failures * 2);
+                if ((h.streak || 0) >= base) mastered++;
+            }
+        }
+        const ratio = mastered / allQuestions.length;
+        // At 80%+ mastery, raise thresholds progressively
+        if (ratio >= 0.95) return 4;
+        if (ratio >= 0.90) return 3;
+        if (ratio >= 0.85) return 2;
+        if (ratio >= 0.80) return 1;
+        return 0;
     }
 
     getSpacedInterval(streak) {
@@ -581,10 +601,11 @@ class QuizManager {
         const count = Math.min(20, allQuestions.length);
         const now = Date.now();
 
-        // Classify all questions into buckets
+        // Classify all questions into buckets (with mastery boost at high completion)
+        const boost = this.getMasteryBoost(allQuestions, history);
         const buckets = { unseen: [], activeFail: [], recovering: [], mastered: [] };
         for (const q of allQuestions) {
-            const state = this.classifyQuestion(q.id, history);
+            const state = this.classifyQuestion(q.id, history, boost);
             if (state === 'active-fail') buckets.activeFail.push(q);
             else if (state === 'recovering') buckets.recovering.push(q);
             else if (state === 'mastered') buckets.mastered.push(q);
@@ -663,11 +684,12 @@ class QuizManager {
         const history = this.state.get('questionHistory') || {};
         const now = Date.now();
 
+        const boost = this.getMasteryBoost(allQuestions, history);
         const counts = { unseen: 0, activeFail: 0, recovering: 0, mastered: 0 };
         let totalAttempts = 0, totalCorrect = 0;
 
         for (const q of allQuestions) {
-            const state = this.classifyQuestion(q.id, history);
+            const state = this.classifyQuestion(q.id, history, boost);
             counts[state === 'active-fail' ? 'activeFail' : state]++;
             const h = history[q.id];
             if (h && h.attempts > 0) {
