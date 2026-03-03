@@ -496,22 +496,25 @@ class QuizManager {
 
     getMasteryBoost(allQuestions, history) {
         if (allQuestions.length === 0) return 0;
-        // First pass: count mastered at base threshold (no boost)
-        let mastered = 0;
-        for (const q of allQuestions) {
-            const h = history[q.id];
-            if (h && h.lastCorrect) {
-                const base = 3 + (h.failures * 2);
-                if ((h.streak || 0) >= base) mastered++;
+        const total = allQuestions.length;
+        let boost = 0;
+        // Keep raising boost as long as 80%+ are mastered at current level
+        while (boost < 50) { // safety cap
+            let mastered = 0;
+            for (const q of allQuestions) {
+                const h = history[q.id];
+                if (h && h.lastCorrect) {
+                    const required = 3 + (h.failures * 2) + boost;
+                    if ((h.streak || 0) >= required) mastered++;
+                }
+            }
+            if (mastered / total >= 0.8) {
+                boost++;
+            } else {
+                break;
             }
         }
-        const ratio = mastered / allQuestions.length;
-        // At 80%+ mastery, raise thresholds progressively
-        if (ratio >= 0.95) return 4;
-        if (ratio >= 0.90) return 3;
-        if (ratio >= 0.85) return 2;
-        if (ratio >= 0.80) return 1;
-        return 0;
+        return boost;
     }
 
     getSpacedInterval(streak) {
@@ -721,7 +724,8 @@ class QuizManager {
             if (weakest.accuracy === strongest.accuracy) strongest = null;
         }
 
-        return { total, seen, counts, stage, accuracy, completionPct, totalAttempts, weakest, strongest };
+        const masteryPct = total > 0 ? Math.round((counts.mastered / total) * 100) : 0;
+        return { total, seen, counts, stage, accuracy, completionPct, totalAttempts, weakest, strongest, boost, masteryPct };
     }
 
     answerQuestion(answerIndex) {
@@ -1674,7 +1678,7 @@ class App {
                             <span class="text-2xl font-bold ${stageColors[overall.stage]}">${overall.completionPct}%</span>
                             <span class="text-sm text-gray-400">${overall.seen} av ${overall.total}</span>
                         </div>
-                        <span class="text-xs text-gray-400">${overall.accuracy}% nøyaktighet</span>
+                        <span class="text-xs text-gray-400">${stageLabels[overall.stage]}</span>
                     </div>
                     <div class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden flex">
                         ${this.renderProgressBar(overall.counts, overall.total)}
@@ -1684,7 +1688,10 @@ class App {
                         <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-yellow-400 inline-block"></span>${overall.counts.recovering}</span>
                         <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-red-400 inline-block"></span>${overall.counts.activeFail}</span>
                         <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600 inline-block"></span>${overall.counts.unseen}</span>
-                        <span class="ml-auto">${stageLabels[overall.stage]}</span>
+                    </div>
+                    <div class="flex justify-between mt-2 text-xs text-gray-400">
+                        <span>${overall.masteryPct}% mestret${overall.boost > 0 ? ` &middot; Nivå ${overall.boost}` : ''}</span>
+                        <span>${overall.accuracy}% nøyaktighet</span>
                     </div>
                 </div>
 
