@@ -183,6 +183,8 @@ class StateManager {
         this.state = {
             currentLanguage: 'pb',
             userProgress: [],
+            questionHistory: {}, // { questionId: { attempts, failures, lastAttempt, lastCorrect, streak } }
+            sectionStats: {},   // { sectionId: { totalAttempts, totalCorrect, lastPracticed } }
             darkMode: false,
             currentQuiz: null,
             currentView: 'main',
@@ -203,6 +205,18 @@ class StateManager {
                 ...parsed,
                 translatedWords: new Set(parsed.translatedWords || [])
             };
+            // Migrate old questionHistory entries missing lastCorrect/streak
+            const history = this.state.questionHistory || {};
+            for (const h of Object.values(history)) {
+                if (h.lastCorrect === undefined) {
+                    h.lastCorrect = h.failures < h.attempts;
+                    h.streak = h.lastCorrect ? 1 : 0;
+                }
+            }
+            // Ensure sectionStats exists
+            if (!this.state.sectionStats) {
+                this.state.sectionStats = {};
+            }
         }
     }
     
@@ -248,6 +262,17 @@ class StateManager {
             progress.shift();
         }
         this.set('userProgress', progress);
+
+        // Update cumulative sectionStats
+        const stats = this.state.sectionStats || {};
+        const section = answer.section;
+        if (!stats[section]) {
+            stats[section] = { totalAttempts: 0, totalCorrect: 0, lastPracticed: 0 };
+        }
+        stats[section].totalAttempts++;
+        if (answer.correct) stats[section].totalCorrect++;
+        stats[section].lastPracticed = Date.now();
+        this.set('sectionStats', stats);
     }
     
     getSectionStats(sectionId) {
@@ -263,11 +288,29 @@ class StateManager {
         const correct = (sectionAnswers.filter(a => a.correct).length / sectionAnswers.length) * 100;
         const translation = sectionAnswers.reduce((sum, a) => sum + (a.translationPercent || 0), 0) / sectionAnswers.length;
         
-        return { 
-            correct: Math.round(correct), 
+        return {
+            correct: Math.round(correct),
             translation: Math.round(translation),
             count: sectionAnswers.length
         };
+    }
+
+    updateQuestionHistory(questionId, isCorrect) {
+        const history = this.state.questionHistory;
+        if (!history[questionId]) {
+            history[questionId] = { attempts: 0, failures: 0, lastAttempt: 0, lastCorrect: false, streak: 0 };
+        }
+        const h = history[questionId];
+        h.attempts++;
+        if (!isCorrect) {
+            h.failures++;
+            h.streak = 0;
+        } else {
+            h.streak = (h.streak || 0) + 1;
+        }
+        h.lastCorrect = isCorrect;
+        h.lastAttempt = Date.now();
+        this.set('questionHistory', history);
     }
 }
 
@@ -431,12 +474,175 @@ class QuizManager {
         return true;
     }
     
+    classifyQuestion(questionId, history) {
+        const h = history[questionId];
+        if (!h || h.attempts === 0) return 'unseen';
+        if (h.failures > 0 && !h.lastCorrect) return 'active-fail';
+        if (h.failures > 0 && h.lastCorrect && (h.streak || 0) < 3) return 'recovering';
+        return 'mastered';
+    }
+
+    getSpacedInterval(streak) {
+        // streak 1: 1 day, streak 2: 3 days
+        const intervals = [0, 1 * 86400000, 3 * 86400000];
+        return intervals[streak] || 7 * 86400000;
+    }
+
+    weightedPick(arr, n, weightFn) {
+        const items = arr.map(q => ({ q, w: weightFn(q) }));
+        const picked = [];
+        for (let i = 0; i < n && items.length > 0; i++) {
+            const total = items.reduce((s, x) => s + x.w, 0);
+            let r = Math.random() * total;
+            for (let j = 0; j < items.length; j++) {
+                r -= items[j].w;
+                if (r <= 0) {
+                    picked.push(items[j].q);
+                    items.splice(j, 1);
+                    break;
+                }
+            }
+        }
+        return picked;
+    }
+
+    calculateSlotAllocation(count, stage, activeFailCount, recoveringDueCount, unseenCount, masteredCount) {
+        let base;
+        switch (stage) {
+            case 'early':
+                base = { activeFail: 0.20, recovering: 0.10, unseen: 0.60, mastered: 0.10 };
+                break;
+            case 'mid':
+                base = { activeFail: 0.25, recovering: 0.15, unseen: 0.40, mastered: 0.20 };
+                break;
+            default: // advanced
+                base = { activeFail: 0.25, recovering: 0.25, unseen: 0.15, mastered: 0.35 };
+        }
+
+        // Dynamic scaling: boost active-fail if many failures relative to seen questions
+        const totalSeen = activeFailCount + recoveringDueCount + masteredCount;
+        if (totalSeen > 0) {
+            const failRatio = activeFailCount / totalSeen;
+            if (failRatio > 0.1) {
+                const boost = Math.min(failRatio, 0.5) * 0.4;
+                base.activeFail = Math.min(0.50, base.activeFail + boost);
+                const reduction = boost;
+                const unseenShare = base.unseen / (base.unseen + base.mastered || 1);
+                base.unseen = Math.max(0, base.unseen - reduction * unseenShare);
+                base.mastered = Math.max(0, base.mastered - reduction * (1 - unseenShare));
+            }
+        }
+
+        // Convert to slot counts, capped by available
+        const slots = {
+            activeFail: Math.min(Math.round(count * base.activeFail), activeFailCount),
+            recovering: Math.min(Math.round(count * base.recovering), recoveringDueCount),
+            unseen:     Math.min(Math.round(count * base.unseen), unseenCount),
+            mastered:   Math.min(Math.round(count * base.mastered), masteredCount)
+        };
+
+        // Redistribute unused slots in priority order
+        let deficit = count - (slots.activeFail + slots.recovering + slots.unseen + slots.mastered);
+        const available = {
+            unseen:     unseenCount - slots.unseen,
+            recovering: recoveringDueCount - slots.recovering,
+            mastered:   masteredCount - slots.mastered,
+            activeFail: activeFailCount - slots.activeFail
+        };
+        for (const bucket of ['unseen', 'recovering', 'mastered', 'activeFail']) {
+            if (deficit <= 0) break;
+            const canAdd = Math.min(deficit, available[bucket]);
+            if (canAdd > 0) {
+                slots[bucket] += canAdd;
+                deficit -= canAdd;
+            }
+        }
+
+        return slots;
+    }
+
     selectQuestions(topicId) {
-        let questions = this.data.getQuestions(topicId, 'no');
-        
-        // Simple random selection
-        const shuffled = [...questions].sort(() => Math.random() - 0.5);
-        return shuffled.slice(0, Math.min(20, shuffled.length));
+        const allQuestions = this.data.getQuestions(topicId, 'no');
+        const history = this.state.get('questionHistory') || {};
+        const sectionStats = this.state.get('sectionStats') || {};
+        const count = Math.min(20, allQuestions.length);
+        const now = Date.now();
+
+        // Classify all questions into buckets
+        const buckets = { unseen: [], activeFail: [], recovering: [], mastered: [] };
+        for (const q of allQuestions) {
+            const state = this.classifyQuestion(q.id, history);
+            if (state === 'active-fail') buckets.activeFail.push(q);
+            else if (state === 'recovering') buckets.recovering.push(q);
+            else if (state === 'mastered') buckets.mastered.push(q);
+            else buckets.unseen.push(q);
+        }
+
+        // Filter recovering: only include those whose spaced interval has elapsed
+        const recoveringDue = buckets.recovering.filter(q => {
+            const h = history[q.id];
+            return (now - h.lastAttempt) >= this.getSpacedInterval(h.streak || 0);
+        });
+
+        // Determine learning stage from unseen ratio
+        const unseenRatio = allQuestions.length > 0 ? buckets.unseen.length / allQuestions.length : 1;
+        const stage = unseenRatio > 0.6 ? 'early' : unseenRatio > 0.2 ? 'mid' : 'advanced';
+
+        // Calculate slot allocation
+        const slots = this.calculateSlotAllocation(
+            count, stage,
+            buckets.activeFail.length, recoveringDue.length,
+            buckets.unseen.length, buckets.mastered.length
+        );
+
+        const selected = [];
+
+        // 1. Active-fail: weight by fail rate * recency
+        selected.push(...this.weightedPick(buckets.activeFail, slots.activeFail, q => {
+            const h = history[q.id];
+            const failRate = h.failures / h.attempts;
+            const daysSince = (now - h.lastAttempt) / 86400000;
+            return failRate * (1 + Math.min(daysSince, 30) / 30);
+        }));
+
+        // 2. Recovering-due: weight by how overdue
+        selected.push(...this.weightedPick(recoveringDue, slots.recovering, q => {
+            const h = history[q.id];
+            const interval = this.getSpacedInterval(h.streak || 0);
+            return Math.max(1, (now - h.lastAttempt) / interval);
+        }));
+
+        // 3. Unseen: weight by topic weakness * topic recency
+        selected.push(...this.weightedPick(buckets.unseen, slots.unseen, q => {
+            const ss = sectionStats[q.section];
+            let weaknessWeight = 1.5; // default for never-practiced sections
+            if (ss && ss.totalAttempts >= 3) {
+                weaknessWeight = 2 - (ss.totalCorrect / ss.totalAttempts);
+            }
+            let recencyWeight = 2.0; // default for never-practiced sections
+            if (ss && ss.lastPracticed > 0) {
+                const daysSince = (now - ss.lastPracticed) / 86400000;
+                recencyWeight = 1 + Math.min(daysSince, 14) / 14;
+            }
+            return weaknessWeight * recencyWeight;
+        }));
+
+        // 4. Mastered: light recency weight
+        selected.push(...this.weightedPick(buckets.mastered, slots.mastered, q => {
+            const h = history[q.id];
+            const daysSince = (now - h.lastAttempt) / 86400000;
+            return 1 + Math.min(daysSince, 30) / 60;
+        }));
+
+        // Fill any remaining slots from whatever is left
+        if (selected.length < count) {
+            const selectedIds = new Set(selected.map(q => q.id));
+            const remaining = allQuestions.filter(q => !selectedIds.has(q.id));
+            selected.push(...this.weightedPick(remaining, count - selected.length, () => 1));
+        }
+
+        // Final shuffle
+        return selected.sort(() => Math.random() - 0.5);
     }
     
     answerQuestion(answerIndex) {
@@ -460,7 +666,8 @@ class QuizManager {
         
         quiz.answers.push(answer);
         this.state.addProgress(answer);
-        
+        this.state.updateQuestionHistory(question.id, isCorrect);
+
         // Update quiz state
         this.state.set('currentQuiz', quiz);
         
