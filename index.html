@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Norsk Læringshjelper</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>tailwind.config = { darkMode: 'class' }</script>
     <style>
         /* Prevent scroll bounce on iOS */
@@ -152,7 +152,7 @@
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
     <div id="app" class="max-w-md mx-auto flex flex-col">
         <!-- Header with language selector -->
-        <header id="header" class="bg-white dark:bg-gray-800 shadow-sm flex justify-between items-center flex-shrink-0">
+        <header id="header" class="bg-white dark:bg-gray-800 shadow-sm flex justify-between items-center flex-shrink-0 px-4 py-2">
             <h1 class="text-lg font-bold">Læringshjelper</h1>
             <div class="flex items-center gap-2">
                 <button id="darkModeToggle" class="p-2 rounded-lg">
@@ -487,15 +487,18 @@ class QuizManager {
     classifyQuestion(questionId, history) {
         const h = history[questionId];
         if (!h || h.attempts === 0) return 'unseen';
-        if (h.failures > 0 && !h.lastCorrect) return 'active-fail';
-        if (h.failures > 0 && h.lastCorrect && (h.streak || 0) < 3) return 'recovering';
-        return 'mastered';
+        if (!h.lastCorrect) return 'active-fail';
+        // Green requires 3 correct + 2 extra per failure
+        const requiredStreak = 3 + (h.failures * 2);
+        if ((h.streak || 0) >= requiredStreak) return 'mastered';
+        return 'recovering';
     }
 
     getSpacedInterval(streak) {
-        // streak 1: 1 day, streak 2: 3 days
-        const intervals = [0, 1 * 86400000, 3 * 86400000];
-        return intervals[streak] || 7 * 86400000;
+        // Increasing intervals: 1d, 2d, 4d, 7d, 14d, then cap at 14d
+        const days = [0, 1, 2, 4, 7, 14];
+        const d = days[Math.min(streak, days.length - 1)] || 14;
+        return d * 86400000;
     }
 
     weightedPick(arr, n, weightFn) {
@@ -1557,7 +1560,6 @@ class App {
         this.setupEventListeners();
         this.applySettings();
         this.render();
-        this.ui.showNotification('Ready to learn!', 'success');
     }
     
     setupEventListeners() {
@@ -1584,10 +1586,13 @@ class App {
     }
 
     applySettings() {
-        const darkMode = this.state.get('darkMode');
-        if (darkMode) {
-            document.documentElement.classList.add('dark');
+        // Sync dark mode: use saved preference, or detect OS on first visit
+        let darkMode = this.state.get('darkMode');
+        if (darkMode === undefined || darkMode === null) {
+            darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            this.state.set('darkMode', darkMode);
         }
+        document.documentElement.classList.toggle('dark', darkMode);
         this.updateDarkModeIcon(darkMode);
 
         // Set language
