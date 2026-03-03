@@ -1526,9 +1526,25 @@ class App {
         this.quiz = new QuizManager(this.state, this.data);
         this.translation = new TranslationManager(this.state, this.data);
         this.ui = new UIManager(this.state);
-        
+        this.expandedSections = new Set();
+
         // Subscribe to state changes
         this.state.subscribe(this.onStateChange.bind(this));
+    }
+
+    toggleSection(sectionId) {
+        if (this.expandedSections.has(sectionId)) {
+            this.startQuiz(sectionId);
+        } else {
+            this.expandedSections.add(sectionId);
+            this.render();
+        }
+    }
+
+    collapseSection(sectionId, event) {
+        event.stopPropagation();
+        this.expandedSections.delete(sectionId);
+        this.render();
     }
     
     async init() {
@@ -1639,34 +1655,40 @@ class App {
                     Start quiz
                 </button>
 
-                <!-- Topic sections with subtopics -->
+                <!-- Topic sections -->
                 ${sections.map(section => {
                     const color = this.ui.getSectionColor(section.id);
                     const topicStats = this.quiz.getOverallStats(section.id);
                     const subtopics = this.data.getSubtopics(section.id);
+                    const isExpanded = this.expandedSections.has(section.id);
 
                     return `
                         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                            <div class="p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors"
-                                    onclick="app.startQuiz('${section.id}')">
+                            <div class="p-4 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                                    onclick="app.toggleSection('${section.id}')">
                                 <div class="flex items-center justify-between mb-1.5">
-                                    <h2 class="text-base font-semibold" style="color: ${color.main}">${section.title}</h2>
+                                    <div class="flex items-center gap-2">
+                                        <svg class="w-4 h-4 text-gray-400 transition-transform ${isExpanded ? 'rotate-90' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        </svg>
+                                        <h2 class="text-base font-semibold" style="color: ${color.main}">${section.title}</h2>
+                                    </div>
                                     <span class="text-xs text-gray-400">${topicStats.accuracy}% &middot; ${topicStats.seen}/${topicStats.total}</span>
                                 </div>
-                                <div class="w-full h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden flex">
+                                <div class="w-full h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden flex ml-6">
                                     ${this.renderProgressBar(topicStats.counts, topicStats.total)}
                                 </div>
+                                ${isExpanded ? `<div class="ml-6 mt-1.5 text-xs text-gray-400">Trykk igjen for quiz</div>` : ''}
                             </div>
-                            ${subtopics.length > 0 ? `
+                            ${isExpanded && subtopics.length > 0 ? `
                             <div class="border-t dark:border-gray-700">
                                 ${subtopics.map(sub => {
                                     const subStats = this.quiz.getOverallStats(sub.id);
-                                    const subColor = this.ui.getSectionColor(sub.id);
                                     return `
-                                    <div class="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors cursor-pointer border-b last:border-b-0 dark:border-gray-700"
+                                    <div class="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer border-b last:border-b-0 dark:border-gray-700"
                                             onclick="app.showTopicModal('${sub.id}')">
                                         <div class="flex-1 min-w-0">
-                                            <div class="text-sm truncate">${sub.title}</div>
+                                            <div class="text-sm text-gray-700 dark:text-gray-300 truncate">${sub.title}</div>
                                             <div class="w-full h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden flex mt-1">
                                                 ${this.renderProgressBar(subStats.counts, subStats.total)}
                                             </div>
